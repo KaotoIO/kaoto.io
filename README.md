@@ -1,4 +1,8 @@
 <p align=center>
+  <a href="https://app.netlify.com/sites/zimara-site/deploys" alt="Netlify Deploy Status">
+    <img src="https://api.netlify.com/api/v1/badges/92def6f1-6225-4a16-972c-a292f9a2d870/deploy-status" />
+  </a>
+
   <a href="https://github.com/gohugoio/hugo/releases/tag/v0.64.0" alt="Contributors">
     <img src="https://img.shields.io/static/v1?label=min-HUGO-version&message=0.64.0&color=f00&logo=hugo" />
   </a>
