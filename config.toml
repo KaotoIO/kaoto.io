@@ -56,7 +56,7 @@ weight = 5
 
 # default parameters
 [params]
-home = 'Home'
+#home = 'Home'
 logo = ''
 # theme color
 theme_color = '#41228e'
@@ -67,11 +67,11 @@ theme_color = '#41228e'
 author = 'Jonathan Smith'
 description = 'This is meta description'
 # google analytics
-google_analytics_id = '' # Your ID
+#google_analytics_id = '' # Your ID
 # baidu site verification
-baidu_site_verification = '' #Your verification code
+#baidu_site_verification = '' #Your verification code
 # baidu analytics
-baidu_analytics_id = '' #Your ID
+#baidu_analytics_id = '' #Your ID
 # copyright
 copyright = 'Copyright &copy; 2021 a Theme by [Gethugothemes](https://gethugothemes.com)'
 
@@ -88,11 +88,11 @@ form_action = '#' # contact form works with : https://formspree.io
 
 # google map
 [params.map]
-enable = true
-gmap_api = 'https://maps.googleapis.com/maps/api/js?key=&#038;types=(cities)&#038;libraries=places&#038;language=en'
-map_latitude = '51.5223477'
-map_longitude = '-0.1622023'
-map_marker = 'images/marker.png'
+enable = false
+#gmap_api = 'https://maps.googleapis.com/maps/api/js?key=&#038;types=(cities)&#038;libraries=places&#038;language=en'
+#map_latitude = '51.5223477'
+#map_longitude = '-0.1622023'
+#map_marker = 'images/marker.png'
 
 # cookies
 [params.cookies]
@@ -101,8 +101,8 @@ expire_days = 2
 
 # social site
 [[params.social]]
-icon = 'ti-facebook'
-URL = '#'
+icon = 'ti-github'
+URL = 'https://www.github.com/ZimaraIO/zimara-ui'
 
 [[params.social]]
 icon = 'ti-instagram'
