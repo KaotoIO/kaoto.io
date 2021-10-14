@@ -1,0 +1,64 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+<!-- portfolio -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-5">
+        <img src="{{ .Params.image | absURL }}" class="img-fluid w-100" alt="{{ .Title }}">
+      </div>
+      <div class="col-lg-7 mb-5 mb-lg-0 align-self-center">
+        <div class="row mx-0">
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-calendar"></i>
+              <div class="ml-3">
+                <h4>Date</h4>
+                <p>{{ .PublishDate.Format "Jan 02, 2006" }}</p>
+              </div>
+            </div>
+          </div>
+          {{ with .Params.Client}}
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-user"></i>
+              <div class="ml-3">
+                <h4>Client</h4>
+                <p>{{. | markdownify}}</p>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-folder"></i>
+              <div class="ml-3">
+                <h4>Categories</h4>
+                <p>{{ delimit .Params.categories ", " | humanize }}</p>
+              </div>
+            </div>
+          </div>
+          {{ with .Params.project_url}}
+          <div class="col-sm-6 mb-5">
+            <div class="project-meta">
+              <i class="ti-link"></i>
+              <div class="ml-3">
+                <h4>Project Link</h4>
+                <p>{{. | markdownify}}</p>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-11">
+        <div class="content">{{.Content}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /portfolio -->
+
+{{ end }}
