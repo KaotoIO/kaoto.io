@@ -39,14 +39,19 @@ name = 'Blog'
 weight = 2
 
 [[menu.main]]
-URL = 'portfolio'
-name = 'Portfolio'
+URL = 'use-cases'
+name = 'Use Cases'
 weight = 3
+
+[[menu.main]]
+URL = 'docs'
+name = 'Docs'
+weight = 4
 
 [[menu.main]]
 URL = 'contact'
 name = 'Contact'
-weight = 4
+weight = 5
 
 
 # default parameters
@@ -56,11 +61,10 @@ logo = ''
 # theme color
 theme_color = '#41228e'
 # contact info
-phone = '+880 2544 658 256'
-email = 'steve.fruits@email.com'
-address = '125/A, CA Commercial Area, California, USA'
+#phone = '+880 2544 658 256'
+#email = 'steve.fruits@email.com'
 # meta description
-author = 'Johnathan Smith'
+author = 'Jonathan Smith'
 description = 'This is meta description'
 # google analytics
 google_analytics_id = '' # Your ID
