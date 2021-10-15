@@ -71,7 +71,7 @@ education:
       
     - title : 'Lightweight Platform'
       year : '1998'
-      academy : 'No bloat here'
+      academy : 'No bloat here. Only load what you need.'
 
 # service
 service:
