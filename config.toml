@@ -98,7 +98,7 @@ expire_days = 2
 # social site
 [[params.social]]
 icon = 'ti-github'
-URL = 'https://www.github.com/ZimaraIO/zimara-ui'
+URL = 'https://www.github.com/ZimaraIO'
 
 #[[params.social]]
 #icon = 'ti-instagram'
