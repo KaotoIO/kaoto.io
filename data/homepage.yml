@@ -55,42 +55,44 @@ experience:
 # education
 education:
   enable : true
-  title : 'Education'
+  title : 'Why Zimara'
   item:
-    - title : 'Marters in UX Design'
+    - title : 'Open Source Forever'
       year : '2006'
-      academy : 'Masassusets Institute of Technology'
+      academy : 'Truly open with no vendor lock-in'
       
-    - title : 'Honours in Fine Arts'
+    - title : 'Cloud Native'
       year : '2004'
-      academy : 'Harvard University'
+      academy : 'Built for the cloud using Camel K'
       
-    - title : 'Higher Secondary Certificat'
+    - title : 'Fully Extendable'
       year : '2000'
-      academy : 'Cardiff School'
+      academy : 'Support custom views for your own needs'
       
-    - title : 'Secondary School Certificate'
+    - title : 'Lightweight Platform'
       year : '1998'
-      academy : 'Cardiff School'
+      academy : 'No bloat here'
 
 # service
 service:
   enable : true
   title : 'Services'
   item:
-    - title : 'UI Design'
+    - title : 'Fully Extendable'
       icon : 'ti-palette'
-      content : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      content : 'Create your own custom views and plugins to handle more complex business needs. No rebuilding
+      required.'
       highlighted : false
 
-    - title : 'UX Design'
-      icon : 'ti-vector'
-      content : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    - title : 'No Code'
+      icon : 'ti-panel'
+      content : "Low barrier to entry with an editable visualization of your integrations."
       highlighted : true
 
-    - title : 'Interaction Design'
-      icon : 'ti-panel'
-      content : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    - title : 'Low Code'
+      icon : 'ti-vector'
+      content : 'Keep control of the code at all times with our built-in code editor. Stays in sync with the
+      visualization.'
       highlighted : false
 
 # portfolio
