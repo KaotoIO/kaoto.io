@@ -13,7 +13,6 @@ link = 'plugins/slick/slick.css'
 [[params.plugins.css]]
 link = 'plugins/themify-icons/themify-icons.css'
 
-
 # js plugin
 [[params.plugins.js]]
 link = 'plugins/jQuery/jquery.min.js'
@@ -23,9 +22,8 @@ link = 'plugins/bootstrap/bootstrap.min.js'
 link = 'plugins/slick/slick.min.js'
 [[params.plugins.js]]
 link = 'plugins/shuffle/shuffle.min.js'
-[[params.plugins.js]]
-link = 'plugins/google-map/map.js'
-
+#[[params.plugins.js]]
+#link = 'plugins/google-map/map.js'
 
 # menu
 [[menu.main]]
@@ -53,7 +51,6 @@ URL = 'contact'
 name = 'Contact'
 weight = 5
 
-
 # default parameters
 [params]
 #home = 'Home'
@@ -74,7 +71,6 @@ description = 'This is meta description'
 #baidu_analytics_id = '' #Your ID
 # copyright
 copyright = 'Copyright &copy; 2021 a Theme by [Gethugothemes](https://gethugothemes.com)'
-
 
 # preloader
 [params.preloader]

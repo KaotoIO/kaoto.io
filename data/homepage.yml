@@ -1,6 +1,6 @@
 # banner
 banner:
-  title : 'Open source <br> integration <br> designer'
+  title : 'Open source <br> hybrid integration <br> designer'
 
 # about
 about:
@@ -14,41 +14,41 @@ about:
 # skill
 skill:
   enable : true
-  title : 'Skills'
+  title : 'Features'
   item:
-    - title : 'Web Design'
+    - title : 'Integration Visualization'
       progress : '90%'
       color : '#fdb157'
       
-    - title : 'Logo Design'
+    - title : 'Code Editor'
       progress : '60%'
       color : '#9473e6'
       
-    - title : 'After Effects'
+    - title : 'Extensions'
       progress : '80%'
       color : '#bdecf6'
       
-    - title : 'Web App'
+    - title : 'Custom Catalog'
       progress : '70%'
       color : '#ffbcaa'
 
 # experience
 experience:
   enable : true
-  title : 'Experience'
+  title : 'Run it anywhere'
   item: 
     - logo : 'images/experience/icon-1.png'
-      title : 'Junior UX Designer'
+      title : 'Kubernetes'
       company : 'WEBEX'
       duration : 'Jan 2007 - Feb 2009'
       
     - logo : 'images/experience/icon-2.png'
-      title : 'UX & UI Designer'
+      title : 'OpenShift'
       company : 'AUGMEDIX'
       duration : 'Mar 2009 - Aug 2014'
       
     - logo : 'images/experience/icon-1.png'
-      title : 'Senior UI Designer'
+      title : 'On the Cloud'
       company : 'THEMEFISHER'
       duration : 'Sep 2014 - Present'
 
