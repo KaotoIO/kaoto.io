@@ -61,8 +61,8 @@ theme_color = '#41228e'
 #phone = '+880 2544 658 256'
 #email = 'steve.fruits@email.com'
 # meta description
-author = 'Jonathan Smith'
-description = 'This is meta description'
+author = 'ZimaraIO team'
+description = 'Zimara is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets.'
 # google analytics
 #google_analytics_id = '' # Your ID
 # baidu site verification
