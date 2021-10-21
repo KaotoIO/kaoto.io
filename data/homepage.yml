@@ -1,11 +1,11 @@
 # banner
 banner:
-  title : 'Open source <br> hybrid integration <br> designer'
+  title : 'Free Libre Open Source <br> integration designer'
 
 # about
 about:
   enable : true
-  content : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+  content : 'Zimara is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets. '
   button:
     enable : true
     label : 'know more'
@@ -38,39 +38,39 @@ experience:
   title : 'Run it anywhere'
   item: 
     - logo : 'images/experience/icon-1.png'
-      title : 'Kubernetes'
-      company : 'WEBEX'
-      duration : 'Jan 2007 - Feb 2009'
+      title : 'Deploy your integrations on Kubernetes'
+      #company : 'WEBEX'
+      #duration : 'Jan 2007 - Feb 2009'
       
     - logo : 'images/experience/icon-2.png'
-      title : 'OpenShift'
-      company : 'AUGMEDIX'
-      duration : 'Mar 2009 - Aug 2014'
+      title : 'Use all the power of Kamelets'
+      #company : 'AUGMEDIX'
+      #duration : 'Mar 2009 - Aug 2014'
       
     - logo : 'images/experience/icon-1.png'
-      title : 'On the Cloud'
-      company : 'THEMEFISHER'
-      duration : 'Sep 2014 - Present'
+      title : 'Powered by Apache Camel'
+      #company : 'THEMEFISHER'
+      #duration : 'Sep 2014 - Present'
 
 # education
 education:
   enable : true
   title : 'Why Zimara'
   item:
-    - title : 'Open Source Forever'
-      year : '2006'
+    - title : 'Free and Open Source Forever'
+      year : 'FLOSS heart'
       academy : 'Truly open with no vendor lock-in'
       
     - title : 'Cloud Native'
-      year : '2004'
+      year : 'Kubernetes'
       academy : 'Built for the cloud using Camel K'
       
     - title : 'Fully Extendable'
-      year : '2000'
+      year : 'Customizable'
       academy : 'Support custom views for your own needs'
       
-    - title : 'Lightweight Platform'
-      year : '1998'
+    - title : 'Simple and Smart'
+      year : 'Lightweight'
       academy : 'No bloat here. Only load what you need.'
 
 # service
@@ -104,7 +104,7 @@ portfolio:
 
 # testimonial
 testimonial:
-  enable : true
+  enable : false
   title : 'Testimonials'
   item:
     - name : 'Jesica Gomez'
@@ -124,37 +124,11 @@ testimonial:
 
 # client logo slider
 clients_logo_slider:
-  enable : true
+  enable : false
   item:
     - logo : 'images/clients-logo/client-logo-1.png'
       URL : 'http://examplesite.com'
       
-    - logo : 'images/clients-logo/client-logo-2.png'
-      URL : '#'
-      
-    - logo : 'images/clients-logo/client-logo-3.png'
-      URL : 'http://examplesite.com'
-      
-    - logo : 'images/clients-logo/client-logo-4.png'
-      URL : '#'
-      
-    - logo : 'images/clients-logo/client-logo-5.png'
-      URL : 'http://examplesite.com'
-      
-    - logo : 'images/clients-logo/client-logo-1.png'
-      URL : '#'
-      
-    - logo : 'images/clients-logo/client-logo-2.png'
-      URL : 'http://examplesite.com'
-      
-    - logo : 'images/clients-logo/client-logo-3.png'
-      URL : '#'
-      
-    - logo : 'images/clients-logo/client-logo-4.png'
-      URL : 'http://examplesite.com'
-      
-    - logo : 'images/clients-logo/client-logo-5.png'
-      URL : '#'
 
 # blog
 blog:
