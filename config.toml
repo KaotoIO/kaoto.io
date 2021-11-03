@@ -1,6 +1,6 @@
-baseURL = 'https://zimara.io/'
+baseURL = 'https://kaoto.io/'
 languageCode = 'en-us'
-title = 'Zimara'
+title = 'Kaoto'
 theme = 'kross-hugo'
 # default configuration
 summaryLength = '10'
@@ -61,8 +61,8 @@ theme_color = '#41228e'
 #phone = '+880 2544 658 256'
 #email = 'steve.fruits@email.com'
 # meta description
-author = 'ZimaraIO team'
-description = 'Zimara is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets.'
+author = 'KaotoIO team'
+description = 'Kaoto is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets.'
 # google analytics
 #google_analytics_id = '' # Your ID
 # baidu site verification
@@ -98,7 +98,7 @@ expire_days = 2
 # social site
 [[params.social]]
 icon = 'ti-github'
-URL = 'https://www.github.com/ZimaraIO'
+URL = 'https://www.github.com/KaotoIO'
 
 #[[params.social]]
 #icon = 'ti-instagram'
@@ -110,4 +110,4 @@ URL = 'https://www.github.com/ZimaraIO'
 
 [[params.social]]
 icon = 'ti-twitter-alt'
-URL = 'https://www.twitter.com/ZimaraIO'
+URL = 'https://www.twitter.com/KaotoIO'
