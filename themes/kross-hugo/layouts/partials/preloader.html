@@ -1,9 +1,5 @@
 {{ if site.Params.preloader.enable }}
 {{ "<!-- preloader start -->" | safeHTML }}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPXDWF7"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <div class="preloader">
   {{ if ne site.Params.preloader.preloader "" }}
   <img src="{{ site.Params.preloader.preloader | relURL }} " alt="preloader">
