@@ -1,14 +1,13 @@
 ---
 title: "About"
-description: "This is meta description."
-author_image : "images/about/author.jpg"
-author_signature : "images/about/signature.png"
+description: "Kaoto is the next generation Camel K designer to easily edit and deploy automations and integrations using kamelets."
+author_image : "images/portfolio/screenshot-02.png"
+author_signature : "images/portfolio/screenshot-01.png"
 draft: false
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Kaoto is an extendable cloud-native Apache Camel UI to handle integrations for low-code and no-code personas.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+The user interface have both a source code text editor and a drag and drop graphical space to edit integrations. When a change is done in one of them, the other gets updated automatically. This way users can work both no-code and low-code at the same time as an alternative to the traditional IDE.
 
-Deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.
-
+Kaoto supports kamelet bindings as the source code because of the simplicity of working with them as deployments of the integrations. We intend to extend that support to other types of Apache Camel ways to deploy routes, like XML routes. 

@@ -1,11 +1,12 @@
 # banner
 banner:
-  title : 'Free Libre Open Source <br> integration designer'
+  title : 'Free Libre Open Source <br> Integration Designer'
 
 # about
 about:
   enable : true
-  content : 'Zimara is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets. '
+  content : "Kaoto is a web based UI that helps you create and manage integrations in a visual, low-code way; with developer-friendly features like an extendible user interface, built-in code editor, and easy deployments to the cloud with Camel K. Kaoto augments user productivity: it accelerates users new to Camel and helps experienced developers."
+
   button:
     enable : true
     label : 'know more'
@@ -55,7 +56,7 @@ experience:
 # education
 education:
   enable : true
-  title : 'Why Zimara'
+  title : 'Why Kaoto'
   item:
     - title : 'Free and Open Source Forever'
       year : 'FLOSS heart'
