@@ -64,7 +64,7 @@ theme_color = '#41228e'
 author = 'KaotoIO team'
 description = 'Kaoto is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets.'
 # google analytics
-#google_analytics_id = '' # Your ID
+google_analytics_id = 'G-BP1PVX7HSK' # Your ID
 # baidu site verification
 #baidu_site_verification = '' #Your verification code
 # baidu analytics
