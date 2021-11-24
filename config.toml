@@ -44,12 +44,7 @@ weight = 3
 [[menu.main]]
 URL = 'docs'
 name = 'Docs'
-weight = 4
-
-[[menu.main]]
-URL = 'contact'
-name = 'Contact'
-weight = 5
+weight = 3
 
 # default parameters
 [params]
