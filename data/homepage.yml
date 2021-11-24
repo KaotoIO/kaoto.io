@@ -1,6 +1,6 @@
 # banner
 banner:
-  title : 'Free Libre Open Source <br> Integration Designer'
+  title : 'Free Libre Open Source <br>Orchestration Tool'
 
 # about
 about:
@@ -14,14 +14,14 @@ about:
 
 # skill
 skill:
-  enable : true
+  enable : false
   title : 'Features'
   item:
     - title : 'Integration Visualization'
       progress : '90%'
       color : '#fdb157'
       
-    - title : 'Code Editor'
+    - title : 'Low Code and No Code'
       progress : '60%'
       color : '#9473e6'
       
@@ -29,54 +29,55 @@ skill:
       progress : '80%'
       color : '#bdecf6'
       
-    - title : 'Custom Catalog'
+    - title : 'Custom Step Catalog'
       progress : '70%'
       color : '#ffbcaa'
 
 # experience
 experience:
   enable : true
-  title : 'Run it anywhere'
+  title : 'What is Kaoto'
   item: 
     - logo : 'images/experience/icon-1.png'
-      title : 'Deploy your integrations on Kubernetes'
-      #company : 'WEBEX'
-      #duration : 'Jan 2007 - Feb 2009'
+      title : 'Low Code and No Code'
+      company : 'Create the route visually and see how the code grows into a route. Or modify the code and see how the route looks like.'
+      duration : 'Focus on User Experience'
+      duration : 'Create routes without opening an IDE. '
       
     - logo : 'images/experience/icon-2.png'
-      title : 'Use all the power of Kamelets'
-      #company : 'AUGMEDIX'
-      #duration : 'Mar 2009 - Aug 2014'
+      title : 'All the power of Kamelets'
+      company : 'Kaoto allows you to create and deploy bindings to Kubernetes clusters without writing a single line of code.'
+      duration : 'Kamelets and Camel Connectors'
       
     - logo : 'images/experience/icon-1.png'
-      title : 'Powered by Apache Camel'
-      #company : 'THEMEFISHER'
-      #duration : 'Sep 2014 - Present'
+      title : 'Apache Camel'
+      company : 'Accelerate the creation of simple Camel Routes with the visual editor. Simplify the learning curve.'
+      duration : 'Focus on User Experience'
 
 # education
 education:
   enable : true
   title : 'Why Kaoto'
   item:
-    - title : 'Free and Open Source Forever'
+    - title : 'Free Libre and Open Source Forever'
       year : 'FLOSS heart'
-      academy : 'Truly open with no vendor lock-in'
+      academy : 'Truly open with no vendor lock-in. Use, reuse, modify and resell to your needs.'
       
     - title : 'Cloud Native'
       year : 'Kubernetes'
-      academy : 'Built for the cloud using Camel K'
+      academy : 'Built for the cloud using Camel K. Use it as standalone or as a service, easily deploying to Kubernetes clusters.'
       
     - title : 'Fully Extendable'
       year : 'Customizable'
-      academy : 'Support custom views for your own needs'
+      academy : 'Support custom views for your own needs. Give your users specific kamelets for their use case. Add manuals and helpers. Automate discovery of resources.'
       
-    - title : 'Simple and Smart'
-      year : 'Lightweight'
-      academy : 'No bloat here. Only load what you need.'
+    - title : 'But care about developers'
+      year : 'LCNC: Low Code and No Code'
+      academy : 'You can seamlessly switch between any IDE and Kaoto, allowing mixed teams and convert low code integrators to developers.'
 
 # service
 service:
-  enable : true
+  enable : false
   title : 'Services'
   item:
     - title : 'Fully Extendable'
@@ -99,7 +100,7 @@ service:
 # portfolio
 portfolio:
   enable : true
-  title : 'Screenshots'
+  title : 'See it in action'
   item_show : 5
   # portfolio item comes from 'data/portfolio.yml' item.
 
@@ -124,5 +125,5 @@ clients_logo_slider:
 # blog
 blog:
   enable : true
-  title : 'Blog Posts'
+  title : 'Latest News'
   # blog post comes from 'content/blog' folder
