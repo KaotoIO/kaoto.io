@@ -6,7 +6,7 @@ author_signature : "images/portfolio/screenshot-01.png"
 draft: false
 ---
 
-Kaoto is an extendable cloud-native Apache Camel UI to handle integrations for low-code and no-code personas.
+Kaoto is an extendable cloud-native Apache Camel interface to handle integrations for low-code and no-code personas.
 
 The user interface have both a source code text editor and a drag and drop graphical space to edit integrations. When a change is done in one of them, the other gets updated automatically. This way users can work both no-code and low-code at the same time as an alternative to the traditional IDE.
 

@@ -59,7 +59,9 @@ logo = ''
 theme_color = '#41228e'
 # contact info
 #phone = '+880 2544 658 256'
-#email = 'steve.fruits@email.com'
+email = 'hellokaoto@gmail.com'
+git = 'https://github.com/KaotoIO'
+twitter = 'https://www.twitter.com/KaotoIO'
 # meta description
 author = 'KaotoIO team'
 description = 'Kaoto is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets.'
@@ -79,7 +81,7 @@ preloader = 'images/preloader.gif' # use png, jpg, svg or gif format
 
 # contact
 [params.contact]
-enable = true
+enable = false
 form_action = '#' # contact form works with : https://formspree.io
 
 # google map
