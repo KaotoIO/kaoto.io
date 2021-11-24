@@ -22,6 +22,9 @@ jobs:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --verbose
+          
+      - name: Setup CNAME correctly
+        run:  cp CNAME public/CNAME
       -
         name: Deploy to GitHub Pages
         if: success() && github.event_name != 'pull_request'
