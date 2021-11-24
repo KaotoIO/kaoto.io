@@ -1,19 +1,19 @@
 # work process
 work_process:
   enable : true
-  title : "Work Process"
+  title : "Where to find more"
   item:
-  - title : "Research and Plan"
+  - title : "Roadmap"
     icon : "images/icons/plan.png"
-    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content : "Check our [user story based roadmap](https://github.com/orgs/KaotoIO/projects/3)"
     
-  - title : "Design and Develop"
+  - title : "Source Code"
     icon : "images/icons/design.png"
-    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content : "Our source code [is publicly available](https://github.com/KaotoIO)"
     
-  - title : "Deliver"
+  - title : "Latest News"
     icon : "images/icons/print.png"
-    content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    content : "Follow our news in [Twitter](https://twitter.com/kaotoio)"
 
 # team
 team:
