@@ -101,7 +101,7 @@ service:
 portfolio:
   enable : true
   title : 'See it in action'
-  item_show : 5
+  item_show : 3
   # portfolio item comes from 'data/portfolio.yml' item.
 
 # testimonial

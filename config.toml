@@ -37,7 +37,7 @@ name = 'Blog'
 weight = 2
 
 [[menu.main]]
-URL = 'use-cases'
+URL = 'portfolio'
 name = 'Use Cases'
 weight = 3
 
