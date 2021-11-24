@@ -1,5 +1,5 @@
 ---
 title: "Use Cases"
-description: "This is meta description."
+description: "Use cases for developers and citizen integrators with Kaoto, the Kamel Orchestration Tool."
 draft: false
 ---
