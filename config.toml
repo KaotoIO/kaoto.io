@@ -1,6 +1,6 @@
 baseURL = 'https://kaoto.io/'
 languageCode = 'en-us'
-title = 'Kaoto'
+title = 'Kaoto: Free Libre Open Source Orchestration Tool'
 theme = 'kross-hugo'
 # default configuration
 summaryLength = '10'
