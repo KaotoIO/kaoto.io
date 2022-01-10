@@ -163,7 +163,7 @@ It may be you are using your own kind of steps, specific for your DSL.
 
 As described on the [documentation](https://kaotoio.github.io/kaoto-backend/#step), a Step is composed of the following properties:
 
-* **kind** Kind of step which will help correlate the step with the type of integration it supports. Examples: Steps of kind `kamelet` can be used on Kamelet Bindings. 
+* **kind** Kind of step which will help correlate the step with the type of workflow it supports. Examples: Steps of kind `kamelet` can be used on Kamelet Bindings. 
 * **ID** Unique identifier for this step in our whole Kaoto environment.
 * **title** Human-readable title of this step. Useful for the frontend.
 * **description** Human-readable description of what this step does. This will help users identify what steps they want to use for their usecase.
