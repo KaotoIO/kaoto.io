@@ -74,13 +74,15 @@ As described on the [documentation](https://kaotoio.github.io/kaoto-backend/#ste
 * **name** Used only for Camel Connectors. Defines the name of the connector. 
 * **type** Type of step: START, MIDDLE, END. This helps the most basic validation of steps: validates the position of the step in the general workflow.
 * **parameters** List of configurable parameters for this step.
-  - **label** Human-readable label for this property.
-  - **description** Human-readable description of this parameter.
-  - **id** Unique identifier of this parameter.
-  - **path** Used only for Camel connectors. Defines if a parameter should be placed on the uri path.
-  - **type** Type of parameter: string, integer, boolean,...
-  - **value** Actual value of the property, once the user fills it.
-  - **defaultValue** Default value to use if `value` is empty.
+  | Property         | Description |
+  |--------------|-----------|------------|
+  |label |Human-readable label for this property.|
+  |description| Human-readable description of this parameter.|
+  |id| Unique identifier of this parameter.|
+  |path| Used only for Camel connectors. Defines if a parameter should be placed on the uri path.|
+  |type| Type of parameter: string, integer, boolean,...|
+  |value| Actual value of the property, once the user fills it.|
+  |defaultValue| Default value to use if `value` is empty.|
   
 Make sure your `Kind` is unique or compatible with the services that use the same `Kind`.
 
