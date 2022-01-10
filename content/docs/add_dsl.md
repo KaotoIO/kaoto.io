@@ -89,7 +89,7 @@ Make sure your `Kind` is unique or compatible with the services that use the sam
 
 This service will translate from the JSON list of steps used by the frontend to visualize graphically the workflow to the Custom Resource Definition (CRD) to deploy on Kubernetes.
 
-Your implementation must be ApplicationScoped:
+Your implementation must be `@ApplicationScoped`:
 
 ```
 @ApplicationScoped
