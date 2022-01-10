@@ -20,7 +20,7 @@ You can use the [kamelet-support](https://github.com/KaotoIO/kaoto-backend/tree/
 
 You need to create a new Java Maven project that [will be added as dependency on the API project](https://github.com/KaotoIO/kaoto-backend/blob/main/api/pom.xml#L88-L92). You will need to add the [model, catalog and services-interfaces dependencies](https://github.com/KaotoIO/kaoto-backend/blob/main/api/pom.xml#L88-L92) in your project.
 
-Your project has to provide implementations for the following two services:
+Your project has to provide implementations for the following three services:
 
 ### StepCatalogParser
 
@@ -56,7 +56,9 @@ Both GitParseCatalog and JarParseCatalog are helper classes that will access the
 
 On this case, the [KameletFileProcessor](https://github.com/KaotoIO/kaoto-backend/blob/main/kamelet-support/src/main/java/io/kaoto/backend/metadata/parser/step/kamelet/KameletFileProcessor.java) is an auxiliary class that extends [YamlProcessFile](https://github.com/KaotoIO/kaoto-backend/blob/main/metadata/src/main/java/io/kaoto/backend/metadata/parser/YamlProcessFile.java) to process Kamelet metadata definitions. You can use any FileProcessor that you find suitable to your usecase.
 
-If you don't require any FileProcessor, you can leave that file empty. The only mandatory implementation detail about the ParseCatalog instance returned by your StepCatalogParser is that the `parse()` function returns a list of Steps.
+If you don't require any FileProcessor, you can leave that property empty. The only mandatory implementation detail about the ParseCatalog instance returned by your StepCatalogParser is that the returned ParseCatalog `parse()` function returns a list of Steps. You can implement your own ParseCatalog class.
+
+It may be you are using your own kind of steps, specific for your DSL.
 
 #### How to define my custom Step
 
