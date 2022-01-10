@@ -163,13 +163,13 @@ It may be you are using your own kind of steps, specific for your DSL.
 
 As described on the [documentation](https://kaotoio.github.io/kaoto-backend/#step), a Step is composed of the following properties:
 
-* **kind** Kind of step which will help correlate the step with the type of workflow it supports. Examples: Steps of kind `kamelet` can be used on Kamelet Bindings. 
+* **kind** Kind of step which will help correlate the step with the type of workflow it supports. Examples: Steps of kind `kamelet` can be used on Kamelet Bindings. Make sure your `Kind` is unique or compatible with the services that use the same `Kind`.
 * **ID** Unique identifier for this step in our whole Kaoto environment.
 * **title** Human-readable title of this step. Useful for the frontend.
 * **description** Human-readable description of what this step does. This will help users identify what steps they want to use for their usecase.
 * **group** Group that identifies and classifies inside the steps world. This can help classify the steps.
 * **icon** Base64 icon image for this step. Useful to quickly visually identify steps.
-* **UUID** Volatile UUID to mark the relationship between a viewDefinition and a step.
+* **UUID** Volatile UUID to mark the relationship between a viewDefinition and a step. Kaoto will fill this property automatically.
 * **name** Used only for Camel Connectors. Defines the name of the connector. 
 * **type** Type of step: START, MIDDLE, END. This helps the most basic validation of steps: validates the position of the step in the general workflow.
 * **parameters** List of configurable parameters for this step.
@@ -183,4 +183,4 @@ As described on the [documentation](https://kaotoio.github.io/kaoto-backend/#ste
   |value| Actual value of the property, once the user fills it.|
   |defaultValue| Default value to use if `value` is empty.|
   
-Make sure your `Kind` is unique or compatible with the services that use the same `Kind`.
+
