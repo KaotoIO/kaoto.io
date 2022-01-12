@@ -1,6 +1,6 @@
 baseURL = 'https://kaoto.io/'
 languageCode = 'en-us'
-title = 'Kaoto: Free Libre Open Source Orchestration Tool'
+title = 'Free Libre Open Source Orchestration Editor'
 theme = 'kross-hugo'
 # default configuration
 summaryLength = '10'
@@ -65,7 +65,7 @@ git = 'https://github.com/KaotoIO'
 twitter = 'https://www.twitter.com/KaotoIO'
 # meta description
 author = 'KaotoIO team'
-description = 'Kaoto is an extendable cloud-native Camel K UI to handle integrations for low-code and no-code personas using Kamelets.'
+description = 'Kaoto is an extendable orchestration editor for low-code and no-code personas.'
 # google analytics
 google_analytics_id = 'G-BP1PVX7HSK' # Your ID
 # baidu site verification

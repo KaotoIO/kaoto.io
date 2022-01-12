@@ -16,7 +16,7 @@ Then, you just have to run the kaotoio/backend image with the following command:
 
 `docker run --rm -p 8080:8080 kaotoio/backend`
 
-This will start the backend which will be reachable through the 8080 port.
+This will start the latest snapshot of the backend which will be reachable through the 8080 port.
 
 You can test this worked by entering [http://localhost:8080/step](http://localhost:8080/step).
 
