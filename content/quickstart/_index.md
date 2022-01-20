@@ -1,6 +1,6 @@
 ---
 title: "QuickStart"
-description: "Quickstart to test and start working with Kaoto, the Apache Camel orchestration tool."
+description: "Quickstart to test and start working with Kaoto, the low code and no code integration orchestration tool."
 draft: false
 ---
 
