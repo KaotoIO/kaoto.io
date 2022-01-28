@@ -5,7 +5,7 @@ banner:
 # about
 about:
   enable : true
-  content : "Kaoto is an integration editor to create and deploy workflows in a visual, low-code way; with developer-friendly features like a code editor and deployments to the cloud. Kaoto augments user productivity: it accelerates new users and helps experienced developers."
+  content : "Kaoto is an integration editor to create and deploy workflows in a visual, low-code way; with developer-friendly features like a code editor and deployments to the cloud. Kaoto augments user productivity via Apache Camel: it accelerates new users and helps experienced developers."
 
   button:
     enable : true
@@ -46,12 +46,12 @@ experience:
       
     - logo : 'images/experience/icon-2.png'
       title : 'Low Code and No Code'
-      company : 'Create and deploy integrations and automations to Kubernetes clusters without writing a single line of code.'
-      duration : 'Integrations and Automations'
+      company : 'Create and deploy Camel integrations to Kubernetes clusters without writing a single line of code.'
+      duration : 'Camel deployment'
       
     - logo : 'images/experience/icon-1.png'
       title : 'Support multiple DSL'
-      company : 'Simplify the learning curve. Use different underlying frameworks with the same user interface.'
+      company : 'Simplify the learning curve of Apache Camel. Use different underlying frameworks with the same user interface.'
       duration : 'Focus on User Experience'
 
 # education
@@ -59,7 +59,7 @@ education:
   enable : true
   title : 'Why Kaoto'
   item:
-    - title : 'Cloud Native'
+    - title : 'Cloud Native with Camel K'
       year : 'Kubernetes'
       academy : "Use it as standalone or as a service in the cloud, seamlessly deploying your integrations to Kubernetes clusters. Don't stop at editing: deploy, debug, and monitor your integration workflows. Built-in support for Camel K to deploy Apache Camel integrations."
      
