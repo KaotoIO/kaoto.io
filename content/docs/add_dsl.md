@@ -12,7 +12,9 @@ categories:
 image: "images/portfolio/screenshot-03.png"
 ---
 
-Kaoto frontend is agnostic of the DSL (Domain Specific Language) used, so to add suport for a new DSL we just have to implement the specific endpoints on the [API](https://kaotoio.github.io/kaoto-backend/api/index.html).
+Kaoto frontend is agnostic of the DSL (Domain Specific Language) used, so to add support for a new DSL we just have to implement the specific endpoints on the [API](https://kaotoio.github.io/kaoto-backend/api/index.html).
+
+There are two services we have to implement to make Kaoto support each DSL.
 
 ## Implementation
 
@@ -25,7 +27,9 @@ Your project has to provide implementations for (at least one of) the following 
 
 ### DeploymentGeneratorService
 
-This service will translate from the JSON list of steps used by the frontend to visualize graphically the workflow to the Custom Resource Definition (CRD) to deploy on Kubernetes. By implementing this service, you give Kaoto the hability to "translate" from graphical to source code.
+This service will translate from the JSON list of steps used by the frontend to visualize graphically the workflow to the Custom Resource Definition (CRD) to deploy on Kubernetes. By implementing this service, you give Kaoto the ability to "translate" from graphical to source code.
+
+![From steps to code](/images/docs/kaoto-backend-overview-crd.svg "From steps to code")
 
 Your implementation must be `@ApplicationScoped`:
 
@@ -46,7 +50,7 @@ The `identifier()` should return a unique string that will be useful to correlat
     
 ```
 
-The `getKinds()` must return what steps are this CRD compatible with.
+The `getKinds()` must return what steps are this CRD compatible with. Kaoto will try to apply all DeploymentGeneratorServices on all the calls unless we explicitly ask for a specific source code output. The `getKinds` function is a quick check to know if we should apply this implementation when Kaoto is requested to output source codes.
 
 ```
 
@@ -75,7 +79,11 @@ Finally, the `appliesTo(...)` function will be used to decide if this service ca
 
 ### StepParserService
 
-This service will do the reverse operation as DeploymentGeneratorService: given a CRD, return the list of steps associated to it. As the previous one, it must have the `@ApplicationScoped` annotation. By implementing this service, you give Kaoto the hability to "translate" from the source code to graphic editing.
+This service will do the reverse operation as DeploymentGeneratorService: given a CRD, return the list of steps associated to it. By implementing this service, you give Kaoto the ability to "translate" from the source code to graphic editing.
+
+![From code to steps](/images/docs/kaoto-backend-overview-steps.svg "From code to steps")
+
+As the previous one, it must have the `@ApplicationScoped` annotation. 
 
 ```
 @ApplicationScoped
@@ -164,7 +172,7 @@ public final class KameletParseCatalog implements StepCatalogParser {
 
 Both GitParseCatalog and JarParseCatalog are helper classes that will access the git repository or zip file defined and use a FileVisitor to process the files encountered on them. You don't have to use them in your implementation. The only requirement is to return a [ParseCatalog](https://github.com/KaotoIO/kaoto-backend/blob/main/metadata/src/main/java/io/kaoto/backend/metadata/ParseCatalog.java) that will be called when warming up the catalog steps.
 
-On this case, the [KameletFileProcessor](https://github.com/KaotoIO/kaoto-backend/blob/main/kamelet-support/src/main/java/io/kaoto/backend/metadata/parser/step/kamelet/KameletFileProcessor.java) is an auxiliary class that extends [YamlProcessFile](https://github.com/KaotoIO/kaoto-backend/blob/main/metadata/src/main/java/io/kaoto/backend/metadata/parser/YamlProcessFile.java) to process Kamelet metadata definitions. You can use any FileProcessor that you find suitable to your usecase.
+On this case, the [KameletFileProcessor](https://github.com/KaotoIO/kaoto-backend/blob/main/kamelet-support/src/main/java/io/kaoto/backend/metadata/parser/step/kamelet/KameletFileProcessor.java) is an auxiliary class that extends [YamlProcessFile](https://github.com/KaotoIO/kaoto-backend/blob/main/metadata/src/main/java/io/kaoto/backend/metadata/parser/YamlProcessFile.java) to process Kamelet metadata definitions. You can use any FileProcessor that you find suitable to your use-case.
 
 If you don't require any FileProcessor, you can leave that property empty. The only mandatory implementation detail about the ParseCatalog instance returned by your StepCatalogParser is that the returned ParseCatalog `parse()` function returns a list of Steps. You can implement your own ParseCatalog class.
 
@@ -177,7 +185,7 @@ As described on the [documentation](https://kaotoio.github.io/kaoto-backend/#ste
 * **kind** Kind of step which will help correlate the step with the type of workflow it supports. Examples: Steps of kind `kamelet` can be used on Kamelet Bindings. Make sure your `Kind` is unique or compatible with the services that use the same `Kind`.
 * **ID** Unique identifier for this step in our whole Kaoto environment.
 * **title** Human-readable title of this step. Useful for the frontend.
-* **description** Human-readable description of what this step does. This will help users identify what steps they want to use for their usecase.
+* **description** Human-readable description of what this step does. This will help users identify what steps they want to use for their use-case.
 * **group** Group that identifies and classifies inside the steps world. This can help classify the steps.
 * **icon** Base64 icon image for this step. Useful to quickly visually identify steps.
 * **UUID** Volatile UUID to mark the relationship between a viewDefinition and a step. Kaoto will fill this property automatically.
