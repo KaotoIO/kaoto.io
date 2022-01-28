@@ -14,18 +14,18 @@ image: "images/portfolio/screenshot-03.png"
 
 Kaoto frontend is agnostic of the DSL (Domain Specific Language) used, so to add suport for a new DSL we just have to implement the specific endpoints on the [API](https://kaotoio.github.io/kaoto-backend/api/index.html).
 
-## Implementation in Java
+## Implementation
 
 You can use the [kamelet-support](https://github.com/KaotoIO/kaoto-backend/tree/main/kamelet-support) project as an example.
 
 You need to create a new Java Maven project that [will be added as dependency on the API project](https://github.com/KaotoIO/kaoto-backend/blob/main/api/pom.xml#L88-L92). You will need to add the [model, catalog and services-interfaces dependencies](https://github.com/KaotoIO/kaoto-backend/blob/main/api/pom.xml#L88-L92) in your project.
 
-Your project has to provide implementations for the following services:
+Your project has to provide implementations for (at least one of) the following services:
 
 
 ### DeploymentGeneratorService
 
-This service will translate from the JSON list of steps used by the frontend to visualize graphically the workflow to the Custom Resource Definition (CRD) to deploy on Kubernetes.
+This service will translate from the JSON list of steps used by the frontend to visualize graphically the workflow to the Custom Resource Definition (CRD) to deploy on Kubernetes. By implementing this service, you give Kaoto the hability to "translate" from graphical to source code.
 
 Your implementation must be `@ApplicationScoped`:
 
@@ -57,25 +57,25 @@ The `getKinds()` must return what steps are this CRD compatible with.
 
 ```
 
-Then, we need to implement the `parse(...)` function that will return the CRD content based on the list of steps.
+Then, we need to implement the `parse(...)` function that will return the CRD content based on the list of steps and a map of metadata.
 
 ```
     @Override
-    public String parse(final String name, final List<Step> steps) {
+    public String parse(List<Step> steps, Map<String, Object> metadata) {
         if (!appliesTo(steps)) {
-            return "";
+            return ""; //someone tried to apply this service to the wrong list of steps
         }
          ...
     }
 
 ```
 
-Finally, the `appliesTo(...)` function will be used to decide if this service can be applied to the list of steps.
+Finally, the `appliesTo(...)` function will be used to decide if this service can be applied to the list of steps. Note that this `appliesTo` function is the one that decides if you will be able to generate the source code or not. If this function returns `true`, the function `parse` must return valid source code. 
 
 
 ### StepParserService
 
-This service will do the reverse operation as DeploymentGeneratorService: given a CRD, return the list of steps associated to it. As the previous one, it must have the `@ApplicationScoped` annotation.
+This service will do the reverse operation as DeploymentGeneratorService: given a CRD, return the list of steps associated to it. As the previous one, it must have the `@ApplicationScoped` annotation. By implementing this service, you give Kaoto the hability to "translate" from the source code to graphic editing.
 
 ```
 @ApplicationScoped
@@ -99,7 +99,7 @@ The `parse(...)` function will return the list of steps given a string.
 ```
 
     @Override
-    public List<Step> parse(final String input) {
+    public ParseResult<Step> deepParse(String input);
         if (!appliesTo(input)) {
             throw new IllegalArgumentException(
                     "Wrong format provided. This is not parseable by us");
@@ -108,6 +108,16 @@ The `parse(...)` function will return the list of steps given a string.
         ...
     }
 
+```
+
+The `ParseResult<T>` class is an auxiliary class that returns both a list of steps and some metadata that may be helpful to decorate the source code. For example, the name of the integration, or some dependencies.
+
+```
+    class ParseResult<T> {
+        private List<T> steps;
+        private Map<String, Object> metadata;
+        ...
+    }
 ```
 
 And the `appliesTo(...)` function will also check that the CRD provided is valid for this service.
@@ -119,11 +129,12 @@ And the `appliesTo(...)` function will also check that the CRD provided is valid
     }
 ```
 
+ Note that this `appliesTo` function is the one that decides if you will be able to parse the source code or not. If this function returns `true`, the function `parse` must return a valid list of steps. 
 
 
 ### StepCatalogParser (Optional)
 
-Your DSL probably has specific steps that needs to be added to the catalog. To add those steps to the general catalog, you have to provide an `@ApplicationScoped` implementation of the `StepCatalogParser`:
+Your DSL may have specific steps that needs to be added to the catalog. To add those steps to the general catalog, you have to provide an `@ApplicationScoped` implementation of the `StepCatalogParser`:
 
 
 ```
@@ -172,15 +183,4 @@ As described on the [documentation](https://kaotoio.github.io/kaoto-backend/#ste
 * **UUID** Volatile UUID to mark the relationship between a viewDefinition and a step. Kaoto will fill this property automatically.
 * **name** Used only for Camel Connectors. Defines the name of the connector. 
 * **type** Type of step: START, MIDDLE, END. This helps the most basic validation of steps: validates the position of the step in the general workflow.
-* **parameters** List of configurable parameters for this step.
-  | Property         | Description |
-  |--------------|-----------|------------|
-  |label |Human-readable label for this property.|
-  |description| Human-readable description of this parameter.|
-  |id| Unique identifier of this parameter.|
-  |path| Used only for Camel connectors. Defines if a parameter should be placed on the uri path.|
-  |type| Type of parameter: string, integer, boolean,...|
-  |value| Actual value of the property, once the user fills it.|
-  |defaultValue| Default value to use if `value` is empty.|
-  
-
+* **parameters** List of configurable parameters for this step following [Schema Validation](https://json-schema.org/draft/2020-12/json-schema-validation.html).
