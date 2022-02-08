@@ -4,44 +4,26 @@ description: "Quickstart to test and start working with Kaoto, the low code and 
 draft: false
 ---
 
-To start Kaoto you need to start both the frontend and the backend.
+To start Kaoto you need to start both the frontend and the backend. 
+
+The recommended quickstart way of running Kaoto is through Docker. The only pre-requisite is to have [docker installed](https://docs.docker.com/get-docker/).
 
 ## Run Backend
 
-There are several options to run the backend. The recommended quickstart way of running Kaoto is through Docker.
+You can run the kaotoio/backend image with the following command:
 
-The only pre-requisite is to have [docker installed](https://docs.docker.com/get-docker/).
+`docker run --rm -p 8081:8081 kaotoio/backend`
 
-Then, you just have to run the kaotoio/backend image with the following command:
+This will start the latest snapshot of the backend which will be reachable through the 8081 port.
 
-`docker run --rm -p 8080:8080 kaotoio/backend`
-
-This will start the latest snapshot of the backend which will be reachable through the 8080 port.
-
-You can test this worked by entering [http://localhost:8080/step](http://localhost:8080/step).
+You can test this worked by entering [http://localhost:8081/step](http://localhost:8081/step).
 
 ## Run Frontend
 
-Once the backend is running, you can launch the frontend. This can be done by cloning the repository and running yarn.
+Once the backend is running, you can launch the frontend with the following command:
 
-You need to have installed the following:
-* [Git](https://github.com/git-guides/install-git)
-* [Node](https://nodejs.org/en/download/) >= 14
-* [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/) (3.x)
+`docker run --rm -p 8080:8080 kaotoio/frontend`
 
-First checkout the source code:
+This will start the latest snapshot of the backend which will be reachable through the 8080 port.
 
-`git clone https://github.com/KaotoIO/kaoto-ui.git`
-
-Then install dependencies:
-
-`yarn install`
-
-Duplicate the `.env.example` file and name it `.env`.
-
-Now you can run Kaoto:
-
-`yarn start`
-
-Open [http://localhost:1337](http://localhost:1337) to view it in the browser.
-
+Open [http://localhost:8080](http://localhost:8080) to use Kaoto.
