@@ -14,20 +14,20 @@ image: "images/portfolio/screenshot-03.png"
 
 Kaoto frontend is agnostic of the DSL (Domain Specific Language) used, so to add support for a new DSL we just have to implement the specific endpoints on the [API](https://kaotoio.github.io/kaoto-backend/api/index.html).
 
-There are two services we have to implement to make Kaoto support each DSL.
+To properly deploy the workflows, Kaoto is expecting the integration to be deployed via a [CustomResourceDefinition (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) as [Camel-K](https://camel.apache.org/camel-k/) does. You can use other kinds of source code and build integrations with them, but they won't be deployable via Kaoto.
 
 ## Implementation
 
 You can use the [kamelet-support](https://github.com/KaotoIO/kaoto-backend/tree/main/kamelet-support) project as an example.
 
-You need to create a new Java Maven project that [will be added as dependency on the API project](https://github.com/KaotoIO/kaoto-backend/blob/main/api/pom.xml#L88-L92). You will need to add the [model, catalog and services-interfaces dependencies](https://github.com/KaotoIO/kaoto-backend/blob/main/api/pom.xml#L88-L92) in your project.
+You need to create a new Java Maven project that [will be added as dependency on the API project](https://github.com/KaotoIO/kaoto-backend/blob/main/api/pom.xml#L88-L92). You will need to add the [model, catalog and services-interfaces dependencies](https://github.com/KaotoIO/kaoto-backend/blob/main/kamelet-support/pom.xml#L14-L28) in your project.
 
-Your project has to provide implementations for (at least one of) the following services:
+Your project has to provide implementations for one or more the following services:
 
 
 ### DeploymentGeneratorService
 
-This service will translate from the JSON list of steps used by the frontend to visualize graphically the workflow to the Custom Resource Definition (CRD) to deploy on Kubernetes. By implementing this service, you give Kaoto the ability to "translate" from graphical to source code.
+This service will translate from the JSON list of steps used by the frontend to visualize graphically the workflow to the source code. By implementing this service, you give Kaoto the ability to "translate" from graphical to source code.
 
 ![From steps to code](/images/docs/kaoto-backend-overview-crd.svg "From steps to code")
 
@@ -177,18 +177,3 @@ On this case, the [KameletFileProcessor](https://github.com/KaotoIO/kaoto-backen
 If you don't require any FileProcessor, you can leave that property empty. The only mandatory implementation detail about the ParseCatalog instance returned by your StepCatalogParser is that the returned ParseCatalog `parse()` function returns a list of Steps. You can implement your own ParseCatalog class.
 
 It may be you are using your own kind of steps, specific for your DSL.
-
-#### How to define my custom Step
-
-As described on the [documentation](https://kaotoio.github.io/kaoto-backend/#step), a Step is composed of the following properties:
-
-* **kind** Kind of step which will help correlate the step with the type of workflow it supports. Examples: Steps of kind `kamelet` can be used on Kamelet Bindings. Make sure your `Kind` is unique or compatible with the services that use the same `Kind`.
-* **ID** Unique identifier for this step in our whole Kaoto environment.
-* **title** Human-readable title of this step. Useful for the frontend.
-* **description** Human-readable description of what this step does. This will help users identify what steps they want to use for their use-case.
-* **group** Group that identifies and classifies inside the steps world. This can help classify the steps.
-* **icon** Base64 icon image for this step. Useful to quickly visually identify steps.
-* **UUID** Volatile UUID to mark the relationship between a viewDefinition and a step. Kaoto will fill this property automatically.
-* **name** Used only for Camel Connectors. Defines the name of the connector. 
-* **type** Type of step: START, MIDDLE, END. This helps the most basic validation of steps: validates the position of the step in the general workflow.
-* **parameters** List of configurable parameters for this step following [Schema Validation](https://json-schema.org/draft/2020-12/json-schema-validation.html).
