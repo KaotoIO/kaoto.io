@@ -1,6 +1,6 @@
 baseURL = 'https://kaoto.io/'
 languageCode = 'en-us'
-title = 'Kaoto | Open Source Integration Editor'
+title = 'Kaoto | Free and Open Source Integration Editor'
 bodyTitle = 'Kaoto'
 theme = 'kross-hugo'
 # default configuration
