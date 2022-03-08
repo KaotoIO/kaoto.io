@@ -152,7 +152,7 @@
         </div>
         {{ range .item }}
         <div class="col-lg-3 col-md-4 text-center">
-          <img src="{{.logo | relURL }}" alt="icon">
+          <img src="{{.logo | relURL }}" alt="icon" loading="lazy">
           <p class="mb-0">{{.duration}}</p>
           <h4>{{.title }}</h4>
           <h6 class="text-light">{{.company }}</h6>
@@ -191,7 +191,7 @@
       </div>
     </div>
     <!-- bg image -->
-    <img class="img-fluid edu-bg-image w-100" src="{{`images/backgrounds/education-bg.png`|relURL}}" alt="bg-image">
+    <img class="img-fluid edu-bg-image w-100" src="{{`images/backgrounds/education-bg.png`|relURL}}" alt="bg-image" loading="lazy">
   </section>
   <!-- /education -->
   {{ end }}
@@ -241,11 +241,11 @@
         <div class="col-lg-4 col-6 mb-4 shuffle-item">
           <div class="position-relative rounded hover-wrapper">            
           {{ if isset .Params "image" }}
-            <img src="{{ .Params.image | absURL }}" class="img-fluid w-100 d-block">
+            <img src="{{ .Params.image | absURL }}" class="img-fluid w-100 d-block" loading="lazy">
           {{ end }}
           
           {{ if isset .Params "video" }}
-            <video width="100%" height="100%">
+            <video width="100%" height="100%" preload="metadata">
               <source src="{{.Params.video | absURL }}.mp4" type ="video/mp4"/>
               <source src="{{.Params.video | absURL }}.webm" type ="video/webm"/>
               Your browser does not support the video tag.
@@ -282,7 +282,7 @@
           <div class="text-center testimonial-content">
             <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
             <p class="text-white mb-4">{{.content | markdownify}}</p>
-            <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{.image | absURL }}" alt="client-image">
+            <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{.image | absURL }}" alt="client-image" loading="lazy">
             <h4 class="text-white">{{.name }}</h4>
             <h6 class="text-light mb-4">{{ .designation }}</h6>
           </div>
