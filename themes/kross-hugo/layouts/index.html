@@ -93,7 +93,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
-          <img src="/images/step-replacement.gif" style="margin-bottom: 50px; width: 75%;"/><br/>
+          <video style="margin-bottom: 50px; width: 75%;" autoplay>
+            <source src="/images/step-replacement.webm"/>
+          </video>  
+          <br/>
           {{ with site.Data.homepage.about }}
           <p class="font-secondary lead text-dark">{{.content | markdownify}}</p>
           {{ if .button.enable }}
