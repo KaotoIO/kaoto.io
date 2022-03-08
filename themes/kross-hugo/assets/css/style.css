@@ -151,6 +151,12 @@ h6,
   color: var(--primary-color)
 }
 
+/* custom */
+.hero-area .btn-cta:hover {
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
 body {
   background-color: #fff;
   overflow-x: hidden

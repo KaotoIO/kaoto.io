@@ -1,6 +1,8 @@
 # banner
 banner:
   title : 'Kaoto'
+  body: 'Integrate without limits'
+  subText: 'Open source now and forever'
 
 # about
 about:
@@ -9,7 +11,7 @@ about:
 
   button:
     enable : true
-    label : 'know more'
+    label : 'learn more'
     URL : 'about'
 
 # skill
@@ -41,7 +43,6 @@ experience:
     - logo : 'images/experience/icon-1.png'
       title : 'Graphic Editor'
       company : 'Create the flow visually and see how the code grows into a route. Or modify the code and see how the route looks like.'
-      duration : 'Focus on User Experience'
       duration : 'Create routes without opening an IDE. '
       
     - logo : 'images/experience/icon-2.png'
