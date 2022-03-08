@@ -11,7 +11,7 @@ about:
 
   button:
     enable : true
-    label : 'know more'
+    label : 'learn more'
     URL : 'about'
 
 # skill
