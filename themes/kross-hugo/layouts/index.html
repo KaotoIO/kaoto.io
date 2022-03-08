@@ -229,14 +229,25 @@
         {{ $item:= site.Data.homepage.portfolio.item_show }}
         {{ range first $item (where .Site.RegularPages "Section" "portfolio") }}
         <div class="col-lg-4 col-6 mb-4 shuffle-item">
-          <div class="position-relative rounded hover-wrapper">
-            <img src="{{.Params.image | absURL }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+          <div class="position-relative rounded hover-wrapper">            
+          {{ if isset .Params "image" }}
+            <img src="{{ .Params.image | absURL }}" class="img-fluid w-100 d-block">
+          {{ end }}
+          
+          {{ if isset .Params "video" }}
+            <video width="100%" height="100%">
+              <source src="{{.Params.video | absURL }}.mp4" type ="video/mp4"/>
+              <source src="{{.Params.video | absURL }}.webm" type ="video/webm"/>
+              Your browser does not support the video tag.
+            </video>
+          {{ end }}
             <div class="hover-overlay">
               <div class="hover-content">
-                <a class="btn btn-light btn-sm" href="{{ .Permalink | safeURL }}">view project</a>
+                <a class="btn btn-light btn-sm" href="{{ .Permalink | safeURL }}">{{ .Params.description }}</a>
               </div>
             </div>
           </div>
+          {{ .Params.title }}
         </div>
         {{ end }}
       </div>
