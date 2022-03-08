@@ -5,7 +5,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-11 mx-auto">
-          <h1 class="text-white font-tertiary">{{ site.Data.homepage.banner.title | safeHTML }}</h1>
+          <h1 class="text-white font-tertiary">{{ site.Data.homepage.banner.body | safeHTML }}</h1>
+          <h2 class="text-white">{{ site.Data.homepage.banner.subText | safeHTML }}</h2>
         </div>
       </div>
     </div>
@@ -87,6 +88,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
+          <img src="/images/step-replacement.gif" style="margin-bottom: 50px; width: 75%;"/><br/>
           {{ with site.Data.homepage.about }}
           <p class="font-secondary lead text-dark">{{.content | markdownify}}</p>
           {{ if .button.enable }}
