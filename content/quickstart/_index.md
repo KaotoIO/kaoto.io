@@ -28,6 +28,20 @@ This will start the latest snapshot of the backend which will be reachable throu
 
 Open [http://localhost:8080](http://localhost:8080) to use Kaoto.
 
+## Upgrading Kaoto
+
+If this is not your first time running Kaoto, you may need to refresh the version you have downloaded on your computer. 
+
+The following commands will download the latest release:
+
+`docker pull kaotoio/backend:latest`
+`docker pull kaotoio/frontend:latest`
+
+If you are an adventurer looking for the nightly version, you can also do:
+
+`docker pull kaotoio/frontend:nightly`
+`docker pull kaotoio/backend:nightly`
+
 ## Stop Kaoto
 
 Always stop the containers when finishing using Kaoto so you don't have containers dangling:
