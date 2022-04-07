@@ -35,11 +35,13 @@ If this is not your first time running Kaoto, you may need to refresh the versio
 The following commands will download the latest release:
 
 `docker pull kaotoio/backend:latest`
+
 `docker pull kaotoio/frontend:latest`
 
 If you are an adventurer looking for the nightly version, you can also do:
 
 `docker pull kaotoio/frontend:nightly`
+
 `docker pull kaotoio/backend:nightly`
 
 ## Stop Kaoto
