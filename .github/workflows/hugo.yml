@@ -12,9 +12,41 @@ jobs:
   hugo:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
+        
+      - name: Checkout Backend
+        uses: actions/checkout@v2
+        with:
+          repository: 'KaotoIO/kaoto-backend'
+          path: 'tmp/kaoto-backend'
+          fetch-depth: '0'
+        
+      - name: Checkout Frontend
+        uses: actions/checkout@v2
+        with:
+          repository: 'KaotoIO/kaoto-ui'
+          path: 'tmp/kaoto-ui'
+          fetch-depth: '0'
+        
+      - name: Generate Contributors
+        run:  ./getGitData.sh 
+        
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+          
+      - name: Install Python dependencies
+        run: pip3 install requests
+          
+      - name: Generate Releases
+        run: python3 getGithubData.py $username $password
+        env:
+          username: ${{ secrets.API_USER }}
+          password: ${{ secrets.API_PASSWORD }}
+          
       -
         name: Run Hugo
         uses: crazy-max/ghaction-hugo@v1

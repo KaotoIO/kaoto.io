@@ -4,7 +4,7 @@ description: "Kaoto is the next generation orchestration designer to easily edit
 draft: false
 ---
 
-Kaoto is an acronym for **Ka**mel **O**rchestration **To**ol. Kaoto is a low code and no code integration designer to edit and deploy based on [Apache Camel](https://camel.apache.org/). It is designed to be extendable and flexible and adaptable to different usecases.
+Kaoto is an acronym for **Ka**mel **O**rchestration **To**ol. Kaoto is a low code and no code integration designer to edit and deploy based on [Apache Camel](https://camel.apache.org/). It is designed to be extendable and flexible and adaptable to different usecases. [You can find statistics and history of Kaoto here](/timeline).
 
 The user interface have both a source code editor and a drag and drop graphical space to edit workflows. When a change is done in one of them, the other gets updated automatically. This way users can choose to work both no-code or low-code.
 
