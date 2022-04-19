@@ -27,14 +27,14 @@
     </div>
     <div class="row shuffle-wrapper">
       {{ range .Data.Pages }}
-      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
+      <div class="col-lg-4 col-4 mb-4 shuffle-item" data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
         <div class="position-relative rounded hover-wrapper">
             {{ if isset .Params "image" }}
               <img src="{{ .Params.image | absURL }}" class="img-fluid w-100 d-block">
             {{ end }}
             
             {{ if isset .Params "video" }}
-              <video controls loop autoplay>
+              <video controls loop autoplay muted>
               <source src="{{.Params.video | absURL }}.mp4" type ="video/mp4"/>
               <source src="{{.Params.video | absURL }}.webm" type ="video/webm"/>
                 Your browser does not support the video tag.

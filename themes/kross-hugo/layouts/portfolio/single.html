@@ -12,9 +12,12 @@
       {{ end }}
       
       {{ if isset .Params "video" }}
-        <video controls loop autoplay>
+        <video controls loop autoplay muted>
               <source src="{{.Params.video | absURL }}.webm" type ="video/webm"/>
               <source src="{{.Params.video | absURL }}.mp4" type ="video/mp4"/>
+              {{ if isset .Params "subtitle" }}
+              <track label="English" kind="subtitles" srclang="en" src="{{.Params.subtitle | absURL }}" default />
+              {{ end }}
           Your browser does not support the video tag.
         </video>
       {{ end }}
