@@ -14,3 +14,11 @@ X-Frame-Options = "DENY"
 X-XSS-Protection = "1; mode=block"
 Referrer-Policy = "same-origin"
 Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[[redirects]]
+  from = "/add_dsl"
+  to = "/add-dsl"
+
+[[redirects]]
+  from = "/add_custom_view"
+  to = "/add-custom-view"
