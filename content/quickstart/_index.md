@@ -1,5 +1,5 @@
 ---
-title: "QuickStart"
+title: "Quickstart"
 description: "Quickstart to test and start working with Kaoto, the low code and no code integration orchestration tool."
 draft: false
 ---
@@ -46,7 +46,7 @@ If you are an adventurer looking for the nightly version, you can also do:
 
 ## Stop Kaoto
 
-Always stop the containers when finishing using Kaoto so you don't have containers dangling:
+Always stop the containers when finishing using Kaoto, so you don't have containers dangling:
 
 `docker stop kaoto-backend`
 
