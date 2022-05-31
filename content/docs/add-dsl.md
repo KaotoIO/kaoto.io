@@ -9,7 +9,6 @@ categories:
 - Development
 - Extension
 - Backend
-image: "images/portfolio/screenshot-03.png"
 ---
 
 Kaoto's frontend is agnostic of the DSL (Domain Specific Language) used, so to add support for a new DSL we just have to implement the specific endpoints on the [API](https://kaotoio.github.io/kaoto-backend/api/index.html).

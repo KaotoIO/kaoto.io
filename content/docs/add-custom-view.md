@@ -9,7 +9,6 @@ categories:
 - Development
 - Extension
 - Frontend
-image: "images/portfolio/screenshot-01.png"
 ---
 
 Kaoto's frontend is extendable allowing custom views when configuring steps.
