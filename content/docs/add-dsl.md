@@ -1,5 +1,5 @@
 ---
-title: "Add a new DSL"
+title: "Add a New DSL"
 description: "How to add a new Domain Specific Language to Kaoto."
 draft: false
 date: "2021-01-01"
@@ -12,7 +12,7 @@ categories:
 image: "images/portfolio/screenshot-03.png"
 ---
 
-Kaoto frontend is agnostic of the DSL (Domain Specific Language) used, so to add support for a new DSL we just have to implement the specific endpoints on the [API](https://kaotoio.github.io/kaoto-backend/api/index.html).
+Kaoto's frontend is agnostic of the DSL (Domain Specific Language) used, so to add support for a new DSL we just have to implement the specific endpoints on the [API](https://kaotoio.github.io/kaoto-backend/api/index.html).
 
 To properly deploy the workflows, Kaoto is expecting the integration to be deployed via a [CustomResourceDefinition (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) as [Camel-K](https://camel.apache.org/camel-k/) does. You can use other kinds of source code and build integrations with them, but they won't be deployable via Kaoto.
 

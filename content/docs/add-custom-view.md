@@ -1,5 +1,5 @@
 ---
-title: "Add Custom View"
+title: "Add a Custom View"
 description: "How to add a custom view to configure specific steps."
 draft: false
 date: "2021-01-10"
@@ -12,7 +12,7 @@ categories:
 image: "images/portfolio/screenshot-01.png"
 ---
 
-Kaoto frontend is extendable allowing custom views when configuring steps.
+Kaoto's frontend is extendable allowing custom views when configuring steps.
 
 ## Implement Extension in Javascript
 

@@ -28,63 +28,6 @@ p {
   font-family: roboto, sans-serif
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #000;
-  font-family: playfair display, serif;
-  line-height: 1.2
-}
-
-h1,
-.h1 {
-  font-size: 80px
-}
-
-@media(max-width:991px) {
-
-  h1,
-  .h1 {
-    font-size: 65px
-  }
-}
-
-h2,
-.h2 {
-  font-size: 60px
-}
-
-@media(max-width:991px) {
-
-  h2,
-  .h2 {
-    font-size: 50px
-  }
-}
-
-h3,
-.h3 {
-  font-size: 40px
-}
-
-h4,
-.h4 {
-  font-size: 22px
-}
-
-h5,
-.h5 {
-  font-size: 18px
-}
-
-h6,
-.h6 {
-  font-size: 14px
-}
-
 .btn {
   font-size: 22px;
   font-family: playfair display, serif;
