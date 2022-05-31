@@ -52,7 +52,6 @@ URL = 'portfolio'
 name = 'Use Cases'
 weight = 5
 
-
 # default parameters
 [params]
 #home = 'Home'
@@ -75,6 +74,7 @@ google_analytics_id = 'G-BP1PVX7HSK' # Your ID
 #baidu_analytics_id = '' #Your ID
 # copyright
 copyright = 'Copyright 2022 © Kaoto'
+custom_css = ["css/custom.css"]
 
 # preloader
 [params.preloader]

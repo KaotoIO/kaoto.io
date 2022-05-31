@@ -1,0 +1,26 @@
+/*!------------------------------------------------------------------
+[CUSTOM STYLESHEET]
+PROJECT: Kaoto
+VERSION: 1.0
+-------------------------------------------------------------------*/
+
+.content h1, .content h2, .content h3, .content h4 {
+    margin-top: 0.8em;
+}
+
+.content h1 {
+    font-size: 3em;
+}
+
+.content h2 {
+    font-size: 2.2em;
+}
+
+.content h3 {
+    font-size: 2em;
+}
+
+.content h4 {
+    font-size: 1.5em;
+}
+
