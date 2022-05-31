@@ -20,7 +20,7 @@
       alt="follow on Twitter"></a>
 </p>
 
-# kaoto.io
+# Kaoto
 Repository for https://kaoto.io/. Built with [Hugo](https://gohugo.io/).
 
 ## Development

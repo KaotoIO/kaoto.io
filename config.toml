@@ -74,7 +74,7 @@ google_analytics_id = 'G-BP1PVX7HSK' # Your ID
 # baidu analytics
 #baidu_analytics_id = '' #Your ID
 # copyright
-copyright = 'Copyright &copy; 2021 a Theme by [Gethugothemes](https://gethugothemes.com)'
+copyright = 'Copyright 2022 © Kaoto'
 
 # preloader
 [params.preloader]
