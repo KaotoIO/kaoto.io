@@ -1,7 +1,6 @@
 baseURL = 'https://kaoto.io/'
 languageCode = 'en-us'
 title = 'Kaoto | Free and Open Source Integration Editor'
-bodyTitle = 'Kaoto'
 theme = 'kross-hugo'
 # default configuration
 summaryLength = '10'
@@ -23,8 +22,6 @@ link = 'plugins/bootstrap/bootstrap.min.js'
 link = 'plugins/slick/slick.min.js'
 [[params.plugins.js]]
 link = 'plugins/shuffle/shuffle.min.js'
-#[[params.plugins.js]]
-#link = 'plugins/google-map/map.js'
 
 # menu
 [[menu.main]]
@@ -58,20 +55,17 @@ weight = 5
 logo = ''
 # theme color
 theme_color = '#41228e'
+titleAppend = ' | Kaoto'
 # contact info
 #phone = '+880 2544 658 256'
 email = 'hellokaoto@gmail.com'
-git = 'https://github.com/KaotoIO'
-twitter = 'https://www.twitter.com/KaotoIO'
+git = 'KaotoIO'
+twitter = 'KaotoIO'
 # meta description
 author = 'Kaoto Team'
 description = 'Kaoto is an extendable integration editor for low-code and no-code personas.'
 # google analytics
 google_analytics_id = 'G-BP1PVX7HSK' # Your ID
-# baidu site verification
-#baidu_site_verification = '' #Your verification code
-# baidu analytics
-#baidu_analytics_id = '' #Your ID
 # copyright
 copyright = 'Copyright 2022 © Kaoto'
 custom_css = ["css/custom.css"]
@@ -86,14 +80,6 @@ preloader = 'images/preloader.gif' # use png, jpg, svg or gif format
 enable = false
 form_action = '#' # contact form works with : https://formspree.io
 
-# google map
-[params.map]
-enable = false
-#gmap_api = 'https://maps.googleapis.com/maps/api/js?key=&#038;types=(cities)&#038;libraries=places&#038;language=en'
-#map_latitude = '51.5223477'
-#map_longitude = '-0.1622023'
-#map_marker = 'images/marker.png'
-
 # cookies
 [params.cookies]
 enable = true
@@ -103,14 +89,6 @@ expire_days = 2
 [[params.social]]
 icon = 'ti-github'
 URL = 'https://www.github.com/KaotoIO'
-
-#[[params.social]]
-#icon = 'ti-instagram'
-#URL = '#'
-
-#[[params.social]]
-#icon = 'ti-dribbble'
-#URL = '#'
 
 [[params.social]]
 icon = 'ti-twitter-alt'
