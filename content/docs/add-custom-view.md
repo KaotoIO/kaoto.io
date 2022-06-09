@@ -145,7 +145,7 @@ implemented in the previous step.
 
 The `constraints` will define when this extension will be shown. In this 
 example, the extension will be shown when configuring the 
-`twitter-search-source` step. It will appear as a brand new "Fun Component" 
+`twitter-search-source` step. It will appear as a new "Fun Component" 
 tab when you click on `twitter-search-source` in Kaoto.
 
 Stay turned for details on what you can do with your Step Extension, as 
