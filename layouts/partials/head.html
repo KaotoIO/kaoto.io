@@ -1,17 +1,12 @@
 <head>
   <meta charset="utf-8">
-  <title>{{ .Title }}</title>
+    <title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }}{{ .Site.Params.titleAppend }}{{ end }}</title>
 
   {{ "<!-- mobile responsive meta -->" | safeHTML }}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
   {{ with site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ hugo.Generator }}
-
-  {{ with site.Params.baidu_site_verification }}
-	{{ "<!-- baidu site verification -->" | safeHTML }}
-  <meta name="baidu-site-verification" content="{{ . }}" />
-  {{ end }}
 
   <style>
     :root{
@@ -47,19 +42,6 @@
 
 	  gtag('config', '{{ . }}');
 	</script>
-	{{ end }}
-
-  {{ with site.Params.baidu_analytics_id }}
-	{{ "<!--  Baidu analytics -->" | safeHTML }}
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?{{ . }}";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 	{{ end }}
 
 </head>

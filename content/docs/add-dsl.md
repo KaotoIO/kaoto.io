@@ -32,45 +32,40 @@ This service will translate from the JSON list of steps used by the frontend to 
 
 Your implementation must be `@ApplicationScoped`:
 
-```
+```java
 @ApplicationScoped
 public class KameletBindingDeploymentGeneratorService
         implements DeploymentGeneratorService {
-
 ```
 
 The `identifier()` should return a unique string that will be useful to correlate the generated CRD with the type of workflow we are generating.
 
 
-```
-    public String identifier() {
-        return "KameletBinding";
-    }
-    
+```java
+public String identifier() {
+    return "KameletBinding";
+}
 ```
 
 The `getKinds()` must return what steps are this CRD compatible with. Kaoto will try to apply all DeploymentGeneratorServices on all the calls unless we explicitly ask for a specific source code output. The `getKinds` function is a quick check to know if we should apply this implementation when Kaoto is requested to output source codes.
 
-```
-
-    @Override
-    public List<String> getKinds() {
-        return Arrays.asList(new String[]{CAMEL_CONNECTOR, KAMELET});
-    }
-
+```java
+@Override
+public List<String> getKinds() {
+    return Arrays.asList(new String[]{CAMEL_CONNECTOR, KAMELET});
+}
 ```
 
 Then, we need to implement the `parse(...)` function that will return the CRD content based on the list of steps and a map of metadata.
 
-```
-    @Override
-    public String parse(List<Step> steps, Map<String, Object> metadata) {
-        if (!appliesTo(steps)) {
-            return ""; //someone tried to apply this service to the wrong list of steps
-        }
-         ...
+```java
+@Override
+public String parse(List<Step> steps, Map<String, Object> metadata) {
+    if (!appliesTo(steps)) {
+        return ""; //someone tried to apply this service to the wrong list of steps
     }
-
+     ...
+}
 ```
 
 Finally, the `appliesTo(...)` function will be used to decide if this service can be applied to the list of steps. Note that this `appliesTo` function is the one that decides if you will be able to generate the source code or not. If this function returns `true`, the function `parse` must return valid source code. 
@@ -84,7 +79,7 @@ This service will do the reverse operation as DeploymentGeneratorService: given 
 
 As the previous one, it must have the `@ApplicationScoped` annotation. 
 
-```
+```java
 @ApplicationScoped
 public class KameletBindingStepParserService
         implements StepParserService<Step> {
@@ -92,48 +87,46 @@ public class KameletBindingStepParserService
 
 You may want to inject a catalog step.
 
-```
-    private StepCatalog catalog;
+```java
+private StepCatalog catalog;
 
-    @Inject
-    public void setCatalog(final StepCatalog catalog) {
-        this.catalog = catalog;
-    }
+@Inject
+public void setCatalog(final StepCatalog catalog) {
+    this.catalog = catalog;
+}
 ```
 
 The `parse(...)` function will return the list of steps given a string.
 
-```
-
-    @Override
-    public ParseResult<Step> deepParse(String input);
-        if (!appliesTo(input)) {
-            throw new IllegalArgumentException(
-                    "Wrong format provided. This is not parseable by us");
-        }
-
-        ...
+```java
+@Override
+public ParseResult<Step> deepParse(String input);
+    if (!appliesTo(input)) {
+        throw new IllegalArgumentException(
+                "Wrong format provided. This is not parseable by us");
     }
 
+    ...
+}
 ```
 
 The `ParseResult<T>` class is an auxiliary class that returns both a list of steps and some metadata that may be helpful to decorate the source code. For example, the name of the integration, or some dependencies.
 
-```
-    class ParseResult<T> {
-        private List<T> steps;
-        private Map<String, Object> metadata;
-        ...
-    }
+```java
+class ParseResult<T> {
+    private List<T> steps;
+    private Map<String, Object> metadata;
+    ...
+}
 ```
 
 And the `appliesTo(...)` function will also check that the CRD provided is valid for this service.
 
-```
-    @Override
-    public boolean appliesTo(final String yaml) {
-        return yaml.contains("kind: KameletBinding");
-    }
+```java
+@Override
+public boolean appliesTo(final String yaml) {
+    return yaml.contains("kind: KameletBinding");
+}
 ```
 
  Note that this `appliesTo` function is the one that decides if you will be able to parse the source code or not. If this function returns `true`, the function `parse` must return a valid list of steps. 
@@ -144,10 +137,9 @@ And the `appliesTo(...)` function will also check that the CRD provided is valid
 Your DSL may have specific steps that needs to be added to the catalog. To add those steps to the general catalog, you have to provide an `@ApplicationScoped` implementation of the `StepCatalogParser`:
 
 
-```
+```java
 @ApplicationScoped
 public final class KameletParseCatalog implements StepCatalogParser {
-
     private KameletParseCatalog() {
 
     }
@@ -158,7 +150,6 @@ public final class KameletParseCatalog implements StepCatalogParser {
         parseCatalog.setFileVisitor(new KameletFileProcessor());
         return parseCatalog;
     }
-
 
     @Override
     public ParseCatalog<Step> getParser(final String url) {

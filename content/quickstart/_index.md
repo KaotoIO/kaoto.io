@@ -12,7 +12,9 @@ The recommended quickstart way of running Kaoto is through Docker. The only pre-
 
 You can run the kaotoio/backend image with the following command:
 
-`docker run --rm -d -p 8081:8081 --name kaoto-backend kaotoio/backend:0.2.0`
+```bash
+docker run --rm -d -p 8081:8081 --name kaoto-backend kaotoio/backend:0.2.0
+```
 
 This will start the latest snapshot of the backend which will be reachable through the 8081 port.
 
@@ -22,7 +24,9 @@ You can test this worked by entering [http://localhost:8081/step](http://localho
 
 Once the backend is running, you can launch the frontend with the following command:
 
-`docker run --rm -d -p 8080:80 -e KAOTO_API=http://localhost:8081 --name kaoto-frontend kaotoio/frontend:0.2.0`
+```bash
+docker run --rm -d -p 8080:80 -e KAOTO_API=http://localhost:8081 --name kaoto-frontend kaotoio/frontend:0.2.0
+```
 
 This will start the latest snapshot of the backend which will be reachable through the 8080 port.
 
@@ -34,21 +38,27 @@ If this is not your first time running Kaoto, you may need to refresh the versio
 
 The following commands will download the latest release:
 
-`docker pull kaotoio/backend:latest`
+```bash
+docker pull kaotoio/backend:latest
 
-`docker pull kaotoio/frontend:latest`
+docker pull kaotoio/frontend:latest
+```
 
 If you are an adventurer looking for the nightly version, you can also do:
 
-`docker pull kaotoio/frontend:nightly`
+```bash
+docker pull kaotoio/frontend:nightly
 
-`docker pull kaotoio/backend:nightly`
+docker pull kaotoio/backend:nightly
+```
 
 ## Stop Kaoto
 
 Always stop the containers when finishing using Kaoto, so you don't have containers dangling:
 
-`docker stop kaoto-backend`
+```bash
+docker stop kaoto-backend
 
-`docker stop kaoto-frontend`
+docker stop kaoto-frontend
+```
 
