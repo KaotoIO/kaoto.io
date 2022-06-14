@@ -10,7 +10,6 @@ categories:
 - Extension
 - Frontend
 image: "/images/step-extension.png"
-
 ---
 
 Kaoto's frontend is extendable, allowing you to create custom views that you
@@ -194,7 +193,7 @@ enabled, with a defined component that you want to stream to Kaoto. Start
 the Kaoto backend as usual, ensuring that it is pointing to the correct View 
 Definition catalog.
 
-Check out our documentation for the [Step Extension API](/step-extension-api),
+Check out our documentation for the [Step Extension API](/docs/step-extension-api),
 as we've just released a brand-new API for interacting with Kaoto's state. 
 
 
