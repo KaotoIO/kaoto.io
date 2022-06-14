@@ -1,68 +1,26 @@
 ---
-title: "Add a Custom View"
-description: "How to add a custom view for specific steps."
+title: "Step Extension API"
+description: "Documentation for working with the Step Extension API."
 draft: false
-date: "2022-01-10"
+date: "2022-06-14"
 tags:
 - Custom View
 categories:
 - Development
 - Extension
 - Frontend
-image: "/images/step-extension.png"
 
 ---
 
-Kaoto's frontend is extendable, allowing you to create custom views that you
-can configure to show for specific steps. We call these custom views **Step
-Extensions**.
+We previously showed you how you can [extended Kaoto with custom views](/add-custom-view) called **Step Extensions**.
 
 ![Example of a Step Extension](/images/step-extension.png)
 
-You can use the Step Extension API to interact with Kaoto's internal state,
-whether that be to control deployments remotely, or to do some kind of data
-transformation with the output of a particular step.
+Once you have a Step Extension, you will likely want to be able to interact 
+with Kaoto's state, maybe sharing some of your application's state with 
+Kaoto as well.
 
-There are two parts to adding a step extension:
-
-1. The Step Extension itself, which is simply your remote application that 
-   uses Webpack version 4.x or later.
-2. The View Definition catalog. The Kaoto API uses this under the hood to 
-   determine what views to send to the frontend. You will have to modify 
-   [the one being used by default](https://github.com/KaotoIO/kaoto-viewdefinition-catalog), or provide your own, which 
-   should be specified [here](https://github.com/KaotoIO/kaoto-backend/blob/main/api/src/main/resources/application.yaml#L8).
-
-For the View Definition catalog, if you add a custom one, you don't have to 
-specify it as a JAR file, it can be a simple GitHub repo instead, which 
-would be referenced this way:
-
-```yaml {linenos=inline,hl_lines=[54-57],linenostart=39}
-repository:
-  step:
-    jar:
-      - "https://repo1.maven.org/maven2/org/apache/camel/kamelets/camel-kamelets/0.6.0/camel-kamelets-0.6.0.jar"
-      - "https://github.com/KaotoIO/camel-component-metadata/archive/refs/heads/main.zip"
-    git:
-      -
-        url: "https://github.com/KaotoIO/camel-component-metadata.git"
-        tag: "main"
-      -
-        url: "git@github.com:kahboom/custom-step-catalog.git"
-        tag: "main"
-  viewdefinition:
-    jar:
-      - "https://github.com/KaotoIO/kaoto-viewdefinition-catalog/archive/refs/heads/main.zip"
-    git:
-      -
-        url: "https://github.com/KaotoIO/kaoto-viewdefinition-catalog.git"
-        tag: "main"
-      -
-        url: "git@github.com:kahboom/custom-viewdefinition-catalog.git"
-        tag: "main"
-```
-
-
-## Step Extensions
+## Custom Views
 
 Each Step Extension is, in essence, a web application that uses Webpack 4.x
 or later. This can even be in the form of built static files. In fact, this is
@@ -187,12 +145,6 @@ The `constraints` will define when this extension will be shown. In this
 example, the extension will be shown when configuring the 
 `twitter-search-source` step. It will appear as a new "Fun Component" 
 tab when you click on `twitter-search-source` in Kaoto.
-
-## Putting it All Together
-
-You should now have an application that has Webpack Module Federation 
-enabled, with a defined component that you want to stream to Kaoto. Start 
-the Kaoto backend as usual, ensuring that its
 
 Stay turned for details on what you can do with your Step Extension, as 
 we've just released a brand-new API for interacting with Kaoto's state. 
