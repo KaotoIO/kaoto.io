@@ -179,23 +179,23 @@ properties we've just defined above:
 - `module` here corresponds to the `exposes` object, or the components 
   you're exposing.
 - `scope` MUST match the `name` of your application that we defined earlier
+- `constraints` defines when the extension will be shown. In this
+   example, the extension will be shown when configuring the
+   `twitter-search-source` step. It will appear as a new "Fun Component"
+   tab when you click on it in the Visualization.
 
 It is important that the `url` points to where you have deployed the extension
 implemented in the previous step.
-
-The `constraints` will define when this extension will be shown. In this 
-example, the extension will be shown when configuring the 
-`twitter-search-source` step. It will appear as a new "Fun Component" 
-tab when you click on `twitter-search-source` in Kaoto.
 
 ## Putting it All Together
 
 You should now have an application that has Webpack Module Federation 
 enabled, with a defined component that you want to stream to Kaoto. Start 
-the Kaoto backend as usual, ensuring that its
+the Kaoto backend as usual, ensuring that it is pointing to the correct View 
+Definition catalog.
 
-Stay turned for details on what you can do with your Step Extension, as 
-we've just released a brand-new API for interacting with Kaoto's state. 
+Check out our documentation for the [Step Extension API](/step-extension-api),
+as we've just released a brand-new API for interacting with Kaoto's state. 
 
 
 
