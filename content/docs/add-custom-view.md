@@ -9,6 +9,7 @@ categories:
 - Development
 - Extension
 - Frontend
+image: "/images/step-extension.png"
 
 ---
 
