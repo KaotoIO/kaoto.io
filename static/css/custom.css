@@ -118,7 +118,7 @@ pre {
     color: #212529;
     display: block;
     font-size: 87.5%;
-    padding: 3em 2em;
+    padding: 2em;
 }
 
 td pre {
@@ -136,6 +136,34 @@ td pre {
 
 .highlight, .highlight div {
     border-radius: 15px;
+}
+
+.content ol {
+    counter-reset: li;
+    font-size: 14px;
+    line-height: 18px;
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.content ol li {
+    padding: 5px 0 5px 30px;
+    position: relative;
+}
+
+.content ol li:before {
+    background-color: #383a3d;
+    border: 1px solid #383a3d;
+    border-radius: 50%;
+    color: white;
+    content: counter(li);
+    counter-increment: li;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 4px;
+    width: 20px;
 }
 
 
