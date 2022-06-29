@@ -12,17 +12,20 @@ categories:
 
 ---
 
-We previously showed you how you can [extend Kaoto with custom views](/docs/add-custom-view) called **Step Extensions**.
+You can [extend Kaoto with custom views](/docs/add-custom-view) called **Step Extensions**.
 
 Once you have a Step Extension, you will likely want to be able to interact 
 with Kaoto's state, maybe sharing some of your application's state with 
 Kaoto as well.
 
+For example, you may want to show a form to configure properties on a step and 
+then notify Kaoto of the changes so the workflow gets updated.
+
 ## Concepts & Usage
 
 For the purposes of this tutorial we will assume you have a very plain 
-extension, just a React application that uses Webpack 5.x, and it has a 
-basic button component like this:
+extension [as described here](/docs/add-custom-view). For example, 
+just a React application that uses Webpack 5.x, and has a basic button component like this:
 
 ```jsx
 const buttonStyling = {
@@ -42,8 +45,11 @@ export default Example;
 ```
 
 Keeping in mind that Kaoto is simply an application that is importing your 
-`Example` component, if the Step Extension API provides a `notifyKaoto` 
-method, we could reference it like this from within our component:
+`Example` component. You can use the **Step Extension API** provided by Kaoto to
+interact with the main application, sharing data back and forth.
+
+For example, the **Step Extension API** provides a `notifyKaoto` method, which we 
+could reference like this from within our component:
 
 ```jsx
 const Example = (props) => {
@@ -59,14 +65,18 @@ const Example = (props) => {
 };
 ```
 
-With Kaoto running and our View Definition catalog pointing to this app (and 
-component), we can now view this Step Extension in whichever step it's 
-configured to be displayed for. Clicking on the button from the remote 
-application should trigger a notification in Kaoto.
+
+If you haven't already done so, you can 
+[configure Kaoto to use your extension](/docs/add-custom-view).
+
+With Kaoto configured with our extension, you can now use this Step Extension in the step it's configured to be displayed for. 
+Clicking on the button from the remote application should trigger a notification in Kaoto.
 
 Now that you understand how Step Extensions work, you can check out 
-the other methods available [here](https://github.com/KaotoIO/kaoto-ui/blob/main/src/api/stepExtensionApi.ts). If we don't 
-support something you'd want to see, please let us know by [creating an 
-issue](https://github.com/KaotoIO/kaoto-ui/issues/new/choose).
+[the other methods available on the Step Extension API](https://github.com/KaotoIO/kaoto-ui/blob/main/src/api/stepExtensionApi.ts). 
+
+If Kaoto doesn't support something you need, you can either 
+[contribute with the implementation](https://github.com/KaotoIO/kaoto-ui/blob/main/CONTRIBUTING.md#implementing-bug-fixes-or-features) 
+or [contribute with an issue](https://github.com/KaotoIO/kaoto-ui/blob/main/CONTRIBUTING.md#submit-a-new-issue).
 
 

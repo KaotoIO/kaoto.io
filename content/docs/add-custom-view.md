@@ -12,80 +12,47 @@ categories:
 image: "/images/step-extension.png"
 ---
 
-Kaoto's frontend is extendable, allowing you to create custom views that you
-can configure to show for specific steps. We call these custom views **Step
-Extensions**.
+Kaoto's frontend is extendable, allowing you to create custom views. You
+can configure Kaoto to show a specific view instead of the generic form to configure properties in a step. 
+We call these custom views **Step Extensions**.
 
-![Example of a Step Extension](/images/step-extension.png)
+Kaoto has an **Step Extension API** to interact with the main application. This API can
+be used to control deployments remotely, or to do some kind of data transformation 
+with the output of a particular step.
 
-You can use the Step Extension API to interact with Kaoto's internal state,
-whether that be to control deployments remotely, or to do some kind of data
-transformation with the output of a particular step.
+There are two main changes when adding a new step extension:
 
-There are two parts to adding a step extension:
-
-1. The Step Extension itself, which is simply your remote application that 
-   uses Webpack version 4.x or later.
-2. The View Definition catalog. The Kaoto API uses this under the hood to 
-   determine what views to send to the frontend. You will have to modify 
-   [the one being used by default](https://github.com/KaotoIO/kaoto-viewdefinition-catalog), or provide your own, which 
-   should be specified [here](https://github.com/KaotoIO/kaoto-backend/blob/main/api/src/main/resources/application.yaml#L8).
-
-For the View Definition catalog, if you add a custom one, you don't have to 
-specify it as a JAR file, it can be a simple GitHub repo instead, which 
-would be referenced this way:
-
-```yaml {linenos=inline,hl_lines=[54-57],linenostart=39}
-repository:
-  step:
-    jar:
-      - "https://repo1.maven.org/maven2/org/apache/camel/kamelets/camel-kamelets/0.6.0/camel-kamelets-0.6.0.jar"
-      - "https://github.com/KaotoIO/camel-component-metadata/archive/refs/heads/main.zip"
-    git:
-      -
-        url: "https://github.com/KaotoIO/camel-component-metadata.git"
-        tag: "main"
-      -
-        url: "git@github.com:kahboom/custom-step-catalog.git"
-        tag: "main"
-  viewdefinition:
-    jar:
-      - "https://github.com/KaotoIO/kaoto-viewdefinition-catalog/archive/refs/heads/main.zip"
-    git:
-      -
-        url: "https://github.com/KaotoIO/kaoto-viewdefinition-catalog.git"
-        tag: "main"
-      -
-        url: "git@github.com:kahboom/custom-viewdefinition-catalog.git"
-        tag: "main"
-```
+1. The Step Extension itself, which is a remote application implemented by you.
+2. The View Definition catalog, that lists all available views and extensions.
 
 
-## Step Extensions
+## Implementing a Step Extension
 
-Each Step Extension is, in essence, a web application that uses Webpack 4.x
-or later. This can even be in the form of built static files. In fact, this is
-how we are able to host our [example](https://step-extension.netlify.app/) on Netlify. You can use this [example extension](https://github.com/KaotoIO/step-extension) as a guide.
+A Step Extension is a web application that uses Webpack 4.x or later.
+
+This can even be in the form of built static files. In fact, this is
+how we are able to host our [example](https://step-extension.netlify.app/) on 
+Netlify. You can use the [example extension](https://github.com/KaotoIO/step-extension) as a template.
 
 Or maybe you already have an external application that you'd like to have
-embedded within Kaoto. All you would have to do is point to it from your View
-Definition catalog. We'll take a look at how you can do that in just a moment.
+embedded within Kaoto. Then you can [skip to the View Definition section directly](#view-definition-catalog).
 
-## Under the Hood
+### Under the Hood
 
-Because we are using Webpack 5's [module federation](https://webpack.js.org/concepts/module-federation/) under the hood, it means that your
-application would need to use Webpack 4.x or later to take advantage of step
-extensions. Webpack can be used in tandem with other tools like Rollup, and
-you can even use it just for module federation if you choose to.
+As we are using [module federation](https://webpack.js.org/concepts/module-federation/), your
+application need to use Webpack 4.x or later. Webpack can be used with other tools like Rollup. 
+Or you can use it just for module federation if you choose to.
 
-If you're not familiar with the concept of module federation, you don't need
-to be. The important thing to know is that it gives you the flexibility to
-deploy your application separately, and Kaoto wouldn't even need to be
-restarted. Dependency alignment is a thing of the past with module
-federation, as you can even specify whether you want to share a
-particular version of a framework like React, or if you want to use your own.
+If you're not familiar with the concept of module federation, don't worry. 
+The important thing to know is that it gives you the flexibility to
+deploy your application independently, so Kaoto don't need to be
+restarted. 
 
-## Enabling Module Federation in Your App
+Dependency alignment is not needed with module federation. You can specify 
+whether you want to share a particular version of a framework, like React, 
+or if you want to use your own.
+
+### Enabling Module Federation in Your App
 
 One of the biggest benefits of using module federation is that it works just
 like any other `import`. This means **you don't have to make any alterations
@@ -138,7 +105,8 @@ module.exports = {
 Some important things to note is the `ModuleFederationPlugin`, which comes 
 built into Webpack. In it, you have a few properties that are relevant:
 
-- `name`: The name of your application. This cannot conflict with another Step Extension `name`.
+- `name`: The name of your application. This cannot conflict with another 
+Step Extension `name` in the catalog.
 - `filename`: This is the name of your remote entry file, which is usually 
   `remoteEntry.js`.
 - `exposes`: The files this application will expose to Kaoto. Typically, 
@@ -148,19 +116,42 @@ built into Webpack. In it, you have a few properties that are relevant:
 
 There are other options we won't go into, but these are the basics.
 
-## Add View Definition to repository
 
-To make Kaoto aware of your Step Extension, you need to point to its
-`remoteEntry.js` file (generated by Webpack), from your View Definition 
-Catalog. You can use one of the [default View Definition catalogs](https://github.com/KaotoIO/kaoto-viewdefinition-catalog).
+You can learn more about the [Step Extension API here](/docs/step-extension-api).
 
-This is what that would look like:
+## View Definition Catalog
+
+Kaoto uses a repository of configuration files to determine what 
+views should the frontend use and when. To make Kaoto aware of your Step Extension, 
+you need to add a configuration file with your extension.
+ 
+First, you will have to fork 
+[the catalog being used by default](https://github.com/KaotoIO/kaoto-viewdefinition-catalog)
+to be able to include your configuration file while you develop it.
+
+Then you will need to
+[configure your backend to use your forked View Definition catalog](https://github.com/KaotoIO/kaoto-backend/blob/main/api/src/main/resources/application.yaml#L8).
+
+
+```yaml {linenos=inline,hl_lines=[6]}
+repository:
+  step:
+    [...]
+  viewdefinition:
+    jar:
+      - "https://github.com/YourUser/YourRepository/archive/refs/heads/main.zip"
+```
+
+Now you need to create a configuration file for your step extension. You can use 
+one of the [existing files as template](https://github.com/KaotoIO/kaoto-viewdefinition-catalog).
+
+For example:
 
 ```yaml {linenos=inline,hl_lines=[4,5,6],linenostart=1}
 name: Fun Component
 id: detail-step
 type: step
-url: http://localhost:8000
+url: http://localhost:8080
 module: './FunComponent'
 scope: 'funapp'
 constraints: 
@@ -189,12 +180,10 @@ implemented in the previous step.
 ## Putting it All Together
 
 You should now have an application that has Webpack Module Federation 
-enabled, with a defined component that you want to stream to Kaoto. Start 
-the Kaoto backend as usual, ensuring that it is pointing to the correct View 
+enabled, with a defined component that you want to stream to Kaoto. 
+Start Kaoto as usual, ensuring that it is pointing to the correct View 
 Definition catalog.
 
-Check out our documentation for the [Step Extension API](/docs/step-extension-api),
-as we've just released a brand-new API for interacting with Kaoto's state. 
-
-
+You can now proceed to the [Step Extension API](/docs/step-extension-api)
+documentation to make your extension more interesting.
 
