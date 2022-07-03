@@ -8,3 +8,9 @@ node_modules
 builds
 package-lock.json
 public
+
+
+
+# generated content
+content/timeline/generated*
+contributors.txt
