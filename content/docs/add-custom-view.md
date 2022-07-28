@@ -61,7 +61,7 @@ to an existing code base**. It's simply a matter of configuring it.
 When you enable module federation, your `webpack.config.js` file will look 
 something like this:
 
-```js
+```js {linenos=inline,hl_lines=[82,83,85]}
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const deps = require("./package.json").dependencies;
