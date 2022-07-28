@@ -107,7 +107,8 @@ built into Webpack. In it, you have a few properties that are relevant:
 
 - `name`: The name of your application. This cannot conflict with another 
 Step Extension `name` in the catalog. By default we are using the following 
-convention: `step-extension-$kameletname`. For example: `step-extension-ocgapi-features-action`.
+convention: `stepextension$kameletname`. For example: `stepextensionocgapifeaturesaction`.
+The name can't have dashes.
 - `filename`: This is the name of your remote entry file, which is usually 
   `remoteEntry.js`.
 - `exposes`: The files this application will expose to Kaoto. Typically, 
