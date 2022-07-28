@@ -151,7 +151,7 @@ For example:
 name: Fun Component
 id: detail-step
 type: step
-url: http://localhost:8080
+url: http://localhost:8080/remoteEntry.js
 module: './FunComponent'
 scope: 'funapp'
 constraints: 
@@ -165,7 +165,7 @@ Most of these properties are simply mapping to the `ModuleFederationPlugin`
 properties we've just defined above:
 
 - `name` is what will appear as the label of the new tab of the component
-- `url` is where your application is running
+- `url` is where your application is running. Remember to add the `filename` too on the url (in the example: `remoteEntry.js`).
 - `module` here corresponds to the `exposes` object, or the components 
   you're exposing.
 - `scope` MUST match the `name` of your application that we defined earlier
