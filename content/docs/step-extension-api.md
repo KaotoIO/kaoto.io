@@ -73,7 +73,7 @@ With Kaoto configured with our extension, you can now use this Step Extension in
 Clicking on the button from the remote application should trigger a notification in Kaoto.
 
 Now that you understand how Step Extensions work, you can check out 
-[the other methods available on the Step Extension API](https://github.com/KaotoIO/kaoto-ui/blob/main/src/api/stepExtensionApi.ts). 
+[the other methods available on the Step Extension API](https://github.com/KaotoIO/kaoto-ui/blob/main/src/components/StepExtensionApi.ts). 
 
 If Kaoto doesn't support something you need, you can either 
 [contribute with the implementation](https://github.com/KaotoIO/kaoto-ui/blob/main/CONTRIBUTING.md#implementing-bug-fixes-or-features) 
