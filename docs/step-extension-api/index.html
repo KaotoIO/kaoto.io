@@ -1,0 +1,57 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><title>Step Extension API | Kaoto</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content="Documentation for working with the Step Extension API."><meta name=author content="Kaoto Team"><meta name=generator content="Hugo 0.101.0"><style>:root{--primary-color:#41228e}</style><link rel=stylesheet href=https://kaoto.io/plugins/bootstrap/bootstrap.min.css><link rel=stylesheet href=https://kaoto.io/plugins/slick/slick.css><link rel=stylesheet href=https://kaoto.io/plugins/themify-icons/themify-icons.css><link rel=stylesheet href=https://kaoto.io/css/style.min.css media=screen><link rel=stylesheet href=https://kaoto.io/css/custom.css media=screen><link rel="shortcut icon" href=https://kaoto.io/images/favicon.ico type=image/x-icon><link rel=icon href=https://kaoto.io/images/favicon.ico type=image/x-icon><script async src="https://www.googletagmanager.com/gtag/js?id=G-BP1PVX7HSK"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-BP1PVX7HSK")</script></head><body><div class=preloader><img src=/images/preloader.gif alt=preloader></div><header class="navigation fixed-top"><nav class="navbar navbar-expand-lg navbar-dark"><a class=navbar-brand href=https://kaoto.io/><h3 class="text-white font-tertiary">Kaoto</h3></a><button class=navbar-toggler type=button data-toggle=collapse data-target=#navigation aria-controls=navigation aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse text-center" id=navigation><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=https://kaoto.io/></a></li><li class=nav-item><a class=nav-link href=https://kaoto.io/about>About</a></li><li class=nav-item><a class=nav-link href=https://kaoto.io/blog>Blog</a></li><li class=nav-item><a class=nav-link href=https://kaoto.io/quickstart>Quick Start</a></li><li class=nav-item><a class=nav-link href=https://kaoto.io/docs>Docs</a></li><li class=nav-item><a class=nav-link href=https://kaoto.io/portfolio>Use Cases</a></li></ul></div></nav></header><section class="page-title bg-primary position-relative overflow-hidden"><div class=container><div class=row><div class="col-12 text-center"><h1 class="text-white font-tertiary">Step Extension API</h1></div></div></div><img src=/images/illustrations/page-title.png alt=illustrations class="bg-shape-1 w-100">
+<img src=/images/illustrations/leaf-pink-round.svg alt=illustrations class=bg-shape-2>
+<img src=/images/illustrations/dots-cyan.svg alt=illustrations class=bg-shape-3>
+<img src=/images/illustrations/leaf-orange.svg alt=illustrations class=bg-shape-4>
+<img src=/images/illustrations/leaf-yellow.svg alt=illustrations class=bg-shape-5>
+<img src=/images/illustrations/dots-group-cyan.svg alt=illustrations class=bg-shape-6>
+<img src=/images/illustrations/leaf-cyan-lg.svg alt=illustrations class=bg-shape-7></section><section class=section><div class=container><div class="row justify-content-center"><div class=col-lg-9><div class=content><p>You can <a href=/docs/add-custom-view>extend Kaoto with custom views</a>
+called <strong>Step Extensions</strong>.</p><p>Once you have a Step Extension, you will likely want to be able to interact
+with Kaoto&rsquo;s state, maybe sharing some of your application&rsquo;s state with
+Kaoto as well.</p><p>For example, you may want to show a form to configure properties on a step and
+then notify Kaoto of the changes so the workflow gets updated.</p><h2 id=concepts--usage>Concepts & Usage</h2><p>For the purposes of this tutorial we will assume you have a very plain
+extension <a href=/docs/add-custom-view>as described here</a>
+. For example,
+just a React application that uses Webpack 5.x, and has a basic button component like this:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>buttonStyling</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>backgroundColor</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;BlueViolet&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;white&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>borderRadius</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;25px&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>padding</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;20px&#39;</span>
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Example</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>button</span> <span style=color:#a6e22e>style</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>buttonStyling</span>}&gt;<span style=color:#a6e22e>Click</span> <span style=color:#a6e22e>to</span> <span style=color:#a6e22e>Notify</span> <span style=color:#a6e22e>Kaoto</span>&lt;/<span style=color:#f92672>button</span>&gt;
+</span></span><span style=display:flex><span>  )
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>Example</span>;
+</span></span></code></pre></div><p>Keeping in mind that Kaoto is simply an application that is importing your
+<code>Example</code> component. You can use the <strong>Step Extension API</strong> provided by Kaoto to
+interact with the main application, sharing data back and forth.</p><p>For example, the <strong>Step Extension API</strong> provides a <code>notifyKaoto</code> method, which we
+could reference like this from within our component:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Example</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>props</span>) =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>handleClick</span> <span style=color:#f92672>=</span> () =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>notifyKaoto</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>props</span>.<span style=color:#a6e22e>notifyKaoto</span>(<span style=color:#e6db74>&#39;Message from my remote Step Extension!&#39;</span>, <span style=color:#e6db74>&#39;this is the description of the notification&#39;</span>, <span style=color:#e6db74>&#39;success&#39;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>button</span> <span style=color:#a6e22e>style</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>buttonStyling</span>} <span style=color:#a6e22e>onClick</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>handleClick</span>}&gt;<span style=color:#a6e22e>Click</span> <span style=color:#a6e22e>to</span> <span style=color:#a6e22e>Notify</span> <span style=color:#a6e22e>Kaoto</span>&lt;/<span style=color:#f92672>button</span>&gt;
+</span></span><span style=display:flex><span>  )
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>If you haven&rsquo;t already done so, you can
+<a href=/docs/add-custom-view>configure Kaoto to use your extension</a>
+.</p><p>With Kaoto configured with our extension, you can now use this Step Extension in the step it&rsquo;s configured to be displayed for.
+Clicking on the button from the remote application should trigger a notification in Kaoto.</p><p>Now that you understand how Step Extensions work, you can check out
+<a href=https://github.com/KaotoIO/kaoto-ui/blob/main/src/components/StepExtensionApi.ts target=_blank>the other methods available on the Step Extension API</a>
+.</p><p>If Kaoto doesn&rsquo;t support something you need, you can either
+<a href=https://github.com/KaotoIO/kaoto-ui/blob/main/CONTRIBUTING.md#implementing-bug-fixes-or-features target=_blank>contribute with the implementation</a>
+or <a href=https://github.com/KaotoIO/kaoto-ui/blob/main/CONTRIBUTING.md#submit-a-new-issue target=_blank>contribute with an issue</a>
+.</p></div></div></div></div></section><footer class="bg-dark footer-section"><div class=section><div class=container><div class=row><div class=col-md-4><h5 class=text-light>Email</h5><p class="text-white paragraph-lg font-secondary"><a href=mailto:hellokaoto@gmail.com>hellokaoto@gmail.com</a></p></div><div class=col-md-4><h5 class=text-light>Source Code</h5><p class="text-white paragraph-lg font-secondary"><a href=https://github.com/KaotoIO rel="nofollow noopener" target=_blank>KaotoIO</a></p></div><div class=col-md-4><h5 class=text-light>Twitter</h5><p class="text-white paragraph-lg font-secondary"><a href=https://www.twitter.com/KaotoIO rel="nofollow noopener" target=_blank>KaotoIO</a></p></div></div></div></div><div class="footer-bottom border-top text-center border-dark py-5"><p class="mb-0 text-light">Copyright 2022 © Kaoto</p></div></footer><script src=https://kaoto.io/plugins/jQuery/jquery.min.js></script>
+<script src=https://kaoto.io/plugins/bootstrap/bootstrap.min.js></script>
+<script src=https://kaoto.io/plugins/slick/slick.min.js></script>
+<script src=https://kaoto.io/plugins/shuffle/shuffle.min.js></script>
+<script src=https://kaoto.io/js/script.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js></script><div id=js-cookie-box class="cookie-box cookie-box-hide">This site uses cookies. By continuing to use this website, you agree to their use. <span id=js-cookie-button class="btn btn-sm btn-primary ml-2">I Accept</span></div><script>(function(){const t=document.getElementById("js-cookie-box"),n=document.getElementById("js-cookie-button");Cookies.get("cookie-box")||(t.classList.remove("cookie-box-hide"),n.onclick=function(){Cookies.set("cookie-box",!0,{expires:2}),t.classList.add("cookie-box-hide")})})(jQuery)</script><style>.cookie-box{position:fixed;left:0;right:0;bottom:0;text-align:center;z-index:9999;padding:1rem 2rem;background:#474747;transition:all .75s cubic-bezier(.19,1,.22,1);color:#fdfdfd}.cookie-box-hide{display:none}</style></body></html>
