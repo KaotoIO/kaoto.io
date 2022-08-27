@@ -12,6 +12,7 @@ docker run --rm  -p 8081:8081  --name kaoto quay.io/kaotoio/standalone:test
 
 You can now access Kaoto on [http://localhost:8081](http://localhost:8081)
 
+Learn more about how to use Kaoto on the [User Guide](/docs/user-guide)
 
 Always stop the containers when finishing using Kaoto, so you don't have containers dangling:
 
