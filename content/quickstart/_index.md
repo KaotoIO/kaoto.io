@@ -4,8 +4,6 @@ description: "Quickstart to test and start working with Kaoto, the low code and 
 draft: false
 ---
 
-To start Kaoto you need to start both the frontend and the backend. 
-
 The recommended quickstart way of running Kaoto is through Docker. The only pre-requisite is to have [docker installed](https://docs.docker.com/get-docker/).
 
 ```bash
