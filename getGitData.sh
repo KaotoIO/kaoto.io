@@ -35,12 +35,12 @@ do
     echo "date: $DATE1" >> "$FILENAME"
     echo "---" >> "$FILENAME"
     echo "${line:7} made their first commit on Kaoto!\n" >> "$FILENAME"
-    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." > "$FILENAME"
+    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." >> "$FILENAME"
   else
     echo "date: $DATE2" >> "$FILENAME"
     echo "---" >> "$FILENAME"
     echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
-    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." > "$FILENAME"
+    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." >> "$FILENAME"
   fi
 done < $FOLDER"/contributors.txt"
 
