@@ -12,6 +12,7 @@ cd $FRONTEND
 git shortlog -s --no-merges main >> $FOLDER"/contributors.txt"
 echo "Found the following contributors"
 cat $FOLDER"/contributors.txt"
+CONTRIBUTORS=0
 while IFS= read -r line 
 do
   cd $BACKEND
@@ -33,11 +34,13 @@ do
   elif [ "$DATE1" != "" ] && ([ "$DATE1" \< "$DATE2" ] || [ "$DATE2" == "" ]); then
     echo "date: $DATE1" >> "$FILENAME"
     echo "---" >> "$FILENAME"
-    echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
+    echo "${line:7} made their first commit on Kaoto!\n" >> "$FILENAME"
+    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." > "$FILENAME"
   else
     echo "date: $DATE2" >> "$FILENAME"
     echo "---" >> "$FILENAME"
     echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
+    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." > "$FILENAME"
   fi
 done < $FOLDER"/contributors.txt"
 
