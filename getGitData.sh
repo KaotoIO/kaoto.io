@@ -34,13 +34,13 @@ do
   elif [ "$DATE1" != "" ] && ([ "$DATE1" \< "$DATE2" ] || [ "$DATE2" == "" ]); then
     echo "date: $DATE1" >> "$FILENAME"
     echo "---" >> "$FILENAME"
-    echo "${line:7} made their first commit on Kaoto!\n" >> "$FILENAME"
-    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." >> "$FILENAME"
+    echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
+    echo "Now we have "$((++CONTRIBUTORS))" contributors in Kaoto." >> "$FILENAME"
   else
     echo "date: $DATE2" >> "$FILENAME"
     echo "---" >> "$FILENAME"
     echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
-    echo "Now we have "$((++CONTRIBUTORS))" in Kaoto." >> "$FILENAME"
+    echo "Now we have "$((++CONTRIBUTORS))" contributors in Kaoto." >> "$FILENAME"
   fi
 done < $FOLDER"/contributors.txt"
 
