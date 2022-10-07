@@ -7,7 +7,7 @@ draft: false
 The recommended quickstart way of running Kaoto is through Docker. The only pre-requisite is to have [docker installed](https://docs.docker.com/get-docker/).
 
 ```bash
-docker run --rm  -p 8081:8081  --name kaoto quay.io/kaotoio/standalone:test
+docker run --rm  -p 8081:8081  --name kaoto kaotoio/standalone:nightly
 ```
 
 You can now access Kaoto on [http://localhost:8081](http://localhost:8081)
