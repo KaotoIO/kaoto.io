@@ -35,14 +35,22 @@ do
     echo "date: $DATE1" >> "$FILENAME"
     echo "---" >> "$FILENAME"
     echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
-    echo "Now we have "$((++CONTRIBUTORS))" contributors in Kaoto." >> "$FILENAME"
   else
     echo "date: $DATE2" >> "$FILENAME"
     echo "---" >> "$FILENAME"
     echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
-    echo "Now we have "$((++CONTRIBUTORS))" contributors in Kaoto." >> "$FILENAME"
   fi
 done < $FOLDER"/contributors.txt"
+
+
+FILENAME=$FOLDER"/content/timeline/generated-contributor-total.md"
+echo "---" > "$FILENAME"
+echo "title: Total number of contributors " >> "$FILENAME"
+echo "draft: false" >> "$FILENAME"
+echo "type: timeline" >> "$FILENAME"
+echo "date: "$(date) >> "$FILENAME"
+echo "---" >> "$FILENAME"
+echo "We have "$CONTRIBUTORS" individuals contributing to Kaoto." >> "$FILENAME"
 
 
 echo "Remove bots"
