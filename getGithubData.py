@@ -54,7 +54,7 @@ with open('content/timeline/_index.md', 'a') as f:
   f.write('\n\nTotal number of unique followers: ' + str(len(stargazers)))
   f.write('\n\n ## Timeline')
 
-with open('/content/timeline/generated-contributor-total.md', 'w') as f:
+with open('content/timeline/generated-contributor-total.md', 'w') as f:
   f.write('---')
   f.write('\ntitle: Total number of contributors')
   f.write('\ndraft: false')
