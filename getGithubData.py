@@ -6,8 +6,6 @@ import requests
 import subprocess as sb
 from requests.auth import HTTPBasicAuth
 
-authentication = HTTPBasicAuth( sys.argv[1],  sys.argv[2])
-
 def generate_new_entry(filename, date, title, content, url):
   with open('content/timeline/generated-' + filename, 'a') as f:
     f.write('---\n')
@@ -20,17 +18,18 @@ def generate_new_entry(filename, date, title, content, url):
 
 
 print("Processing releases...\n")
-data = requests.get('https://api.github.com/repos/KaotoIO/kaoto-ui/releases', auth = authentication)
+data = requests.get('https://api.github.com/repos/KaotoIO/kaoto-ui/releases')
 for release in data.json():
+    print (release)
     generate_new_entry('release-' + release['published_at'] + '.md', release['published_at'],  release['name'], release['body'], release['html_url'])
-data = requests.get('https://api.github.com/repos/KaotoIO/kaoto-backend/releases', auth = authentication)
+data = requests.get('https://api.github.com/repos/KaotoIO/kaoto-backend/releases')
 for release in data.json():
     generate_new_entry('release-' + release['published_at'] + '.md', release['published_at'], release['name'], release['body'], release['html_url'])
-    
     
 stargazers = []
 mergedprs = 0
 forks = 0
+authentication = HTTPBasicAuth( sys.argv[1],  sys.argv[2])
 repositories = requests.get('https://api.github.com/orgs/KaotoIO/repos', auth = authentication)
 for repo in repositories.json():
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/stargazers', auth = authentication)

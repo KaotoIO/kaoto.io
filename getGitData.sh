@@ -15,6 +15,7 @@ cat $FOLDER"/contributors.txt"
 CONTRIBUTORS=0
 while IFS= read -r line 
 do
+  CONTRIBUTORS=$(($CONTRIBUTORS + 1))
   cd $BACKEND
   DATE1=$(git log --author="${line:7}" --reverse --format=%ci | head -n 1)
   DATE1=${DATE1:0:10}
@@ -27,7 +28,6 @@ do
   echo "title: ${line:7} " >> "$FILENAME"
   echo "draft: false" >> "$FILENAME"
   echo "type: timeline" >> "$FILENAME"
-  
   echo "Contributor: ${line:7} '$DATE1' '$DATE2'"
   if [ "$DATE2" == "" ]  && [ "$DATE1" == "" ]; then
     rm "$FILENAME"

@@ -51,15 +51,16 @@ jobs:
           username: ${{ secrets.API_USER }}
           password: ${{ secrets.API_PASSWORD }}
           
-      -
-        name: Run Hugo
+      - name: Run Hugo
         uses: crazy-max/ghaction-hugo@v1
+        if: always()
         with:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --verbose
           
       - name: Setup CNAME correctly
+        if: always()
         run:  cp CNAME public/CNAME
       -
         name: Deploy to GitHub Pages
