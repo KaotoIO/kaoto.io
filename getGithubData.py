@@ -31,7 +31,7 @@ for repo in repositories.json():
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/releases', auth = authentication)
   for release in data.json():
       print(release)
-      if (not (release['published_at'] is None))
+      if (not (release['published_at'] is None)):
         generate_new_entry('release-' + release['published_at'] + '.md', release['published_at'], release['name'], release['body'], release['html_url'])
   # followers
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/stargazers', auth = authentication)
