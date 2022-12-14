@@ -43,16 +43,6 @@ do
 done < $FOLDER"/contributors.txt"
 
 
-FILENAME=$FOLDER"/content/timeline/generated-contributor-total.md"
-echo "---" > "$FILENAME"
-echo "title: Total number of contributors " >> "$FILENAME"
-echo "draft: false" >> "$FILENAME"
-echo "type: timeline" >> "$FILENAME"
-echo "date: "$(date) >> "$FILENAME"
-echo "---" >> "$FILENAME"
-echo "We have "$CONTRIBUTORS" individuals contributing to Kaoto." >> "$FILENAME"
-
-
 echo "Remove bots"
 rm $FOLDER/content/timeline/generated-contributor-*-Bot.md
 rm $FOLDER/content/timeline/generated-contributor-*-bot.md
