@@ -20,7 +20,6 @@ def generate_new_entry(filename, date, title, content, url):
 print("Processing releases...\n")
 data = requests.get('https://api.github.com/repos/KaotoIO/kaoto-ui/releases')
 for release in data.json():
-    print (release)
     generate_new_entry('release-' + release['published_at'] + '.md', release['published_at'],  release['name'], release['body'], release['html_url'])
 data = requests.get('https://api.github.com/repos/KaotoIO/kaoto-backend/releases')
 for release in data.json():
@@ -55,7 +54,7 @@ with open('content/timeline/_index.md', 'a') as f:
   f.write('\n\nTotal number of unique followers: ' + str(len(stargazers)))
   f.write('\n\n ## Timeline')
 
-with open('/content/timeline/generated-contributor-total.md', 'a') as f:
+with open('/content/timeline/generated-contributor-total.md', 'w') as f:
   f.write('---')
   f.write('\ntitle: Total number of contributors')
   f.write('\ndraft: false')
