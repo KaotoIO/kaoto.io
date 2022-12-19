@@ -68,11 +68,6 @@
 </footer>
 <!-- /footer -->
 
-{{ "<!-- Google Map API -->" | safeHTML }}
-{{ if site.Params.map.enable }}
-<script src="{{ site.Params.map.gmap_api | safeURL }}"></script>
-{{ end }}
-
 {{ "<!-- JS Plugins -->" | safeHTML }}
 {{ range site.Params.plugins.js}}
 <script src="{{ .link | absURL }}"></script>
