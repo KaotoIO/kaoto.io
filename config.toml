@@ -63,16 +63,16 @@ git = 'KaotoIO'
 twitter = 'KaotoIO'
 # meta description
 author = 'Kaoto Team'
-description = 'Kaoto is an extendable integration editor for low-code and no-code personas.'
+description = 'Kaoto is an extendable integration editor for low-code and no-code personas. Zero-ETL and much more with a visual multi-DSL flow editor.'
 # google analytics
 google_analytics_id = 'G-BP1PVX7HSK' # Your ID
 # copyright
-copyright = 'Copyright 2022 © Kaoto'
+copyright = ''
 custom_css = ["css/custom.css"]
 
 # preloader
 [params.preloader]
-enable = true
+enable = false
 preloader = 'images/preloader.gif' # use png, jpg, svg or gif format
 
 # contact
