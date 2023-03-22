@@ -66,7 +66,9 @@
       {{ range .team_member }}
       <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
         <div class="card text-center">
+          {{ if .image }}
           <img src="{{ .image | absURL }}" class="card-img-top">
+          {{ end }}
           <div class="card-body">
             <h4 class="card-title">{{.title }}</h4>
             <p class="text-light font-secondary">{{.designation }}</p>
