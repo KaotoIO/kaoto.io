@@ -6,7 +6,7 @@ draft: false
 
 ## Using a standalone executable
 
-Go to [https://github.com/KaotoIO/kaoto-ui/releases/latest](https://github.com/KaotoIO/kaoto-ui/releases/latest) and download the appropiate file (see following sections) from the **Assets** section at the bottom of the release information.
+Go to [https://github.com/KaotoIO/kaoto-ui/releases/latest](https://github.com/KaotoIO/kaoto-ui/releases/latest) and download the appropriate file (see following sections) from the **Assets** section at the bottom of the release information.
 
 ### Using JAR file
 
@@ -26,7 +26,7 @@ Learn more about how to use Kaoto on the [User Guide](/docs/user-guide)
 
 If you downloaded one of the native executables valid for your architecture and operative system, you just have to run the downloaded file as you would run any other application file in your operative system.
 
-Note that as it is a native build, you should have the exact same environment as the one in which the executable was built. All our executables are built using the latest versions of github machines.
+Note that as it is a native build, you should have the exact same environment as the one in which the executable was built. All our executables are built using the latest versions of GitHub machines.
 
 You can now access Kaoto on [http://localhost:8081](http://localhost:8081)
 

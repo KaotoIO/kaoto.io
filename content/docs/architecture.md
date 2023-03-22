@@ -32,7 +32,7 @@ All flows also contain metadata associated to it, like the name or some annotati
 
 ## Separation of Concerns
 
-Kaoto has a clear *Separation of Concerns* to maximize decoupling and therefore extensibility of the application. Following the *Single Responsiblity Principle*, the backend offers an API that handles every transformation and parsing needed to support each DSL. The frontend will not care about the specifics of the DSL, and will only use the generic objects as defined on the Domain. Both frontend and backend share the same domain.
+Kaoto has a clear *Separation of Concerns* to maximize decoupling and therefore extensibility of the application. Following the *Single Responsibility Principle*, the backend offers an API that handles every transformation and parsing needed to support each DSL. The frontend will not care about the specifics of the DSL, and will only use the generic objects as defined on the Domain. Both frontend and backend share the same domain.
 
 This means that **the frontend is agnostic of the underlying DSL used**. The frontend understands the generic abstract concept of steps organized on a flow. But it does not parse or understand the source code that is going to be generated. It focuses on the visual canvas and the high level human definition of what flow we want to implement. The steps in the flow have properties that need to be configured and have constraints that define when and how they can be used. But all those constraints and properties are defined in a generic way, so we could plug in different DSLs on the backend and the frontend will handle all of them the same way. 
 
@@ -53,7 +53,7 @@ Kaoto source code is divided in [several repositories](https://github.com/KaotoI
 
 The frontend is designed as a **micro-frontend architecture** [^2] [^3].
 
-The core frotend interacts with the backend and is able to visualize and edit a flow seamlessly, working with the generic domain classes. 
+The core frontend interacts with the backend and is able to visualize and edit a flow seamlessly, working with the generic domain classes. 
 
 But sometimes we need a finer grain detail to edit properly a flow. This is when the extensions and view definitions come into play. Extensions can be configured on the fly, without having to rebuild or redeploy Kaoto.
 
@@ -93,7 +93,7 @@ The backend will do all the transformations between the generic domain objects t
 
 Given the list of steps generated with the previous service, Kaoto can decide what micro-frontend extensions can be used with the flow the user is editing.
 
-The view definitions are the configuration bits to know which views and extensions to load on the frontend.  These view definitions are also configurable and usually stored on some local or remote repository that the administrator of Kaoto configures.
+The view definitions are the configuration bits to know which views and extensions to load on the frontend. These view definitions are also configurable and usually stored on some local or remote repository that the administrator of Kaoto configures.
 
 ![Backend Architecture Overview](/images/docs/architecture/kaoto-backend-overview-2.svg "Backend Overview")
 
