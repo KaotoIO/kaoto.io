@@ -32,6 +32,11 @@ You can now access Kaoto on [http://localhost:8081](http://localhost:8081)
 
 Learn more about how to use Kaoto on the [User Guide](/docs/user-guide)
 
+## Using VS Code
+
+The [VS Code Kaoto extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto) is integrating Kaoto as an editor.
+
+You can find specific information to get started on the [wiki page of the VS Code Kaoto project](https://github.com/KaotoIO/vscode-kaoto/wiki/Getting-started).
 
 ## Using Docker
 
