@@ -29,7 +29,11 @@
       {{ range .Data.Pages }}
       <div class="col-lg-4 col-4 mb-4 shuffle-item" data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
         <article class="card shadow">
-          <a href="{{.Permalink}}" title="{{.Title }}"><img class="rounded card-img-top" src="{{.Params.Image | relURL}}" alt="{{.Title }}"></a>
+          <a href="{{.Permalink}}" title="{{.Title }}">
+          {{ if .Params.Image}}
+          <img class="rounded card-img-top" src="{{.Params.Image | relURL}}" alt="{{.Title }}">
+          {{ end }}
+          </a>
           <div class="card-body">
             <h4 class="card-title"><a class="text-dark" href="{{.Permalink}}">{{.Title }}</a>
             </h4>
