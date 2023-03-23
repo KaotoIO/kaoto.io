@@ -52,7 +52,7 @@ jobs:
           password: ${{ secrets.API_PASSWORD }}
           
       - name: Run Hugo
-        uses: crazy-max/ghaction-hugo@v1
+        uses: crazy-max/ghaction-hugo@v2
         if: always()
         with:
           version: latest
