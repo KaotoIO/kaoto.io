@@ -6,6 +6,7 @@
 <!-- portfolio -->
 <section class="section">
   <div class="container">
+    <p>For all workshops, we will assume the user have already a running Kaoto instance on the specified version of each tutorial.</p>
     <div class="row mb-5">
       <div class="col-12">
         <div class="btn-group btn-group-toggle justify-content-center d-flex flex-wrap" data-toggle="buttons">
@@ -24,9 +25,13 @@
           </label>
           {{ end }}
         </div>
+        <ul>
+          <li>`Beginner` level means only using the graphical canvas (no-code).</li>
+          <li>`Intermediate` level means slight use of the text editor (low-code).</li>
+          <li>`Advanced` level means complex features like setting up external services.</li>
+        </ul>
       </div>
     </div>
-    <p>For all workshops, we will assume the user have already a running Kaoto instance on the specified version of each tutorial.</p>
     <div class="row shuffle-wrapper">
       {{ range .Data.Pages }}
       <div class="col-lg-4 col-4 mb-4 shuffle-item" data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
