@@ -2,7 +2,7 @@
 title: "Create a multiple choice route in Apache Camel"
 date: 2023-03-10T12:14:34+06:00
 categories: ["intermediate"]
-image: "/images/workshop/beginner-camel-choice/first.png"
+image: "/images/workshop/beginner-camel-choice/front.png"
 description: "Create a route that uses content route based EIP."
 draft: false
 ---
@@ -13,7 +13,7 @@ On this workshop we will learn how to create a multiple choice route in Apache C
 
 The suggested way of following this workshop is to read the goals of each exercise and try to do it without looking at the solution. After finishing the exercise, you can check if the solution reached is the same as the solution suggested.
 
-If you are having difficulties with an exercise, you can try to take a look at the hints. If that's not enough, you can check on the `Step by Step Explanation` section how to do it.
+If you are having difficulties with an exercise, you can try to take a look at the `Hints`. If that's not enough, you can check on the `Solution` section how to do it.
 
 Note that there may be more than one way of finishing the exercise.
 
