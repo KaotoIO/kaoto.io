@@ -49,6 +49,11 @@ URL = 'portfolio'
 name = 'Use Cases'
 weight = 5
 
+[[menu.main]]
+URL = 'workshop'
+name = 'Workshops'
+weight = 6
+
 # default parameters
 [params]
 #home = 'Home'
