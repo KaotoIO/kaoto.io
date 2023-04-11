@@ -1,7 +1,7 @@
 ---
 title: "Create a multiple choice route in Apache Camel"
 date: 2023-03-10T12:14:34+06:00
-categories: ["intermediate"]
+categories: ["beginner"]
 image: "/images/workshop/beginner-camel-choice/front.png"
 description: "Create a route that uses content route based EIP."
 draft: false
