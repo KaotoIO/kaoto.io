@@ -28,7 +28,7 @@
         <ul>
           <li>`Beginner` level means only using the graphical canvas (no-code).</li>
           <li>`Intermediate` level means slight use of the text editor (low-code).</li>
-          <li>`Advanced` level means complex features like setting up external services.</li>
+          <li>`Advanced` level means complex features for experimented users.</li>
         </ul>
       </div>
     </div>
@@ -44,8 +44,9 @@
           <div class="card-body">
             <h4 class="card-title"><a class="text-dark" href="{{.Permalink}}">{{.Title }}</a>
             </h4>
+            <strong>{{ range first 1 .Params.categories }} {{.}} {{end}}</strong>
             <p class="cars-text">{{.Summary}}</p>
-            <a href="{{.Permalink}}" class="btn btn-sm btn-primary">Read More</a>
+            <a href="{{.Permalink}}" class="btn btn-sm btn-primary">Do it!</a>
           </div>
         </article>
       </div>
