@@ -4,6 +4,12 @@ description: "Quickstart to test and start working with Kaoto, the low code and 
 draft: false
 ---
 
+## Using our testing instance
+
+We have an [openly available testing instance](https://kaoto-stable-kaoto.mariasde-cluster-c22fc5e8e66e9470d8f58db21c47bfd0-0000.eu-de.containers.appdomain.cloud/).
+
+**This instance has `deployments` disabled, but you can design routes and try Kaoto.** As a suggestion, you can use some of our [workshops](/workshop) as guides.
+
 ## Using a standalone executable
 
 Go to [https://github.com/KaotoIO/kaoto-ui/releases/latest](https://github.com/KaotoIO/kaoto-ui/releases/latest) and download the appropriate file (see following sections) from the **Assets** section at the bottom of the release information.
