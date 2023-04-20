@@ -5,17 +5,9 @@ categories: ["beginner"]
 image: "/images/workshop/beginner-file/front.png"
 description: "Create a route that listens to a folder and outputs by log the modified files."
 draft: false
+kaoto: 1.0.0
+goals: learn how to listen to changes in a folder using Apache Camel
 ---
-
-On this workshop we will learn how to listen to changes in a folder using Apache Camel.
-
-**We will be using Kaoto version `1.0.0`.**
-
-The suggested way of following this workshop is to read the goals of each exercise and try to do it without looking at the solution. After finishing the exercise, you can check if the solution reached is the same as the solution suggested.
-
-If you are having difficulties with an exercise, you can try to take a look at the `Hints`. If that's not enough, you can check on the `Solution` section how to do it.
-
-Note that there may be more than one way of finishing the exercise.
 
 ## 1.- Log changes
 

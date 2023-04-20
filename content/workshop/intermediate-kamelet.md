@@ -5,17 +5,9 @@ categories: ["intermediate"]
 image: "/images/workshop/intermediate-kamelet/front.png"
 description: "Create a Kamelet using Kaoto."
 draft: false
+kaoto: 1.0.0
+goals: learn how to create a Kamelet in Apache Camel using the graphical canvas. We are going to create something similar to the [Chuck Norris source](https://camel.apache.org/camel-kamelets/3.20.x/chuck-norris-source.html), but generating cat facts
 ---
-
-On this workshop we will learn how to create a Kamelet in Apache Camel using the graphical canvas. We are going to create something similar to the [Chuck Norris source](https://camel.apache.org/camel-kamelets/3.20.x/chuck-norris-source.html), but generating cat facts.
-
-**We will be using Kaoto version `1.0.0`.**
-
-The suggested way of following this workshop is to read the goals of each exercise and try to do it without looking at the solution. After finishing the exercise, you can check if the solution reached is the same as the solution suggested.
-
-If you are having difficulties with an exercise, you can try to take a look at the `Hints`. If that's not enough, you can check on the `Solution` section how to do it.
-
-Note that there may be more than one way of finishing the exercise.
 
 ## 1.- Make sure we are creating a Kamelet
 
