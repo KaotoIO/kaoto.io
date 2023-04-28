@@ -6,7 +6,7 @@ draft: false
 
 ## Using our testing instance
 
-We have an [openly available testing instance](https://kaoto-stable-kaoto.mariasde-cluster-c22fc5e8e66e9470d8f58db21c47bfd0-0000.eu-de.containers.appdomain.cloud/).
+We have an [openly available testing instance](https://red.ht/kaoto).
 
 **This instance has `deployments` disabled, but you can design routes and try Kaoto.** As a suggestion, you can use some of our [workshops](/workshop) as guides.
 
@@ -61,4 +61,3 @@ Always stop the containers when finishing using Kaoto, so you don't have contain
 ```bash
 docker stop kaoto
 ```
-
