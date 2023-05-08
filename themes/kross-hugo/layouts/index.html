@@ -11,8 +11,11 @@
             <a href="/quickstart" title="Kaoto Quickstart" class="btn btn-primary btn-cta border mt-4 pt-1 pb-1 mr-2">
               🚀&nbsp;&nbsp;Get Started
             </a>
-            <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" title="VS Code Extension" class="btn btn-primary btn-cta border mt-4 pt-1 pb-1 mr-2 vscode" target="_blank">
+            <a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" title="VS Code Extension" class="btn btn-primary btn-cta border mt-4 pt-1 pb-1 mr-2 vscode" target="_blank" rel="no-follow noopener">
              &nbsp;&nbsp;VS Code Extension
+            </a>
+            <a href="https://red.ht/kaoto" title="Try it!" class="btn btn-primary btn-cta border mt-4 pt-1 pb-1 mr-2" target="_blank" rel="no-follow noopener">
+             🐪&nbsp;&nbsp;Try it online!
             </a>
           </div>
         </div>
@@ -217,11 +220,11 @@
         {{ $item:= site.Data.homepage.portfolio.item_show }}
         {{ range first $item (where .Site.RegularPages "Section" "portfolio") }}
         <div class="col-lg-4 col-6 mb-4 shuffle-item">
-          <div class="position-relative rounded hover-wrapper">            
+          <div class="position-relative rounded hover-wrapper">
           {{ if isset .Params "image" }}
             <img src="{{ .Params.image | absURL }}" class="img-fluid w-100 d-block" loading="lazy">
           {{ end }}
-          
+
           {{ if isset .Params "video" }}
             <video width="100%" height="100%" preload="metadata">
               <source src="{{.Params.video | absURL }}.mp4" type ="video/mp4"/>
