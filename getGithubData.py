@@ -67,12 +67,13 @@ for repo in repositories.json():
         
   #releases
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/milestones', auth = authentication)
-  for milestone in data.json():
-      if (milestone['state'] == "open"):
-        if milestone['title'] not in milestones: milestones[milestone['title']] = []
-        issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + str(milestone['number']), auth = authentication)
-        for issue in issues.json():
-            milestones[milestone['title']].append(issue)
+  if (repo['full_name'] != 'KaotoIO/vscode-kaoto'):
+      for milestone in data.json():
+          if (milestone['state'] == "open"):
+            if milestone['title'] not in milestones: milestones[milestone['title']] = []
+            issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + str(milestone['number']), auth = authentication)
+            for issue in issues.json():
+                milestones[milestone['title']].append(issue)
             
   # followers
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/stargazers', auth = authentication)
