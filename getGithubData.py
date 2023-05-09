@@ -17,40 +17,82 @@ def generate_new_entry(filename, date, title, content, url):
     f.write('---\n')
     f.write(content[0:250] + '\n\n[Read more](' + url + ')')
 
+def generate_new_milestone(milestone, issues):
+  if (len(issues) > 0):
+    with open('content/roadmap/generated-milestone-' + milestone + '.md', 'a') as f:
+        f.write('---\n')
+        f.write('title: Milestone ' + milestone + '\n')
+        f.write('draft: false\n')
+        f.write('type: "roadmap"\n')
+        f.write('date: ')
+        f.write(str(datetime.datetime.now().year))
+        f.write('-')
+        f.write(str(datetime.datetime.now().month))
+        f.write('-')
+        f.write(str(datetime.datetime.now().day))
+        f.write('\n')
+        f.write('---\n')
+        f.write('Milestone **' + milestone + '** contains the following issues:\n')
+        for issue in issues:
+          f.write(' - *')
+          f.write(issue['state'])
+          f.write('* ')
+          if (issue['state'] == 'closed'):
+            f.write('~~')
+          f.write('[')
+          f.write(issue['title'])
+          f.write('](')
+          f.write(issue['html_url'])
+          f.write(')')
+          if (issue['state'] == 'closed'):
+            f.write('~~')
+          f.write('\n')
+
 
 authentication = HTTPBasicAuth( sys.argv[1],  sys.argv[2])
 stargazers = []
 mergedprs = 0
 forks = 0
 contributors = []
+milestones = {}
 repositories = requests.get('https://api.github.com/orgs/KaotoIO/repos', auth = authentication)
-print("Processing repositories...\n")
+print("Processing repositories...")
 for repo in repositories.json():
   print("Processing " + repo['full_name'])
   #releases
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/releases', auth = authentication)
   for release in data.json():
-      print(release)
       if (not (release['published_at'] is None)):
         generate_new_entry('release-' + release['published_at'] + '.md', release['published_at'], release['name'], release['body'], release['html_url'])
+        
+  #releases
+  data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/milestones', auth = authentication)
+  for milestone in data.json():
+      if (milestone['state'] == "open"):
+        if milestone['title'] not in milestones: milestones[milestone['title']] = []
+        issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + str(milestone['number']), auth = authentication)
+        for issue in issues.json():
+            milestones[milestone['title']].append(issue)
+            
   # followers
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/stargazers', auth = authentication)
   for stargazer in data.json():
-      print(stargazer)
       if stargazer['login'] not in stargazers: stargazers.append(stargazer['login'])
+      
   # merged pr
   data = requests.get('https://api.github.com/search/issues?q=repo:' + repo['full_name'] + '+is:pr+is:merged', auth = authentication)
-  print(data.json())
   mergedprs = mergedprs + data.json()['total_count']
+  
   # forks
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/forks?per_page=100', auth = authentication)
-  print(data.json())
   forks = forks + len(data.json())
+  
   # contributors
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/contributors', auth = authentication)
   for contributor in data.json():
-      print(contributor)
       if contributor['id'] not in contributors: contributors.append(contributor['id'])
+
+for milestone, issues in milestones.items(): generate_new_milestone(milestone, issues)
 
 with open('content/timeline/_index.md', 'a') as f:
   f.write('\n\n ## Some Cross-Project statistics')
