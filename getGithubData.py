@@ -32,7 +32,7 @@ def generate_new_milestone(milestone, issues):
         f.write(str(datetime.datetime.now().day))
         f.write('\n')
         f.write('---\n')
-        f.write('Milestone **' + milestone + '**\n\n')
+        f.write('Milestone **' + milestone + '** ')
         
         open_issues = 0;
         for issue in issues:
