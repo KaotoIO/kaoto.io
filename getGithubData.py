@@ -32,7 +32,18 @@ def generate_new_milestone(milestone, issues):
         f.write(str(datetime.datetime.now().day))
         f.write('\n')
         f.write('---\n')
-        f.write('Milestone **' + milestone + '** contains the following issues:\n')
+        f.write('Milestone **' + milestone + '** contains the following issues:\n\n')
+        
+        open_issues = 0;
+        for issue in issues:
+          if (issue['state'] != 'closed'):
+            open_issues += 1;
+            
+        progress = str(round(100*(len(issues) - open_issues)/len(issues)));
+        f.write('![](https://geps.dev/progress/');
+        f.write(progress);
+        f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)\n\n');
+        
         for issue in issues:
           f.write(' - *')
           f.write(issue['state'])
