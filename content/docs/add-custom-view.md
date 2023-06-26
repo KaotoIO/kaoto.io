@@ -32,7 +32,7 @@ A Step Extension is a web application that uses Webpack 4.x or later.
 
 This can even be in the form of built static files. In fact, this is
 how we are able to host our [example](https://step-extension.netlify.app/) on 
-Netlify. You can use the [example extension](https://github.com/KaotoIO/step-extension) as a template.
+Netlify. You can use the [example extension](https://github.com/KaotoIO/step-extension-repository/tree/main/step-extension-template) as a template.
 
 Or maybe you already have an external application that you'd like to have
 embedded within Kaoto. Then you can [skip to the View Definition section directly](#view-definition-catalog).
