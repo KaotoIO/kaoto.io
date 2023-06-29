@@ -44,6 +44,8 @@ The [VS Code Kaoto extension](https://marketplace.visualstudio.com/items?itemNam
 
 You can find specific information to get started on the [wiki page of the VS Code Kaoto project](https://github.com/KaotoIO/vscode-kaoto/wiki/Getting-started).
 
+You can also watch this [video](https://www.youtube.com/watch?v=fWovZfyN54k&list=PLU-T8l-XOWOPjrXPojx2WDSegigcNzKs4&index=1&t=1s&pp=gAQBiAQB).
+
 ## Using Docker
 
 The only pre-requisite is to have [docker installed](https://docs.docker.com/get-docker/).
