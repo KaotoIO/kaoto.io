@@ -17,6 +17,8 @@ The goals for this exercise are:
  - Then `log` the detected change with an output like `Detected  ${header.CamelFileEventType} on file ${header.CamelFileName} at ${header.CamelFileLastModified}`
  
  **Make sure your folder (/tmp/tutorial) exists before running this integration.**
+ 
+ **This integration will work better when run locally, as the folder must be in the same machine that it gets deployed.**
 
 ### Hints
 

@@ -2,16 +2,25 @@
 title: "User Guide"
 description: "How to add a new Domain Specific Language to Kaoto."
 draft: false
-date: "2022-08-27"
+date: "2023-06-19"
 categories:
 - User
 ---
 
 On this guide we will learn how to create our first workflow using Kaoto in a no-code way. This means, we will not write any source code at this point.
 
+# Starting Kaoto
+
+The first step is to load the Kaoto application. Follow the [QuickStart](/quickstart) to know in which URL you can find it.
+
+Now we want to make sure we are going to build a Kamelet Binding. Click on the top menú on the `+ New Route` button and select the `Kamelet Binding` option.
+
+![](/images/docs/user-guide/1b-configuration.png "Select Kamelet Binding DSL")
+![](/images/docs/user-guide/1c-configuration.png "Select Kamelet Binding DSL")
+
 ## Adding the first step
 
-The first step is to load the Kaoto application. If you followed the [QuickStart](/quickstart) you should have it running on [http://localhost:8081](http://localhost:8081). The initial page is an empty space with a placeholder with the title `ADD A STEP`.
+The initial page is an empty space with a placeholder with the title `ADD A STEP`.
 
 ![](/images/docs/user-guide/1-blank.png "Initial view on Kaoto")
 
