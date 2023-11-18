@@ -17,7 +17,7 @@ def generate_new_entry(filename, date, title, content, url):
     f.write('---\n')
     f.write(content[0:250] + '\n\n[Read more](' + url + ')')
 
-def generate_new_milestone(milestone, issues):
+def generate_new_milestone(milestone, issues, milestoneNo):
   if (len(issues) > 0):
     with open('content/roadmap/generated-milestone-' + milestone + '.md', 'a') as f:
         f.write('---\n')
@@ -32,7 +32,7 @@ def generate_new_milestone(milestone, issues):
         f.write(str(datetime.datetime.now().day))
         f.write('\n')
         f.write('---\n')
-        f.write('Milestone **' + milestone + '** ')
+        f.write('Milestone ![**' + milestone + '**](https://github.com/KaotoIO/kaoto-next/milestone/' + milestoneNo + ') ')
         
         open_issues = 0;
         for issue in issues:
@@ -66,6 +66,7 @@ mergedprs = 0
 forks = 0
 contributors = []
 milestones = {}
+milestoneNumbers = {}
 
 repositories = requests.get('https://api.github.com/orgs/KaotoIO/repos', auth = authentication)
 print("Processing repositories...")
@@ -86,6 +87,8 @@ for repo in repositories.json():
       if (milestone['state'] == "open"):
         if milestone['title'] not in milestones: 
            milestones[milestone['title']] = []
+        if milestone['title'] not in milestoneNumbers:
+           milestoneNumbers[milestone['title']] = str(milestone['number'])
         issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + str(milestone['number']), auth = authentication)
         for issue in issues.json():
             milestones[milestone['title']].append(issue)
@@ -113,7 +116,7 @@ for repo in repositories.json():
          contributors.append(contributor['id'])
 
 for milestone, issues in milestones.items(): 
-   generate_new_milestone(milestone, issues)
+   generate_new_milestone(milestone, issues, milestoneNumbers[milestone['title']])
 
 with open('content/timeline/_index.md', 'a') as f:
   f.write('\n\n ## Some Cross-Project statistics')
