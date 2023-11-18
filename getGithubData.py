@@ -85,13 +85,15 @@ for repo in repositories.json():
     data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/milestones', auth = authentication)
     for milestone in data.json():
       if (milestone['state'] == "open"):
-        if milestone['title'] not in milestones: 
-           milestones[milestone['title']] = []
-        if milestone['title'] not in milestoneNumbers:
-           milestoneNumbers[milestone['title']] = str(milestone['number'])
-        issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + str(milestone['number']), auth = authentication)
+        msTitle = milestone['title']
+        msNumber = str(milestone['number'])
+        if msTitle not in milestones: 
+           milestones[msTitle] = []
+        if msTitle not in milestoneNumbers:
+           milestoneNumbers[msTitle] = msNumber
+        issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + msNumber, auth = authentication)
         for issue in issues.json():
-            milestones[milestone['title']].append(issue)
+            milestones[msTitle].append(issue)
 
   # but we want to aggregate the remaining stats from all repos in the org
 
