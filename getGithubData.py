@@ -118,9 +118,8 @@ for repo in repositories.json():
          contributors.append(contributor['id'])
 
 for milestone, issues in milestones.items(): 
-   msTitle = milestone['title']
-   print("Processing Milestone " + msTitle)
-   msNumber = milestoneNumbers[msTitle]
+   print("Processing Milestone " + milestone)
+   msNumber = milestoneNumbers[milestone]
    print("Milestone # " + msNumber)
    generate_new_milestone(milestone, issues, msNumber)
 
