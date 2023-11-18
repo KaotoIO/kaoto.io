@@ -45,11 +45,11 @@ jobs:
       - name: Install Python dependencies
         run: pip3 install requests
           
-      - name: Generate Releases
-        run: python3 getGithubData.py $username $password
-        env:
-          username: ${{ secrets.API_USER }}
-          password: ${{ secrets.API_PASSWORD }}
+#      - name: Generate Releases
+#        run: python3 getGithubData.py $username $password
+#        env:
+#          username: ${{ secrets.API_USER }}
+#          password: ${{ secrets.API_PASSWORD }}
           
       - name: Run Hugo
         uses: crazy-max/ghaction-hugo@v3
