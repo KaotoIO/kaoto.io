@@ -18,7 +18,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+      
+      - name: Checkout Kaoto-Next
+        uses: actions/checkout@v4
+        with:
+          repository: 'KaotoIO/kaoto-next'
+          path: 'tmp/kaoto-next'
+          fetch-depth: '0'
+
+      - name: Checkout vscode-kaoto
+        uses: actions/checkout@v4
+        with:
+          repository: 'KaotoIO/vscode-kaoto'
+          path: 'tmp/vscode-kaoto'
+          fetch-depth: '0'
+
       - name: Checkout Backend
         uses: actions/checkout@v4
         with:
