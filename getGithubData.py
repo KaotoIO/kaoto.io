@@ -66,30 +66,37 @@ mergedprs = 0
 forks = 0
 contributors = []
 milestones = {}
+
 repositories = requests.get('https://api.github.com/orgs/KaotoIO/repos', auth = authentication)
 print("Processing repositories...")
 for repo in repositories.json():
   print("Processing " + repo['full_name'])
-  #releases
-  data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/releases', auth = authentication)
-  for release in data.json():
-      if (not (release['published_at'] is None)):
-        generate_new_entry('release-' + release['published_at'] + '.md', release['published_at'], release['name'], release['body'], release['html_url'])
-        
-  #releases
-  data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/milestones', auth = authentication)
-  if (repo['full_name'] != 'KaotoIO/vscode-kaoto'):
-      for milestone in data.json():
-          if (milestone['state'] == "open"):
-            if milestone['title'] not in milestones: milestones[milestone['title']] = []
-            issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + str(milestone['number']), auth = authentication)
-            for issue in issues.json():
-                milestones[milestone['title']].append(issue)
-            
+  
+  # we are atm only interested in releases and milestones of Kaoto-Next
+  if (repo['full_name'] == 'KaotoIO/kaoto-next'):
+    #releases
+    data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/releases', auth = authentication)
+    for release in data.json():
+        if (not (release['published_at'] is None)):
+          generate_new_entry('release-' + release['published_at'] + '.md', release['published_at'], release['name'], release['body'], release['html_url'])
+          
+    #milestones
+    data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/milestones', auth = authentication)
+    for milestone in data.json():
+      if (milestone['state'] == "open"):
+        if milestone['title'] not in milestones: 
+           milestones[milestone['title']] = []
+        issues = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/issues?state=all&milestone=' + str(milestone['number']), auth = authentication)
+        for issue in issues.json():
+            milestones[milestone['title']].append(issue)
+
+  # but we want to aggregate the remaining stats from all repos in the org
+
   # followers
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/stargazers', auth = authentication)
   for stargazer in data.json():
-      if stargazer['login'] not in stargazers: stargazers.append(stargazer['login'])
+      if stargazer['login'] not in stargazers: 
+         stargazers.append(stargazer['login'])
       
   # merged pr
   data = requests.get('https://api.github.com/search/issues?q=repo:' + repo['full_name'] + '+is:pr+is:merged', auth = authentication)
@@ -102,9 +109,11 @@ for repo in repositories.json():
   # contributors
   data = requests.get('https://api.github.com/repos/' + repo['full_name'] + '/contributors', auth = authentication)
   for contributor in data.json():
-      if contributor['id'] not in contributors: contributors.append(contributor['id'])
+      if contributor['id'] not in contributors: 
+         contributors.append(contributor['id'])
 
-for milestone, issues in milestones.items(): generate_new_milestone(milestone, issues)
+for milestone, issues in milestones.items(): 
+   generate_new_milestone(milestone, issues)
 
 with open('content/timeline/_index.md', 'a') as f:
   f.write('\n\n ## Some Cross-Project statistics')
