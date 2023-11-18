@@ -32,7 +32,7 @@ def generate_new_milestone(milestone, issues, milestoneNo):
         f.write(str(datetime.datetime.now().day))
         f.write('\n')
         f.write('---\n')
-        f.write('Milestone ![**' + milestone + '**](https://github.com/KaotoIO/kaoto-next/milestone/' + milestoneNo + ') ')
+        f.write('Milestone **![' + milestone + '](https://github.com/KaotoIO/kaoto-next/milestone/' + milestoneNo + ')** ')
         
         open_issues = 0;
         for issue in issues:
