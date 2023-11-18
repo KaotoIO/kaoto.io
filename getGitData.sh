@@ -6,15 +6,16 @@ KAOTO_NEXT="/home/runner/work/kaoto.io/kaoto.io/tmp/kaoto-next"
 KAOTO_VSCODE="/home/runner/work/kaoto.io/kaoto.io/tmp/vscode-kaoto"
 
 echo "Creating event per contributor!"
-FOLDER="/home/runner/work/kaoto.io/kaoto.io/"
+FOLDER="/home/runner/work/kaoto.io/kaoto.io"
+
 cd $BACKEND
 git shortlog -s --no-merges main > $FOLDER"/contributors.txt"
 cd $FRONTEND
 git shortlog -s --no-merges main >> $FOLDER"/contributors.txt"
 cd $KAOTO_NEXT
-git shortlog -s --no-merges main > $FOLDER"/contributors.txt"
+git shortlog -s --no-merges main >> $FOLDER"/contributors.txt"
 cd $KAOTO_VSCODE
-git shortlog -s --no-merges main > $FOLDER"/contributors.txt"
+git shortlog -s --no-merges main >> $FOLDER"/contributors.txt"
 echo "Found the following contributors"
 cat $FOLDER"/contributors.txt"
 CONTRIBUTORS=0
@@ -36,9 +37,9 @@ do
   FILE=${line:7}
   FILENAME=$FOLDER"/content/timeline/generated-contributor-${FILE// /-}.md"
   echo "---" > "$FILENAME"
-  echo "title: ${line:7} " >> "$FILENAME"
+  echo "title: \"${line:7}\" " >> "$FILENAME"
   echo "draft: false" >> "$FILENAME"
-  echo "type: timeline" >> "$FILENAME"
+  echo "type: \"timeline\"" >> "$FILENAME"
   echo "Contributor: ${line:7} '$DATE1' '$DATE2' '$DATE3' '$DATE4'"
   
   sorted=()
@@ -48,14 +49,13 @@ do
   sorted+=("$DATE4")
   min=${sorted[0]}
   for i in "${sorted[@]}"; do
-    echo "i=$i min=$min"
     if [ "$min" == "" ]; then
         min=$i;
     elif [ "$i" != "" ] && [ "$i" \< $min ]; then
         min=$i;
     fi
   done
-  echo "date: $min" >> "$FILENAME"
+  echo "date: \"$min\"" >> "$FILENAME"
   echo "---" >> "$FILENAME"
   echo "${line:7} made their first commit on Kaoto!" >> "$FILENAME"
 done < $FOLDER"/contributors.txt"
@@ -63,5 +63,4 @@ done < $FOLDER"/contributors.txt"
 echo "Remove bots"
 rm $FOLDER/content/timeline/generated-contributor-*-Bot.md
 rm $FOLDER/content/timeline/generated-contributor-*-bot.md
-  
-
+rm $FOLDER/content/timeline/generated-contributor-*\[bot\].md
