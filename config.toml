@@ -72,8 +72,8 @@ email = 'contact@kaoto.io'
 git = 'KaotoIO'
 twitter = 'KaotoIO'
 # meta description
-author = 'Kaoto Team'
-description = 'Kaoto is an extendable integration editor for low-code and no-code personas. Zero-ETL and much more with a visual multi-DSL flow editor.'
+# author = 'Kaoto Team'
+description = 'Kaoto is an Apache Camel integration editor for low-code and no-code personas. Zero-ETL and much more with a visual multi-DSL flow editor.'
 # google analytics
 google_analytics_id = 'G-BP1PVX7HSK' # Your ID
 # copyright

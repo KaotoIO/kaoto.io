@@ -1,13 +1,13 @@
 # banner
 banner:
   title : 'Kaoto'
-  body: 'Multi-DSL Flow Editor'
+  body: 'Camel Integration Editor'
   subText: 'Free & Open Source now and forever'
 
 # about
 about:
   enable : true
-  content : "Kaoto is a flow editor to create and deploy integrations in a visual, low-code way; with developer-friendly features like a code editor and deployments to the cloud. Kaoto augments user productivity via Zero-ETL: it accelerates new users and helps experienced developers."
+  content : "Kaoto is an editor to create and deploy integrations for Apache Camel in a visual, low-code way; with developer-friendly features like a code editor and deployments to the cloud. Kaoto augments user productivity via Zero-ETL: it accelerates new users and helps experienced developers."
 
   button:
     enable : true
