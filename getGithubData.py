@@ -118,7 +118,11 @@ for repo in repositories.json():
          contributors.append(contributor['id'])
 
 for milestone, issues in milestones.items(): 
-   generate_new_milestone(milestone, issues, milestoneNumbers[milestone['title']])
+   msTitle = milestone['title']
+   print("Processing Milestone " + msTitle)
+   msNumber = milestoneNumbers[msTitle]
+   print("Milestone # " + msNumber)
+   generate_new_milestone(milestone, issues, msNumber)
 
 with open('content/timeline/_index.md', 'a') as f:
   f.write('\n\n ## Some Cross-Project statistics')
