@@ -4,6 +4,7 @@ from github import Github
 from github import Auth
 
 import datetime
+import sys
 
 def generate_new_entry(filename, date, title, content, url):
   with open('content/timeline/generated-' + filename, 'a') as f:
