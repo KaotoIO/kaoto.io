@@ -9,7 +9,7 @@ import sys
 def generate_new_timeline_entry_for_release(filename, date, title, content, url, repository):
   with open('content/timeline/generated-' + filename, 'a') as f:
     f.write('---\n')
-    f.write('title: "' + repository+ ' - ' + title + '"\n')
+    f.write('title: "' + repository+ ' ' + title + '"\n')
     f.write('draft: false\n')
     f.write('type: "timeline"\n')
     f.write('date: "' + date + '"\n')
