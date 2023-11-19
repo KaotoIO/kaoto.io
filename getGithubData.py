@@ -16,7 +16,7 @@ def generate_new_timeline_entry_for_release(filename, date, title, content, url,
     f.write('---\n')
     f.write(content[0:250] + '\n\n[Read more](' + url + ')')
 
-def generate_issue_entry(issue):
+def generate_issue_entry(entries, issue):
   entry = ""
   entry += ' - *'
   entry += issue.state
@@ -37,18 +37,19 @@ def generate_new_milestone(milestone):
   msTitle = mstone.title
   msNumber = str(mstone.number)
   totalCount = 0
+  entries = []
 
   # first list the open issues
   issues = repo.get_issues(milestone=mstone, state='open')  
   totalCount += issues.totalCount
   for issue in issues:
-    generate_issue_entry(issue)
+    generate_issue_entry(entries, issue)
 
   # then the closed ones
   issues = repo.get_issues(milestone=mstone, state='closed')
   totalCount += issues.totalCount
   for issue in issues:
-    generate_issue_entry(issue)
+    generate_issue_entry(entries, issue)
   
   print("Total Issue Count: " + str(totalCount) + " / Open Issues: " + str(milestone.open_issues))
 
@@ -76,7 +77,6 @@ def generate_new_milestone(milestone):
       for entry in entries:
         f.write(entry)
 
-entries = []
 stargazers = []
 mergedprs = 0
 forks = 0
