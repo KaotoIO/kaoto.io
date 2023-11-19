@@ -57,7 +57,7 @@ jobs:
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
           
       - name: Install Python dependencies
-        run: pip3 install requests
+        run: pip3 install PyGithub
           
       - name: Generate Releases and Milestones
         run: python3 getGithubData.py $username $password
