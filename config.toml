@@ -40,24 +40,19 @@ name = 'Blog'
 weight = 3
 
 [[menu.main]]
-URL = 'quickstart'
-name = 'Quick Start'
-weight = 4
-
-[[menu.main]]
 URL = 'docs'
 name = 'Docs'
-weight = 5
+weight = 4
 
 [[menu.main]]
 URL = 'portfolio'
 name = 'Use Cases'
-weight = 6
+weight = 5
 
 [[menu.main]]
 URL = 'workshop'
 name = 'Workshops'
-weight = 7
+weight = 6
 
 # default parameters
 [params]

@@ -2,6 +2,9 @@
 title: "Quickstart"
 description: "Quickstart to test and start working with Kaoto, the low code and no code integration orchestration tool."
 draft: false
+date: "2023-06-19"
+categories:
+- User
 ---
 
 ## Using our testing instance
