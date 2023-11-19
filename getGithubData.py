@@ -37,16 +37,20 @@ def generate_new_milestone(milestone):
   msTitle = mstone.title
   msNumber = str(mstone.number)
   totalCount = 0
+  openCount = 0
+  closedCount = 0
   entries = []
 
   # first list the open issues
   issues = repo.get_issues(milestone=mstone, state='open')  
+  openCount = issues.totalCount
   totalCount += issues.totalCount
   for issue in issues:
     generate_issue_entry(entries, issue)
 
   # then the closed ones
   issues = repo.get_issues(milestone=mstone, state='closed')
+  closedCount = issues.totalCount
   totalCount += issues.totalCount
   for issue in issues:
     generate_issue_entry(entries, issue)
@@ -68,11 +72,11 @@ def generate_new_milestone(milestone):
       f.write('"\n')
       f.write('---\n')
       f.write('Milestone **[' + msTitle + '](https://github.com/KaotoIO/kaoto-next/milestone/' + msNumber + ')** ')
-      
       progress = str(round(100*(totalCount - milestone.open_issues)/totalCount))
       f.write('![](https://geps.dev/progress/')
       f.write(progress)
-      f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)\n\n')
+      f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)')
+      f.write('   **Open: ' + openCount + ' /  Closed: ' + str(closedCount)'** \n\n')
       
       for entry in entries:
         f.write(entry)
