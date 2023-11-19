@@ -6,7 +6,7 @@ from github import Auth
 import datetime
 import sys
 
-def generate_new_entry(filename, date, title, content, url):
+def generate_new_timeline_entry_for_release(filename, date, title, content, url):
   with open('content/timeline/generated-' + filename, 'a') as f:
     f.write('---\n')
     f.write('title: ' + title + '\n')
@@ -77,15 +77,9 @@ print("Processing repositories...")
 for repo in repositories:
   print("Processing " + repo.name)
   
-  # we are atm only interested in releases and milestones of Kaoto-Next
+  # we are atm only interested in milestones of Kaoto-Next
   if repo.name == "kaoto-next":
 
-    #releases
-    releases = repo.get_releases()
-    for release in releases:
-        if (not (release.published_at is None)):
-          generate_new_entry('release-' + str(release.published_at) + '.md', str(release.published_at), release.title, release.body, release.html_url)
-    
     #milestones
     milestones = repo.get_milestones()
     for mstone in milestones:
@@ -93,7 +87,13 @@ for repo in repositories:
         generate_new_milestone(mstone)
 
   # but we want to aggregate the remaining stats from all repos in the org  
-  
+
+  #releases
+  releases = repo.get_releases()
+  for release in releases:
+      if (not (release.published_at is None)):
+        generate_new_timeline_entry_for_release('release-' + str(release.published_at) + '.md', str(release.published_at), release.title, release.body, release.html_url)
+
   # followers
   gazers = repo.get_stargazers()
   for stargazer in gazers:
