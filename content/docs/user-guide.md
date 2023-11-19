@@ -1,6 +1,6 @@
 ---
 title: "User Guide"
-description: "How to add a new Domain Specific Language to Kaoto."
+description: "How to create an integration for Apache Camel in a no-code way."
 draft: false
 date: "2023-06-19"
 categories:
