@@ -1,17 +1,13 @@
-name: Hugo build
+name: PR build
 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
+  # Triggers the workflow on pull request events but only for the master branch
+  pull_request_target:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
-  #nightly to keep statistics updated
-  schedule:
-    - cron:  '12 0 * * *'
-
 jobs:
   hugo:
     runs-on: ubuntu-latest
@@ -76,12 +72,4 @@ jobs:
       - name: Setup CNAME correctly
         if: always()
         run:  cp CNAME public/CNAME
-      -
-        name: Deploy to GitHub Pages
-        if: success() && github.event_name != 'pull_request'
-        uses: crazy-max/ghaction-github-pages@v4
-        with:
-          target_branch: public
-          build_dir: public
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
