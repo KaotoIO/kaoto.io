@@ -9,10 +9,10 @@ import sys
 def generate_new_timeline_entry_for_release(filename, date, title, content, url):
   with open('content/timeline/generated-' + filename, 'a') as f:
     f.write('---\n')
-    f.write('title: ' + title + '\n')
+    f.write('title: "' + title + '"\n')
     f.write('draft: false\n')
     f.write('type: "timeline"\n')
-    f.write('date: ' + date + '\n')
+    f.write('date: "' + date + '"\n')
     f.write('---\n')
     f.write(content[0:250] + '\n\n[Read more](' + url + ')')
 
@@ -25,16 +25,16 @@ def generate_new_milestone(milestone):
   if (issues.totalCount > 0):
     with open('content/roadmap/generated-milestone-' + msTitle + '.md', 'a') as f:
         f.write('---\n')
-        f.write('title: Milestone ' + msTitle + '\n')
+        f.write('title: "Milestone ' + msTitle + '"\n')
         f.write('draft: false\n')
         f.write('type: "roadmap"\n')
-        f.write('date: ')
+        f.write('date: "')
         f.write(str(datetime.datetime.now().year))
         f.write('-')
         f.write(str(datetime.datetime.now().month))
         f.write('-')
         f.write(str(datetime.datetime.now().day))
-        f.write('\n')
+        f.write('"\n')
         f.write('---\n')
         f.write('Milestone **[' + msTitle + '](https://github.com/KaotoIO/kaoto-next/milestone/' + msNumber + ')** ')
         
@@ -65,6 +65,9 @@ contributors = []
 
 # using an access token
 auth = Auth.Login(sys.argv[1], sys.argv[2])
+
+# for local test purposes...please keep it here
+#auth = Auth.Token(sys.argv[1])
 
 # Public Web Github
 g = Github(auth=auth)
