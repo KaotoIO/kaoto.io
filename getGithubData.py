@@ -6,10 +6,10 @@ from github import Auth
 import datetime
 import sys
 
-def generate_new_timeline_entry_for_release(filename, date, title, content, url):
+def generate_new_timeline_entry_for_release(filename, date, title, content, url, repository):
   with open('content/timeline/generated-' + filename, 'a') as f:
     f.write('---\n')
-    f.write('title: "' + title + '"\n')
+    f.write('title: "' + repository+ ' - ' + title + '"\n')
     f.write('draft: false\n')
     f.write('type: "timeline"\n')
     f.write('date: "' + date + '"\n')
@@ -95,7 +95,7 @@ for repo in repositories:
   releases = repo.get_releases()
   for release in releases:
       if (not (release.published_at is None)):
-        generate_new_timeline_entry_for_release('release-' + str(release.published_at) + '.md', str(release.published_at), release.title, release.body, release.html_url)
+        generate_new_timeline_entry_for_release('release-' + str(release.published_at) + '.md', str(release.published_at), release.title, release.body, release.html_url, repo.name)
 
   # followers
   gazers = repo.get_stargazers()
