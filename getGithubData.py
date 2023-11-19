@@ -16,48 +16,67 @@ def generate_new_timeline_entry_for_release(filename, date, title, content, url,
     f.write('---\n')
     f.write(content[0:250] + '\n\n[Read more](' + url + ')')
 
+def generate_issue_entry(issue):
+  entry = ""
+  entry += ' - *'
+  entry += issue.state
+  entry += '* '
+  if (issue.state == 'closed'):
+    entry += '~~'
+  entry += '['
+  entry += issue.title
+  entry += ']('
+  entry += issue.html_url
+  entry += ')'
+  if (issue.state == 'closed'):
+    entry += '~~'
+  entry += '\n'
+  entries.append(entry)
+
 def generate_new_milestone(milestone):
-  issues = repo.get_issues(milestone=mstone, state='all')
   msTitle = mstone.title
   msNumber = str(mstone.number)
-  print("Total Issue Count: " + str(issues.totalCount) + " / Open Issues: " + str(milestone.open_issues))
+  totalCount = 0
 
-  if (issues.totalCount > 0):
+  # first list the open issues
+  issues = repo.get_issues(milestone=mstone, state='open')  
+  totalCount += issues.totalCount
+  for issue in issues:
+    generate_issue_entry(issue)
+
+  # then the closed ones
+  issues = repo.get_issues(milestone=mstone, state='closed')
+  totalCount += issues.totalCount
+  for issue in issues:
+    generate_issue_entry(issue)
+  
+  print("Total Issue Count: " + str(totalCount) + " / Open Issues: " + str(milestone.open_issues))
+
+  if (totalCount > 0):
     with open('content/roadmap/generated-milestone-' + msTitle + '.md', 'a') as f:
-        f.write('---\n')
-        f.write('title: "Milestone ' + msTitle + '"\n')
-        f.write('draft: false\n')
-        f.write('type: "roadmap"\n')
-        f.write('date: "')
-        f.write(str(datetime.datetime.now().year))
-        f.write('-')
-        f.write(str(datetime.datetime.now().month))
-        f.write('-')
-        f.write(str(datetime.datetime.now().day))
-        f.write('"\n')
-        f.write('---\n')
-        f.write('Milestone **[' + msTitle + '](https://github.com/KaotoIO/kaoto-next/milestone/' + msNumber + ')** ')
-        
-        progress = str(round(100*(issues.totalCount - milestone.open_issues)/issues.totalCount))
-        f.write('![](https://geps.dev/progress/')
-        f.write(progress)
-        f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)\n\n')
-        
-        for issue in issues:
-          f.write(' - *')
-          f.write(issue.state)
-          f.write('* ')
-          if (issue.state == 'closed'):
-            f.write('~~')
-          f.write('[')
-          f.write(issue.title)
-          f.write('](')
-          f.write(issue.html_url)
-          f.write(')')
-          if (issue.state == 'closed'):
-            f.write('~~')
-          f.write('\n')
+      f.write('---\n')
+      f.write('title: "Milestone ' + msTitle + '"\n')
+      f.write('draft: false\n')
+      f.write('type: "roadmap"\n')
+      f.write('date: "')
+      f.write(str(datetime.datetime.now().year))
+      f.write('-')
+      f.write(str(datetime.datetime.now().month))
+      f.write('-')
+      f.write(str(datetime.datetime.now().day))
+      f.write('"\n')
+      f.write('---\n')
+      f.write('Milestone **[' + msTitle + '](https://github.com/KaotoIO/kaoto-next/milestone/' + msNumber + ')** ')
+      
+      progress = str(round(100*(totalCount - milestone.open_issues)/totalCount))
+      f.write('![](https://geps.dev/progress/')
+      f.write(progress)
+      f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)\n\n')
+      
+      for entry in entries:
+        f.write(entry)
 
+entries = []
 stargazers = []
 mergedprs = 0
 forks = 0
