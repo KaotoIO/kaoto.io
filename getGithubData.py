@@ -76,7 +76,7 @@ def generate_new_milestone(milestone):
       f.write('![](https://geps.dev/progress/')
       f.write(progress)
       f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)')
-      f.write('   **Open: ' + openCount + ' /  Closed: ' + str(closedCount)'** \n\n')
+      f.write('   **Open: ' + openCount + ' /  Closed: ' + str(closedCount) + '** \n\n')
       
       for entry in entries:
         f.write(entry)
