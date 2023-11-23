@@ -18,18 +18,16 @@ def generate_new_timeline_entry_for_release(filename, date, title, content, url,
 
 def generate_issue_entry(entries, issue):
   entry = ""
-  entry += ' - *'
-  entry += issue.state
-  entry += '* '
+  entry += '- ['
   if (issue.state == 'closed'):
-    entry += '~~'
-  entry += '['
+    entry += 'X'
+  else:
+    entry += ' '
+  entry += '] ['
   entry += issue.title
   entry += ']('
   entry += issue.html_url
   entry += ')'
-  if (issue.state == 'closed'):
-    entry += '~~'
   entry += '\n'
   entries.append(entry)
 
@@ -77,9 +75,18 @@ def generate_new_milestone(milestone):
       f.write(progress)
       f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)')
       f.write('   (Open: ' + str(openCount) + '  Closed: ' + str(closedCount) + ') \n\n')
-      
+      f.write('**Expected delivery:** ')
+      f.write(milestone.due_on.strftime("%m/%d/%Y"))
+      f.write('\n\n')
+      f.write('**Description**\n')
+      f.write("```\n")
+      f.write(milestone.description)
+      f.write('\n```\n')
+      f.write('**Issues**\n')
+
       for entry in entries:
         f.write(entry)
+      f.write('---\n')
 
 stargazers = []
 mergedprs = 0
