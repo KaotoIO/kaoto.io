@@ -1,6 +1,6 @@
 baseURL = 'https://kaoto.io/'
 languageCode = 'en-us'
-title = 'Kaoto | Free and Open Source Integration Editor'
+title = 'Kaoto | Free and Open Source Integration Editor for Apache Camel'
 theme = 'kross-hugo'
 # default configuration
 summaryLength = '10'
@@ -68,9 +68,9 @@ git = 'KaotoIO'
 twitter = 'KaotoIO'
 # meta description
 # author = 'Kaoto Team'
-description = 'Kaoto is an Apache Camel integration editor for low-code and no-code personas. Zero-ETL and much more with a visual multi-DSL flow editor.'
+description = 'Kaoto is a integration editor for low-code and no-code personas using Apache Camel. Zero-ETL and much more with a visual multi-DSL flow editor.'
 # google analytics
-google_analytics_id = 'G-BP1PVX7HSK' # Your ID
+#google_analytics_id = 'G-BP1PVX7HSK' # Your ID
 # copyright
 copyright = ''
 custom_css = ["css/custom.css"]
