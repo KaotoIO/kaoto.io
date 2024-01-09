@@ -15,7 +15,7 @@ We have an [openly available testing instance](https://red.ht/kaoto).
 
 ## Using a standalone executable
 
-Go to [https://github.com/KaotoIO/kaoto-ui/releases/latest](https://github.com/KaotoIO/kaoto-ui/releases/latest) and download the appropriate file (see following sections) from the **Assets** section at the bottom of the release information.
+Go to [https://github.com/KaotoIO/kaoto-ui/releases/latest](https://github.com/KaotoIO/kaoto-backend/releases/latest) and download the appropriate file (see following sections) from the **Assets** section at the bottom of the release information.
 
 ### Using JAR file
 
