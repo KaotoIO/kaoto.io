@@ -1,13 +1,13 @@
 # banner
 banner:
   title : 'Kaoto'
-  body: 'Camel Integration Editor'
+  body: 'Integration Editor for Apache Camel'
   subText: 'Free & Open Source now and forever'
 
 # about
 about:
   enable : true
-  content : "Kaoto is an editor to create and deploy integrations for Apache Camel in a visual, low-code way; with developer-friendly features like a code editor and deployments to the cloud. Kaoto augments user productivity via Zero-ETL: it accelerates new users and helps experienced developers."
+  content : "Kaoto is an editor to create integrations using Apache Camel in a visual, low-code way; with developer-friendly features like a code editor. Kaoto augments user productivity via Zero-ETL: it accelerates new users and helps experienced developers."
 
   button:
     enable : true
@@ -42,13 +42,13 @@ experience:
   item: 
     - logo : 'images/experience/icon-1.png'
       title : 'Graphic Editor'
-      company : 'Create the flow visually and see how the code grows into a route. Or modify the code and see how the flow looks like.'
-      duration : 'Create flows without opening an IDE. '
+      company : 'Create integrations visually and watch how the code gets generated. Or modify the code and see how the visualization looks like.'
+      duration : 'Create integrations easily'
       
     - logo : 'images/experience/icon-2.png'
       title : 'Low Code and No Code'
-      company : 'Create and deploy integrations to Kubernetes clusters without writing a single line of code.'
-      duration : 'Camel deployment'
+      company : 'Create integrations without writing a single line of code.'
+      duration : 'Apache Camel focused'
       
     - logo : 'images/experience/icon-1.png'
       title : 'Support multiple DSL'
@@ -60,21 +60,21 @@ education:
   enable : true
   title : 'Why Kaoto'
   item:
-    - title : 'Cloud Native'
-      year : 'Kubernetes'
-      academy : "Use it as standalone or as a service in the cloud, seamlessly deploying your integrations to Kubernetes clusters. Don't stop at editing: deploy, debug, and monitor your integration workflows. Built-in support for Camel K to deploy Apache Camel integrations."
-     
-    - title : 'Fully Extendable'
-      year : 'Customizable'
-      academy : 'Support custom views for your specific needs. Add your own DSL and extensions. Include custom views and building blocks for more complex needs. Show manuals and helpers for your use cases. Automate discovery of resources.'
-      
-    - title : 'Free Libre and Open Source Forever'
-      year : 'FLOSS heart'
-      academy : 'Truly open with no vendor lock-in. Use, reuse, share, modify, and resell to your needs. Own Kaoto and make it yours, making sure your use cases are covered.'
-      
+    - title : 'Using the power of Apache Camel'
+      year : 'Camel at Heart'
+      academy : "Kaoto utilizes the Apache Camel models and schemas to always offer you all available upstream Camel features."
+
+    - title : 'VS Code Extension'
+      year : 'Local Development'
+      academy : 'We provide Kaoto as an extension you can install from the Microsoft Marketplace. This adds even more functionality that complements the Kaoto editor very well.'
+
     - title : 'Care about developers'
       year : 'LCNC: Low Code and No Code'
       academy : 'You can seamlessly switch between any IDE and Kaoto, allowing mixed teams and converting low code integrators to developers. Keep control of the code at all times with our built-in code editor that stays in sync with the visualization.'
+
+    - title : 'Free Libre and Open Source Forever'
+      year : 'FLOSS heart'
+      academy : 'Truly open with no vendor lock-in. Use, reuse, share, modify, and resell to your needs. Own Kaoto and make it yours, making sure your use cases are covered.'
 
 # service
 service:
@@ -83,8 +83,7 @@ service:
   item:
     - title : 'Fully Extendable'
       icon : 'ti-palette'
-      content : 'Create your own custom views and building blocks to handle more complex business needs. No rebuilding
-      required.'
+      content : 'Create your own custom views and building blocks to handle more complex business needs. No rebuilding required.'
       highlighted : false
 
 # portfolio
