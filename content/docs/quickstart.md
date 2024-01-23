@@ -1,68 +1,40 @@
 ---
 title: "Quickstart"
-description: "Quickstart to test and start working with Kaoto, the low code and no code integration orchestration tool."
+description: "How to create an integration for Apache Camel in a no-code way."
 draft: false
 date: "2023-06-19"
 categories:
 - User
 ---
 
-## Using our testing instance
+On this guide you will learn how to create your first workflow using Kaoto in a no-code way. This means, you will not write any source code at this point.
 
-We have an [openly available testing instance](https://red.ht/kaoto).
+## Getting Kaoto
 
-**This instance has `deployments` disabled, but you can design routes and try Kaoto.** As a suggestion, you can use some of our [workshops](/workshop) as guides.
+The first step is to install the Kaoto VS Code extension. Follow the [Installation Guide](/docs/installation) to find out more about how to do it. Once done with the installation tasks you should launch VS Code. Make sure you have created and selected a workspace folder where your integration will be stored. If you did not select a workspace, many commands will not show up as expected or behave differently.
 
-## Using a standalone executable
+## Create a new Camel Route
 
-Go to [https://github.com/KaotoIO/kaoto-ui/releases/latest](https://github.com/KaotoIO/kaoto-backend/releases/latest) and download the appropriate file (see following sections) from the **Assets** section at the bottom of the release information.
+First of all we have to create a new file which will store our integration. In the `Explorer` view on the left side of the screen you can find a small file icon with a plus sign on it. If you click on it you can enter a file name. Please make sure you are using the file suffix  `.camel.yaml`. This will ensure you get the support of the language completion features and more.
 
-### Using JAR file
+Once you hit `Enter`, the new file is created and the Kaoto editor should show up like in the image below. If it doesn't show up you might need to revisit the earlier steps and check if you followed all the instructions. 
 
-As a pre-requisite, [you must have Java 17+](https://adoptium.net) already installed in your computer.
+![](/images/docs/quickstart/create-route.gif "Create a Camel Route")
 
-Then, run the jar file as you would run it normally:
+Now we want to make sure we are going to build an Camel Route. Click on the `+ New` button and select the `Camel Route` option as shown above. This will leave you with a prefilled Camel Route example which periodically sends messages to a log endpoint.
 
-```bash
-java -jar kaoto-$version-runner.jar
-```
+At this point you already have your first working Camel Route which can be tested right away.
 
-You can now access Kaoto on [http://localhost:8081](http://localhost:8081)
+## Running the Camel Route
 
-Learn more about how to use Kaoto on the [User Guide](/docs/user-guide)
+If you have installed the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack) when following the [Installation Guide](/docs/installation), you should see a few small icons on the top right of the Kaoto editor. (see image below)
 
-### Using native executable
+![](/images/docs/quickstart/launch-route.png "Launch a Camel Route")
 
-If you downloaded one of the native executables valid for your architecture and operative system, you just have to run the downloaded file as you would run any other application file in your operative system.
+The icon marked with red color lets you run your route locally using [Camel JBang](https://camel.apache.org/manual/camel-jbang.html). If you click the button it should spawn output as shown in the below picture, periodically spawning new messages. 
 
-Note that as it is a native build, you should have the exact same environment as the one in which the executable was built. All our executables are built using the latest versions of GitHub machines.
+![](/images/docs/quickstart/terminal-output.png "Terminal Output")
 
-You can now access Kaoto on [http://localhost:8081](http://localhost:8081)
+If you get an error message instead, please make sure to install [Camel JBang](https://camel.apache.org/manual/camel-jbang.html).
 
-Learn more about how to use Kaoto on the [User Guide](/docs/user-guide)
-
-## Using VS Code
-
-The [VS Code Kaoto extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto) is integrating Kaoto as an editor.
-
-You can find specific information to get started on the [wiki page of the VS Code Kaoto project](https://github.com/KaotoIO/vscode-kaoto/wiki/Getting-started).
-
-You can also watch this [video](https://www.youtube.com/watch?v=fWovZfyN54k&list=PLU-T8l-XOWOPjrXPojx2WDSegigcNzKs4&index=1&t=1s&pp=gAQBiAQB).
-
-## Using Docker
-
-The only pre-requisite is to have [docker installed](https://docs.docker.com/get-docker/).
-
-```bash
-docker run --rm  -p 8081:8081  --name kaoto kaotoio/standalone:latest
-```
-
-You can now access Kaoto on [http://localhost:8081](http://localhost:8081)
-
-Learn more about how to use Kaoto on the [User Guide](/docs/user-guide)
-
-Always stop the containers when finishing using Kaoto, so you don't have containers dangling:
-
-```bash
-docker stop kaoto
-```
+Once you are done watching your new route write messages to the console, you can then stop the execution by selecting the `Terminal` output with your mouse and then pressing `CTRL+C`. This will stop the execution.
