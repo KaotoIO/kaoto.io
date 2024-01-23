@@ -19,7 +19,7 @@ Learn more about how to use Kaoto in the [Quickstart](/docs/quickstart)
 
 Do you already use [Visual Studio Code](https://code.visualstudio.com/)? If you don't, you will need to install it first.
 
-**For the best user experience and for more supportive features, we suggest installing the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack), which also includes the Kaoto VS Code extension.**
+**For the best user experience and for additional supportive features, we suggest installing the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack), which also includes the Kaoto VS Code extension.**
 
 The [VS Code Kaoto extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto) is integrating Kaoto as an editor.
 

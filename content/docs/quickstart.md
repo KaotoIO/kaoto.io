@@ -7,7 +7,7 @@ categories:
 - User
 ---
 
-On this guide you will learn how to create your first workflow using Kaoto in a no-code way. This means, you will not write any source code at this point.
+On this guide you will learn how to create your first route using Kaoto in a no-code way. This means, you will not write any source code at this point.
 
 ## Getting Kaoto
 
