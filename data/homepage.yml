@@ -41,7 +41,7 @@ experience:
   title : 'What is Kaoto'
   item: 
     - logo : 'images/experience/icon-1.png'
-      title : 'Graphic Editor'
+      title : 'Graphical Editor'
       company : 'Create integrations visually and watch how the code gets generated. Or modify the code and see how the visualization looks like.'
       duration : 'Create integrations easily'
       
