@@ -22,7 +22,7 @@ Helpful advice for doing things better or more easily.
 - To add new, delete or replace steps on the canvas, right click an existing node. This will provide you a contextual menu.
 - To configure a step and fill the configuration properties, click on the step icon in the canvas.
 - The first step you want to add is called `file-watch`. Don't confuse it with `file`
-- The second step is a `log`. There may be more than one `log` option, choose the one without the camel logo for simplicity.
+- The second step is a `log` processor. There is also a `log` component available, but we use the processor here.
 
 ### Solution
 
