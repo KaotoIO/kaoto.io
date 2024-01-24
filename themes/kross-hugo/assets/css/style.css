@@ -3,18 +3,9 @@
 PROJECT: Project Name
 VERSION: Versoin Number
 -------------------------------------------------------------------*/
-@import "https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Roboto:300,400,500,700";
-
-@font-face {
-  font-family: bwnistaint-xbd;
-  src: url(../fonts/BwNistaInt-xBd.woff) format("woff");
-  font-style: normal;
-  font-display: swap
-}
-
 body {
   line-height: 1.2;
-  font-family: roboto, sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
   color: #4c4c4c
@@ -25,12 +16,12 @@ p {
   color: #4c4c4c;
   font-size: 15px;
   line-height: 1.8;
-  font-family: roboto, sans-serif
+  font-family: sans-serif
 }
 
 .btn {
   font-size: 22px;
-  font-family: playfair display, serif;
+  font-family: serif;
   text-transform: capitalize;
   padding: 16px 44px;
   border-radius: 5px;
@@ -172,7 +163,7 @@ a:hover {
 
 .section-title {
   margin-bottom: 80px;
-  font-family: bwnistaint-xbd
+  font-family: sans-serif
 }
 
 .bg-cover {
@@ -281,15 +272,15 @@ a:hover {
 }
 
 .font-primary {
-  font-family: roboto, serif !important
+  font-family: serif !important
 }
 
 .font-secondary {
-  font-family: playfair display, serif !important
+  font-family: serif !important
 }
 
 .font-tertiary {
-  font-family: bwnistaint-xbd !important
+  font-family: sans-serif !important
 }
 
 .shadow {
@@ -394,9 +385,11 @@ textarea.form-control {
 }
 
 .navbar .nav-item .nav-link {
-  font-family: bwnistaint-xbd;
+  font-family: sans-serif;
   text-transform: uppercase;
-  padding: 15px
+  padding: 15px;
+  font-weight: bold;
+  font-size: large;
 }
 
 .navbar .nav-item.active .nav-link{
@@ -705,7 +698,7 @@ blockquote {
 }
 
 .content strong {
-  font-family: playfair display, serif;
+  font-family: serif;
   font-size: 22px;
   font-weight: 400;
   color: #000;
