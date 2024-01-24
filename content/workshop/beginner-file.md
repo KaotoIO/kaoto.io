@@ -61,7 +61,7 @@ If it doesn't look like that but you still want to go to the following exercise,
 
 ## 2 - Add a filter
 
-Now we want to add a `filter` and a `file` between the `file-watch` and the `log`, which copies the files in another folder everytime a file gets created.
+Now we want to add a `filter` and a `file` between the `file-watch` and the `log`, which copies the files to another folder everytime a file gets created.
 
 This will require adding two steps:
  - A step `filter` that will open a branch of steps that will be executed only when `${header.CamelFileEventType}` equals `CREATE`
