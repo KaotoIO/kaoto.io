@@ -156,4 +156,4 @@ The following video showcases the solution.
 
 ## More information
 
-More information about Apache Camel routes can be found on [the Apache Camel website](https://camel.apache.org/camel-k/1.11.x/languages/yaml.html)
+More information about Apache Camel routes can be found on [the Apache Camel website](https://camel.apache.org/components/4.0.x/others/yaml-dsl.html)

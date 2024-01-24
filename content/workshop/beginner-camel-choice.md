@@ -1,97 +1,41 @@
 ---
-title: "Create a multiple choice route in Apache Camel"
-date: 2023-03-10T12:14:34+06:00
+title: "Create a multiple choice route"
+date: 2024-01-24T10:00:00+06:00
 categories: ["beginner"]
 image: "/images/workshop/beginner-camel-choice/front.png"
-description: "Create a route that uses content route based EIP."
+description: "Create a route that leverages a content based router."
 draft: false
-kaoto: 1.0.0
-goals: learn how to create a multiple choice route in Apache Camel using mostly the graphical canvas
+kaoto: 2.0.0
+vscode_kaoto: 0.11.0
+goals: learn how to use a content based router
 ---
 
-## 1.- Create a simple choice 
-
-We are going to start by creating a simple if-else code **using the graphical canvas**. We will have 5 steps in total:
-
-![](/images/workshop/beginner-camel-choice/first.png "Create a simple choice")
-
- - A first step which will be a **timer** with `timer name` property filled as `tutorial`
- - A second step which will be a **set-body** that will generate randomly a zero or a one.
- - A third step which will be a **choice** step. This step will contain two branches:
-    - A branch that detects if `${body} == 1`, leading to a **log** with a `message` configured as `"We got a one."`
-    - A branch that will be fallback branch, leading to a **log** with a `message` configured as `"We got a ${body}."`
-
-### Hints
-
-#### A first step which will be a **timer** with `timer name` property filled as `tutorial`
-
- - To add new steps to the canvas, take a look at the [User Guide](/docs/user-guide/).
- - To configure a step and fill the configuration properties, click on the step icon of the canvas.
- 
-#### A second step which will be a **set-body** that will generate randomly a zero or a one.
-
- - You can generate random numbers using the simple language function [random](https://camel.apache.org/components/3.20.x/languages/simple-language.html#_variables).
- - The simple expression `${random(2))}` will generate a random number between zero (included) and two (not included). 
- - When configuring the `set-body`, we can use the `expression syntax` `Simple` and then the `expression` used will be `${random(2)}`. 
- 
-#### A third step which will be a **choice** step.
-
- - To configure the different choices, we click on the `choice` step which will open a tab with two buttons: ` + When` and `+ Otherwise`
- - We have to click once on each button to create an `if` and an `else`.
- - If we add more than one `when` (if condition), we can remove them using the trash icon.
- - We have to fill the condition `${body} == 1` on the `when` and click `Apply`.
- - We can now add steps on the canvas as before, just clicking on the placeholder.
- - We add a `log` step. Kaoto offers two `log` steps to add: the camel component and the EIP. For simplicity, we will choose the EIP (the one without the Camel logo).
- - We have to fill the `message` property as described on the goals.
-
-### Solution
-
-The following video showcases the solution.
-
-{{< rawhtml >}} 
-
-<video width=100% controls >
-    <source src="/images/workshop/beginner-camel-choice/1-create-simple-choice.mp4" type="video/mp4">
-    Your browser does not support the video tag.  
-</video>
-
-{{< /rawhtml >}}
-
-At this point, the text editor should show the following code:
-
-```
-- from:
-    uri: timer:tutorial
-    steps:
-    - set-body:
-        simple: ${random(2)}
-    - choice:
-        when:
-        - simple: ${body} == 1
-          steps:
-          - log:
-              message: We got a one.
-        otherwise:
-          steps:
-          - log:
-              message: We got a ${body}
-```
-
-If it doesn't look like that but you want to go to the following exercise, you can copy and paste that code on the text editor and click on the green tick button to synchronize.
-
-## 2.- Set Header instead of Body
-
-On this exercise we are going to modify the previously created route to replace the `set-body` with a `set-header`.
+## 1 - Create a choice 
 
 The goals for this exercise are:
 
- - Modify the route so instead of setting the body, we will use a header called `myChoice` for the decision.
+ - Create a new Camel route and let it start with a `timer` step, which will be named `tutorial`
+ - Then we set the body of the message (`setBody`) to a random `0` or `1` value
+ - The third step will be a `choice` step with a `when` and an `otherwise` branch
+
+    - The `when` branch should be executed if the body of the message is `1`
+    - The `otherwise` branch acts as the fallback and will automatically cover the case when the message body is `0` or actually anything else than `1`
+ - Finally we will add a `log` step to each of the branches
+    
+    - For the `1` case we will output `"We got a one!"` 
+    - For the fallback we will print the message body with `"We got a ${body}"`
 
 ### Hints
 
- - To replace an existing component, select it from the step catalog and drag and drop on top of it.
- - Note that you have to use the proper type of step: `START`, `MIDDLE` or `END`.
- 
+ - To configure a step and fill the configuration properties, click on the step icon
+ - You can generate random numbers using the simple expression language function [random](https://camel.apache.org/components/4.0.x/languages/simple-language.html)
+ - The simple expression `${random(2)}` will generate a random number between zero (included) and two (not included)
+ - When configuring the `setBody`, you can use the expression language `Simple` and then the `expression` used will be `${random(2)}`
+ - We have to fill the condition `${body} == 1` in the `when`
+ - We add a `log` step into a branch using the `Insert into` context menu on the `when` and `otherwise` steps
+ - Kaoto offers two `log` steps to add: the camel component and the processor. For simplicity, we will choose the processor 
+ - The `log` has a property `message` which we need to fill as described in the goals
+
 ### Solution
 
 The following video showcases the solution.
@@ -99,44 +43,124 @@ The following video showcases the solution.
 {{< rawhtml >}} 
 
 <video width=100% controls >
-    <source src="/images/workshop/beginner-camel-choice/2-set-header.webm" type="video/mp4">
+    <source src="/images/workshop/beginner-camel-choice/1-create-choice.webm" type="video/webm">
     Your browser does not support the video tag.
 </video>
 
 {{< /rawhtml >}}
 
-At this point, the text editor should show the following code:
+At this point, the source editor should show something similar to the following code:
 
+```yaml
+- route:
+    id: route-1150
+    from:
+      id: from-2530
+      uri: timer
+      parameters:
+        period: "1000"
+        timerName: tutorial
+      steps:
+        - setBody:
+            id: setBody-3478
+            expression:
+              simple:
+                expression: ${random(2)}
+        - choice:
+            id: choice-2937
+            when:
+              - id: when-2316
+                steps:
+                  - log:
+                      id: log-5995
+                      message: We got a one!
+                expression:
+                  simple:
+                    expression: ${body} == 1
+            otherwise:
+              id: otherwise-2904
+              steps:
+                - log:
+                    id: log-2668
+                    message: We got a ${body}
 ```
-- from:
-    uri: timer:tutorial
-    steps:
-    - set-header:
-        simple: ${random(2)}
-        name: myChoice
-    - choice:
-        when:
-        - simple: ${header.myChoice} == 1
-          steps:
-          - log:
-              message: We got a one.
-        otherwise:
-          steps:
-          - log:
-              message: We got a ${body}
+
+If it doesn't look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.
+
+## 2 - Set Header instead of Body
+
+In this exercise we are going to modify the previously created route to replace the `setBody` with a `setHeader`. 
+
+The goal for this exercise is:
+
+ - Modify the route so instead of setting the body, we will use a header called `myChoice` for the decision.
+
+### Hints
+
+ - To replace an existing component, right click on it and choose the `Replace` menu item
+ - Watch out because there are two very similar written processors. Do not use the `setHeaders` processor.
+ 
+### Solution
+
+The following video showcases the solution.
+
+{{< rawhtml >}} 
+
+<video width=100% controls >
+    <source src="/images/workshop/beginner-camel-choice/2-set-header.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+
+{{< /rawhtml >}}
+
+At this point, the source editor should show the following code:
+
+```yaml
+- route:
+    id: route-1150
+    from:
+      id: from-2530
+      uri: timer
+      parameters:
+        period: "1000"
+        timerName: tutorial
+      steps:
+        - setHeader:
+            id: setHeader-3233
+            expression:
+              simple:
+                expression: ${random(2)}
+            name: myChoice
+        - choice:
+            id: choice-2937
+            when:
+              - id: when-2316
+                steps:
+                  - log:
+                      id: log-5995
+                      message: We got a one!
+                expression:
+                  simple:
+                    expression: ${header.myChoice} == 1
+            otherwise:
+              id: otherwise-2904
+              steps:
+                - log:
+                    id: log-2668
+                    message: We got a ${body}
 ```
 
-If it doesn't look like that but you want to go to the following exercise, you can copy and paste that code on the text editor and click on the green tick button to synchronize.
+If it doesn't look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.
 
-## 3.- Connect to an external service
+## 3 - Connect to an external service
 
-On this exercise we are going to modify the previously created route to add a more complex route. We are going to modify the `when` branch to send a request to an API.
+In this exercise we are going to modify the previously created route to add calls to external APIs in the `when` and `otherwise` branches.
 
 The goals for this exercise are:
 
  - Modify the route so when the generated random number is `0` it calls the service `https://dog-api.kinduff.com/api/facts` to display a random dog fact on the log
  - Modify the route so when the generated random number is `1` it calls the service `https://cat-fact.herokuapp.com/facts/random` to display a random cat fact on the log
- - Move the log out of the `choice` branches
+ - Only use a single `log` at the end of the route
  - Change the log to just display the `${body}` of the message
 
 Note: these two services are testing services that we don't control. Make sure they run properly before attempting to use them to prevent any weird errors.
@@ -155,55 +179,91 @@ The following video showcases the solution.
 {{< rawhtml >}} 
 
 <video width=100% controls >
-    <source src="/images/workshop/beginner-camel-choice/3-connect-external-service.webm" type="video/mp4">
+    <source src="/images/workshop/beginner-camel-choice/3-connect-external-service.webm" type="video/webm">
     Your browser does not support the video tag.
 </video>
 
 {{< /rawhtml >}}
 
-At this point, the text editor should show the following code:
+At this point, the source editor should show the following code:
 
+```yaml
+- route:
+    id: route-1150
+    from:
+      id: from-2530
+      uri: timer
+      parameters:
+        period: "1000"
+        timerName: tutorial
+      steps:
+        - setHeader:
+            id: setHeader-3234
+            expression:
+              simple:
+                expression: ${random(2)}
+            name: myChoice
+        - choice:
+            id: choice-2937
+            when:
+              - id: when-2316
+                steps:
+                  - to:
+                      id: to-1376
+                      uri: https
+                      parameters:
+                        httpUri: https://cat-fact.herokuapp.com/facts/random
+                expression:
+                  simple:
+                    expression: ${header.myChoice} == 1
+            otherwise:
+              id: otherwise-2904
+              steps:
+                - to:
+                    id: to-2860
+                    uri: https
+                    parameters:
+                      httpUri: https://dog-api.kinduff.com/api/facts
+        - log:
+            id: log-2479
+            message: ${body}
 ```
 
-- from:
-    uri: timer:tutorial
-    steps:
-    - set-header:
-        simple: ${random(2)}
-        name: myChoice
-    - choice:
-        when:
-        - simple: ${header.myChoice} == 1
-          steps:
-          - to:
-              uri: https://cat-fact.herokuapp.com/facts/random
-        otherwise:
-          steps:
-          - to:
-              uri: https://dog-api.kinduff.com/api/facts
-    - log:
-        message: ${body}
-```
+If it doesn't look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.
 
-If it doesn't look like that but you want to go to the following exercise, you can copy and paste that code on the text editor and click on the green tick button to synchronize.
+## 4 - Testing your route
 
-## Deployment
+So after we finished setting up our little Camel route it would be great if we could test it locally, right? Ok, then let's do that now!
 
-At this point, if you deploy the existing integration, the log should show something like this:
+Maybe you already discovered the little buttons on the top right of the Kaoto editor. You can hover over them to know more about what they are doing. In the picture below the launch button has been marked with red coloring.
 
-```
+![Launch Button](/images/workshop/beginner-camel-choice/launch-button.png "Launch Button")
 
-2023-04-11 12:37:17.107  INFO 69161 --- [           main] el.impl.engine.AbstractCamelContext : Apache Camel 3.20.3 (maria-test) started in 1s19ms (build:98ms init:709ms start:212ms JVM-uptime:2s)
-2023-04-11 12:37:18.990  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"facts":["Dogs are all direct descendants of wolves."],"success":true}
-2023-04-11 12:37:19.865  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"status":{"verified":null,"sentCount":0},"_id":"61d36272403b4002d3798703","user":"61b8566766b26cede617b4ef","text":"35342r54235233.","type":"cat","deleted":false,"createdAt":"2022-01-03T20:54:10.612Z","updatedAt":"2022-01-03T20:54:10.612Z","__v":0}
-2023-04-11 12:37:20.216  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"status":{"verified":null,"sentCount":0},"_id":"64328a14b831d40018499dfc","user":"642fee0fd56bfe7a06ce6788","text":"Something interesting and amazing about cats.","type":"cat","deleted":false,"createdAt":"2023-04-09T09:49:08.850Z","updatedAt":"2023-04-09T09:49:08.850Z","__v":0}
-2023-04-11 12:37:21.874  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"status":{"verified":null,"sentCount":0},"_id":"640977e892271493a95639ad","user":"640027109444b2a501a06ba8","text":"Cat it the best animal in the world< pero no todo el mundo piensa asi.","type":"cat","deleted":false,"createdAt":"2023-03-09T06:08:40.401Z","updatedAt":"2023-03-09T06:08:40.401Z","__v":0}
-2023-04-11 12:37:22.143  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"facts":["During the Middle Ages, Great Danes and Mastiffs were sometimes suited with armor and spiked collars to enter a battle or to defend supply caravans."],"success":true}
-2023-04-11 12:37:23.142  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"facts":["One of the most famous Labrador Retrievers was \"Endal,\" an assistance dog recognized as the most decorated dog in the world."],"success":true}
-2023-04-11 12:37:24.140  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"facts":["Americans love dogs! 44% of U.S. households have a dog, which equates to 55.3 million homes"],"success":true}
-2023-04-11 12:37:25.586  INFO 69161 --- [imer://tutorial] maria-test.camel.yaml:17            : {"status":{"verified":null,"sentCount":0},"_id":"6433e407c8f25e1d24c35557","user
-```
+Click this button now and watch what happens. If everything goes well you should see a similar output as in the image below.
+
+![Terminal Output](/images/workshop/beginner-camel-choice/terminal-output.png "Terminal Output")
+
+If you see something different and maybe errors, please check the `Hints` section below.
+
+### Hints
+- Please make sure that you have saved your route before running it.
+- Make sure you installed the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack) as this will add buttons for easy access to launch / debug functionality. Also ensure you have installed [Camel JBang](https://camel.apache.org/manual/camel-jbang.html), otherwise the launch will throw errors. (see [Installation Guide](/docs/installation))
+- This integration will work better when running it locally, as the folder must be on the same machine when it gets executed.
+
+### Solution
+
+The following video showcases the solution.
+
+{{< rawhtml >}} 
+
+<video width=100% controls >
+    <source src="/images/workshop/beginner-camel-choice/4-launch-route.webm" type="video/webm">
+    Your browser does not support the video tag.
+</video>
+
+{{< /rawhtml >}}
+
 
 ## More information
 
-More information about Apache Camel routes can be found on [the Apache Camel website](https://camel.apache.org/camel-k/1.11.x/languages/yaml.html)
+More information about Apache Camel routes can be found on [the Apache Camel website](https://camel.apache.org/components/4.0.x/others/yaml-dsl.html)
