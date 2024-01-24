@@ -135,7 +135,7 @@ If you see something different and maybe errors, please check the `Hints` sectio
 
 ### Hints
 - Please make sure that you have saved your route before running it.
-- Make sure your installed the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack) as this will add buttons for easy access to launch / debug functionality. Also ensure you have installed [Camel JBang](https://camel.apache.org/manual/camel-jbang.html), otherwise the launch will throw errors. (see [Installation Guide](/docs/installation))
+- Make sure you installed the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack) as this will add buttons for easy access to launch / debug functionality. Also ensure you have installed [Camel JBang](https://camel.apache.org/manual/camel-jbang.html), otherwise the launch will throw errors. (see [Installation Guide](/docs/installation))
 - Make sure your folder (`/tmp/tutorial/`) exists before running this integration.
 - This integration will work better when running it locally, as the folder must be on the same machine when it gets executed.
 
