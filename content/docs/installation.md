@@ -35,10 +35,10 @@ The only pre-requisite is to have [docker installed](https://docs.docker.com/get
 
 ```bash
 docker pull quay.io/kaotoio/kaoto-app:main
-docker run -p8081:8081 quay.io/kaotoio/kaoto-app:main
+docker run -p8080:8080 quay.io/kaotoio/kaoto-app:main
 ```
 
-You can now access Kaoto on [http://localhost:8081](http://localhost:8081). If you specified a different port in the `-p` parameter above you need to adapt the URL.
+You can now access Kaoto on [http://localhost:8080](http://localhost:8080). If you specified a different port in the `-p` parameter above you need to adapt the URL.
 
 Learn more about how to use Kaoto on the [Quickstart](/docs/quickstart)
 
