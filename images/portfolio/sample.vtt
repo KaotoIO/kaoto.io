@@ -1,0 +1,118 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.001 --> 00:00:02.001
+What I'm going to show you here is
+
+00:00:02.001 --> 00:00:05.320
+how to do a simple hello world integration
+
+00:00:05.320 --> 00:00:07.840
+that gets deployed via Camel K
+
+00:00:07.840 --> 00:00:09.840
+into a kubernetes cluster.
+
+00:00:09.840 --> 00:00:10.852
+ 
+
+00:00:10.852 --> 00:00:12.852
+So the first thing we need to do is
+
+00:00:12.852 --> 00:00:14.852
+start a new integration and then
+
+00:00:14.852 --> 00:00:16.852
+we are going to select
+
+00:00:16.852 --> 00:00:20.000
+the first step, which is going to be a timer.
+
+00:00:20.000 --> 00:00:22.000
+This timer is going to 
+
+00:00:22.000 --> 00:00:24.000
+throw a message to the integration [route]
+
+00:00:24.000 --> 00:00:25.320
+every second.
+
+00:00:25.320 --> 00:00:27.800
+We configure that message by going  to the config.
+
+00:00:27.800 --> 00:00:29.800
+Write, for example, "Hello Kaoto!".
+
+00:00:29.800 --> 00:00:32.280
+You can see how it gets updated on the YAML.
+
+00:00:32.280 --> 00:00:35.000
+And then we are going to select the second step,
+
+00:00:35.000 --> 00:00:37.000
+which is going to be the last step,
+
+00:00:37.000 --> 00:00:38.162
+which is going to be a log.
+
+00:00:38.162 --> 00:00:40.477
+It's going to log the headers
+
+00:00:40.477 --> 00:00:43.800
+and the message that is coming from the timer.
+
+00:00:43.800 --> 00:00:46.972
+We want to do a Kamelet Binding
+
+00:00:46.972 --> 00:00:50.179
+and we change the integration name
+
+00:00:50.179 --> 00:00:52.136
+"hello-kaoto" for example.
+
+00:00:52.136 --> 00:00:56.190
+And now we are going to watch the integrations
+
+00:00:56.190 --> 00:00:59.110
+and the Kamelet Bindings that are deployed on the cluster,
+
+00:00:59.110 --> 00:01:01.179
+which right now is none of them.
+
+00:01:01.179 --> 00:01:04.144
+The Kamelet Binding is the same integration type we are deploying.
+
+00:01:04.144 --> 00:01:07.920
+We click on deploy and now we have a Kamelet Binding
+
+00:01:07.920 --> 00:01:10.242
+which is creating an integration via Camel K.
+
+00:01:10.242 --> 00:01:14.600
+If we watch the logs on this "hello-kaoto" integration,
+
+00:01:14.600 --> 00:01:17.593
+well, right now it is going to say it is still building;
+
+00:01:17.593 --> 00:01:21.124
+so we have to wait a few seconds while the Building Kit gets build and
+
+00:01:21.124 --> 00:01:23.120
+the integration gets deployed.
+
+00:01:23.120 --> 00:01:25.514
+And once it gets deployed,
+
+00:01:25.514 --> 00:01:30.665
+it will show the "Hello Kaoto" message
+
+00:01:30.665 --> 00:01:33.061
+and the headers on the log.
+
+00:01:33.061 --> 00:01:35.416
+This is starting... and...
+
+00:01:35.416 --> 00:01:40.640
+we can see that every second we get a "Hello Kaoto!" message here.
+
