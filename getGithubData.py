@@ -112,7 +112,8 @@ for repo in repositories:
   
   # we are atm only interested in milestones of Kaoto-Next
   if repo.name == "kaoto":
-
+    print("Generating milestones for repository: " + repo.name)
+    
     #milestones
     milestones = repo.get_milestones()
     for mstone in milestones:
