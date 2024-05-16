@@ -2,7 +2,7 @@
 
 BACKEND="/home/runner/work/kaoto.io/kaoto.io/tmp/kaoto-backend"
 FRONTEND="/home/runner/work/kaoto.io/kaoto.io/tmp/kaoto-ui"
-KAOTO_NEXT="/home/runner/work/kaoto.io/kaoto.io/tmp/kaoto-next"
+KAOTO_NEXT="/home/runner/work/kaoto.io/kaoto.io/tmp/kaoto"
 KAOTO_VSCODE="/home/runner/work/kaoto.io/kaoto.io/tmp/vscode-kaoto"
 
 echo "Creating event per contributor!"
