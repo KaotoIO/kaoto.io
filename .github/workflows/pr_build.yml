@@ -15,11 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
-      - name: Checkout Kaoto-Next
+      - name: Checkout Kaoto
         uses: actions/checkout@v4
         with:
-          repository: 'KaotoIO/kaoto-next'
-          path: 'tmp/kaoto-next'
+          repository: 'KaotoIO/kaoto'
+          path: 'tmp/kaoto'
           fetch-depth: '0'
 
       - name: Checkout vscode-kaoto
