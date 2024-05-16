@@ -69,7 +69,7 @@ def generate_new_milestone(milestone):
       f.write(str(datetime.datetime.now().day))
       f.write('"\n')
       f.write('---\n')
-      f.write('Milestone **[' + msTitle + '](https://github.com/KaotoIO/kaoto-next/milestone/' + msNumber + ')** ')
+      f.write('Milestone **[' + msTitle + '](https://github.com/KaotoIO/kaoto/milestone/' + msNumber + ')** ')
       progress = str(round(100*(totalCount - milestone.open_issues)/totalCount))
       f.write('![](https://geps.dev/progress/')
       f.write(progress)
@@ -111,7 +111,7 @@ for repo in repositories:
   print("Processing " + repo.name)
   
   # we are atm only interested in milestones of Kaoto-Next
-  if repo.name == "kaoto-next":
+  if repo.name == "kaoto":
 
     #milestones
     milestones = repo.get_milestones()
