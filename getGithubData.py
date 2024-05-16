@@ -76,7 +76,7 @@ def generate_new_milestone(milestone):
       f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)')
       f.write('   (Open: ' + str(openCount) + '  Closed: ' + str(closedCount) + ') \n\n')
       f.write('**Expected delivery:** ')
-      if (len(milestone.due_on) == 0):
+      if (milestone.due_on is None):
         f.write('Not Set')
       else:
         f.write(milestone.due_on.strftime("%m/%d/%Y"))
