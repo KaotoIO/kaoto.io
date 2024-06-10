@@ -1,51 +1,90 @@
-name: Hugo build
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
+name: Deploy Hugo site to Pages
 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
+  # Triggers the workflow on pull request events but only for the master branch
+  pull_request_target:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
-  #nightly to keep statistics updated
+
+#nightly to keep statistics updated
   schedule:
     - cron:  '12 0 * * *'
 
+# Default to bash
+defaults:
+  run:
+    shell: sh
+
+# Provide permission to clone the repo and deploy it to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  hugo:
+  # Build job
+  build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.127.0
     steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb          
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
+      - name: Install GoLang
+        run: sudo snap install go --classic
       - name: Checkout
         uses: actions/checkout@v4
-      
       - name: Checkout Kaoto
         uses: actions/checkout@v4
         with:
           repository: 'KaotoIO/kaoto'
           path: 'tmp/kaoto'
           fetch-depth: '0'
-
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
       - name: Install Python dependencies
         run: pip3 install PyGithub
-          
       - name: Generate Releases and Milestones
         run: python3 getGithubData.py $username $password
         env:
           username: ${{ secrets.API_USER }}
           password: ${{ secrets.API_PASSWORD }}
-          
-      - name: Run Hugo
-        uses: crazy-max/ghaction-hugo@v3
-        if: always()
-        with:
-          version: latest
-          extended: false
-          args: --cleanDestinationDir --minify --verbose
-          
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Build with Hugo
+        env:
+          # For maximum backward compatibility with Hugo modules
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+          TZ: America/Los_Angeles
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+      - name: Generate Pagefind search index
+        run: npx pagefind --site "public"
       - name: Setup CNAME correctly
         if: always()
         run:  cp CNAME public/CNAME
+      
       -
         name: Deploy to GitHub Pages
         if: success() && github.event_name != 'pull_request'
