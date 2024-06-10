@@ -1,5 +1,8 @@
 name: PR build
 
+env:
+  WC_HUGO_VERSION: '0.126.1'
+  
 on:
   # Triggers the workflow on pull request events but only for the master branch
   pull_request_target:
