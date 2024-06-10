@@ -1,5 +1,4 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+name: Build and Deploy to GH Pages
 
 on:
   # Triggers the workflow on pull request events but only for the master branch
@@ -17,16 +16,6 @@ on:
 defaults:
   run:
     shell: sh
-
-# Provide permission to clone the repo and deploy it to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   # Build job
