@@ -29,24 +29,24 @@ jobs:
         run: sudo snap install dart-sass
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Checkout Kaoto
+        uses: actions/checkout@v4
         with:
           repository: 'KaotoIO/kaoto'
+          path: 'tmp/kaoto'
           fetch-depth: '0'
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-          
       - name: Install Python dependencies
         run: pip3 install PyGithub
-          
       - name: Generate Releases and Milestones
         run: python3 getGithubData.py $username $password
         env:
           username: ${{ secrets.API_USER }}
           password: ${{ secrets.API_PASSWORD }}
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
