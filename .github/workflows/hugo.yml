@@ -2,14 +2,14 @@
 name: Deploy Hugo site to Pages
 
 on:
-  # Triggers the workflow on pull request events but only for the master branch
-  pull_request_target:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-#nightly to keep statistics updated
+  
+  #nightly to keep statistics updated
   schedule:
     - cron:  '12 0 * * *'
 
@@ -17,16 +17,6 @@ on:
 defaults:
   run:
     shell: sh
-
-# Provide permission to clone the repo and deploy it to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   # Build job
