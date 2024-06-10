@@ -1,5 +1,6 @@
 ---
-title: "Use Cases"
-description: "Use cases for developers and citizen integrators with Kaoto, the Kamel Orchestration Tool."
-draft: false
+title: "Usecases"
+view: article-grid
 ---
+
+Please select the content you are interested in.

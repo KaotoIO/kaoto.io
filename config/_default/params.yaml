@@ -1,0 +1,49 @@
+# SITE SETUP
+# Guide: https://docs.hugoblox.com/tutorial/
+# Documentation: https://docs.hugoblox.com/
+# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+
+# removes the copyright stuff from Hugo Blox
+i_am_a_sponsor: true
+
+# Appearance
+appearance:
+  mode: system
+  color: sky
+
+# SEO
+marketing:
+  seo:
+    site_type: website
+    local_business_type: ''
+    org_name: ''
+    description: 'Kaoto is a visual integration editor for Apache Camel which aims at improving the integration developers life.'
+    twitter: 'KaotoIO'
+
+# Site header
+header:
+  navbar:
+    enable: true
+    blox: "navbar"
+    align: "center"
+    fixed_to_top: true
+    logo:
+      text: ""
+      # Logo filename in `assets/media/` folder
+      filename: "logo-kaoto.png"
+    button:
+      enable: true
+      text: "Try Online"
+      url: "https://red.ht/kaoto"
+    show_search: true
+    show_theme_chooser: true
+
+# Site footer
+footer:
+  copyright:
+    notice: '© {year} - <a href="https://camel.apache.org">Apache Camel</a> is a trademark of the <a href="https://apache.org">Apache Software Foundation</a>.'
+
+# Localization
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'

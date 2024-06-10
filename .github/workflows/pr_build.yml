@@ -22,30 +22,6 @@ jobs:
           path: 'tmp/kaoto'
           fetch-depth: '0'
 
-      - name: Checkout vscode-kaoto
-        uses: actions/checkout@v4
-        with:
-          repository: 'KaotoIO/vscode-kaoto'
-          path: 'tmp/vscode-kaoto'
-          fetch-depth: '0'
-
-      - name: Checkout Backend
-        uses: actions/checkout@v4
-        with:
-          repository: 'KaotoIO/kaoto-backend'
-          path: 'tmp/kaoto-backend'
-          fetch-depth: '0'
-        
-      - name: Checkout Frontend
-        uses: actions/checkout@v4
-        with:
-          repository: 'KaotoIO/kaoto-ui'
-          path: 'tmp/kaoto-ui'
-          fetch-depth: '0'
-        
-      - name: Generate Contributors
-        run:  ./getGitData.sh 
-        
       - name: Setup Python
         uses: actions/setup-python@v5
         with:

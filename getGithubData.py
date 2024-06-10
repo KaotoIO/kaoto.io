@@ -6,16 +6,6 @@ from github import Auth
 import datetime
 import sys
 
-def generate_new_timeline_entry_for_release(filename, date, title, content, url, repository):
-  with open('content/timeline/generated-' + filename, 'a') as f:
-    f.write('---\n')
-    f.write('title: "' + repository+ ' ' + title + '"\n')
-    f.write('draft: false\n')
-    f.write('type: "timeline"\n')
-    f.write('date: "' + date + '"\n')
-    f.write('---\n')
-    f.write(content[0:250] + '\n\n[Read more](' + url + ')')
-
 def generate_issue_entry(entries, issue):
   entry = ""
   entry += '- ['
@@ -59,7 +49,6 @@ def generate_new_milestone(milestone):
     with open('content/roadmap/generated-milestone-' + msTitle + '.md', 'a') as f:
       f.write('---\n')
       f.write('title: "Milestone ' + msTitle + '"\n')
-      f.write('draft: false\n')
       f.write('type: "roadmap"\n')
       f.write('date: "')
       f.write(str(datetime.datetime.now().year))
@@ -91,11 +80,6 @@ def generate_new_milestone(milestone):
         f.write(entry)
       f.write('---\n')
 
-stargazers = []
-mergedprs = 0
-forks = 0
-contributors = []
-
 # using an access token
 auth = Auth.Login(sys.argv[1], sys.argv[2])
 
@@ -113,7 +97,7 @@ print("Processing repositories...")
 for repo in repositories:
   print("Processing " + repo.name)
   
-  # we are atm only interested in milestones of Kaoto-Next
+  # we are atm only interested in milestones of kaoto repo
   if repo.name == "kaoto":
     print("Generating milestones for repository: " + repo.name)
     
@@ -122,33 +106,5 @@ for repo in repositories:
     for mstone in milestones:
       if mstone.state == "open":
         generate_new_milestone(mstone)
-
-  # but we want to aggregate the remaining stats from all repos in the org  
-
-  #releases
-  releases = repo.get_releases()
-  for release in releases:
-      if (not (release.published_at is None)):
-        generate_new_timeline_entry_for_release('release-' + str(release.published_at) + '.md', str(release.published_at), release.title, release.body, release.html_url, repo.name)
-
-  # followers
-  gazers = repo.get_stargazers()
-  for stargazer in gazers:
-      if stargazer.login not in stargazers: 
-         stargazers.append(stargazer.login)
-      
-  # merged pr
-  PRs = repo.get_pulls(state='closed')
-  mergedprs = mergedprs + PRs.totalCount
-  
-  # forks
-  repoForks = repo.get_forks()
-  forks = forks + repoForks.totalCount
-
-  # contributors
-  contribs = repo.get_contributors()
-  for contributor in contribs:
-      if contributor.id not in contributors: 
-         contributors.append(contributor.id)
 
 g.close()

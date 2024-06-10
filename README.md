@@ -21,7 +21,7 @@
 </p>
 
 # Kaoto
-Repository for https://kaoto.io/. Built with [Hugo](https://gohugo.io/).
+Repository for https://kaoto.io/. Built with [Hugo](https://gohugo.io/) and [Hugo Blox](https://hugoblox.com/).
 
 ## Development
 
