@@ -1,15 +1,14 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+name: Build and Deploy to GH Pages
 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
+  # Triggers the workflow on pull request events but only for the master branch
+  pull_request_target:
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
-  #nightly to keep statistics updated
+
+#nightly to keep statistics updated
   schedule:
     - cron:  '12 0 * * *'
 

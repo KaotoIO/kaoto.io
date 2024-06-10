@@ -1,4 +1,4 @@
-name: PR build
+name: PR Build
 
 on:
   # Triggers the workflow on pull request events but only for the master branch
@@ -69,4 +69,3 @@ jobs:
       - name: Setup CNAME correctly
         if: always()
         run:  cp CNAME public/CNAME
-        
