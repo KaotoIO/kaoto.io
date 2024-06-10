@@ -1,6 +1,7 @@
 ---
-title: "Docs"
-description: "Documentation on how to use and how to contribute to Kaoto."
-draft: false
+title: "Documentation"
 ---
 
+Please select the document you are interested in.
+
+![The Kaoto Camel](kaoto-camel.png)

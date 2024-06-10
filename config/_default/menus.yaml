@@ -1,0 +1,55 @@
+# Navigation Links
+#   To link a page section, specify the URL as a hash `/#` followed by the `id` of the section.
+#   The `weight` parameter defines the order that the links will appear in.
+
+main:
+  - name: Home
+    url: /
+    weight: 10
+  - name: Roadmap
+    url: roadmap/
+    weight: 20
+  - name: Blog
+    url: blog/
+    weight: 30
+  - name: Documentation
+    weight: 40
+    url: docs/
+    hasChildren: true
+  - parent: Documentation
+    name: "Installation Guide"
+    url: "docs/installation/"
+  - parent: Documentation
+    name: "Quickstart Guide"
+    url: "docs/quickstart/"
+  - name: Community
+    weight: 50
+    hasChildren: true
+  - parent: Community
+    name: "GitHub"
+    url: "https://github.com/KaotoIO"
+  - parent: Community
+    name: "User Forums"
+    url: "https://github.com/orgs/KaotoIO/discussions"
+  - parent: Community
+    name: "Zulip Chat"
+    url: "https://camel.zulipchat.com/#narrow/stream/441302-Kaoto"
+  - parent: Community
+    name: "Planning Board"
+    url: "https://github.com/orgs/KaotoIO/projects/14/views/1"
+  - parent: Community
+    name: "Apache Camel Site"
+    url: "https://camel.apache.org"
+  - parent: Community
+    name: "Youtube Channel"
+    url: "https://www.youtube.com/@KaotoIO"
+  - name: Resources
+    weight: 60
+    hasChildren: true
+  - parent: Resources
+    name: Use Cases
+    url: portfolio/
+  - parent: Resources
+    name: Workshops
+    url: workshop/
+  

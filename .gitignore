@@ -9,8 +9,7 @@ node_modules
 builds
 package-lock.json
 public
-
-
+resources
 
 # generated content
 content/timeline/generated*

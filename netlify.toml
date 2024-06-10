@@ -1,24 +1,21 @@
 [build]
-publish = "public"
-command = "hugo --minify --gc"
+  command = "hugo --gc --minify -b $URL && npx pagefind --source 'public'"
+  publish = "public"
 
 [build.environment]
-HUGO_VERSION = "0.87.0"
-HUGO_BASEURL = "/"
+  HUGO_VERSION = "0.126.3"
+  HUGO_ENABLEGITINFO = "true"
 
-[[headers]]
-for = "/*" # This defines which paths this specific [[headers]] block will cover.
+[context.production.environment]
+  HUGO_ENV = "production"
 
-[headers.values]
-X-Frame-Options = "DENY"
-X-XSS-Protection = "1; mode=block"
-Referrer-Policy = "same-origin"
-Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+[context.deploy-preview]
+  command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
-[[redirects]]
-  from = "/add_dsl"
-  to = "/add-dsl"
+[context.branch-deploy]
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
-[[redirects]]
-  from = "/add_custom_view"
-  to = "/add-custom-view"
+[[plugins]]
+  package = "netlify-plugin-hugo-cache-resources"
+  [plugins.inputs]
+    debug = true
