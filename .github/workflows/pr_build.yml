@@ -36,15 +36,14 @@ jobs:
         env:
           username: ${{ secrets.API_USER }}
           password: ${{ secrets.API_PASSWORD }}
-          
-      - name: Run Hugo
-        uses: crazy-max/ghaction-hugo@v3
+
+      - name: Hugo GitHub Action
+        uses: crazy-max/ghaction-hugo@v3.0.0
         if: always()
         with:
           version: latest
-          extended: false
+          extended: true
           args: --cleanDestinationDir --minify --verbose
-          
       - name: Setup CNAME correctly
         if: always()
         run:  cp CNAME public/CNAME
