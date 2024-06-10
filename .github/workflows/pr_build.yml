@@ -12,7 +12,7 @@ on:
 # Default to bash
 defaults:
   run:
-    shell: bash
+    shell: sh
 
 jobs:
   # Build job
