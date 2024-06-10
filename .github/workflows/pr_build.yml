@@ -28,7 +28,7 @@ jobs:
       - name: Install Dart Sass
         run: sudo snap install dart-sass
       - name: Install GoLang
-        run: sudo dnf install golang-bin
+        run: sudo snap install go --classic
       - name: Checkout
         uses: actions/checkout@v4
       - name: Checkout Kaoto
