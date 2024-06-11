@@ -25,27 +25,9 @@ main:
   - parent: Documentation
     name: "User Manual"
     url: "docs/manual/"    
-  - name: Community
+  - name: Contribute
     weight: 50
-    hasChildren: true
-  - parent: Community
-    name: "GitHub"
-    url: "https://github.com/KaotoIO"
-  - parent: Community
-    name: "User Forums"
-    url: "https://github.com/orgs/KaotoIO/discussions"
-  - parent: Community
-    name: "Zulip Chat"
-    url: "https://camel.zulipchat.com/#narrow/stream/441302-Kaoto"
-  - parent: Community
-    name: "Planning Board"
-    url: "https://github.com/orgs/KaotoIO/projects/14/views/1"
-  - parent: Community
-    name: "Apache Camel"
-    url: "https://camel.apache.org"
-  - parent: Community
-    name: "Youtube Channel"
-    url: "https://www.youtube.com/@KaotoIO"
+    url: "contribute/"
   - name: Resources
     weight: 60
     hasChildren: true
@@ -55,4 +37,6 @@ main:
   - parent: Resources
     name: Workshops
     url: workshop/
-  
+  - parent: Resources
+    name: "Kaoto on Youtube"
+    url: "https://www.youtube.com/@KaotoIO"
