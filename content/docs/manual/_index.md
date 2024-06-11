@@ -158,7 +158,7 @@ A Camel Route is where the integration flow is defined. For example, you can wri
 #### Creating a new Camel Route
 We already covered how to create a new Camel Route YAML file in the chapter [Create your first Camel Route](#create-your-first-camel-route). 
 
-Let's use another way of creating a new Camel Route. If you have your route from the other chapter still open, click on the Route selection drop down and then delete all the routes usinng the trashbin icon.
+Let's use another way of creating a new Camel Route. If you have your route from the other chapter still open, click on the Route selection drop down and then delete all the routes using the trashbin icon.
 
 ![A Screenshot of the Delete Camel Route menu item](delete-route.png)
 
@@ -166,7 +166,7 @@ Once you confirmed the deletion of all your routes you should see a blank screen
 
 ![A Screenshot of the editor without any routes](no-route.png)
 
-You can now create a new Camel Route by clicking the <code>+ New</code> button, which will put a template route in place which uses a **Timer** component to send every second a message to the **Log** component.
+You can now create a new Camel Route by either clicking the <code>+ New</code> button in the center of the canvas or by using the same button in the upper menu bar of the Canvas, next to the Route selection drop down, which will both put a template route in place which uses a **Timer** component to send every second a message to the **Log** component.
 
 #### Adding a step
 Now lets add a new step between the **Timer** and the **Log** component to modify the message body. There are two ways of adding a step to the route. You can either Right-Click on the step you want to insert or click the 3 dots on the right side of the steps label. This will bring up a context menu with the available actions to choose from. 
