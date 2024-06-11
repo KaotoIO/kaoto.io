@@ -5,6 +5,7 @@ from github import Auth
 
 import datetime
 import sys
+import os
 
 def generate_issue_entry(entries, issue):
   entry = ""
@@ -45,40 +46,52 @@ def generate_new_milestone(milestone):
   
   print("Total Issue Count: " + str(totalCount) + " / Open Issues: " + str(milestone.open_issues))
 
+  # create the file for the milestone
   if (totalCount > 0):
-    with open('content/roadmap/generated-milestone-' + msTitle + '.md', 'a') as f:
+
+    # create the folder if not existing
+    path = "content/roadmap/generated-milestone-" + msTitle + "/"
+    isExist = os.path.exists(path)
+    if not isExist:
+      os.makedirs(path)
+  
+    with open(path + '/index.md', 'a') as f:
+      # page header
       f.write('---\n')
-      f.write('title: "Milestone ' + msTitle + '"\n')
-      f.write('type: "roadmap"\n')
-      f.write('date: "')
-      f.write(str(datetime.datetime.now().year))
-      f.write('-')
-      f.write(str(datetime.datetime.now().month))
-      f.write('-')
-      f.write(str(datetime.datetime.now().day))
-      f.write('"\n')
+      f.write('title: "Kaoto ' + msTitle + '"\n')
+      f.write('summary: "Check out the planned roadmap of Kaoto ' + msTitle + '"\n')
+      f.write('date: ')
+      f.write(str(datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")))
+      f.write('+06:00\n')
+      f.write('authors:\n')
+      f.write('  - admin\n')
+      f.write('tags:\n')
+      f.write('  - Roadmap ' + msTitle + '\n')
+      f.write('  - Kaoto ' + msTitle + '\n')
       f.write('---\n')
-      f.write('Milestone **[' + msTitle + '](https://github.com/KaotoIO/kaoto/milestone/' + msNumber + ')** ')
+      # page content
+      f.write('<h4>\n')
+      f.write('Milestone <a href="https://github.com/KaotoIO/kaoto/milestone/' + msNumber + '"><strong>' + msTitle + '</strong></a>&nbsp;&nbsp')
       progress = str(round(100*(totalCount - milestone.open_issues)/totalCount))
-      f.write('![](https://geps.dev/progress/')
+      f.write('<img style="padding: 0px; display: inline;" src="https://geps.dev/progress/')
       f.write(progress)
-      f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600)')
-      f.write('   (Open: ' + str(openCount) + '  Closed: ' + str(closedCount) + ') \n\n')
-      f.write('**Expected delivery:** ')
+      f.write('?dangerColor=800000&warningColor=ff9900&successColor=006600"/>')
+      f.write('&nbsp;&nbsp;(Open: ' + str(openCount) + '  Closed: ' + str(closedCount) + ') \n\n')
+      f.write('Expected delivery: ')
       if (milestone.due_on is None):
         f.write('Not Set')
       else:
         f.write(milestone.due_on.strftime("%m/%d/%Y"))
       f.write('\n\n')
-      f.write('**Description**\n')
+      f.write('Description\n')
       f.write("```\n")
       f.write(milestone.description)
       f.write('\n```\n')
-      f.write('**Issues**\n')
+      f.write('Issues\n')
 
       for entry in entries:
         f.write(entry)
-      f.write('---\n')
+      f.write('</h4>\n')
 
 # using an access token
 auth = Auth.Login(sys.argv[1], sys.argv[2])
