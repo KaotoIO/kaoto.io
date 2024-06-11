@@ -22,6 +22,9 @@ main:
   - parent: Documentation
     name: "Quickstart Guide"
     url: "docs/quickstart/"
+  - parent: Documentation
+    name: "User Manual"
+    url: "docs/manual/"    
   - name: Community
     weight: 50
     hasChildren: true
@@ -38,7 +41,7 @@ main:
     name: "Planning Board"
     url: "https://github.com/orgs/KaotoIO/projects/14/views/1"
   - parent: Community
-    name: "Apache Camel Site"
+    name: "Apache Camel"
     url: "https://camel.apache.org"
   - parent: Community
     name: "Youtube Channel"
