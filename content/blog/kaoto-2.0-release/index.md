@@ -1,7 +1,7 @@
 ---
 title: Kaoto 2.0 released
 date: 2024-05-16T10:00:00+06:00
-summary: We are thrilled to announce the 2.0 release of Kaoto, the visual editor for Apache Camel! Enjoy a fully reworked editing experience with a focus usability.
+summary: We are thrilled to announce the 2.0 release of Kaoto, the visual editor for Apache Camel! Enjoy a fully reworked editing experience with a focus on usability.
 authors:
   - admin
 tags:
