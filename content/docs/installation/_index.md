@@ -23,25 +23,19 @@ To be able to easily launch and debug your integrations locally, we also suggest
 
 ### Install the VS Code extension
 
-#### a) The Complete Tooling
+#### a) Using the Extension Pack for Apache Camel
 {{% callout note %}}
 For the best user experience and for additional supportive features, we suggest installing the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack), which also includes the Kaoto VS Code extension.
 {{% /callout %}}
 
-- Open your VS Code instance 
-- Press <code>CTRL+P</code>
-- paste 
-```bash
-  ext install redhat.apache-camel-extension-pack
-``` 
-- Hit Enter
+- Open VS Code
+- Open the Extensions view on the left side panel (or press <code>CTRL+SHIFT+X</code>)
+- Type <code>Extension Pack for Apache Camel</code> in the search field
+- Click the <code>Install</code> button
 
 !["Install Extension Pack"](extpack-install.png)
 
-The installation of the extension pack will automatically start and you should be able to see the progress.
-
-
-#### b) Only the Kaoto editor
+#### b) Using only the Kaoto extension
 {{% callout warning %}}
 Be aware that choosing this path will leave out very useful functionality provided by other extensions of the Extension Pack for Apache Camel. Your user experience will not be the same.
 {{% /callout %}}
