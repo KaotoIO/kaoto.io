@@ -37,6 +37,25 @@ main:
   - parent: Resources
     name: Workshops
     url: workshop/
-  - parent: Resources
-    name: "Kaoto on Youtube"
+  - name: Links
+    weight: 60
+    hasChildren: true
+  - parent: Links
+    name: "Youtube"
     url: "https://www.youtube.com/@KaotoIO"
+  - parent: Links
+    name: "Linked In"
+    url: "https://www.linkedin.com/groups/12998297/"
+  - parent: Links
+    name: "Github"
+    url: "https://github.com/KaotoIO/"
+  - parent: Links
+    name: "Zulip Chat"
+    url: "https://camel.zulipchat.com/#narrow/stream/441302-kaoto"
+  - parent: Links
+    name: "Discussion Forums"
+    url: "https://github.com/orgs/KaotoIO/discussions"
+  - parent: Links
+    name: "Planning Board"
+    url: "https://github.com/orgs/KaotoIO/projects/14"
+  
