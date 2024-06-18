@@ -8,12 +8,12 @@ main:
     weight: 10
   - name: Roadmap
     url: roadmap/
-    weight: 20
+    weight: 40
   - name: Blog
     url: blog/
-    weight: 30
+    weight: 20
   - name: Documentation
-    weight: 40
+    weight: 30
     url: docs/
     hasChildren: true
   - parent: Documentation
@@ -38,7 +38,7 @@ main:
     name: Workshops
     url: workshop/
   - name: Links
-    weight: 60
+    weight: 70
     hasChildren: true
   - parent: Links
     name: "Youtube"
