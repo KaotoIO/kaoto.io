@@ -41,7 +41,7 @@ header:
 # Site footer
 footer:
   copyright:
-    notice: '© {year} - <a href="https://camel.apache.org">Apache Camel</a> is a trademark of the <a href="https://apache.org">Apache Software Foundation</a>.'
+    notice: '© {year} - <a href="https://camel.apache.org">Apache Camel</a> is a trademark of the <a href="https://apache.org">Apache Software Foundation</a>.<br/><br/><strong style="text-align:center">Kaoto is sponsored by</strong><br/><br/><a href="https://redhat.com">![Red Hat Logo](redhat-logo.png)</a>'
 
 # Localization
 locale:
