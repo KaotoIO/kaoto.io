@@ -19,7 +19,7 @@ The goals for this exercise are:
  - The `timer` component needs two configuration properties: `Timer name` and `Period`.
  - We want our Kamelet to be configurable to set the `period` in a configuration parameter. 
  - To call an external service, use the `https` component
- - To extract the attribute of the response, use a `setBody` with simple language and the expression `$.text`
+ - To extract the attribute of the response, use a `setBody` with simple language and the expression `"${body[text]}"`
  - The `kamelet:sink` is an end step.
  
 ### Solution
@@ -68,7 +68,7 @@ spec:
         - setBody:
             expression:
               simple:
-                expression: $.text
+                expression: "${body[text]}"
             id: setBody-1978
         - to: kamelet:sink
       id: from-7053
@@ -143,7 +143,7 @@ spec:
         - setBody:
             expression:
               simple:
-                expression: $.text
+                expression: "${body[text]}"
             id: setBody-1978
         - to: kamelet:sink
       id: from-7053
@@ -217,7 +217,7 @@ spec:
         - setBody:
             expression:
               simple:
-                expression: $.text
+                expression: "${body[text]}"
             id: setBody-1978
         - to: kamelet:sink
       id: from-7053
@@ -295,7 +295,7 @@ spec:
         - setBody:
             expression:
               simple:
-                expression: $.text
+                expression: "${body[text]}"
             id: setBody-1978
         - to: kamelet:sink
       id: from-7053
