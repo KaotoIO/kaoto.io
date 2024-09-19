@@ -21,7 +21,7 @@ sections:
         text: Install
         url: docs/installation
       announcement:
-        text: "Kaoto 2.1 has been released!"
+        text: "Kaoto 2.2 has been released!"
         link:
           text: "Read more"
           url: "blog/"
