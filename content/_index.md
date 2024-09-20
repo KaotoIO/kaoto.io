@@ -14,17 +14,17 @@ sections:
       title: Open Source <br/> Visual Editor for <br/>[Apache Camel](https://camel.apache.org)
       text: Lower the barrier of getting started with Apache Camel and empower your team to integrate systems with ease by leveraging the Kaoto visual editor. Design your integrations and test them locally for quick turnarounds.
       primary_action:
-        icon: brands/github
-        text: Visit GitHub
-        url: "http://github.com/KaotoIO/kaoto"
-      secondary_action:
-        text: Install
+        icon: computer-desktop-solid
+        text: Installation
         url: docs/installation
+      secondary_action:
+        text: Try Online
+        url: "https://red.ht/kaoto"
       announcement:
         text: "Kaoto 2.2 has been released!"
         link:
           text: "Read more"
-          url: "blog/"
+          url: "blog/kaoto-2.2-release/"
     design:
       css_class: "dark"
       background:
