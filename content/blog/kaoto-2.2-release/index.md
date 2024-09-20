@@ -11,7 +11,7 @@ tags:
 ---
 ## Say "Hello" to Kaoto 2.2.0
 
-For this release we focused on enhancing the usability and also the look and feel of the graphical editor. While doing so we also fixed several reported issues, for instance the visualization of parallel steps inside a WireTap or LoadBalance EIP. We did also add a lot of icons for new and existing [Apache Camel](http://camel.apache.org) components, which hopefully help to better identify them in the catalog as well as in your integrations. This release also ships with [Apache Camel 4.8.0](https://camel.apache.org/blog/2024/09/RELEASE-4.8.0/) support.
+For this release, we focused on enhancing the usability and the look and feel of the graphical editor. While doing so we also fixed several reported issues, for instance, the visualization of parallel steps inside the `Multicast` and `LoadBalance` EIPs. We also added new icons for existing and new [Apache Camel](http://camel.apache.org) components, which helps to better identify them in the catalog as well as in your integrations. This release also ships with [Apache Camel 4.8.0](https://camel.apache.org/blog/2024/09/RELEASE-4.8.0/) support.
 
 ## Give it a try!
 
