@@ -31,10 +31,10 @@ header:
       text: ""
       # Logo filename in `assets/media/` folder
       filename: "logo-kaoto.png"
-    button:
-      enable: true
-      text: "Try Online"
-      url: "https://red.ht/kaoto"
+#    button:
+#      enable: true
+#      text: "GitHub"
+#      url: "https://github.com/KaotoIO/?target=_blank"
     show_search: true
     show_theme_chooser: true
 
