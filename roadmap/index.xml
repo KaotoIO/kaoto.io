@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Roadmap | Kaoto - Visual Editor for Apache Camel</title><link>https://kaoto.io/roadmap/</link><atom:link href="https://kaoto.io/roadmap/index.xml" rel="self" type="application/rss+xml"/><description>Roadmap</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 10 Oct 2024 01:52:11 +0600</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Roadmap</title><link>https://kaoto.io/roadmap/</link></image><item><title>Kaoto 2.4.0</title><link>https://kaoto.io/roadmap/generated-milestone-2.4.0/</link><pubDate>Thu, 10 Oct 2024 01:52:11 +0600</pubDate><guid>https://kaoto.io/roadmap/generated-milestone-2.4.0/</guid><description>&lt;h4>
+Milestone &lt;a href="https://github.com/KaotoIO/kaoto/milestone/9">&lt;strong>2.4.0&lt;/strong>&lt;/a>&amp;nbsp;&amp;nbsp&lt;img style="padding: 0px; display: inline;" src="https://geps.dev/progress/0?dangerColor=800000&amp;warningColor=ff9900&amp;successColor=006600"/>&amp;nbsp;&amp;nbsp;(Open: 8 Closed: 0)
+&lt;p>Expected delivery: 12/04/2024&lt;/p>
+&lt;p>Description&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;/code>&lt;/pre>&lt;/div>&lt;p>Issues&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1385" target="_blank" rel="noopener">Kamelets &lt;code>types&lt;/code> property is not covered by the metadata editor nor the Config form&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1250" target="_blank" rel="noopener">Write the catalog files at the end of the process&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1117" target="_blank" rel="noopener">Make it possible to quickly enable all disabled steps (enable all)&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/997" target="_blank" rel="noopener">Include About modal in Kaoto Editor used by the multiplying architecture&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/952" target="_blank" rel="noopener">Double click on a node&amp;rsquo;s label to modify the description field&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/703" target="_blank" rel="noopener">Duplicate a route&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/515" target="_blank" rel="noopener">Support copy&amp;amp;paste for steps, branches and whole route&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/314" target="_blank" rel="noopener">XML IO support&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/h4></description></item><item><title>Kaoto 2.3.0</title><link>https://kaoto.io/roadmap/generated-milestone-2.3.0/</link><pubDate>Thu, 10 Oct 2024 01:52:09 +0600</pubDate><guid>https://kaoto.io/roadmap/generated-milestone-2.3.0/</guid><description>&lt;h4>
+Milestone &lt;a href="https://github.com/KaotoIO/kaoto/milestone/8">&lt;strong>2.3.0&lt;/strong>&lt;/a>&amp;nbsp;&amp;nbsp&lt;img style="padding: 0px; display: inline;" src="https://geps.dev/progress/75?dangerColor=800000&amp;warningColor=ff9900&amp;successColor=006600"/>&amp;nbsp;&amp;nbsp;(Open: 5 Closed: 15)
+&lt;p>Expected delivery: 10/30/2024&lt;/p>
+&lt;p>Description&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;/code>&lt;/pre>&lt;/div>&lt;p>Issues&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1550" target="_blank" rel="noopener">Support for Tokenizer EIP&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1443" target="_blank" rel="noopener">Editing a expression language does not show input box to type the actual expression&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1392" target="_blank" rel="noopener">Embed more Camel Catalog versions by default&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1044" target="_blank" rel="noopener">Investigate how to implement an Undo / Revert functionality in the graphical designer&lt;/a>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/948" target="_blank" rel="noopener">Support nested anyOf/oneOf schemas&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1544" target="_blank" rel="noopener">Missing validation error message for numeric inputs&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1541" target="_blank" rel="noopener">Provide a template for &lt;code>removeHeaders&lt;/code> EIP&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1492" target="_blank" rel="noopener">Activemq brokerURL component property missing in the UI&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1476" target="_blank" rel="noopener">Downgrade the required Java Version to build Kaoto&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1473" target="_blank" rel="noopener">CSS inconsistency in Canvas Form Property type field&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1472" target="_blank" rel="noopener">Kamelets not sorted alphabetically in the catalog&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1458" target="_blank" rel="noopener">Set the stable checkbox in the release pipeline workflow as true by default&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1429" target="_blank" rel="noopener">Typing full URI in Endpoint&amp;rsquo;s name generates bad YAML&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1391" target="_blank" rel="noopener">Wrong spelling of SpringBoot in Catalog&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1381" target="_blank" rel="noopener">&amp;ldquo;processor null properties&amp;rdquo; for step with Catalog 4.4.x&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1352" target="_blank" rel="noopener">Distorted UI on the design Page if navigated back from a different page&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/1080" target="_blank" rel="noopener">Focus is lost on field after coming from Help message&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/992" target="_blank" rel="noopener">Offer appropriate consumer/producer properties in the CanvasForm&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/787" target="_blank" rel="noopener">Display connector icon in catalog detail modal&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href="https://github.com/KaotoIO/kaoto/issues/440" target="_blank" rel="noopener">Sort language/dataformat properties with catalog index order&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/h4></description></item></channel></rss>
