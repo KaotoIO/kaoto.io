@@ -11,8 +11,8 @@ sections:
   # the big teaser block
   - block: hero2
     content:
-      title: Open Source <br/> Visual Editor for <br/>[Apache Camel](https://camel.apache.org)
-      text: Lower the barrier of getting started with Apache Camel and empower your team to integrate systems with ease by leveraging the Kaoto visual editor. Design your integrations and test them locally for quick turnarounds.
+      title: The Integration Designer for<br/>[Apache Camel](https://camel.apache.org)
+      text: Lower the barrier of getting started with Apache Camel and empower your team to integrate systems with ease by leveraging the Kaoto Open Source Designer. Build your integrations and test them locally for a fast feedback loop.
       primary_action:
         icon: computer-desktop-solid
         text: Installation
@@ -21,28 +21,28 @@ sections:
         text: Try Online
         url: "https://red.ht/kaoto"
       announcement:
-        text: "Kaoto 2.2 has been released!"
+        text: "Kaoto 2.3 is available!"
         link:
-          text: "Read more"
-          url: "blog/kaoto-2.2-release/"
+          text: "Check it out!"
+          url: "blog/kaoto-2.3-release/"
     design:
       css_class: "dark"
       background:
         color: '#293133'
   
   - block: markdown
-    id: morpher
+    id: lowcode
     content:
       title: 
       text: |-
-        !["Transition between source and design view in Kaoto"](kaoto-morph.gif)
+        !["Show Kaoto with source and design view side by side"](kaoto-lowcode.png)
 
   # features
   - block: features
     id: features
     content:
       title: Features
-      text: Kaoto has been designed with a focus on enabling users to quickly prototype Apache Camel integrations without deep Camel knownledge or having to write extensive Java code.
+      text: Kaoto has been designed with a focus on enabling users to quickly prototype Apache Camel integrations without deep Camel knownledge or having to write complex Java code.
       items:
         - name: Based on Apache Camel
           icon: camel-logo
@@ -76,6 +76,9 @@ sections:
         - title: Easy Configuration
           text: Selecting a figure on the graphical canvas will open up a configuration form to the right side which allows you to easily do your customizations.
           image: configform.png
+        - title: Built-in Data Mapping & Transformation UI
+          text: Use the Kaoto DataMapper to map data between input and output structures and to transform it to your needs.
+          image: datamapper.png
         
   - block: markdown
     id: youtube

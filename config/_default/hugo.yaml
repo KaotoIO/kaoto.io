@@ -3,7 +3,7 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Kaoto - Visual Editor for Apache Camel # Website name
+title: Kaoto - The Integration Designer for Apache Camel # Website name
 baseURL: 'https://kaoto.io/' # Website URL
 
 ############################
