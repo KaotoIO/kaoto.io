@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./assets/media/logo-kaoto.png" alt="Kaoto">
+  <a href="https://kaoto.io"><img src="./assets/media/logo-kaoto.png" alt="Kaoto"></a>
 </h1>
 
 <p align=center>

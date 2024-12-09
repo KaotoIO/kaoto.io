@@ -42,7 +42,7 @@ sections:
     id: features
     content:
       title: Features
-      text: Kaoto has been designed with a focus on enabling users to quickly prototype Apache Camel integrations without deep Camel knownledge or having to write complex Java code.
+      text: Kaoto has been designed with a focus on enabling users to quickly prototype Apache Camel integrations without deep Camel knowledge or having to write complex Java code.
       items:
         - name: Based on Apache Camel
           icon: camel-logo

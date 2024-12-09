@@ -25,9 +25,15 @@ We have added more choices to the Camel version selector. Now you will be able t
 
 #### Visual Data Mapping & Transformation Editor (Tech Preview available in VS Code)
 This feature has been requested a lot and we are very happy to provide you with the first iteration of a fully new Data Mapping UI which enables you to do your mappings and transformations in a drag and drop way. In comparison to AtlasMap the new Kaoto DataMapper works based on XSLT and does not require a specific custom runtime component to work. <br>
+
+<p align="center"><img src="./datamapper-icon.png" alt="showcasing the datamapper icon"/></p>
+
 This first iteration marks only the beginning of the Kaoto DataMapper story. There are still many more features and capabilities we want to add over the coming months.
 
 <p align="center"><img src="./featured.png" alt="showcasing the datamapper" style="height: 600px;"/></p>
+
+Click the video below to watch a short Kaoto DataMapper introduction: 
+[![Watch the Kaoto DataMapper introduction](https://img.youtube.com/vi/iz0yYThHZMc/hqdefault.jpg)](https://www.youtube.com/watch?v=iz0yYThHZMc)
 
 #### New Action Toolbar
 Our long term goal is to improve the usability in a way that users can reach most of the functionalities of Kaoto with the least amount of clicks and searching. Efficiency is key to make using Kaoto a fun experience for everyone. A first step in that direction is the new toolbar. In the long run we hope to make this the replacement for the right-click context menu.
