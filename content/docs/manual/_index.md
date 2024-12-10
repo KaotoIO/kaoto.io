@@ -56,6 +56,28 @@ jbang app install camel@apache/camel
 camel version
 ```
 
+#### Citrus Testing
+If you want to work with the Citrus testing framework, we strongly recommend to install the Citrus JBang plugin.
+
+Please follow the below steps to install it.
+
+- Install [JBang](https://www.jbang.dev) following these [instructions](https://www.jbang.dev/download/)
+- Verify that [JBang](https://www.jbang.dev) is working by executing the following from a command shell. This should output the version of installed [JBang](https://www.jbang.dev).
+
+```bash
+jbang version
+```
+- Run the following command from a command shell to install the [Citrus JBang plugin](https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing):
+
+```bash
+jbang app install citrus@citrusframework/citrus
+```
+- Check if the [Citrus JBang plugin](https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing) is working by executing the following from a command shell. This should output the version of the installed [Citrus JBang plugin](https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing).
+
+```bash
+citrus --version
+```
+
 ### Install Kaoto
 {{% callout note %}}
 For the best user experience and for additional supportive features, we suggest installing the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack), which also includes the Kaoto VS Code extension.
@@ -147,8 +169,10 @@ The following picture shows the different parts of the Kaoto Visual Editor.
 6. Drop down enabling you to add more Routes or other global elements to your integration. **Only visible for Camel Routes!**
 7. Copies the full source code of your integration to the Clipboard
 8. Exports the currently visible Integration as a PNG image
-9. This button bar provides you with functionalities like Zoom In / Out, Reset the View, Switching the layout direction between horizontal and vertical and grants you access to the comprehensive Camel Catalog, containing all the available Components/Connectors, Enterprise Integration Patterns and Kamelets
-10. A step in your Integration with a **Warning**-Marker to indicate a problem with the configuration of the step.
+9. Drop down showing the available Camel versions. Different runtimes are available, like Camel Main, Springboot and Quarkus.
+10. This button bar provides you with functionalities like Zoom In / Out, Reset the View, Switching the layout direction between horizontal and vertical and grants you access to the comprehensive Camel Catalog, containing all the available Components/Connectors, Enterprise Integration Patterns and Kamelets
+11. A step in your Integration with an **Error**-Marker to indicate a problem with the configuration of the step.
+12. The toolbar of the selected step. It provides available actions for the current selection.
 
 ### Working with Camel Routes
 In [Apache Camel](https://camel.apache.org), a route is a set of processing steps that are applied to a message as it travels from a source to a destination. A route typically consists of a series of processing steps that are connected in a linear sequence.
@@ -169,17 +193,17 @@ Once you confirmed the deletion of all your routes you should see a blank screen
 You can now create a new Camel Route by either clicking the <code>+ New</code> button in the center of the canvas or by using the same button in the upper menu bar of the Canvas, next to the Route selection drop down, which will both put a template route in place which uses a **Timer** component to send every second a message to the **Log** component.
 
 #### Adding a step
-Now lets add a new step between the **Timer** and the **Log** component to modify the message body. There are two ways of adding a step to the route. You can either Right-Click on the step you want to insert or click the 3 dots on the right side of the steps label. This will bring up a context menu with the available actions to choose from. 
+Now lets add a new step between the **Timer** and the **Log** component to modify the message body. There are two ways of adding a step to the route. You can either Right-Click on the step you want to insert before or after. This will bring up a context menu with the available actions to choose from. An easier alternative would be to hover over the connection between the two steps you want to insert between and then click on the **+** button that appears. 
 
-Right-Click the **Timer** step now.
+Hover over the connection between the **Timer** and the **Log** steps now and click the **+** button to execute the **Add step** action.
 
 ![A Screenshot of the available step actions](step-actions.png)
 
 {{% callout note %}}
-The set of available actions depend on the selected step and can vary. There are actions for appending, prepending, replacing and deleting steps as well as some more specialized actions.
+When using the right-click context menu, the set of available actions depend on the selected step and can vary. There are actions for appending, prepending, replacing and deleting steps as well as some more specialized actions.
 {{% /callout %}}
 
-Lets now select the **+ Add step** action. This will open up the Camel Catalog where you can search the step you want to add. 
+This will open up the Camel Catalog where you can search the step you want to add.
 
 ![A Screenshot of the catalog of Camel steps](catalog.png)
 
@@ -191,35 +215,49 @@ You can now select the **setBody** tile to add it to your route. Select the new 
 
 ![A Screenshot of the route with setBody selected and the configuration form opened](setbody-step.png)
 
-To modify the content of the message we have to define the **Expression**. Click on the pencil icon next to the field to open up the Expression Editor.
+Let's change the **Expression** text field to <code>Hello from Kaoto!</code>. 
 
-![The expression editor opened](setbody-expression.png)
-
-Let's change the **Expression** text field to <code>Hello from Kaoto!</code> and then hit **Apply**. 
 Now the **Log** component will receive a <code>Hello from Kaoto!</code> message every second and logs it to the console.
 
 {{% callout note %}}
-Adding steps is usually done with two actions. **Prepend** can be used to add a step _before_ the selected step and **Append** will add the new step _after_ the selected step.
+When using the right click context menu of a step, adding new steps is usually done with two actions. **Prepend** can be used to add a step _before_ the selected step and **Append** will add the new step _after_ the selected step.
 
 However, on the first step of a flow and on steps that can have children, the **Add Step** action is used. 
 {{% /callout %}}
 
 #### Replacing a step
-You can replace any step on the canvas by invoking the context menu on a step and selecting the item **Replace**. This will open up the Camel Catalog and you can choose the replacement from there.
+You can replace any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Replace action.
+
+![A Screenshot of the toolbar for steps](replace-button.png)
+
+Alternatively you can do that also by invoking the context menu on a step and selecting the item **Replace**. 
+Both ways it will open up the Camel Catalog and you can choose the replacement from there.
 
 #### Deleting a step
 {{% callout warning %}}
 When invoking the **Delete** action on a step with children or on a container element containing children there will be a confirmation dialog because you are about to delete not just the single step or container but also all the contained children. **Be cautious**!
 {{% /callout %}}
 
-You can delete any step on the canvas by invoking the context menu on a step and selecting the item **Delete**. This will remove the step from the route.
+You can delete any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Delete action.
+
+![A Screenshot of the toolbar for steps](delete-button.png)
+
+Alternatively you can do that also by invoking the context menu on a step and selecting the item **Delete**. This will remove the step from your integration.
 
 #### Enable / Disable a step
-You can enable / disable any step in your route by invoking the context menu on a step and selecting the item **Enable / Disable**. This will instruct the [Apache Camel](https://camel.apache.org) runtime to ignore the step when executing the flow. This can be convenient when prototyping a new route. 
+You can enable or disable any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Enable / Disable action.
+
+{{% callout note %}}
+Disabling a step will instruct the [Apache Camel](https://camel.apache.org) runtime to ignore the step when executing the flow. This can be convenient when prototyping a new route.
+{{% /callout %}}
+
+![A Screenshot of the toolbar for steps](disable-button.png)
+
+Alternatively you can enable / disable any step in your route by invoking the context menu on a step and selecting the item **Enable / Disable**.  
 
 ![Showing a disabled step](disabled-step.png)
 
-In the picture above the **Log** component has been disabled. The label of the step is striked through, the icon is grayed out and there is a marker icon at the top right of the step to indicate it is disabled.
+In the picture above the **Log** component has been disabled. The icon is grayed out and there is a marker icon at the top right of the step to indicate it is disabled.
 
 <!-- TODO
 ### Working with Kamelets

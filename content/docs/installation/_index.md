@@ -21,6 +21,10 @@ Do you already use [Visual Studio Code](https://code.visualstudio.com/)? If you 
 To be able to easily launch and debug your integrations locally, we also suggest to install [Camel JBang](https://camel.apache.org/manual/camel-jbang.html).
 {{% /callout %}}
 
+{{% callout note %}}
+If you want to run Citrus tests for your integration, we also suggest to install [Citrus JBang](https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing).
+{{% /callout %}}
+
 ### Install the VS Code extension
 
 #### a) Using the Extension Pack for Apache Camel
