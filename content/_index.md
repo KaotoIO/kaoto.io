@@ -84,7 +84,7 @@ sections:
     id: youtube
     content:
       title: Kaoto Introduction
-      text: Watch this introduction video showing how to get started with Kaoto<br/><br/>{{< youtube S1WlAMos_64 >}}<br/>
+      text: Watch this introduction video showing how to get started with Kaoto<br/><br/>{{< youtube ADU0j7VFCxs >}}<br/>
     design:
       css_class: "light"
 
