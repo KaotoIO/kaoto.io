@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Manual | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/docs/manual/</link><atom:link href="https://kaoto.io/docs/manual/index.xml" rel="self" type="application/rss+xml"/><description>User Manual</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>User Manual</title><link>https://kaoto.io/docs/manual/</link></image><item><title>Generating a catalog</title><link>https://kaoto.io/docs/manual/generating-catalog/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kaoto.io/docs/manual/generating-catalog/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>By default, every Kaoto release includes the latest Camel version available at the moment of the build, nevertheless, generating a different set of catalogs is possible.&lt;/p>
+&lt;h3 id="catalog-generator-cli">Catalog generator CLI&lt;/h3>
+&lt;p>Kaoto provides a Camel catalog generator CLI to ease this process, it supports the following runtimes:&lt;/p>
+&lt;ul>
+&lt;li>Main&lt;/li>
+&lt;li>Quarkus&lt;/li>
+&lt;li>Springboot&lt;/li>
+&lt;/ul>
+&lt;h4 id="how-to-use">How to use?&lt;/h4>
+&lt;ol>
+&lt;li>Clone &lt;a href="git@github.com:KaotoIO/kaoto.git">the Kaoto project&lt;/a>&lt;/li>
+&lt;li>Navigate to the &lt;code>packages/catalog-generator&lt;/code> directory&lt;/li>
+&lt;li>Install the project dependencies:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./mvnw install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>Run the project with the following command:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./mvnw package&lt;span class="p">;&lt;/span> java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.6.0 -m 4.6.0 -n &lt;span class="s2">&amp;#34;My Catalog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>
+&lt;p>This will generate a Catalog library containing:&lt;/p>
+&lt;ul>
+&lt;li>Camel Main 4.6.0&lt;/li>
+&lt;li>Camel Kamelets 4.6.0&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>The resulting files will be in the &lt;code>packages/catalog-generator/dist/camel-catalog&lt;/code> folder&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Providing that folder through a http server will make it available for using it in Kaoto&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="creating-a-catalog-library-with-different-runtimes">Creating a Catalog library with different runtimes&lt;/h4>
+&lt;p>In order to add multiple runtimes to the Catalog library, we can provide each runtime with its version using the following flags:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> -m,--main &amp;lt;version&amp;gt; Camel Main version. If not specified,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> it will use the generator installed
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -q,--quarkus &amp;lt;version&amp;gt; Camel Extensions &lt;span class="k">for&lt;/span> Quarkus version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -s,--springboot &amp;lt;version&amp;gt; Camel SpringBoot version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For instance, running the following command will create a Catalog library with Camel Main 4.6.0 and Camel extensions for Quarkus 3.8.0:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./mvnw package&lt;span class="p">;&lt;/span> java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.6.0 -m 4.6.0 -q 3.8.0 -n &lt;span class="s2">&amp;#34;My Catalog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For a different Kamelets catalog version, the &lt;code>--kamelets or -k&lt;/code> flag can be specified&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./mvnw package&lt;span class="p">;&lt;/span> java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.5.0 -m 4.6.0 -n &lt;span class="s2">&amp;#34;My Catalog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="how-to-instruct-kaoto-to-use-a-specific-catalog-library">How to instruct Kaoto to use a specific Catalog library&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>In VSCode, go to the settings page and look for &amp;ldquo;Kaoto&amp;rdquo;
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="VSCode Kaoto settings" srcset="
+/docs/manual/generating-catalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_0776677cd9a532ae55bf6448f5909d32.webp 400w,
+/docs/manual/generating-catalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_c8879722ed886b00d13c42c7745a5fe6.webp 760w,
+/docs/manual/generating-catalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/generating-catalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_0776677cd9a532ae55bf6448f5909d32.webp"
+width="760"
+height="164"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In the &lt;code>TextField&lt;/code>, provide the URL of the &lt;code>index.json&lt;/code> file that specifies the location of the subsequent catalogs, for instance, the public Kaoto catalog can be used:
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Setting a Kaoto catalog URL" srcset="
+/docs/manual/generating-catalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_ef9a47be0f3b0ed43cf1ae9831862ce1.webp 400w,
+/docs/manual/generating-catalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_0568aed2784b6d4314daf8632da57cd4.webp 760w,
+/docs/manual/generating-catalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/generating-catalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_ef9a47be0f3b0ed43cf1ae9831862ce1.webp"
+width="760"
+height="150"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Restart Kaoto for the changes to have effect
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="KAoto runtime selector" srcset="
+/docs/manual/generating-catalog/kaoto-runtime-selector_huac68c115394790705f430d95d9ff8c9c_39472_95419849255c87c441f5702f502de4c8.webp 400w,
+/docs/manual/generating-catalog/kaoto-runtime-selector_huac68c115394790705f430d95d9ff8c9c_39472_e00ded8b8be9b15893ad5cccdb790d62.webp 760w,
+/docs/manual/generating-catalog/kaoto-runtime-selector_huac68c115394790705f430d95d9ff8c9c_39472_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/generating-catalog/kaoto-runtime-selector_huac68c115394790705f430d95d9ff8c9c_39472_95419849255c87c441f5702f502de4c8.webp"
+width="760"
+height="175"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>
