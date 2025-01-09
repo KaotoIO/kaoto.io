@@ -259,6 +259,235 @@ Alternatively you can enable / disable any step in your route by invoking the co
 
 In the picture above the **Log** component has been disabled. The icon is grayed out and there is a marker icon at the top right of the step to indicate it is disabled.
 
+### Kaoto DataMapper (technical preview)
+> [!NOTE]
+> Currently Kaoto DataMapper is supported only inside the Kaoto Visual Studio Code extension. In the future release, standalone web version of Kaoto will also support configuring the DataMapper step.
+
+> [!NOTE]
+> As an initial technical preview version, Kaoto DataMapper only supports XML schema for rendering the data structure. And it internally generates a single XSLT step to perform configured data mappings at runtime. While you can consume multiple XML documents with using Camel Variables and/or Message Headers that are mapped to XSLT Parameters, the output is only a Camel Message Body.
+
+In addition to the regular Camel steps, Kaoto supports **Kaoto DataMapper (technical preview)** step to be placed in the Camel Route. Kaoto DataMapper step provides a graphical user interface to create data mappings inside the Camel Route.
+
+#### Adding a DataMapper step
+1. Add a **Kaoto DataMapper** step in your Camel route. When you `Append`, `Prepend` or `Replace` a step in the Kaoto Design view, you can find the **Kaoto DataMapper** step in the catalog.
+
+| Tile view                            | List view                            |
+|--------------------------------------|--------------------------------------|
+| ![Tile](catalog-datamapper-tile.png) | ![List](catalog-datamapper-list.png) |
+
+2. Click the added **Kaoto DataMapper** step in the Kaoto Design view. It opens up Kaoto DataMapper config form.
+
+![Kaoto DataMapper step](kaoto-datamapper-step.png)
+
+3. In the Kaoto DataMapper config form, click `Configure` button.
+
+![DataMapper Configure button](datamapper-configure-button.png)
+
+4. The blank Kaoto DataMapper canvas will launch.
+
+![Blank DataMapper UI](datamapper-blank.png)
+
+#### Source and Target
+In the DataMapper canvas, you can see `Source` at the left and `Target` at the right.
+
+![Source and Target](datamapper-source-target.png)
+
+The `Source` is in an other word input, which the DataMapper step reads the data from. This is mapped to the incoming Camel `Message` to the DataMapper step, as well as Camel `Variables`.
+ 
+The `Target` is in an other word output, which the DataMapper step writes the data to.
+This is mapped to the outgoing Camel `Message` from the DataMapper step.
+
+#### Parameters
+
+The `Parameters` inside the `Source` is mapped to any of incoming Camel `Variables` and `Message Headers`. For example, if there is an incoming Camel Variable `orderSequence`, you can consume it by adding a Parameter `orderSequence` in the DataMapper Source/Parameters section.
+
+To add a parameter,
+1. Click the plus (+) button on `Parameters` panel
+
+![Parameters](datamapper-add-parameter.png)
+
+2. Type parameter name and click the check button
+
+![Add Parameter confirm](datamapper-add-parameter-confirm.png)
+
+> [!NOTE]
+> While Camel Exchange Properties are also mapped to Parameters in current camel-xslt-saxon implementation, after the [Camel Variables](https://camel.apache.org/manual/variables.html) has been introduced, it is no longer recommended to store application data into Camel Exchange Properties. We encourage to use Variables instead.
+
+#### Attaching Document schema files
+If any of `Source Body`, `Target Body` and/or `Parameter(s)` are structured data, you can attach the schema file and visualize the data structure in a tree style view. If the data is not structured and just a primitive value, you don't need to attach a schema file.
+
+To attach a schema,
+1. Place schema file(s) inside the workspace directory
+
+2. Click `Attach a schema` button
+
+| Source Body | Target Body | Parameter |
+|----------------------|----------------------|----------------------|
+| ![Attach Source Body schema](datamapper-attach-schema-source.png) | ![Attach Target Body schema](datamapper-attach-schema-target.png) | ![Attach Parameter schema](datamapper-attach-schema-param.png) |
+
+3. Select the schema file to attach
+
+![Select schema](datamapper-select-schema.png)
+
+4. Document structure is rendered
+
+![Schema attached](datamapper-schema-attached.png)
+
+#### Creating simple mappings
+##### Creating a mapping by drag and drop a field
+When you perform drag and drop between source and target, mapping is created and the line is drawn
+
+![Drag name](datamapper-drag-name.png)
+
+![Drop name](datamapper-drop-name.png)
+
+##### Creating a mapping by typing xpath expression
+You can also create a mapping by typing xpath expression directly.
+
+1. Click the 3 dots context menu and select `Add selector expression`
+
+![Add selector](datamapper-add-selector.png)
+
+2. Type the xpath expression
+
+![Type xpath](datamapper-type-xpath.png)
+
+#### Creating conditional mappings
+DataMapper supports creating 3 types of conditional mappings:
+- `if` : The mapping is created only when the condition is satisfied
+- `choose-when-otherwise` : The mapping is created following how condition is satisfied, where if `when` branch condition is satisfied, the `when` branch mapping is created. If no `when` branch condition is satisfied, then `otherwise` branch mapping is created.   
+- `for-each` : The mapping is created for each collection items. The collection here means multiple occurrences, which is often represented as an array.
+
+##### Creating an `if` mapping
+1. On the target field to create a mapping, click the 3 dots context menu and select `wrap with "if"`
+
+![3 dots menu](datamapper-if-3dots.png)
+
+![Wrap with if](datamapper-if-if.png)
+
+2. Configure `if` condition. You can drag the source field and drop into the input field and build the condition out of it, or type everything.
+
+![Configure if condition](datamapper-if-condition.png)
+
+3. Configure the mapping. Similarly drag and drop or type.
+
+![Configure mapping](datamapper-if-mapping.png)
+
+##### Creating a `choose-when-otherwise` mapping
+1. On the target field to create a mapping, click the 3 dots context menu and select `wrap with "choose-when-otherwise"`
+
+![Wrap with choose-when-otherwise](datamapper-choose-choose.png)
+
+2. Configure `when` condition
+
+![Configure when condition](datamapper-choose-when-condition.png)
+
+3. Configure the mapping for `when` branch
+
+![Configure when mapping](datamapper-choose-when-mapping.png)
+
+4. Configure the mapping for `otherwise` branch
+
+![Configure when mapping](datamapper-choose-otherwise-mapping.png)
+
+5. If needed, you can add one or more `when` branch. On the `choose` field at the Target side, click the 3 dots context menu and select `Add "when"`
+
+![Configure when mapping](datamapper-choose-add-when.png)
+
+![Configure when mapping](datamapper-choose-when-added.png)
+
+##### Creating a `for-each` mapping
+When a field is a collection field, which means it could have multiple occurrences, IOW it's a repeating element which is often represented as an array, you can create a `for-each` mapping. The layer icon on the field indicates that it's a collection field.
+
+![Collection field](datamapper-collection-field.png)
+
+1. On the target collection field to create a `for-each` mapping, click the 3 dots context menu and select `wrap with "for-each"`
+
+![Wrap with for-each](datamapper-for-each-for-each.png)
+
+2. Configure `for-each` condition by specifying the source collection field to iterate over 
+
+![Configure for-each condition](datamapper-for-each-condition.png)
+
+3. Configure the mappings below. Note that the mapping field path is now a relative path from the collection field specified on `for-each` condition
+
+![Configure for-each mappings](datamapper-for-each-mappings.png)
+
+#### Using XPath expression editor
+
+> [!NOTE]
+> XPath editor is still under initial development and it currently supports limited drag and drop. In the future releases, more syntax assisting features will be added.
+
+When you want to write something more in XPath expression than just a field path, you can launch the XPath expression editor and work on it. There is a pencil icon on the target field which launches the XPath expression editor when you click.
+
+1. On the target field which has a mapping, click the pencil button
+![Launch XPath editor](datamapper-xpath-pencil.png)
+
+2. XPath editor launches
+![XPath editor](datamapper-xpath-editor.png)
+
+3. You can type in the editor at the right, or drag a field and drop onto the editor
+![XPath editor: DnD fields](datamapper-xpath-dnd-fields.png)
+
+4. You can also drag and drop XPath functions. Click `Function` tab at left side
+![XPath editor: Functions](datamapper-xpath-functions.png)
+
+5. And drag the function and drop onto the editor
+![XPath editor: DnD functions](datamapper-xpath-functions-dnd.png)
+
+6. When it's done, click the `Close` button at the bottom left
+![XPath editor: Close](datamapper-xpath-close.png)
+
+7. Now you can see the mapping is created in the tree view
+![XPath editor: Done](datamapper-xpath-done.png)
+
+### Deleting a mapping
+1. On the target field in the mapping, click the trash button
+
+![Delete a mapping](datamapper-delete-mapping-btn.png)
+
+2. Click confirm
+
+![Confirm delete mapping](datamapper-delete-mapping-confirm.png)
+
+3. Mapping is deleted
+
+![Delete mapping done](datamapper-delete-mapping-done.png)
+
+### Deleting a parameter
+
+1. To delete a parameter, click the trash button on the parameter
+![Delete parameter](datamapper-delete-param-trash.png)
+
+2. Click `Confirm` in the dialog
+![Delete parameter confirm](datamapper-delete-param-confirm.png)
+
+3. The parameter is deleted
+![Delete parameter done](datamapper-delete-param-done.png)
+
+### Detaching a schema
+If you have a Document you already attached a schema and made it structured, but you want to turn it back to be a primitive value and unstructured, you can detach the schema from the Document.
+
+1. Click a `Detach schema` button
+![Detach schema button](datamapper-detach-button.png)
+
+2. Click a `confirm` button
+![Detach schema confirm](datamapper-detach-confirm.png)
+
+3. Now the Document got back to be a primitive value 
+![Detach schema done](datamapper-detach-done.png)
+
+#### Example Data Mappings
+
+![Example Data Mappings](datamapper-done.png)
+
+#### Built-in instructions
+
+When you don’t yet have an active DataMapper canvas opened, if you click the DataMapper tab, it shows the built-in step-by-step instructions of how to use Kaoto DataMapper UI.
+
+![DataMapper HowTo](datamapper-howto.png)
+
+
 <!-- TODO
 ### Working with Kamelets
 
