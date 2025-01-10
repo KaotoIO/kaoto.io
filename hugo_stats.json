@@ -69,7 +69,6 @@
       "[&.active]:text-black/90",
       "[&:not(dark)]:hidden",
       "[hyphens:auto]",
-      "absolute",
       "active",
       "article-container",
       "article-header",
