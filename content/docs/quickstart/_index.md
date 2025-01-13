@@ -1,6 +1,7 @@
 ---
 title: "Quickstart Guide"
 description: "How to create an integration for Apache Camel in a no-code / low-code way."
+date: 2024-09-13
 ---
 
 On this guide you will learn how to create your first route using Kaoto in a no-code way. This means, you will not write any source code at this point.

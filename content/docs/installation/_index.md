@@ -1,6 +1,7 @@
 ---
 title: Installation Guide
 description: "Guide on how to install and run Kaoto, the low-code and no-code editor for Apache Camel."
+date: 2024-09-13
 ---
 
 ## Using our online testing instance

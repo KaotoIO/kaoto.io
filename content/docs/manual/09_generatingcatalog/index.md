@@ -1,6 +1,7 @@
 ---
 title: Generating a catalog
 description: "This document describes how to generate a Camel catalog for Kaoto."
+date: 2025-01-13
 ---
 
 ## Overview
