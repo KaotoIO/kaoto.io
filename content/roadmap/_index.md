@@ -131,7 +131,7 @@ This roadmap is subject to change.
 <div class="roadmap-container">
     <div class="roadmap-timeline"></div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./bug.svg');"></div>
+        <div class="icon" style="background-image: url('./bug.png');"></div>
         <div class="content">
             <h3>Visual Debugger</h3>
             <p>Enable users to visually debug their integrations and inspect the contents of the messages</p>
@@ -147,7 +147,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./puzzle.svg');"></div>
+        <div class="icon" style="background-image: url('./puzzle.png');"></div>
         <div class="content">
             <h3>Connections Wizard</h3>
             <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
@@ -155,7 +155,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./build.svg');"></div>
+        <div class="icon" style="background-image: url('./build.png');"></div>
         <div class="content">
             <h3>Maven support</h3>
             <p>Provide better support for working with Maven based integration projects like CSB or CEQ</p>
@@ -179,7 +179,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./xmlsupport.svg');"></div>
+        <div class="icon" style="background-image: url('./xmlsupport.png');"></div>
         <div class="content">
             <h3>XML IO DSL Support</h3>
             <p>Additionally to YAML DSL we would like to offer users to use the XML IO DSL</p>
