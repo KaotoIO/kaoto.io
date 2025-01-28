@@ -88,14 +88,16 @@ sections:
     design:
       css_class: "light"
 
-  - block: testimonials
+  # Rename custom section to slideshow
+  - block: slideshow
+    id: slideshow-section
     content:
       title: Integration Developers Feedback
       text: See what our users have to say
       items:
         - name: "Richard Stroop"
           role: "High Wizard of Integration at Red Hat"
-          image: "people/richard_s.png"
+          image: "media/people/richard_s.png"
           text: "It's come so far and it's so good now!"
     design:
       css_class: "dark"

@@ -1,0 +1,7 @@
+.slideshow-section .item {
+  display: none;
+}
+.slideshow-section .item:first-child {
+  display: block;
+}
+/* ...existing code... */
