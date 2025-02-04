@@ -194,6 +194,14 @@ This roadmap is subject to change.
             <div class="delivery-time">Q1 / 2025</div>
         </div>
     </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./darklightmode.png');"></div>
+        <div class="content">
+            <h3>Dark & Light Mode Support</h3>
+            <p>Enable users to switch between dark and light theme</p>
+            <div class="delivery-time">Q1 / 2025</div>
+        </div>
+    </div>
     <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./datamapper.png');"></div>
         <div class="content">
