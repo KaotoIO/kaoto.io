@@ -22,9 +22,9 @@ sections:
         url: "https://red.ht/kaoto"
       announcement:
         text: "Kaoto 2.4 is available!"
-        #link:
-        #  text: "Check it out!"
-        #  url: "blog/kaoto-2.3-release/"
+        link:
+          text: "Check it out!"
+          url: "blog/kaoto-2.4-release/"
     design:
       css_class: "dark"
       background:
@@ -88,7 +88,6 @@ sections:
     design:
       css_class: "light"
 
-  # Rename custom section to slideshow
   - block: slideshow
     id: slideshow-section
     content:
