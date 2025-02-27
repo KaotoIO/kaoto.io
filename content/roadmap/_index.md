@@ -147,14 +147,6 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./puzzle.png');"></div>
-        <div class="content">
-            <h3>Connections Wizard</h3>
-            <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
-            <div class="delivery-time">2025</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
         <div class="icon" style="background-image: url('./build.png');"></div>
         <div class="content">
             <h3>Maven support</h3>
@@ -168,6 +160,38 @@ This roadmap is subject to change.
             <h3>OpenAPI support</h3>
             <p>Provide better support for working with OpenAPI in your integrations</p>
             <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./stop.png');"></div>
+        <div class="content">
+            <h3>Drag & Drop (Final)</h3>
+            <p>Enable users to quickly move steps on the canvas with Drag & Drop</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./puzzle.png');"></div>
+        <div class="content">
+            <h3>Connections Wizard</h3>
+            <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./camel-logo.svg');"></div>
+        <div class="content">
+            <h3>Custom Kamelet Support</h3>
+            <p>Allow users to define their own custom Kamelet catalog.</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./darklightmode.png');"></div>
+        <div class="content">
+            <h3>Dark & Light Mode Support</h3>
+            <p>Enable users to switch between dark and light theme</p>
+            <div class="delivery-time">Q2 / 2025</div>
         </div>
     </div>
     <div class="roadmap-card">
@@ -186,19 +210,11 @@ This roadmap is subject to change.
             <div class="delivery-time">Q1 / 2025</div>
         </div>
     </div>
-    <div class="roadmap-card">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./stop.png');"></div>
         <div class="content">
-            <h3>Drag & Drop Support</h3>
-            <p>Enable users to quickly move steps on the canvas with Drag & Drop</p>
-            <div class="delivery-time">Q1 / 2025</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./darklightmode.png');"></div>
-        <div class="content">
-            <h3>Dark & Light Mode Support</h3>
-            <p>Enable users to switch between dark and light theme</p>
+            <h3>Drag & Drop (Tech Preview)</h3>
+            <p>Initial support of Drag & Drop in the editor</p>
             <div class="delivery-time">Q1 / 2025</div>
         </div>
     </div>
