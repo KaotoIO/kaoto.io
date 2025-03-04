@@ -19,10 +19,11 @@ The following picture shows the different parts of the Kaoto Visual Editor.
 6. Drop down enabling you to add more Routes or other global elements to your integration. **Only visible for Camel Routes!**
 7. Copies the full source code of your integration to the Clipboard
 8. Exports the currently visible Integration as a PNG image
-9. Drop down showing the available Camel versions. Different runtimes are available, like Camel Main, Springboot and Quarkus.
-10. This button bar provides you with functionalities like Zoom In / Out, Reset the View, Switching the layout direction between horizontal and vertical and grants you access to the comprehensive Camel Catalog, containing all the available Components/Connectors, Enterprise Integration Patterns and Kamelets
+9. Generate a documentation for your integration and download it in Markdown format.
+10. Drop down showing the available Camel versions. Different runtimes are available, like Camel Main, Springboot and Quarkus.
 11. A step in your Integration with an **Error**-Marker to indicate a problem with the configuration of the step.
 12. The toolbar of the selected step. It provides available actions for the current selection.
+13. This button bar provides you with functionalities like Zoom In / Out, Reset the View, Switching the layout direction between horizontal and vertical and grants you access to the comprehensive Camel Catalog, containing all the available Components/Connectors, Enterprise Integration Patterns and Kamelets
 
 ### Working with Camel Routes
 In [Apache Camel](https://camel.apache.org), a route is a set of processing steps that are applied to a message as it travels from a source to a destination. A route typically consists of a series of processing steps that are connected in a linear sequence.
@@ -108,3 +109,14 @@ Alternatively you can enable / disable any step in your route by invoking the co
 ![Showing a disabled step](disabled-step.png)
 
 In the picture above the **Log** component has been disabled. The icon is grayed out and there is a marker icon at the top right of the step to indicate it is disabled.
+
+#### Generate Integration Documentation
+You can use the built-in documentation generating feature to create a Markdown file containing all the steps in your integration and all the changed parameters for these steps together with an image of your integration. 
+
+![A screenshot showing the generate documentation button](generate-docs-button.png)
+
+When you click the button it will open up a dialog with a preview of your integration documentation. 
+
+![A screenshot showing the generate documentation dialog](generate-documentation.png)
+
+You can use the **Visible Entities** control in the top left of the dialog to control which routes are part of the documentation. You can either select all, just a subset or even just a single route. Once you have made your choice you can specify a file name in the top right and then hit the **Download** button to retrieve the file in ZIP format. 
