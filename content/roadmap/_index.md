@@ -35,6 +35,11 @@ h1 {
     position: relative;
 }
 
+.roadmap-card.wip {
+    border-color:rgb(255, 166, 0);
+    border-width: 3px; /* Increased border width */
+}
+
 .roadmap-card.completed {
     border-color: #4CAF50;
     border-width: 3px; /* Increased border width */
@@ -90,12 +95,6 @@ h1 {
     background: lightgray;
 }
 
-.roadmap-card.completed::before {
-    background: #4CAF50;
-    border: 5px solid #4CAF50;
-    left: -40px; /* Adjusted to center the circle */
-}
-
 .roadmap-card::after {
     content: '';
     position: absolute;
@@ -106,6 +105,23 @@ h1 {
     height: 2px;
     background: lightgray;
     border: 3px solid lightgray;
+}
+
+.roadmap-card.wip::before {
+    background:rgb(255, 166, 0);
+    border: 5px solid rgb(255, 166, 0);
+    left: -40px; /* Adjusted to center the circle */
+}
+
+.roadmap-card.wip::after {
+    background: rgb(255, 166, 0);
+    border: 3px solid rgb(255, 166, 0);
+}
+
+.roadmap-card.completed::before {
+    background: #4CAF50;
+    border: 5px solid #4CAF50;
+    left: -40px; /* Adjusted to center the circle */
 }
 
 .roadmap-card.completed::after {
@@ -186,7 +202,7 @@ This roadmap is subject to change.
             <div class="delivery-time">2025</div>
         </div>
     </div>
-    <div class="roadmap-card">
+    <div class="roadmap-card wip">
         <div class="icon" style="background-image: url('./darklightmode.png');"></div>
         <div class="content">
             <h3>Dark & Light Mode Support</h3>
@@ -194,20 +210,20 @@ This roadmap is subject to change.
             <div class="delivery-time">Q2 / 2025</div>
         </div>
     </div>
-    <div class="roadmap-card">
+    <div class="roadmap-card wip">
         <div class="icon" style="background-image: url('./vscode.svg');"></div>
         <div class="content">
             <h3>Enhanced Kaoto Extension</h3>
             <p>Create a dedicated Kaoto view which provides a better overview and easier access to needed functionality</p>
-            <div class="delivery-time">Q1 / 2025</div>
+            <div class="delivery-time">Q2 / 2025</div>
         </div>
     </div>
-    <div class="roadmap-card">
+    <div class="roadmap-card wip">
         <div class="icon" style="background-image: url('./xmlsupport.png');"></div>
         <div class="content">
             <h3>XML IO DSL Support</h3>
             <p>Additionally to YAML DSL we would like to offer users to use the XML IO DSL</p>
-            <div class="delivery-time">Q1 / 2025</div>
+            <div class="delivery-time">Q2 / 2025</div>
         </div>
     </div>
     <div class="roadmap-card completed">
