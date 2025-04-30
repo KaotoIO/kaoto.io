@@ -154,7 +154,7 @@ This roadmap is subject to change.
             <div class="delivery-time">2025</div>
         </div>
     </div>
-    <div class="roadmap-card">
+    <div class="roadmap-card wip">
         <div class="icon" style="background-image: url('./datamapper.png');"></div>
         <div class="content">
             <h3>DataMapper JSON Support</h3>
@@ -179,14 +179,6 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./stop.png');"></div>
-        <div class="content">
-            <h3>Drag & Drop (Final)</h3>
-            <p>Enable users to quickly move steps on the canvas with Drag & Drop</p>
-            <div class="delivery-time">2025</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
         <div class="icon" style="background-image: url('./puzzle.png');"></div>
         <div class="content">
             <h3>Connections Wizard</h3>
@@ -203,6 +195,14 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card wip">
+        <div class="icon" style="background-image: url('./stop.png');"></div>
+        <div class="content">
+            <h3>Drag & Drop (Final)</h3>
+            <p>Enable users to quickly move steps on the canvas with Drag & Drop</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./darklightmode.png');"></div>
         <div class="content">
             <h3>Dark & Light Mode Support</h3>
@@ -210,7 +210,7 @@ This roadmap is subject to change.
             <div class="delivery-time">Q2 / 2025</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./vscode.svg');"></div>
         <div class="content">
             <h3>Enhanced Kaoto Extension</h3>
@@ -218,7 +218,7 @@ This roadmap is subject to change.
             <div class="delivery-time">Q2 / 2025</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./xmlsupport.png');"></div>
         <div class="content">
             <h3>XML IO DSL Support</h3>
