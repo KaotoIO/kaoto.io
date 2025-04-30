@@ -13,35 +13,26 @@ This section describes how to
 - get access to the source code of the Camel Route
 
 ### Preparing the Workspace
-Visual Studio Code requires you to create a workspace for your project to access the full functionality of the environment. If you haven't done so yet, please open your Visual Studio Code instance. You can do that by finding the right launcher on your computer or by opening a command shell and executing <code>code</code>. This should leave you with a window like the one below.
+Visual Studio Code requires you to create a workspace for your project to access the full functionality of the environment. If you haven't done so yet, please open your Visual Studio Code instance. You can do that by finding the right launcher on your computer or by opening a command shell and executing <code>code</code>. This should leave you with a window like the one below. _(in the picture below we selected already the Kaoto view - see the Kaoto Camel icon)_
 
 ![A Screenshot of a fresh VS Code instance](empty-vscode.png)
 
-Next we need to select our workspace folder which will store our project files. Go to the <code>File</code> menu and select the entry <code>Open Folder</code>. In the following screen browse to the folder you would like to use and select it. 
-
-![A Screenshot of the Open Folder menu item](open-folder.png)
-
-### VS Code Commands
-{{% callout note %}}
-Some VS Code commands require a workspace to show up and function correctly. If you haven't set one up and opened it you should check the [Preparing the Workspace](#preparing-the-workspace) section.
-{{% /callout %}}
-
-To access the VS Code command palette you have to press either <code>F1</code> or <code>CTRL+SHIFT+P</code>. This will open up an entry field which you can use to filter for the commands you are interested in. 
-
-In our case we are interested in the <code>Camel</code> related commands, so lets type <code>Camel</code> into the field and check the filtered results.
-
-![A Screenshot of the available Camel commands](camel-commands.png)
+Next we need to select our workspace folder which will store our project files. You can either click on the <code>Open Folder</code> button or you can also go to the <code>File</code> menu and select the entry <code>Open Folder</code>. In the following screen browse to the folder you would like to use and select it. 
 
 ### Create your first Camel Route
-If you followed the steps from the [](#vs-code-commands) section you should still see the filtered Camel commands. Please select now the command called <code>Camel: Create a Camel Route using YAML DSL</code> and hit <code>Enter</code>. Next you are asked to provide a name for the file to be created. Feel free to pick a name without stating a file extension (example: <code>simpleTest</code>) and hit <code>Enter</code> again.
+With the `Kaoto` view (the Kaoto Camel icon) on the left sidebar open you will see the `Integration` section on top. When moving the mouse to the right side of the `Integrations` headline you will see some small icons, one of the is a file with a plus sign. Click on it, select `New Camel Route` and follow the instructions to create your first Camel Route.
+
+Once done, the new file will be created and the Kaoto editor should appear as shown in the video below. If the editor does not appear, revisit the earlier steps to ensure you followed all instructions correctly.
+
+<video controls width="600">
+  <source src="create-integration.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+At this point, you have successfully created your first working Camel Route, which can be tested immediately.
 
 {{% callout note %}}
 If the execution fails you should double check if you have installed the [Camel CLI](https://camel.apache.org/manual/camel-jbang.html) correctly. Follow the instructions outline in the section [Camel CLI](#camel-cli) section.
-{{% /callout %}}
-
-If all worked correctly you should now see your new file with the extension <code>.camel.yaml</code> and the Kaoto Visual Designer should open up.
-{{% callout note %}}
-If the Kaoto editor doesn't open check you followed the [Install Kaoto](#install-kaoto) section and your file is named like <code>_filename.camel.yaml_</code>. If you named the file differently then rename it to match this naming rule.
 {{% /callout %}}
 
 You should now see a similar screen like the one below.
@@ -49,21 +40,22 @@ You should now see a similar screen like the one below.
 ![A Screenshot of a fresh created Camel Route](new-route.png)
 
 ### Launch your Camel Route
-The Camel Route we created in the [previous chapter](#create-your-first-camel-route) can already be launched. Let's try to start the Route by clicking the <code>Run Camel Application with JBang</code> button in the top right of the Kaoto Visual Editor.
+Testing your integration is easy and straigth forward. In the `Integrations` section hover over the file name of your integration and this will reveal some useful buttons. One of these buttons is a Camel icon with a green play button. Click it to launch your integration locally using [Camel JBang](https://camel.apache.org/manual/camel-jbang.html). Please check the below video which will show you how to launch the integration and possible actions to interact with a running integration.
 
-![A Screenshot of the launch button to run the Camel route](launch-button.png)
+<video controls width="600">
+  <source src="launch-integration.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-A terminal should open up and it will show you the output of your launched Camel Route.
-
-![A Screenshot of the launch terminal showing the outputs of the launched Camel Route](launch-terminal.png)
-
-You can terminate the execution of your Camel Route at any time by selecting the terminal window and pressing <code>CTRL+C</code>.
+As you can see in the video your integration is launched in Dev Mode and changes to the integration via the Kaoto editor or the source code will be reloaded whenever you save. This will help you prototyping faster.
 
 ### Accessing the Source Code
-You might wonder how the source of your new Camel Route looks like. While Kaoto tries relief users from the burden of working with the source code, we still allow access to it via the default Visual Studio Code Text Editor. 
+You might wonder how the source of your new Camel Route looks like. While Kaoto tries to relief users from the burden of working with the source code, we still allow access to it via the default Visual Studio Code Text Editor. 
 
-To access your source code you can either right click the tab labeled with the filename and then select <code>Reopen Editor with</code> and then choosing <code>Text Editor</code>.
+There are two ways to achieve this. First you can use the <code>Open Source Code</code> toggle button on the top right of the Kaoto editor. This is the most convenient way. Another option is to invoke the context menu on the tab with the file name of your integration and then use the <code>Reopen Editor with</code> item. Both ways are shown in the following video.
 
-Another way of doing that is to right-click the file in the Explorer view on the left side of the window and then similarly selecting the menu item <code>Open With</code> and then choosing <code>Text Editor</code>.
+<video controls width="600">
+  <source src="show-source.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-If you want to revert back to the Kaoto Editor you can follow the same steps as above but instead of <code>Text Editor</code> you should then select <code>Kaoto Editor</code>.
