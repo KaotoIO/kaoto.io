@@ -147,31 +147,15 @@ This roadmap is subject to change.
 <div class="roadmap-container">
     <div class="roadmap-timeline"></div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./bug.png');"></div>
+        <div class="icon" style="background-image: url('./images/bug.png');"></div>
         <div class="content">
             <h3>Visual Debugger</h3>
             <p>Enable users to visually debug their integrations and inspect the contents of the messages</p>
             <div class="delivery-time">2025</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
-        <div class="icon" style="background-image: url('./datamapper.png');"></div>
-        <div class="content">
-            <h3>DataMapper JSON Support</h3>
-            <p>Add support for JSON mappings</p>
-            <div class="delivery-time">2025</div>
-        </div>
-    </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./build.png');"></div>
-        <div class="content">
-            <h3>Maven support</h3>
-            <p>Provide better support for working with Maven based integration projects like CSB or CEQ</p>
-            <div class="delivery-time">2025</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./openapi.svg');"></div>
+        <div class="icon" style="background-image: url('./images/openapi.svg');"></div>
         <div class="content">
             <h3>OpenAPI support</h3>
             <p>Provide better support for working with OpenAPI in your integrations</p>
@@ -179,7 +163,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./puzzle.png');"></div>
+        <div class="icon" style="background-image: url('./images/puzzle.png');"></div>
         <div class="content">
             <h3>Connections Wizard</h3>
             <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
@@ -187,7 +171,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./camel-logo.svg');"></div>
+        <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
         <div class="content">
             <h3>Custom Kamelet Support</h3>
             <p>Allow users to define their own custom Kamelet catalog.</p>
@@ -195,7 +179,23 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card wip">
-        <div class="icon" style="background-image: url('./stop.png');"></div>
+        <div class="icon" style="background-image: url('./images/datamapper.png');"></div>
+        <div class="content">
+            <h3>DataMapper JSON Support</h3>
+            <p>Add support for JSON mappings</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card wip">
+        <div class="icon" style="background-image: url('./images/build.png');"></div>
+        <div class="content">
+            <h3>Maven support</h3>
+            <p>Provide better support for working with Maven based integration projects like CSB or CEQ</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card wip">
+        <div class="icon" style="background-image: url('./images/stop.png');"></div>
         <div class="content">
             <h3>Drag & Drop (Final)</h3>
             <p>Enable users to quickly move steps on the canvas with Drag & Drop</p>
@@ -203,7 +203,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card completed">
-        <div class="icon" style="background-image: url('./darklightmode.png');"></div>
+        <div class="icon" style="background-image: url('./images/darklightmode.png');"></div>
         <div class="content">
             <h3>Dark & Light Mode Support</h3>
             <p>Enable users to switch between dark and light theme</p>
@@ -211,7 +211,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card completed">
-        <div class="icon" style="background-image: url('./vscode.svg');"></div>
+        <div class="icon" style="background-image: url('./images/vscode.svg');"></div>
         <div class="content">
             <h3>Enhanced Kaoto Extension</h3>
             <p>Create a dedicated Kaoto view which provides a better overview and easier access to needed functionality</p>
@@ -219,7 +219,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card completed">
-        <div class="icon" style="background-image: url('./xmlsupport.png');"></div>
+        <div class="icon" style="background-image: url('./images/xmlsupport.png');"></div>
         <div class="content">
             <h3>XML IO DSL Support</h3>
             <p>Additionally to YAML DSL we would like to offer users to use the XML IO DSL</p>
@@ -227,7 +227,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card completed">
-        <div class="icon" style="background-image: url('./stop.png');"></div>
+        <div class="icon" style="background-image: url('./images/stop.png');"></div>
         <div class="content">
             <h3>Drag & Drop (Tech Preview)</h3>
             <p>Initial support of Drag & Drop in the editor</p>
@@ -235,7 +235,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card completed">
-        <div class="icon" style="background-image: url('./datamapper.png');"></div>
+        <div class="icon" style="background-image: url('./images/datamapper.png');"></div>
         <div class="content">
             <h3>DataMapper (Tech Preview)</h3>
             <p>Initial release of a visual datamapper supporting XML mappings</p>
@@ -243,7 +243,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card completed">
-        <div class="icon" style="background-image: url('./camel-logo.svg');"></div>
+        <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
         <div class="content">
             <h3>Multi Version Support</h3>
             <p>Provide support for multiple Apache Camel versions, both upstream and downstream</p>
@@ -251,7 +251,7 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card completed">
-        <div class="icon" style="background-image: url('./logo-kaoto.png');"></div>
+        <div class="icon" style="background-image: url('./images/logo-kaoto.png');"></div>
         <div class="content">
             <h3>Kaoto 2.0 Release</h3>
             <p>Release version 2.0 of Kaoto which marks the first big release after switching the focus fully to providing a visual designer for Apache Camel and moving to a new tech stack</p>
