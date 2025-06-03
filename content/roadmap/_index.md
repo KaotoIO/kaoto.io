@@ -183,7 +183,7 @@ This roadmap is subject to change.
         <div class="content">
             <h3>DataMapper JSON Support</h3>
             <p>Add support for JSON mappings</p>
-            <div class="delivery-time">2025</div>
+            <div class="delivery-time">Q3 / 2025</div>
         </div>
     </div>
     <div class="roadmap-card wip">
@@ -191,7 +191,7 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Maven support</h3>
             <p>Provide better support for working with Maven based integration projects like CSB or CEQ</p>
-            <div class="delivery-time">2025</div>
+            <div class="delivery-time">Q3 / 2025</div>
         </div>
     </div>
     <div class="roadmap-card wip">
@@ -199,7 +199,7 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Drag & Drop (Final)</h3>
             <p>Enable users to quickly move steps on the canvas with Drag & Drop</p>
-            <div class="delivery-time">2025</div>
+            <div class="delivery-time">Q3 / 2025</div>
         </div>
     </div>
     <div class="roadmap-card completed">
