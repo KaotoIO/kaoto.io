@@ -15,8 +15,8 @@ Kaoto provides a Camel catalog generator CLI to ease this process, it supports t
 
 #### How to use?
 
-1. Clone [the Kaoto project](git@github.com:KaotoIO/kaoto.git)
-2. Navigate to the `packages/catalog-generator` directory
+1. Clone [the Camel catalog project](git@github.com:KaotoIO/camel-catalog.git)
+2. Navigate to the `packages/camel-catalog` directory
 3. Install the project dependencies:
 ```bash
 ./mvnw install

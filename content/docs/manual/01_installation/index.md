@@ -57,14 +57,11 @@ jbang app install citrus@citrusframework/citrus
 citrus --version
 ```
 
-### Install Kaoto
-{{% callout note %}}
-For the best user experience and for additional supportive features, we suggest installing the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack), which also includes the Kaoto VS Code extension.
-{{% /callout %}}
+### Kaoto Extension
 
 - Open VS Code
 - Open the <code>Extensions</code> view on the left side panel (or press <code>CTRL+SHIFT+X</code>)
-- Type <code>Extension Pack for Apache Camel</code> in the search field
+- Type <code>Kaoto</code> in the search field
 - Click the <code>Install</code> button
 
-![Install Extension Pack](extpack-install.png)
+![Install Kaoto Extension](kaoto-install.png)

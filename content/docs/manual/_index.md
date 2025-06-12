@@ -9,9 +9,9 @@ Kaoto stands out as an intuitive visual platform for Apache Camel integrations, 
 
 The audience for this guide is Apache Camel developers. This guide assumes familiarity with Apache Camel and the processing requirements for your organization. 
 
-Kaoto is an acronym for Kamel Orchestration Tool. It is a low code and no code integration designer to create and edit integrations based on Apache Camel. Kaoto is extendable, flexible, and adaptable to different use cases. For more information about the history of Kaoto, see Statistics and History of Kaoto.
+Kaoto is an acronym for Kamel Orchestration Tool. It is a low code and no code integration designer to create and edit integrations based on Apache Camel. Kaoto is extendable, flexible, and adaptable to different use cases. 
 
-Kaoto offers a rich catalog of building blocks for use in graphical design. By default, Kaoto loads the official upstream Camel Catalog and Kamelet Catalog. 
+Kaoto offers a rich catalog of building blocks for use in graphical design. By default, Kaoto loads the official upstream Camel Catalog and Kamelet Catalog while also providing Red Hat supported Catalogs. 
 
 Benefits of using Kaoto can be listed as follows:
 
