@@ -31,7 +31,7 @@ bio: Working on providing you the best experience for editing Apache Camel integ
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:contact@kaoto.io'
+    url: 'mailto:hellokaoto@gmail.com'
     label: E-mail Me
   - icon: brands/linkedin
     url: https://www.linkedin.com/groups/12998297/
