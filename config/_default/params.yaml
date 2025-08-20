@@ -16,9 +16,10 @@ marketing:
   seo:
     site_type: website
     local_business_type: ''
-    org_name: ''
-    description: 'Kaoto is a visual integration editor for Apache Camel which aims at improving the integration developers life.'
+    org_name: 'Kaoto'
+    description: 'Kaoto is an open source visual editor for Apache Camel integration routes and data transformation, designed to improve the productivity of integration developers in a low-code / no-code way.'
     twitter: 'KaotoIO'
+
 
 # Site header
 header:
