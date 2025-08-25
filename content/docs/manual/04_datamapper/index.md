@@ -10,28 +10,24 @@ Currently Kaoto DataMapper is only supported inside the Visual Studio Code exten
 {{% /callout %}}
 
 {{% callout note %}}
-At the moment the DataMapper only supports XML schema for rendering the data structure and it internally generates a single XSLT step to perform configured data mappings at runtime. While you can consume multiple XML documents with using Camel Variables and/or Message Headers which are mapped to XSLT parameters, the output is only a Camel Message Body.
+The DataMapper supports both XML and JSON schema for rendering the data structure. For both XML and JSON data, it internally generates a single XSLT step to perform configured data mappings at runtime. For JSON data, it leverages the json-to-xml() and xml-to-json() functions available in XSLT 3.0 to handle JSON transformations. While you can consume multiple XML/JSON documents using Camel Variables and/or Message Headers which are mapped to transformation parameters, the output is only a Camel Message Body.
 {{% /callout %}}
 
 ![Example Data Mappings](datamapper-done.png)
 
-In addition to the regular Camel steps, Kaoto now supports a **Kaoto DataMapper** step to be placed in the Camel Route. The Kaoto DataMapper step provides a graphical user interface to create data mappings inside the Camel Route.
+In addition to the regular Camel steps, Kaoto supports a **Kaoto DataMapper** step to be placed in the Camel Route. The Kaoto DataMapper step provides a graphical user interface to create data mappings inside the Camel Route.
 
 ### Adding a DataMapper step
 1. Add a **Kaoto DataMapper** step in your Camel route. When you `Append`, `Prepend` or `Replace` a step in the Kaoto Design view, you can find the **Kaoto DataMapper** step in the catalog.
-
 ![DataMapper Catalog Tile](catalog-datamapper-tile.png)
 
 2. Click the added **Kaoto DataMapper** step in the Kaoto Design to open the config form.
-
 ![Kaoto DataMapper step](kaoto-datamapper-step.png)
 
 3. In the config form, click the `Configure` button.
-
 ![DataMapper Configure button](datamapper-configure-button.png)
 
 4. This will open the visual DataMapper editor.
-
 ![Blank DataMapper UI](datamapper-blank.png)
 
 ### Source and Target
@@ -50,11 +46,9 @@ The `Parameters` section inside the `Source` section is mapped to any of the inc
 Follow the below steps to add a parameter.
 
 1. Click the plus __+__ button on the right side of the `Parameters` title.
-
 ![Parameters](datamapper-add-parameter.png)
 
 2. Now type the parameter name and click the check button on the right.
-
 ![Add Parameter confirm](datamapper-add-parameter-confirm.png)
 
 {{% callout note %}}
@@ -62,25 +56,95 @@ While Camel Exchange Properties are also mapped to parameters in the current `ca
 {{% /callout %}}
 
 ### Attaching Document Schema files
-If any of `Source Body`, `Target Body` and/or `Parameter(s)` are structured data, you can attach a schema file and visualize the data structure in a tree style view. 
+If any of `Source Body`, `Target Body` and/or `Parameter(s)` are structured data, you can attach a schema file and visualize the data structure in a tree style view. The DataMapper supports both XML Schema (XSD) and JSON Schema files.
 {{% callout note %}}
 If the data is not structured and just a primitive value, you don't need to attach a schema file.
+{{% /callout %}}
+
+{{% callout note %}}
+JSON schemas can be attached to `Target Body` and `Parameter(s)`. However, it is currently not supported to attach JSON schema to `Source Body`.
 {{% /callout %}}
 
 Follow the below steps to attach a schema file.
 1. Place schema file(s) inside the workspace directory.
 
 2. Click `Attach a schema` button in one of the `Source Body`, `Target Body` or `Parameters` sections.
-
 ![Attach Schema](datamapper-attach-schema.png)
 
-3. Select the schema file to attach.
+3. In the Attach schema modal, click the file button.
+![Schema File Upload](datamapper-attach-schema-file-btn.png)
 
+4. Select the schema file to attach.
 ![Select schema](datamapper-select-schema.png)
 
-4. Now the document structure is rendered inside a tree.
+5. (XML only) Select the root element. The first element in the schema is selected by default. If the XML schema defines multiple top level elements and you want to use the other element than the first one, select one from the dropdown. This step is applicable only for XML. For JSON, skip to the next.
+![Select root element](datamapper-select-root-element.png)
 
+6. Click `Attach` button.
+![Attach button](datamapper-attach-schema-attach.png)
+
+7. Now the document structure is rendered inside a tree.
 ![Schema attached](datamapper-schema-attached.png)
+
+### JSON Schema Document
+Kaoto DataMapper supports reading structured JSON parameter(s) and writing a JSON target body. If any of them is
+a structured JSON data and you have a JSON schema which defines the JSON data structure, you can attach
+the JSON schema file, render the document tree in DataMapper UI and create data mappings with it.
+
+Follow the below steps to attach a JSON schema file.
+1. Place schema file(s) inside the workspace directory.
+
+2. Click `Attach a schema` button in one of the `Target Body` or `Parameters` sections.
+![Attach JSON Schema](datamapper-attach-schema.png)
+
+3. In the Attach schema modal, click the file button.
+![JSON Schema File Upload](datamapper-attach-schema-file-btn.png)
+
+4. Select the schema file to attach.
+![Select JSON schema](datamapper-json-select-schema.png)
+
+5.  If the file extension is `.json`, it automatically switch the radio button below to `JSON Schema`. Otherwise, choose `JSON Schema`. Click `Attach` button.
+![Attach button](datamapper-json-attach-schema-attach.png)
+
+6. Now the JSON schema document structure is rendered inside a tree.
+![Schema attached](datamapper-json-schema-attached.png)
+
+#### JSON schema document tree
+
+{{% callout note %}}
+Kaoto DataMapper uses XSLT 3.0 `json-to-xml()` and `xml-to-json()` functions to support JSON mappings. JSON document specific characteristics described in this section are mostly influenced by these XSLT 3.0 JSON support functions. Please visit XSLT 3.0 specification for more internal details.
+- [json-to-xml()](https://www.w3.org/TR/xslt-30/#func-json-to-xml)
+- [xml-to-json()](https://www.w3.org/TR/xslt-30/#func-xml-to-json)
+{{% /callout %}}
+
+When an XML schema document is rendered in DataMapper document tree, their element name and attribute name alone is shown as the field label. For JSON schema document, it is slightly different. Since JSON
+document field sometimes doesn't have a name (anonymous), it uses field type as a primary field label.
+- `map` : object field
+- `array` : array field
+- `string` : string field
+- `number` : number field
+
+In addition to that, if the field has a name, it will show as a `@key` attribute following the field type.
+For example, a `string` type field with a name `AccountId` will show the field label `string [@key = AccountId]`.
+![AccountId field label](datamapper-json-field-label-accountid.png)
+
+An anonymous object field will show just `map`.
+![Object field label](datamapper-json-field-label-object.png)
+
+There is one thing that requires attention for `array` type field. The `array` type field indicates that its __children__ are collection, in other words repeating field, but not the `array` type field itself.
+For example, `array` type field with the name `Item` is rendered in DataMapper UI as following:
+![JSON array field](datamapper-json-array-field.png)
+In this case, the `map` type field which is a direct child of `array` type field `Item`, is a collection field. The layer icon ![Collection field](datamapper-collection-field.png) indicates that the `map` field is a collection field. This is important when creating a `for-each` mapping. We will look into how to create a `for-each` mapping in details [later in this manual](#create-a-for-each-mapping).  
+
+Here is an example JSON data mappings created in Kaoto DataMapper UI. It consumes `Account` and `Cart` structured JSON parameters as well as `orderSequence` primitive parameter, and create a `ShipOrder` JSON target body.
+![JSON mappings](datamapper-json-mappings-all.png)
+You might notice that in the XPath expression, it uses `$Account-x` to refer the parameter `Account`, not just `$Account`, but with a suffix `-x`.
+Since `Account` parameter is a structured JSON, it is internally converted into XML with using `json-to-xml`. `$Account-x` is a variable which stores that XML document converted from JSON.
+When data mappings are created through drag and drop, Kaoto DataMapper automatically handles that.
+However when you edit the XPath expression manually, please keep this fact in mind.
+
+With those JSON specific characteristics in mind, the rest of the way how to create mappings is same for
+XML and JSON. You can create mappings for XML to XML, XML to JSON, JSON to XML and JSON to JSON with Kaoto DataMapper. We will look into those in the following sections.
 
 ### Creating simple mappings
 
@@ -98,11 +162,9 @@ __After:__
 You can also create a mapping by entering a `XPath` expression.
 
 1. Click the 3 dots context menu on the target field and choose `Add selector expression`.
-
-![Add selector](datamapper-add-selector.png)
+![Add selector](datamapper-add-selector.png) 
 
 2. Then enter the `XPath` expression.
-
 ![Type xpath](datamapper-type-xpath.png)
 
 ### Creating conditional mappings
@@ -116,7 +178,7 @@ The DataMapper supports creating 3 types of conditional mappings:
 ![3 dots menu](datamapper-if-3dots.png)
 ![Wrap with if](datamapper-if-if.png)
 
-2. Configure the `if` condition. You can drag the source field and drop it into the input field to build a condition, or alternatively type everything manually.
+2. Configure the `if` condition. You can drag the source field and drop it into the input field to start writing a condition, or alternatively type everything manually.
 ![Configure if condition](datamapper-if-condition.png)
 
 3. Configure the mapping by using drag and drop or by typing it manually.
