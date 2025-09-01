@@ -21,10 +21,10 @@ sections:
         text: Try Online
         url: "https://red.ht/kaoto"
       announcement:
-        text: "Kaoto 2.6 is available!"
+        text: "Kaoto 2.7 is available!"
         link:
           text: "Check it out!"
-          url: "blog/kaoto-2.6-release/"
+          url: "blog/kaoto-2.7-release/"
     design:
       css_class: "dark"
       background:

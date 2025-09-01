@@ -151,7 +151,39 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Visual Debugger</h3>
             <p>Enable users to visually debug their integrations and inspect the contents of the messages</p>
-            <div class="delivery-time">2025</div>
+            <div class="delivery-time">2026</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./images/citrus.png');"></div>
+        <div class="content">
+            <h3>Citrus Testing Support</h3>
+            <p>Enable users to create and run tests for their integrations.</p>
+            <div class="delivery-time">2026</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./images/datamapper.png');"></div>
+        <div class="content">
+            <h3>DataMapper Data Preview</h3>
+            <p>Test the results of your mapping configuration easily withing the UI</p>
+            <div class="delivery-time">2026</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
+        <div class="content">
+            <h3>Camel Infra Support</h3>
+            <p>Enable users to leverage the Camel Infra features to test their integrations.</p>
+            <div class="delivery-time">2026</div>
+        </div>
+    </div>
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./images/tracing.svg');"></div>
+        <div class="content">
+            <h3>Visual Tracing</h3>
+            <p>Enable users to trace messages.</p>
+            <div class="delivery-time">2026</div>
         </div>
     </div>
     <div class="roadmap-card">
@@ -163,14 +195,6 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./images/puzzle.png');"></div>
-        <div class="content">
-            <h3>Connections Wizard</h3>
-            <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
-            <div class="delivery-time">2025</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
         <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
         <div class="content">
             <h3>Custom Kamelet Support</h3>
@@ -178,7 +202,15 @@ This roadmap is subject to change.
             <div class="delivery-time">2025</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card">
+        <div class="icon" style="background-image: url('./images/puzzle.png');"></div>
+        <div class="content">
+            <h3>Connections</h3>
+            <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./images/datamapper.png');"></div>
         <div class="content">
             <h3>DataMapper JSON Support</h3>
@@ -186,7 +218,7 @@ This roadmap is subject to change.
             <div class="delivery-time">Q3 / 2025</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./images/build.png');"></div>
         <div class="content">
             <h3>Maven support</h3>
@@ -194,7 +226,7 @@ This roadmap is subject to change.
             <div class="delivery-time">Q3 / 2025</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./images/stop.png');"></div>
         <div class="content">
             <h3>Drag & Drop (Final)</h3>
