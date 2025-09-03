@@ -68,16 +68,7 @@ JSON schemas can be attached to `Target Body` and `Parameter(s)`. However, it is
 {{% callout note %}}
 **New!** For XML schema, now you can select a root element of the Document from the top level elements defined in the XML schema as described in Step 5 below. In the previous version, The first element in the schema was always used.
 Here is a demo screencast to choose a root element.
-<video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
-  <source src="./dm_chooserootelement.mp4" type="video/mp4">
-  <track
-    label="English"
-    kind="subtitles"
-    srclang="en"
-    src="./dm_chooserootelement.vtt"
-    default />
-  <a href="./dm_chooserootelement.mp4">Download the video</a>.
-</video>
+{{< video src="./dm_chooserootelement.mp4" subtitles="./dm_chooserootelement.vtt" >}}
 {{% /callout %}}
 
 Follow the below steps to attach a schema file.
@@ -125,16 +116,7 @@ Follow the below steps to attach a JSON schema file.
 ![Schema attached](datamapper-json-schema-attached.png)
 
 Here is a demo screencast for creating JSON mappings.
-<video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
-  <source src="./dm_json.mp4" type="video/mp4">
-  <track
-    label="English"
-    kind="subtitles"
-    srclang="en"
-    src="./dm_json.vtt"
-    default />
-  <a href="./dm_json.mp4">Download the video</a>.
-</video>
+{{< video src="./dm_json.mp4" subtitles="./dm_json.vtt" >}}
 
 
 #### JSON schema document tree
@@ -261,16 +243,7 @@ mapping, you will see a place holder which has buttons to add more mappings.
 ![Map 2nd for-each children](datamapper-map-2nd-for-each-children.png)
 
 Here is a demo screencast for merging 2 source collection fields with multiple `for-each` mappings.
-<video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
-  <source src="./dm_multiplemappings.mp4" type="video/mp4">
-  <track
-    label="English"
-    kind="subtitles"
-    srclang="en"
-    src="./dm_multiplemappings.vtt"
-    default />
-  <a href="./dm_multiplemappings.mp4">Download the video</a>.
-</video>
+{{< video src="./dm_multiplemappings.mp4" subtitles="./dm_multiplemappings.vtt" >}}
 
 ### Using XPath expression editor
 {{% callout note %}}

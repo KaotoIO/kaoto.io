@@ -1,0 +1,19 @@
+{{- $src := .Get "src" -}}
+{{- $poster := .Get "poster" -}}
+{{- $subtitles := .Get "subtitles" -}}
+{{- $subtitles_lang := .Get "subtitles_lang" | default "en" -}}
+{{- $subtitles_label := .Get "subtitles_label" | default "English" -}}
+
+<video controls preload="metadata" playsinline style="max-width:100%;height:auto;"{{with $poster}} poster="{{.}}"{{end}}>
+  <source src="{{$src}}" type="video/mp4">
+  {{- if $subtitles }}
+  <track
+    label="{{$subtitles_label}}"
+    kind="subtitles"
+    srclang="{{$subtitles_lang}}"
+    src="{{$subtitles}}"
+    default />
+  {{- end }}
+  Your browser does not support the video tag.
+  <a href="{{$src}}">Download the video</a>.
+</video>
