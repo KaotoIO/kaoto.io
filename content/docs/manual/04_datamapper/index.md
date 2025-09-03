@@ -65,6 +65,21 @@ If the data is not structured and just a primitive value, you don't need to atta
 JSON schemas can be attached to `Target Body` and `Parameter(s)`. However, it is currently not supported to attach JSON schema to `Source Body`.
 {{% /callout %}}
 
+{{% callout note %}}
+**New!** For XML schema, now you can select a root element of the Document from the top level elements defined in the XML schema as described in Step 5 below. In the previous version, The first element in the schema was always used.
+Here is a demo screencast to choose a root element.
+<video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+  <source src="./dm_chooserootelement.mp4" type="video/mp4">
+  <track
+    label="English"
+    kind="subtitles"
+    srclang="en"
+    src="./dm_chooserootelement.vtt"
+    default />
+  <a href="./dm_chooserootelement.mp4">Download the video</a>.
+</video>
+{{% /callout %}}
+
 Follow the below steps to attach a schema file.
 1. Place schema file(s) inside the workspace directory.
 
@@ -108,6 +123,19 @@ Follow the below steps to attach a JSON schema file.
 
 6. Now the JSON schema document structure is rendered inside a tree.
 ![Schema attached](datamapper-json-schema-attached.png)
+
+Here is a demo screencast for creating JSON mappings.
+<video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+  <source src="./dm_json.mp4" type="video/mp4">
+  <track
+    label="English"
+    kind="subtitles"
+    srclang="en"
+    src="./dm_json.vtt"
+    default />
+  <a href="./dm_json.mp4">Download the video</a>.
+</video>
+
 
 #### JSON schema document tree
 
@@ -213,6 +241,36 @@ When a field is a collection field (means multiple occurrences, often represente
 
 3. Configure the mappings below. Note that the mapping field path is now a relative path from the collection field specified in the `for-each` condition.
 ![Configure for-each mappings](datamapper-for-each-mappings.png)
+
+### Create multiple mappings for a collection target field
+A target collection field can have multiple mappings. For example, it can have multiple `for-each` loops
+to merge 2 different source collection fields into one target collection field. Once you create a first
+mapping, you will see a place holder which has buttons to add more mappings.
+![Add more mapping](datamapper-add-more-mapping.png)
+
+1. After creating a first `for-each` mapping by following [previous section](#create-a-for-each-mapping), click `Add Conditional Mapping` in the placeholder below the added `for-each` mapping
+![Add Conditional Mapping](datamapper-add-conditional-mapping.png)
+
+2. Click `Wrap with "for-each"`
+![Wrap with for-each](datamapper-wrap-with-for-each.png)
+
+3. Map other source collection to the added `for-each` mapping
+![Map 2nd for-each](datamapper-map-2nd-for-each.png)
+
+4. Create subsequent mappings
+![Map 2nd for-each children](datamapper-map-2nd-for-each-children.png)
+
+Here is a demo screencast for merging 2 source collection fields with multiple `for-each` mappings.
+<video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+  <source src="./dm_multiplemappings.mp4" type="video/mp4">
+  <track
+    label="English"
+    kind="subtitles"
+    srclang="en"
+    src="./dm_multiplemappings.vtt"
+    default />
+  <a href="./dm_multiplemappings.mp4">Download the video</a>.
+</video>
 
 ### Using XPath expression editor
 {{% callout note %}}
