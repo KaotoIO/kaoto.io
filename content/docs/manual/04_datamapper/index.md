@@ -65,12 +65,6 @@ If the data is not structured and just a primitive value, you don't need to atta
 JSON schemas can be attached to `Target Body` and `Parameter(s)`. However, it is currently not supported to attach JSON schema to `Source Body`.
 {{% /callout %}}
 
-{{% callout note %}}
-**New!** For XML schema, now you can select a root element of the Document from the top level elements defined in the XML schema as described in Step 5 below. In the previous version, The first element in the schema was always used.
-Here is a demo screencast to choose a root element.
-{{< video src="./dm_chooserootelement.mp4" subtitles="./dm_chooserootelement.vtt" >}}
-{{% /callout %}}
-
 Follow the below steps to attach a schema file.
 1. Place schema file(s) inside the workspace directory.
 
@@ -83,8 +77,11 @@ Follow the below steps to attach a schema file.
 4. Select the schema file to attach.
 ![Select schema](datamapper-select-schema.png)
 
-5. (XML only) Select the root element. The first element in the schema is selected by default. If the XML schema defines multiple top level elements and you want to use the other element than the first one, select one from the dropdown. This step is applicable only for XML. For JSON, skip to the next.
+5. **New!** (XML only) Select the root element. The first element in the schema is selected by default. If the XML schema defines multiple top level elements and you want to use the other element than the first one, select one from the dropdown. This step is applicable only for XML. For JSON, skip to the next.
 ![Select root element](datamapper-select-root-element.png)
+
+Here is a demo screencast to choose a root element.
+{{< video src="./dm_chooserootelement.mp4" subtitles="./dm_chooserootelement.vtt" >}}
 
 6. Click `Attach` button.
 ![Attach button](datamapper-attach-schema-attach.png)
