@@ -1,0 +1,68 @@
+WEBVTT
+
+00:00.000 --> 00:02.000
+DataMapper JSON support
+
+00:02.000 --> 00:07.000
+Source1 : Account JSON
+JSON source has to be a parameter
+
+00:07.000 --> 00:11.000
+Source2 : Cart JSON
+
+00:11.000 --> 00:14.000
+Source3 : OrderSequence
+
+00:14.000 --> 00:18.000
+DataMapper
+Create ShipOrder JSON out of them
+
+00:21.000 --> 00:26.000
+Create Account parameter
+
+00:30.000 --> 00:35.000
+Attach JSON schema for Account
+
+00:45.000 --> 00:50.000
+Create Cart parameter
+
+00:51.000 --> 01:02.000
+Attach JSON schema for Cart
+
+01:07.000 --> 01:13.000
+Create OrderSequence parameter
+
+01:17.000 --> 01:24.000
+Attach ShipOrder JSON schema to target Body
+
+01:31.000 --> 01:40.000
+Create simple mappings by drag and drop
+
+01:40.000 --> 01:48.000
+Account JSON is internally transformed to XML
+and stored as $Account-x
+
+01:48.000 --> 01:57.000
+Multiple values are placed separated with comma
+
+02:23.000 --> 02:26.000
+Click pencil icon and
+open XPath Editor
+
+02:30.000 --> 02:35.000
+Apply a function by drag and drop
+
+02:42.000 --> 02:45.000
+Layer icon indicates collection field
+
+02:45.000 --> 02:49.000
+Create for-each mapping for collection field
+
+02:49.000 --> 02:56.000
+Map source collection field to iterate over
+
+02:56.000 --> 03:04.000
+Create subsequent mappings
+
+03:07.000 --> 03:12.000
+ShipOrder mappings completed
