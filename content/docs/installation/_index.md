@@ -42,10 +42,6 @@ The [VS Code Kaoto extension](https://marketplace.visualstudio.com/items?itemNam
 
 You can find more information on how to get started on the [wiki page of the VS Code Kaoto project](https://github.com/KaotoIO/vscode-kaoto/wiki/Getting-started).
 
-{{% callout note %}}
-Red Hat provides an [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack) which bundles extensions that might be useful for working with Apache Camel based integrations. While Kaoto itself works standalone, this extension pack can add some additional useful extensions that complement Kaoto.
-{{% /callout %}}
-
 ## Using Docker
 
 The only pre-requisite is to have [docker installed](https://docs.docker.com/get-docker/).
