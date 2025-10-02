@@ -195,18 +195,18 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
-        <div class="content">
-            <h3>Custom Kamelet Support</h3>
-            <p>Allow users to define their own custom Kamelet catalog.</p>
-            <div class="delivery-time">2025</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
         <div class="icon" style="background-image: url('./images/puzzle.png');"></div>
         <div class="content">
             <h3>Connections</h3>
             <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
+            <div class="delivery-time">2025</div>
+        </div>
+    </div>
+    <div class="roadmap-card wip">
+        <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
+        <div class="content">
+            <h3>Custom Kamelet Support</h3>
+            <p>Allow users to define their own custom Kamelet catalog.</p>
             <div class="delivery-time">2025</div>
         </div>
     </div>
