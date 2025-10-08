@@ -17,7 +17,7 @@ keywords:
 
 # Open Graph / Social Media
 images:
-  - 'kaoto-lowcode.png'  # Oder erstelle kaoto-og.png (1200x630px)
+  - 'kaoto-lowcode.png'  # Or create kaoto-og.png (1200x630px)
 
 # Structured Data (JSON-LD)
 seo:

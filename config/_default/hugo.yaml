@@ -84,7 +84,7 @@ taxonomies:
   tag: tags
   category: categories
   author: authors
-  series: series  
+  series: series
 markup:
   _merge: deep
   highlight:

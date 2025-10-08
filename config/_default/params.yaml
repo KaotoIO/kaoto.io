@@ -20,17 +20,17 @@ marketing:
     description: 'Kaoto is an open source visual editor for Apache Camel integration routes and data transformation, designed to improve the productivity of integration developers in a low-code / no-code way.'
     twitter: 'KaotoIO'
   analytics:
-    google_analytics: ''  
+    google_analytics: ''
     google_tag_manager: ''
   verification:
-    google: ''  
+    google: ''
     baidu: ''
 
 # SEO Defaults
 params:
   description: 'Open source visual designer for Apache Camel integrations. Low-code editor with 300+ components, Enterprise Integration Patterns and Kamelets. Available as VS Code extension.'
   images: 
-    - 'logo-kaoto.png'  
+    - 'logo-kaoto.png'
   keywords:
     - Apache Camel
     - Integration Designer
