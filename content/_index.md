@@ -3,6 +3,30 @@ title: 'Home'
 date: 2024-06-07
 type: landing
 
+# SEO Meta Tags
+description: 'Open source visual designer for Apache Camel integrations. Low-code/no-code editor with 300+ components, Kamelets and EIP patterns. Available as VS Code extension.'
+keywords:
+  - Apache Camel Designer
+  - Visual Integration Editor
+  - Low Code Integration
+  - Camel Route Designer
+  - VS Code Camel Extension
+  - Kamelets Editor
+  - Enterprise Integration Patterns
+  - Open Source Integration Tool
+
+# Open Graph / Social Media
+images:
+  - 'kaoto-lowcode.png'  # Or create kaoto-og.png (1200x630px)
+
+# Structured Data (JSON-LD)
+seo:
+  title: 'Kaoto - Visual Designer for Apache Camel Integrations'
+  description: 'Open source visual designer for Apache Camel integrations. Low-code/no-code editor with 300+ components, Kamelets and EIP patterns. Available as VS Code extension.'
+  canonical: 'https://kaoto.io/'
+  noindex: false
+  nofollow: false
+
 design:
   # Default section spacing
   spacing: "1rem"
