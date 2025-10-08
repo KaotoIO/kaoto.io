@@ -1,0 +1,46 @@
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kaoto",
+  "alternateName": "Kaoto Integration Designer",
+  "description": "Open source visual designer for Apache Camel integrations. Low-code/no-code editor with 300+ components, Kamelets and Enterprise Integration Patterns.",
+  "url": "https://kaoto.io",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "softwareVersion": "2.7",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Kaoto",
+    "url": "https://kaoto.io"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Kaoto",
+    "url": "https://kaoto.io"
+  },
+  "downloadUrl": "https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto",
+  "screenshot": "https://kaoto.io/kaoto-lowcode.png",
+  "featureList": [
+    "Visual editor for Apache Camel routes",
+    "300+ Camel Components catalog",
+    "200+ Kamelets support",
+    "Enterprise Integration Patterns",
+    "Built-in DataMapper",
+    "Dev Mode for rapid prototyping",
+    "VS Code extension"
+  ],
+  "softwareHelp": {
+    "@type": "WebPage",
+    "url": "https://kaoto.io/docs/manual/"
+  },
+  "license": "https://www.apache.org/licenses/LICENSE-2.0"
+}
+</script>
+{{- end -}}

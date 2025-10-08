@@ -5,6 +5,7 @@
 
 title: Kaoto - The Integration Designer for Apache Camel # Website name
 baseURL: 'https://kaoto.io/' # Website URL
+copyright: "© {year} Kaoto. Apache Camel and Camel are trademarks of The Apache Software Foundation."
 
 ############################
 ## PAGE OPTIONS
@@ -47,6 +48,7 @@ cascade:
 ############################
 
 defaultContentLanguage: en
+languageCode: en-us
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
@@ -70,8 +72,9 @@ permalinks:
   categories: '/category/:slug/'
 disableAliases: true
 outputs:
-  home: [HTML, RSS, headers, redirects]
+  home: [HTML, RSS, headers, redirects, JSON]
   section: [HTML, RSS]
+  page: [HTML]
 imaging:
   resampleFilter: lanczos
   quality: 95
@@ -81,6 +84,7 @@ taxonomies:
   tag: tags
   category: categories
   author: authors
+  series: series  
 markup:
   _merge: deep
   highlight:
@@ -88,4 +92,17 @@ markup:
 security:
   _merge: deep
 sitemap:
-  _merge: deep
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepWhitespace: false

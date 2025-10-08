@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaoto.io/sitemap.xml
+
+# Crawl-delay for aggressive Bots
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
