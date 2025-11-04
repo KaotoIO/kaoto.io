@@ -155,18 +155,10 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./images/citrus.png');"></div>
-        <div class="content">
-            <h3>Citrus Testing Support</h3>
-            <p>Enable users to create and run tests for their integrations.</p>
-            <div class="delivery-time">2026</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
         <div class="icon" style="background-image: url('./images/datamapper.png');"></div>
         <div class="content">
             <h3>DataMapper Data Preview</h3>
-            <p>Test the results of your mapping configuration easily withing the UI</p>
+            <p>Test the results of your mapping configuration easily within the UI</p>
             <div class="delivery-time">2026</div>
         </div>
     </div>
@@ -191,7 +183,7 @@ This roadmap is subject to change.
         <div class="content">
             <h3>OpenAPI support</h3>
             <p>Provide better support for working with OpenAPI in your integrations</p>
-            <div class="delivery-time">2025</div>
+            <div class="delivery-time">2026</div>
         </div>
     </div>
     <div class="roadmap-card">
@@ -199,7 +191,15 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Connections</h3>
             <p>Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality</p>
-            <div class="delivery-time">2025</div>
+            <div class="delivery-time">2026</div>
+        </div>
+    </div>
+    <div class="roadmap-card wip">
+        <div class="icon" style="background-image: url('./images/citrus.png');"></div>
+        <div class="content">
+            <h3>Citrus Testing Support</h3>
+            <p>Enable users to create and run tests for their integrations.</p>
+            <div class="delivery-time">2026</div>
         </div>
     </div>
     <div class="roadmap-card wip">
@@ -207,7 +207,7 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Custom Kamelet Support</h3>
             <p>Allow users to define their own custom Kamelet catalog.</p>
-            <div class="delivery-time">2025</div>
+            <div class="delivery-time">2026</div>
         </div>
     </div>
     <div class="roadmap-card completed">
