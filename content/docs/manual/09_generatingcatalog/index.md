@@ -11,28 +11,34 @@ By default, every Kaoto release includes the latest Camel version available at t
 Kaoto provides a Camel catalog generator CLI to ease this process, it supports the following runtimes:
 * Main
 * Quarkus
-* Springboot
+* Spring Boot
 
 #### How to use?
 
-1. Clone [the Camel catalog project](git@github.com:KaotoIO/camel-catalog.git)
-2. Navigate to the `packages/camel-catalog` directory
-3. Install the project dependencies:
+1. Clone [the Kaoto Camel catalog project](https://github.com/KaotoIO/camel-catalog/)
+2. Navigate to the `camel-catalog` directory
+3. Install the project dependencies
 ```bash
-./mvnw install
+yarn install
 ```
 
-4. Run the project with the following command:
+4. Build the default catalogs
 ```bash
-./mvnw package; java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.6.0 -m 4.6.0 -n "My Catalog"
+yarn build
 ```
 
 5. This will generate a Catalog library containing:
-    * Camel Main 4.6.0
-    * Camel Kamelets 4.6.0
+    * Camel Main versions
+    * Camel extensions for Quarkus
+    * Camel Spring boot
+    * Camel Kamelets
 
+> To check what specific versions are included, please visit [the index file](https://github.com/KaotoIO/camel-catalog/blob/main/index.js)
+{.note}
 
-6. The resulting files will be in the `packages/catalog-generator/dist/camel-catalog` folder
+6. The resulting files will be in the `catalog` folder
+> The latest catalog is version is available in [the GitHub repository](https://github.com/KaotoIO/camel-catalog/tree/main/catalog)
+{.note}
 
 7. Providing that folder through a http server will make it available for using it in Kaoto
 
@@ -47,22 +53,27 @@ In order to add multiple runtimes to the Catalog library, we can provide each ru
  -s,--springboot <version>         Camel SpringBoot version
 ```
 
-For instance, running the following command will create a Catalog library with Camel Main 4.6.0 and Camel extensions for Quarkus 3.8.0:
+For instance, running the following command will create a Catalog library with Camel Main 4.15.0 and Camel extensions for Quarkus 3.27.0:
 ```bash
-./mvnw package; java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.6.0 -m 4.6.0 -q 3.8.0 -n "My Catalog"
+./mvnw package; java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.15.0 -m 4.15.0 -q 3.27.0 -n "My Catalog"
 ```
 
 For a different Kamelets catalog version, the `--kamelets or -k` flag can be specified
 ```bash
-./mvnw package; java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.5.0 -m 4.6.0  -n "My Catalog"
+./mvnw package; java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.15.0 -m 4.15.0  -n "My Catalog"
 ```
 
 ### How to instruct Kaoto to use a specific Catalog library
 1. In VSCode, go to the settings page and look for "Kaoto"
+
 ![VSCode Kaoto settings](vscode-kaoto-settings.png)
 
+
 2. In the `TextField`, provide the URL of the `index.json` file that specifies the location of the subsequent catalogs, for instance, the public Kaoto catalog can be used:
+
 ![Setting a Kaoto catalog URL](setting-kaoto-catalog-url.png)
 
+
 3. Restart Kaoto for the changes to have effect
-![KAoto runtime selector](kaoto-runtime-selector.png)
+
+![Kaoto runtime selector](runtime-selector.png)
