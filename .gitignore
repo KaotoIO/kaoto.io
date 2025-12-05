@@ -15,3 +15,6 @@ resources
 content/timeline/generated*
 content/roadmap/generated*
 contributors.txt
+
+# Eclipse
+.project
