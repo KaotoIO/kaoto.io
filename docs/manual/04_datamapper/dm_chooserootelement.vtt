@@ -1,0 +1,17 @@
+WEBVTT
+
+00:00.000 --> 00:06.000
+DataMapper
+Choose a root element in the XML schema
+
+00:15.000 --> 00:18.000
+Choose a root element from the dropdown
+
+00:18.000 --> 00:27.000
+Filter candidates by typing a few characters
+
+00:29.000 --> 00:35.000
+Document is rendered with the chosen element as root
+
+00:46.000 --> 00:51.000
+When a different element is chosen, document is rendered in different shape
