@@ -1,0 +1,15 @@
+WEBVTT
+
+00:00.000 --> 00:03.000
+DataMapper
+Merge 2 source collection fields with multiple "for-each" mappings
+
+00:04.000 --> 00:08.000
+Create first "for-each" mapping
+
+00:18.000 --> 00:22.000
+Click "Add Conditional Mapping"
+Click "Wrap with for-each"
+
+00:25.000 --> 00:30.000
+Create second "for-each" mapping
