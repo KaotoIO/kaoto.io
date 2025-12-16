@@ -11,16 +11,22 @@ tags:
 ---
 ## What's New?
 
-This release includes several requested features for the DataMapper, more Canvas UX improvements alongside with architectural improvements that lay the groundwork for interesting catalog use cases, but more on that in the upcoming releases.
+This release includes several improvements for the DataMapper, more Canvas UX improvements alongside with architectural improvements that lay the groundwork for interesting catalog use cases, but more on that in the upcoming releases.
 
 ### DataMapper Enhancements
-The DataMapper continues to be a core focus. In 2.9, we’ve introduced several features to make complex data transformations more intuitive:
+The DataMapper continues to be a core focus. In 2.9, we've introduced several improvements to make complex data transformations more intuitive:
 
 
-* **Split Documents:** You can now split documents within the DataMapper, providing more control over how data structures are handled during transformation.
-* **Field Type Override:** Added the ability to override field types manually. This is particularly useful when metadata doesn't perfectly match your runtime requirements.
-* **Logical XPath Syntax Tree:** A new underlying model for XPath improves how the DataMapper interprets and generates expressions, leading to more robust XML mappings.
-* **Wrap-with-If Action:** You can now wrap already mapped fields with a conditional "if" statement, making it easier to add logic to existing transformations without starting over.
+* **Improved Document Visualization:** The document tree visualization has been improved. Now you can see
+ a lot more document fields and mappings without scrolling. It especially helps to oversee larger
+ documents and complex mappings.
+![Improved document visualization](dm-improved-doc-viz.png)
+* **Field Occurrence Indicators:** You can now see minOccurs and maxOccurs constraints for schema fields, making it easier to understand field cardinality requirements at a glance.
+![Field occurrence indicators](dm-occurence-indicators.png)
+* **Wrap-with-If Action:** You can now wrap already mapped fields with a conditional "if" statement, making it easier to add logic to existing transformations without starting over. Thank you [Sarthak Vaish](https://github.com/sarth-akvaish) for this contribution.
+![Wrap with if action](dm-wrap-with-if.png)
+* **Improved Drag & Drop on DataMapper step:** Better handling of Drag & Drop on DataMapper step, avoid breaking the DataMapper step contents when its position is swapped
+* **Root Element Persistence:** When attaching an XML schema with multiple root elements, your chosen root element is now properly saved and restored when reopening the DataMapper.
 
 ### Integrations view
 
