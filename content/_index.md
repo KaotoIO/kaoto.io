@@ -45,19 +45,19 @@ sections:
         text: Try Online
         url: "https://red.ht/kaoto"
       announcement:
-        text: "Kaoto 2.8 is available!"
+        text: "Kaoto 2.9 is available!"
         link:
           text: "Check it out!"
-          url: "blog/kaoto-2.8-release/"
+          url: "blog/kaoto-2.9-release/"
     design:
       css_class: "dark"
       background:
         color: '#293133'
-  
+
   - block: markdown
     id: lowcode
     content:
-      title: 
+      title:
       text: |-
         !["Show Kaoto with source and design view side by side"](kaoto-lowcode.png)
 
@@ -70,7 +70,7 @@ sections:
       items:
         - name: Based on Apache Camel
           icon: camel-logo
-          description: Kaoto utilizes the Apache Camel models and schemas to always offer you all available upstream Camel features. 
+          description: Kaoto utilizes the Apache Camel models and schemas to always offer you all available upstream Camel features.
         - name: VS Code Extension
           icon: vscode
           description: Kaoto comes as an extension you can easily install from the Microsoft Marketplace. You can install it directly from inside your VS Code instance.
@@ -85,8 +85,8 @@ sections:
           description: Kaoto provides you access to a catalog of 300+ Camel Components, 200+ Kamelets and a variety of Enterprise Integration Patterns to choose from. Each of them comes with a documentation to help you get started.
         - name: Rapid Prototyping
           icon: rocket-launch
-          description: Building your integration while running it in parallel in Dev Mode gives you a quick turnaround on your changes and enables you to quickly prototype your Camel routes. 
-  
+          description: Building your integration while running it in parallel in Dev Mode gives you a quick turnaround on your changes and enables you to quickly prototype your Camel routes.
+
   - block: cta-image-paragraph
     id: details
     content:
@@ -103,7 +103,7 @@ sections:
         - title: Built-in Data Mapping & Transformation UI
           text: Use the Kaoto DataMapper to map data between input and output structures and to transform it to your needs.
           image: datamapper.png
-        
+
   - block: markdown
     id: youtube
     content:
@@ -135,8 +135,8 @@ sections:
 #    id: customers
 #    content:
 #      title: Integrating with Kaoto
-#      text: 
+#      text:
 #      logo_folder: companies/
 #    design:
-#      background:        
+#      background:
 ---
