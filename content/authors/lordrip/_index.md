@@ -1,6 +1,6 @@
 ---
 # Display name
-title: lordrip
+title: Ricardo
 
 # Name pronunciation (optional)
 name_pronunciation: 

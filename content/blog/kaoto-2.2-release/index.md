@@ -13,7 +13,7 @@ tags:
 
 For this release, we focused on enhancing the usability and the look and feel of the graphical editor. While doing so we also fixed several reported issues, for instance, the visualization of parallel steps inside the `Multicast` and `LoadBalance` EIPs. We also added new icons for existing and new [Apache Camel](http://camel.apache.org) components, which helps to better identify them in the catalog as well as in your integrations. This release also ships with [Apache Camel 4.8.0](https://camel.apache.org/blog/2024/09/RELEASE-4.8.0/) support.
 
-## Give it a try!
+## Give it a try
 
 * Kaoto [quickstart](/docs/quickstart/).
 * Kaoto is available as a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto).
@@ -41,4 +41,5 @@ Let us know what you think by joining us in the [GitHub discussions](https://git
 Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please [create an issue](https://github.com/KaotoIO/kaoto/issues/new/choose).
 
 ## A big shoutout to our amazing contributors
+
 Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️

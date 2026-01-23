@@ -1,6 +1,6 @@
 ---
 # Display name
-title: mmelko
+title: Matej
 
 # Name pronunciation (optional)
 name_pronunciation: 

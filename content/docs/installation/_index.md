@@ -27,6 +27,7 @@ If you want to run Citrus tests for your integration, we also suggest to install
 {{% /callout %}}
 
 ### Install the Kaoto VS Code extension
+
 {{% callout note %}}
 We provide the Kaoto extension to be able to work as a standalone extension. It provides all the required functionality to create and run your integrations locally.
 {{% /callout %}}

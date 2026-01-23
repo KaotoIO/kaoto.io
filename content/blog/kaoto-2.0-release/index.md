@@ -15,7 +15,7 @@ With this 2.0.0 release we finished implementing the foundational functionalitie
 
 This release is just the beginning for Kaoto! We have [so many exciting features and improvements](https://github.com/orgs/KaotoIO/projects/14/views/2) in the works, and we're eagerly inviting anyone who wants to join us on this journey. Let's all hop on this Camel ride together! 🐫🎉
 
-## Give it a try!
+## Give it a try
 
 * Kaoto [quickstart](/docs/quickstart/).
 * Kaoto is available as a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto).
@@ -43,6 +43,7 @@ Let us know what you think by joining us in the [GitHub discussions](https://git
 Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please [create an issue](https://github.com/KaotoIO/kaoto/issues/new/choose).
 
 ## A big shoutout to our amazing contributors
+
 Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️
 
 [@eerkmen](https://github.com/eerkmen) [@corners2wall](https://github.com/corners2wall) [@mkralik3](https://github.com/mkralik3) [@d4n1b](https://github.com/d4n1b) [@tplevko](https://github.com/tplevko) [@apupier](https://github.com/apupier) [@igarashitm](https://github.com/igarashitm) [@mmelko](https://github.com/mmelko) [@lordrip](https://github.com/lordrip) [@lhein](https://github.com/lhein) [@shivamG640](https://github.com/shivamG640) [@lburgazzoli](https://github.com/lburgazzoli) [@brunoNetId](https://github.com/brunoNetId) [@djelinek](https://github.com/djelinek) [@GuilhermeCamposo](https://github.com/GuilhermeCamposo) [@ibek](https://github.com/ibek) [@jcordes73](https://github.com/jcordes73) [@Mdenisco](https://github.com/Mdenisco) [@phantomjinx](https://github.com/phantomjinx) [@rstroop](https://github.com/rstroop) [@abkieling](https://github.com/abkieling) [@Shivam-Gu](https://github.com/Shivam-Gu) [@kumaradityaraj](https://github.com/kumaradityaraj) [@oscerd](https://github.com/oscerd) [@djelinek](https://github.com/djelinek) [@davsclaus](https://github.com/davsclaus) [@joshdreagan](https://github.com/joshdreagan)

@@ -5,6 +5,7 @@ date: 2025-01-13
 ---
 
 ## Kaoto DataMapper
+
 {{% callout note %}}
 Currently Kaoto DataMapper is only supported inside the Visual Studio Code extension as a technical preview feature. In the future we will aim to bring this functionality also to the pure web version of Kaoto.
 {{% /callout %}}
@@ -18,6 +19,7 @@ The DataMapper supports both XML and JSON schema for rendering the data structur
 In addition to the regular Camel steps, Kaoto supports a **Kaoto DataMapper** step to be placed in the Camel Route. The Kaoto DataMapper step provides a graphical user interface to create data mappings inside the Camel Route.
 
 ### Adding a DataMapper step
+
 1. Add a **Kaoto DataMapper** step in your Camel route. When you `Append`, `Prepend` or `Replace` a step in the Kaoto Design view, you can find the **Kaoto DataMapper** step in the catalog.
 ![DataMapper Catalog Tile](catalog-datamapper-tile.png)
 
@@ -31,12 +33,13 @@ In addition to the regular Camel steps, Kaoto supports a **Kaoto DataMapper** st
 ![Blank DataMapper UI](datamapper-blank.png)
 
 ### Source and Target
+
 In the DataMapper editor, you can see a `Source` section at the left and a `Target` section at the right side.
 
 ![Source and Target](datamapper-source-target.png)
 
 The `Source` section represents the input side of your mappings, where the DataMapper step reads the data from. This is mapped to the incoming Camel `Message` as well as possible Camel `Variables`.
- 
+
 The `Target` section represents the output side of your mappings, where the DataMapper step writes the data to. This is mapped to the outgoing Camel `Message`.
 
 ### Parameters
@@ -45,7 +48,7 @@ The `Parameters` section inside the `Source` section is mapped to any of the inc
 
 Follow the below steps to add a parameter.
 
-1. Click the plus __+__ button on the right side of the `Parameters` title.
+1. Click the plus **+** button on the right side of the `Parameters` title.
 ![Parameters](datamapper-add-parameter.png)
 
 2. Now type the parameter name and click the check button on the right.
@@ -56,6 +59,7 @@ While Camel Exchange Properties are also mapped to parameters in the current `ca
 {{% /callout %}}
 
 ### Attaching Document Schema files
+
 If any of `Source Body`, `Target Body` and/or `Parameter(s)` are structured data, you can attach a schema file and visualize the data structure in a tree style view. The DataMapper supports both XML Schema (XSD) and JSON Schema files.
 {{% callout note %}}
 If the data is not structured and just a primitive value, you don't need to attach a schema file.
@@ -66,6 +70,7 @@ JSON schemas can be attached to `Target Body` and `Parameter(s)`. However, it is
 {{% /callout %}}
 
 Follow the below steps to attach a schema file.
+
 1. Place schema file(s) inside the workspace directory.
 
 2. Click `Attach a schema` button in one of the `Source Body`, `Target Body` or `Parameters` sections.
@@ -83,18 +88,20 @@ Follow the below steps to attach a schema file.
 Here is a demo screencast to choose a root element.
 {{< video src="./dm_chooserootelement.mp4" subtitles="./dm_chooserootelement.vtt" >}}
 
-6. Click `Attach` button.
+1. Click `Attach` button.
 ![Attach button](datamapper-attach-schema-attach.png)
 
-7. Now the document structure is rendered inside a tree.
+2. Now the document structure is rendered inside a tree.
 ![Schema attached](datamapper-schema-attached.png)
 
 ### JSON Schema Document
+
 Kaoto DataMapper supports reading structured JSON parameter(s) and writing a JSON target body. If any of them is
 a structured JSON data and you have a JSON schema which defines the JSON data structure, you can attach
 the JSON schema file, render the document tree in DataMapper UI and create data mappings with it.
 
 Follow the below steps to attach a JSON schema file.
+
 1. Place schema file(s) inside the workspace directory.
 
 2. Click `Attach a schema` button in one of the `Target Body` or `Parameters` sections.
@@ -106,7 +113,7 @@ Follow the below steps to attach a JSON schema file.
 4. Select the schema file to attach.
 ![Select JSON schema](datamapper-json-select-schema.png)
 
-5.  If the file extension is `.json`, it automatically switch the radio button below to `JSON Schema`. Otherwise, choose `JSON Schema`. Click `Attach` button.
+5. If the file extension is `.json`, it automatically switch the radio button below to `JSON Schema`. Otherwise, choose `JSON Schema`. Click `Attach` button.
 ![Attach button](datamapper-json-attach-schema-attach.png)
 
 6. Now the JSON schema document structure is rendered inside a tree.
@@ -115,17 +122,18 @@ Follow the below steps to attach a JSON schema file.
 Here is a demo screencast for creating JSON mappings.
 {{< video src="./dm_json.mp4" subtitles="./dm_json.vtt" >}}
 
-
 #### JSON schema document tree
 
 {{% callout note %}}
 Kaoto DataMapper uses XSLT 3.0 `json-to-xml()` and `xml-to-json()` functions to support JSON mappings. JSON document specific characteristics described in this section are mostly influenced by these XSLT 3.0 JSON support functions. Please visit XSLT 3.0 specification for more internal details.
+
 - [json-to-xml()](https://www.w3.org/TR/xslt-30/#func-json-to-xml)
 - [xml-to-json()](https://www.w3.org/TR/xslt-30/#func-xml-to-json)
 {{% /callout %}}
 
 When an XML schema document is rendered in DataMapper document tree, their element name and attribute name alone is shown as the field label. For JSON schema document, it is slightly different. Since JSON
 document field sometimes doesn't have a name (anonymous), it uses field type as a primary field label.
+
 - `map` : object field
 - `array` : array field
 - `string` : string field
@@ -138,7 +146,7 @@ For example, a `string` type field with a name `AccountId` will show the field l
 An anonymous object field will show just `map`.
 ![Object field label](datamapper-json-field-label-object.png)
 
-There is one thing that requires attention for `array` type field. The `array` type field indicates that its __children__ are collection, in other words repeating field, but not the `array` type field itself.
+There is one thing that requires attention for `array` type field. The `array` type field indicates that its **children** are collection, in other words repeating field, but not the `array` type field itself.
 For example, `array` type field with the name `Item` is rendered in DataMapper UI as following:
 ![JSON array field](datamapper-json-array-field.png)
 In this case, the `map` type field which is a direct child of `array` type field `Item`, is a collection field. The layer icon ![Collection field](datamapper-collection-field.png) indicates that the `map` field is a collection field. This is important when creating a `for-each` mapping. We will look into how to create a `for-each` mapping in details [later in this manual](#create-a-for-each-mapping).  
@@ -156,31 +164,36 @@ XML and JSON. You can create mappings for XML to XML, XML to JSON, JSON to XML a
 ### Creating simple mappings
 
 #### Creating a mapping by dragging and dropping a field
+
 When you perform drag and drop between the source and the target, a mapping is created and a line is drawn between the fields.
 
-__Example:__ Mapping the `Name` fields by dragging and dropping the source `Name` field on the target `Name` field.
+**Example:** Mapping the `Name` fields by dragging and dropping the source `Name` field on the target `Name` field.
 
-__Before:__
-![Drag name](datamapper-drag-name.png) 
-__After:__ 
+**Before:**
+![Drag name](datamapper-drag-name.png)
+**After:**
 ![Drop name](datamapper-drop-name.png)
 
 #### Creating a mapping by typing an XPath expression
+
 You can also create a mapping by entering a `XPath` expression.
 
 1. Click the 3 dots context menu on the target field and choose `Add selector expression`.
-![Add selector](datamapper-add-selector.png) 
+![Add selector](datamapper-add-selector.png)
 
 2. Then enter the `XPath` expression.
 ![Type xpath](datamapper-type-xpath.png)
 
 ### Creating conditional mappings
+
 The DataMapper supports creating 3 types of conditional mappings:
+
 - `if` - The mapping is created only when the specified condition is met.
-- `choose-when-otherwise` - The mapping is created depending on how the condition is satisfied. If the `when` branch condition is satisfied, the `when` branch mapping is created. If no `when` branch condition is satisfied, then the `otherwise` branch mapping is created.   
+- `choose-when-otherwise` - The mapping is created depending on how the condition is satisfied. If the `when` branch condition is satisfied, the `when` branch mapping is created. If no `when` branch condition is satisfied, then the `otherwise` branch mapping is created.
 - `for-each` - The mapping is created for each item in the collection. Collection means multiple occurrences, which is often represented as an array.
 
 #### Create a `if` mapping
+
 1. Click the 3 dots context menu on the target section's field. Then select `wrap with "if"` to create a mapping.
 ![3 dots menu](datamapper-if-3dots.png)
 ![Wrap with if](datamapper-if-if.png)
@@ -192,6 +205,7 @@ The DataMapper supports creating 3 types of conditional mappings:
 ![Configure mapping](datamapper-if-mapping.png)
 
 #### Create a `choose-when-otherwise` mapping
+
 1. Click the 3 dots context menu on the target section's field. Then select `wrap with "choose-when-otherwise"` to create a mapping.
 ![Wrap with choose-when-otherwise](datamapper-choose-choose.png)
 
@@ -209,6 +223,7 @@ The DataMapper supports creating 3 types of conditional mappings:
 ![Configure when mapping](datamapper-choose-when-added.png)
 
 #### Create a `for-each` mapping
+
 When a field is a collection field (means multiple occurrences, often represented as an array), you can create a `for-each` mapping. The layer icon on the field indicates that it is a collection field.
 ![Collection field](datamapper-collection-field.png)
 
@@ -222,6 +237,7 @@ When a field is a collection field (means multiple occurrences, often represente
 ![Configure for-each mappings](datamapper-for-each-mappings.png)
 
 ### Create multiple mappings for a collection target field
+
 A target collection field can have multiple mappings. For example, it can have multiple `for-each` loops
 to merge 2 different source collection fields into one target collection field. Once you create a first
 mapping, you will see a place holder which has buttons to add more mappings.
@@ -243,6 +259,7 @@ Here is a demo screencast for merging 2 source collection fields with multiple `
 {{< video src="./dm_multiplemappings.mp4" subtitles="./dm_multiplemappings.vtt" >}}
 
 ### Using XPath expression editor
+
 {{% callout note %}}
 The `XPath` editor is still under initial development and it currently supports only limited drag and drop. In future releases, more syntax assisting features will be added.
 {{% /callout %}}
@@ -271,6 +288,7 @@ If you want to write something more in XPath expression rather than just a field
 ![XPath editor: Done](datamapper-xpath-done.png)
 
 ### Delete a mapping
+
 1. To delete a mapping you can click the dustbin button next to the target field.
 ![Delete a mapping](datamapper-delete-mapping-btn.png)
 
@@ -286,7 +304,8 @@ If you want to write something more in XPath expression rather than just a field
 ![Delete parameter confirm](datamapper-delete-param-confirm.png)
 
 ### Detach a schema
-Similar to attaching a schema you can also remove / detach a schema. 
+
+Similar to attaching a schema you can also remove / detach a schema.
 
 1. Click the `Detach schema` button.
 ![Detach schema button](datamapper-detach-button.png)

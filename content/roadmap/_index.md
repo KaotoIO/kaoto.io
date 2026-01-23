@@ -47,10 +47,10 @@ h1 {
 
 .roadmap-card .icon {
     font-size: 40px;
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    width: 60px; 
-    height: 60px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
     flex: 0 0 80px 80px;
     display: flex;
     align-items: center;
@@ -142,7 +142,6 @@ h1 {
 <p class="roadmap-description">
 This roadmap is subject to change.
 </p>
-
 
 <div class="roadmap-container">
     <div class="roadmap-timeline"></div>

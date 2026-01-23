@@ -8,20 +8,20 @@ summary: "Learn how to create a Kamelet using Kaoto. We are going to create some
 
 The goals for this exercise are:
 
- - Create a Kamelet
- - Start the flow with a `timer`
- - Add another step that calls the cat facts service: `https://cat-fact.herokuapp.com/facts/random`
- - Add a `setBody` that extracts the `text` attribute of the response
- - End the flow with a `kamelet:sink`
+- Create a Kamelet
+- Start the flow with a `timer`
+- Add another step that calls the cat facts service: `https://cat-fact.herokuapp.com/facts/random`
+- Add a `setBody` that extracts the `text` attribute of the response
+- End the flow with a `kamelet:sink`
 
 ### Hints
 
- - The `timer` component needs two configuration properties: `Timer name` and `Period`.
- - We want our Kamelet to be configurable to set the `period` in a configuration parameter. 
- - To call an external service, use the `https` component
- - To extract the attribute of the response, use a `setBody` with simple language and the expression `"${body[text]}"`
- - The `kamelet:sink` is an end step.
- 
+- The `timer` component needs two configuration properties: `Timer name` and `Period`.
+- We want our Kamelet to be configurable to set the `period` in a configuration parameter.
+- To call an external service, use the `https` component
+- To extract the attribute of the response, use a `setBody` with simple language and the expression `"${body[text]}"`
+- The `kamelet:sink` is an end step.
+
 ### Solution
 
 The following video showcases the solution.
@@ -89,13 +89,13 @@ If it doesn't look like that but you still want to go to the following exercise,
 
 The goals for this exercise are:
 
- - Give a proper description to the kamelet, like `Gets periodically Cat facts.` using the source code editor.
- - Give a proper `title` to the kamelet, like `Cat Source` using the source code editor.
- 
+- Give a proper description to the kamelet, like `Gets periodically Cat facts.` using the source code editor.
+- Give a proper `title` to the kamelet, like `Cat Source` using the source code editor.
+
 ### Hints
 
- - All these properties can be found on the `spec/definition` section of the yaml source code.
- - At the time of creating this workshop it wasn't possible to edit the `description` in the `Metadata` tab of the editor. We will however have that ability soon.
+- All these properties can be found on the `spec/definition` section of the yaml source code.
+- At the time of creating this workshop it wasn't possible to edit the `description` in the `Metadata` tab of the editor. We will however have that ability soon.
   
 ### Solution
 
@@ -164,9 +164,9 @@ If it doesn't look like that but you still want to go to the following exercise,
 
 The goals for this exercise are:
 
- - Add an `unmarshal` step before the `setBody` step
- - The data format type of `unmarshal` will be `json` and use the `Gson` library
- 
+- Add an `unmarshal` step before the `setBody` step
+- The data format type of `unmarshal` will be `json` and use the `Gson` library
+
 ### Solution
 
 The following video showcases the solution.
@@ -236,14 +236,14 @@ If it doesn't look like that but you still want to go to the following exercise,
 
 ## 4 - Check the dependencies
 
-We are aiming let Kaoto automatically detect dependencies needed for the Kamelet to work properly. However at this time we still have to add a dependency ourselves. Open the source code editor and look for the `dependencies` section. 
+We are aiming let Kaoto automatically detect dependencies needed for the Kamelet to work properly. However at this time we still have to add a dependency ourselves. Open the source code editor and look for the `dependencies` section.
 
 Goal for this exercise:
- 
-  - Add the `camel:gson` dependency required by our `unmarshal` step
+
+- Add the `camel:gson` dependency required by our `unmarshal` step
 
 After this exercise, your new kamelet will be ready to be deployed.
- 
+
 ### Solution
 
 The following video showcases the solution.
@@ -310,7 +310,7 @@ spec:
 
 ### Hints
 
- - The source code editor can be shown by right clicking the file in the `Explorer` view and selecting `Open with` -> `Text Editor`.
+- The source code editor can be shown by right clicking the file in the `Explorer` view and selecting `Open with` -> `Text Editor`.
 
 ## More information
 

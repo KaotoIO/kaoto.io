@@ -3,7 +3,7 @@ title: "Kaoto 2.9 Release"
 date: 2025-12-16
 summary: Kaoto 2.9 is available.
 authors:
-  - admin
+  - lordrip
 tags:
   - Kaoto
   - Release
@@ -14,8 +14,8 @@ tags:
 This release includes several improvements for the DataMapper, more Canvas UX improvements alongside with architectural improvements that lay the groundwork for interesting catalog use cases, but more on that in the upcoming releases.
 
 ### DataMapper Enhancements
-The DataMapper continues to be a core focus. In 2.9, we've introduced several improvements to make complex data transformations more intuitive:
 
+The DataMapper continues to be a core focus. In 2.9, we've introduced several improvements to make complex data transformations more intuitive:
 
 * **Improved Document Visualization:** The document tree visualization has been improved. Now you can see
  a lot more document fields and mappings without scrolling. It especially helps to oversee larger
@@ -47,6 +47,7 @@ Introducing a new user setting `kaoto.localKameletDirectories` that allows users
 ![Local Kamelet Directories user setting](kamelets-dir-setting.png)
 
 ### Canvas and UI Polish
+
 We're happy to thank the amazing work from our contributors, who made several tweaks to the graphical editor to improve clarity and workflow:
 
 * **Route Auto-Startup Indicator:** The canvas now visually indicates if a route is set to start up automatically, giving you better visibility into your integration’s lifecycle at a glance. Many thanks to [Sarthak Vaish](https://github.com/sarth-akvaish) for this contribution.
@@ -71,11 +72,12 @@ Let us know what you think by joining us in the [GitHub discussions](https://git
 Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please [create an issue](https://github.com/KaotoIO/kaoto/issues/new/choose).
 
 ## A big shoutout to our amazing contributors
+
 Thank you to everyone who made this release possible! A special welcome to our new contributors: **@sarth-akvaish** and **@hsachdeva9**.
 
 Whether you are contributing code, reporting bugs, or sharing feedback in our [GitHub discussions](https://github.com/KaotoIO/kaoto/discussions), your involvement is what keeps the Camel riding! 🐫🎉
 
-## Give it a try!
+## Give it a try
 
 * Kaoto [quickstart](/docs/quickstart/).
 * Kaoto is available as a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto).

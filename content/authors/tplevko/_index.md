@@ -1,6 +1,6 @@
 ---
 # Display name
-title: tplevko
+title: Tomas
 
 # Name pronunciation (optional)
 name_pronunciation: 

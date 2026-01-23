@@ -1,6 +1,6 @@
 ---
 # Display name
-title: igarashitm
+title: Tomo
 
 # Name pronunciation (optional)
 name_pronunciation: 
