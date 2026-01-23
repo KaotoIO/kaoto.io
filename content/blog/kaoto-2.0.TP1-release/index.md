@@ -10,9 +10,9 @@ tags:
   - Kaoto 2.0 TP1
   - Tech Preview
 ---
-#With this 2.0.0 TP1 (Tech Preview) release we open up a new chapter for the Kaoto project. We leveraged all the strengths of Kaoto v1 and used the time to use the upstream [Apache Camel](https://camel.apache.org/) models and schemas directly, which will ensure that we provide the latest features of [Apache Camel](https://camel.apache.org/) in Kaoto. In addition we managed to add new features and usability improvements while also trying to keep most of the functionality of Kaoto v1.
+# With this 2.0.0 TP1 (Tech Preview) release we open up a new chapter for the Kaoto project. We leveraged all the strengths of Kaoto v1 and used the time to use the upstream [Apache Camel](https://camel.apache.org/) models and schemas directly, which will ensure that we provide the latest features of [Apache Camel](https://camel.apache.org/) in Kaoto. In addition we managed to add new features and usability improvements while also trying to keep most of the functionality of Kaoto v1.
 
-## Give it a try!
+## Give it a try
 
 * Kaoto [quickstart](/docs/quickstart/).
 * Kaoto is available as a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto).
@@ -35,7 +35,6 @@ tags:
 * Save Route as Image
 * Support for adding Kamelets in a Camel Route
 
-
 If you wanna learn more, there are [workshops available here](/workshop)
 
 ## Let’s Build it Together
@@ -44,6 +43,7 @@ Let us know what you think by joining us in the [GitHub discussions](https://git
 Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? [File an issue](https://github.com/KaotoIO/kaoto-next/issues/new/choose)
 
 ## A big shoutout to our amazing contributors
+
 Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️
 
 [@eerkmen](https://github.com/eerkmen) [@corners2wall](https://github.com/corners2wall) [@mkralik3](https://github.com/mkralik3) [@d4n1b](https://github.com/d4n1b) [@tplevko](https://github.com/tplevko) [@apupier](https://github.com/apupier) [@igarashitm](https://github.com/igarashitm) [@mmelko](https://github.com/mmelko) [@lordrip](https://github.com/lordrip) [@lhein](https://github.com/lhein) [@shivamG640](https://github.com/shivamG640) [@lburgazzoli](https://github.com/lburgazzoli) [@brunoNetId](https://github.com/brunoNetId) [@djelinek](https://github.com/djelinek) [@GuilhermeCamposo](https://github.com/GuilhermeCamposo) [@ibek](https://github.com/ibek) [@jcordes73](https://github.com/jcordes73) [@Mdenisco](https://github.com/Mdenisco) [@phantomjinx](https://github.com/phantomjinx) [@rstroop](https://github.com/rstroop) [@abkieling](https://github.com/abkieling) [@Shivam-Gu](https://github.com/Shivam-Gu) [@kumaradityaraj](https://github.com/kumaradityaraj)

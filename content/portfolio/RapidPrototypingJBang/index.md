@@ -10,7 +10,7 @@ On the following video we can see how to run your integration using Camel JBang 
 
 Please make sure you have the [Camel JBang CLI](https://camel.apache.org/manual/camel-jbang.html) installed before you start.
 
-First we create a new route by selecting "New" in the top menu bar. Make sure that "Camel Route" is selected. This will already spawn a small integration which start with a **timer** and ends with a **log**. The timer is going to send a message to the following log step periodically. The log step will just log the message sent from the previous step. 
+First we create a new route by selecting "New" in the top menu bar. Make sure that "Camel Route" is selected. This will already spawn a small integration which start with a **timer** and ends with a **log**. The timer is going to send a message to the following log step periodically. The log step will just log the message sent from the previous step.
 
 Now hit the **Copy to Clipboard** button in the top menu above your route visualization. This will copy the integration source code to your clipboard. We will use that in the next step.
 
@@ -20,7 +20,7 @@ Finally we are going to run the integration in *dev mode* from the clipboard. Fo
 camel run clipboard.yaml --dev
 ```
 
-We are using the [Run from Clipboard](https://camel.apache.org/manual/camel-jbang.html#_run_from_clipboard) functionality of the Camel JBang CLI. This means whenever something is copied to your clipboard, it will automatically reloading in the Camel JBang CLI as the current integration. 
+We are using the [Run from Clipboard](https://camel.apache.org/manual/camel-jbang.html#_run_from_clipboard) functionality of the Camel JBang CLI. This means whenever something is copied to your clipboard, it will automatically reloading in the Camel JBang CLI as the current integration.
 
 You should by now see an output in the console repeating every second. You can now click on the **log** step to open up the configuration form in Kaoto. Now scroll to the **Message** property and change it to whatever you like to show up in the console. Finally hit again the **Copy to Clipboard** button and watch the console reloading the integration and then your new message will show up.
 

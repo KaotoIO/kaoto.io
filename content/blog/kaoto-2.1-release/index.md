@@ -13,7 +13,7 @@ tags:
 
 For this 2.1.0 release we focused on improving the overall user experience as well as introducing new features. One of the highlights of this release is the ability to select between different Camel versions. You still miss some Camel versions? We enable you to [create your own](https://github.com/KaotoIO/kaoto/blob/main/packages/catalog-generator/README.md) Catalog library with the versions you want to use.
 
-## Give it a try!
+## Give it a try
 
 * Kaoto [quickstart](/docs/quickstart/).
 * Kaoto is available as a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto).
@@ -37,6 +37,7 @@ Let us know what you think by joining us in the [GitHub discussions](https://git
 Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please [create an issue](https://github.com/KaotoIO/kaoto/issues/new/choose).
 
 ## A big shoutout to our amazing contributors
+
 Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️
 
 Special thanks go out to [@d4n1b](https://github.com/d4n1b) for his help with the new Kaoto logo vector image!

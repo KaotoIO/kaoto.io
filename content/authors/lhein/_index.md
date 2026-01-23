@@ -1,6 +1,6 @@
 ---
 # Display name
-title: lhein
+title: Lars
 
 # Name pronunciation (optional)
 name_pronunciation: 

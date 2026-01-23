@@ -8,5 +8,3 @@ summary: "Shows how to do roundtrip development with Kaoto"
 In the following video we can see how to use both the visual editor and the source editor to do rountrip editing on your Apache Camel integrations.
 
 {{< video src="KaotoInAction.webm" controls="yes" >}}
-
-

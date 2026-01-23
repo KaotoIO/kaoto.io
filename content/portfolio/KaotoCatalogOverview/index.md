@@ -8,5 +8,3 @@ summary: "Provides a short overview of the Kaoto Catalog and it's features"
 In the following video you can get an overview of the Kaoto catalog which provides you a collection of all supported Camel components, processors and Kamelets. Additional features like showing the details of each catalog item as well as filtering capabilities are demoed as well.
 
 {{< video src="KaotoCatalogOverview.webm" controls="yes" >}}
-
-

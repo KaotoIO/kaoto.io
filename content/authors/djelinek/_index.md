@@ -1,6 +1,6 @@
 ---
 # Display name
-title: djelinek
+title: Dominik
 
 # Name pronunciation (optional)
 name_pronunciation: 

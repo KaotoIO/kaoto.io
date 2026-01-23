@@ -11,7 +11,7 @@ tags:
 ---
 ## What's new?
 
-We are excited to provide you now with the new Kaoto 2.6 version. 
+We are excited to provide you now with the new Kaoto 2.6 version.
 Please take a look below to learn about the exciting new things we added in this release.
 
 ## Features & Improvements
@@ -31,9 +31,10 @@ Let us know what you think by joining us in the [GitHub discussions](https://git
 Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please [create an issue](https://github.com/KaotoIO/kaoto/issues/new/choose).
 
 ## A big shoutout to our amazing contributors
+
 Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️
 
-## Give it a try!
+## Give it a try
 
 * Kaoto [quickstart](/docs/quickstart/).
 * Kaoto is available as a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto).

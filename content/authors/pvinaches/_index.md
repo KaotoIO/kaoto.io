@@ -1,6 +1,6 @@
 ---
 # Display name
-title: pvinaches
+title: Paloma
 
 # Name pronunciation (optional)
 name_pronunciation: 

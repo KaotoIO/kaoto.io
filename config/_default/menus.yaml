@@ -6,9 +6,6 @@ main:
   - name: Home
     url: /
     weight: 10
-  - name: Roadmap
-    url: roadmap/
-    weight: 40
   - name: Blog
     url: blog/
     weight: 20
@@ -25,6 +22,12 @@ main:
   - parent: Documentation
     name: "User Manual"
     url: "docs/manual/"    
+  - name: Roadmap
+    url: roadmap/
+    weight: 40
+#  - name: Team
+#    url: authors/
+#    weight: 45
   - name: Contribute
     weight: 50
     url: "contribute/"

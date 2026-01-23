@@ -8,11 +8,13 @@ summary: "Create a route that listens to a folder and outputs by log the modifie
 
 The goals for this exercise are:
 
- - Create a new Camel route and let it start with a `file-watch` step, which will watch a local folder like `/tmp/tutorial/` and configure the parameter `recursive` as `false`, because we don't want to watch subfolders
- - Then `log` the detected change with an output like `Detected  ${header.CamelFileEventType} on file ${header.CamelFileName} at ${header.CamelFileLastModified}`
- 
+- Create a new Camel route and let it start with a `file-watch` step, which will watch a local folder like `/tmp/tutorial/` and configure the parameter `recursive` as `false`, because we don't want to watch subfolders
+- Then `log` the detected change with an output like `Detected  ${header.CamelFileEventType} on file ${header.CamelFileName} at ${header.CamelFileLastModified}`
+
 ### Hints
+
 Helpful advice for doing things better or more easily.
+
 - To add new, delete or replace steps on the canvas, right click an existing node. This will provide you a contextual menu.
 - To configure a step and fill the configuration properties, click on the step icon in the canvas.
 - The first step you want to add is called `file-watch`. Don't confuse it with `file`
@@ -51,14 +53,15 @@ If it doesn't look like that but you still want to go to the following exercise,
 Now we want to add a `filter` and a `file` between the `file-watch` and the `log`, which copies the files to another folder everytime a file gets created.
 
 This will require adding two steps:
- - A step `filter` that will open a branch of steps that will be executed only when `${header.CamelFileEventType}` equals `CREATE`
- - A step `file` to create the new file in `/tmp/backup/` or whatever folder you choose (different from the previous one)
+
+- A step `filter` that will open a branch of steps that will be executed only when `${header.CamelFileEventType}` equals `CREATE`
+- A step `file` to create the new file in `/tmp/backup/` or whatever folder you choose (different from the previous one)
 
 ### Hints
 
- - To create a new file, you have to use the step `file`. Make sure to add it `into` the `filter` step.
- - Configure the `directory name` of the `file` step as `/tmp/backup/` (or whatever folder you are using)
- - The condition of the filter is configured in the filter expression field as `${header.CamelFileEventType} == 'CREATE'` using the `simple` expression language.
+- To create a new file, you have to use the step `file`. Make sure to add it `into` the `filter` step.
+- Configure the `directory name` of the `file` step as `/tmp/backup/` (or whatever folder you are using)
+- The condition of the filter is configured in the filter expression field as `${header.CamelFileEventType} == 'CREATE'` using the `simple` expression language.
 
 ### Solution
 
@@ -114,6 +117,7 @@ Click this button now and watch what happens. If everything goes well you should
 If you see something different and maybe errors, please check the `Hints` section below.
 
 ### Hints
+
 - Please make sure that you have saved your route before running it.
 - Make sure you installed the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack) as this will add buttons for easy access to launch / debug functionality. Also ensure you have installed [Camel JBang](https://camel.apache.org/manual/camel-jbang.html), otherwise the launch will throw errors. (see [Installation Guide](/docs/installation))
 - Make sure your folder (`/tmp/tutorial/`) exists before running this integration.
