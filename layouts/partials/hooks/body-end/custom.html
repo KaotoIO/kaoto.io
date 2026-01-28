@@ -17,5 +17,28 @@
 
     showItem(currentIndex);
     setInterval(nextItem, 10000); // Change item every 10 seconds
+
+    // Fix copy button: ensure only code content is copied, not the button text
+    document.addEventListener('click', function(e) {
+      const button = e.target.closest('.copy-button');
+      if (!button) return;
+      
+      // Find the code element in the same container
+      const codeElement = button.closest('.highlight, .chroma')?.querySelector('code') ||
+                          button.parentElement?.querySelector('code');
+      
+      if (codeElement) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        
+        const originalText = button.textContent;
+        navigator.clipboard.writeText(codeElement.textContent.trim()).then(function() {
+          button.textContent = 'Copied';
+          setTimeout(function() {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+    }, true);   
   });
 </script>
