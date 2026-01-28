@@ -1,6 +1,6 @@
 ---
 title: "Workshops"
-view: article-grid
+view: card
 ---
 
 Please select the workshop your are interested in.
