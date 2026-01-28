@@ -1,6 +1,6 @@
 ---
 title: "Usecases"
-view: article-grid
+view: card
 ---
 
 Please select the content you are interested in.
