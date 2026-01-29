@@ -4,4 +4,115 @@
 .slideshow-section .item:first-child {
   display: block;
 }
+
+/* For img-toggle shortcode */
+.toggle-wrapper {
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.toggle-input { display: none !important; }
+
+.tab-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #1e293b;
+  width: 100%;
+}
+
+.toggle-code-block .content-area pre.chroma {
+  margin-top: 0 !important;
+}
+
+.tab {
+  padding: 12px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  cursor: default;
+}
+
+.content-area {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+}
+
+.toggle-image-block .content-area {
+  padding: 1rem 2rem;
+}
+
+.content-area img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 4px;
+}
+
+.toggle-code-block { display: none !important; }
+.toggle-image-block { display: block !important; }
+.toggle-input:checked ~ .toggle-code-block { display: block !important; }
+.toggle-input:checked ~ .toggle-image-block { display: none !important; }
+
+.toggle-code-block code {
+  white-space: pre-wrap !important;
+  word-break: break-all;
+}
+
+.toggle-code-block pre {
+  overflow-x: hidden !important;
+}
+
+:not(.dark .prose .chroma) .tab.inactive {
+    background-color: rgb(229 229 229);
+}
+:is(.dark .prose .chroma) .tab.inactive {
+    background-color: rgb(51 65 85);
+    filter: brightness(0.8);
+}
+
+/* To fix text overflow in tables */
+table td {
+  overflow-wrap: break-word;
+}
+
+table td code {
+  overflow-wrap: anywhere;
+}
+
+/* Simplification of the table of contents */
+nav.hb-toc ul li:has(a.pl-8), nav.hb-toc ul li:has(a.pl-12), nav.hb-toc ul li:has(a.pl-16) {
+  display: none;
+}
+
+nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
+  display: none;
+}
+
+/* Locate the table of content to the left (only needed for big screens after that is hidden */
+@media (min-width: 1279px) {
+  .mx-auto.flex.max-w-screen-xl:has(nav.hb-toc) {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Align the header navbar with the content in bigger screens */
+@media (min-width: 1279px) {
+  header.header > nav.navbar {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* ...existing code... */
