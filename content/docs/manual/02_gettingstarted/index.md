@@ -35,9 +35,8 @@ Once done, the new file will be created and the Kaoto editor should appear as sh
 
 At this point, you have successfully created your first working Camel Route, which can be tested immediately.
 
-{{% callout note %}}
-If the execution fails you should double check if you have installed the [Camel CLI](https://camel.apache.org/manual/camel-jbang.html) correctly. Follow the instructions outline in the section [Camel CLI](#camel-cli) section.
-{{% /callout %}}
+> [!NOTE]
+> If the execution fails you should double check if you have installed the [Camel CLI](https://camel.apache.org/manual/camel-jbang.html) correctly. Follow the instructions outline in the section [Camel CLI](#camel-cli) section.
 
 You should now see a similar screen like the one below.
 

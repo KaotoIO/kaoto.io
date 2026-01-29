@@ -1,0 +1,36 @@
+{{/* Simple Features block for Hugo Blox v3 fallback. */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+<div class="mx-auto max-w-6xl px-6 py-12 lg:px-8 text-center">
+  {{ with $block.content.title }}
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl text-center">
+      {{ . | markdownify }}
+    </h2>
+  {{ end }}
+  {{ with $block.content.text }}
+    <p class="mt-4 text-lg leading-8 text-gray-600 dark:text-gray-300 text-center">
+      {{ . | $page.RenderString | emojify }}
+    </p>
+  {{ end }}
+
+  {{ with $block.content.items }}
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {{ range . }}
+        <div class="rounded-2xl border border-gray-200/60 dark:border-gray-700/60 bg-white/60 dark:bg-gray-900/40 p-6 text-center">
+          {{ with .icon }}
+            <div class="h-8 w-8 text-primary-600 dark:text-primary-300 mx-auto">
+              {{ partial "functions/get_icon" (dict "name" . "attributes" "style=\"height: 2rem; width: 2rem;\"") }}
+            </div>
+          {{ end }}
+          {{ with .name }}
+            <h3 class="mt-4 text-lg font-semibold text-gray-900 dark:text-gray-100">{{ . | markdownify }}</h3>
+          {{ end }}
+          {{ with .description }}
+            <p class="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">{{ . | $page.RenderString | emojify }}</p>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

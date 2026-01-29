@@ -6,13 +6,11 @@ date: 2025-01-13
 
 ## Kaoto DataMapper
 
-{{% callout note %}}
-Currently Kaoto DataMapper is only supported inside the Visual Studio Code extension as a technical preview feature. In the future we will aim to bring this functionality also to the pure web version of Kaoto.
-{{% /callout %}}
+> [!NOTE]
+> Currently Kaoto DataMapper is only supported inside the Visual Studio Code extension as a technical preview feature. In the future we will aim to bring this functionality also to the pure web version of Kaoto.
 
-{{% callout note %}}
-The DataMapper supports both XML and JSON schema for rendering the data structure. For both XML and JSON data, it internally generates a single XSLT step to perform configured data mappings at runtime. For JSON data, it leverages the json-to-xml() and xml-to-json() functions available in XSLT 3.0 to handle JSON transformations. While you can consume multiple XML/JSON documents using Camel Variables and/or Message Headers which are mapped to transformation parameters, the output is only a Camel Message Body.
-{{% /callout %}}
+> [!NOTE]
+> The DataMapper supports both XML and JSON schema for rendering the data structure. For both XML and JSON data, it internally generates a single XSLT step to perform configured data mappings at runtime. For JSON data, it leverages the json-to-xml() and xml-to-json() functions available in XSLT 3.0 to handle JSON transformations. While you can consume multiple XML/JSON documents using Camel Variables and/or Message Headers which are mapped to transformation parameters, the output is only a Camel Message Body.
 
 ![Example Data Mappings](datamapper-done.png)
 
@@ -54,20 +52,17 @@ Follow the below steps to add a parameter.
 2. Now type the parameter name and click the check button on the right.
 ![Add Parameter confirm](datamapper-add-parameter-confirm.png)
 
-{{% callout note %}}
-While Camel Exchange Properties are also mapped to parameters in the current `camel-xslt-saxon` implementation, after the [Camel Variables](https://camel.apache.org/manual/variables.html) have been introduced, it is no longer recommended to store application data in Camel Exchange Properties. We encourage to use [Camel Variables](https://camel.apache.org/manual/variables.html) instead.
-{{% /callout %}}
+> [!NOTE]
+> While Camel Exchange Properties are also mapped to parameters in the current `camel-xslt-saxon` implementation, after the [Camel Variables](https://camel.apache.org/manual/variables.html) have been introduced, it is no longer recommended to store application data in Camel Exchange Properties. We encourage to use [Camel Variables](https://camel.apache.org/manual/variables.html) instead.
 
 ### Attaching Document Schema files
 
 If any of `Source Body`, `Target Body` and/or `Parameter(s)` are structured data, you can attach a schema file and visualize the data structure in a tree style view. The DataMapper supports both XML Schema (XSD) and JSON Schema files.
-{{% callout note %}}
-If the data is not structured and just a primitive value, you don't need to attach a schema file.
-{{% /callout %}}
+> [!NOTE]
+> If the data is not structured and just a primitive value, you don't need to attach a schema file.
 
-{{% callout note %}}
-JSON schemas can be attached to `Target Body` and `Parameter(s)`. However, it is currently not supported to attach JSON schema to `Source Body`.
-{{% /callout %}}
+> [!NOTE]
+> JSON schemas can be attached to `Target Body` and `Parameter(s)`. However, it is currently not supported to attach JSON schema to `Source Body`.
 
 Follow the below steps to attach a schema file.
 
@@ -124,12 +119,10 @@ Here is a demo screencast for creating JSON mappings.
 
 #### JSON schema document tree
 
-{{% callout note %}}
-Kaoto DataMapper uses XSLT 3.0 `json-to-xml()` and `xml-to-json()` functions to support JSON mappings. JSON document specific characteristics described in this section are mostly influenced by these XSLT 3.0 JSON support functions. Please visit XSLT 3.0 specification for more internal details.
-
-- [json-to-xml()](https://www.w3.org/TR/xslt-30/#func-json-to-xml)
-- [xml-to-json()](https://www.w3.org/TR/xslt-30/#func-xml-to-json)
-{{% /callout %}}
+> [!NOTE]
+> Kaoto DataMapper uses XSLT 3.0 `json-to-xml()` and `xml-to-json()` functions to support JSON mappings. JSON document specific characteristics described in this section are mostly influenced by these XSLT 3.0 JSON support functions. Please visit XSLT 3.0 specification for more internal details.
+> - [json-to-xml()](https://www.w3.org/TR/xslt-30/#func-json-to-xml)
+> - [xml-to-json()](https://www.w3.org/TR/xslt-30/#func-xml-to-json)
 
 When an XML schema document is rendered in DataMapper document tree, their element name and attribute name alone is shown as the field label. For JSON schema document, it is slightly different. Since JSON
 document field sometimes doesn't have a name (anonymous), it uses field type as a primary field label.
@@ -260,9 +253,8 @@ Here is a demo screencast for merging 2 source collection fields with multiple `
 
 ### Using XPath expression editor
 
-{{% callout note %}}
-The `XPath` editor is still under initial development and it currently supports only limited drag and drop. In future releases, more syntax assisting features will be added.
-{{% /callout %}}
+> [!NOTE]
+> The `XPath` editor is still under initial development and it currently supports only limited drag and drop. In future releases, more syntax assisting features will be added.
 
 If you want to write something more in XPath expression rather than just a field path, you can launch the `XPath` expression editor and work with it. There is a pencil icon on the target field which launches the `XPath` expression editor when you click it.
 

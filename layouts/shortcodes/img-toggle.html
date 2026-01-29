@@ -1,0 +1,27 @@
+{{/* Generate a unique ID if one isn't provided */}}
+{{ $id := .Get "id" | default (printf "toggle-%d" (now.UnixNano)) }}
+
+<div class="toggle-wrapper chroma">
+  <input type="checkbox" id="{{ $id }}" class="toggle-input">
+  
+  <div class="toggle-image-block">
+    <div class="tab-bar">
+      <label class="tab active">Image Preview</label>
+      <label for="{{ $id }}" class="tab inactive">View YAML</label>
+    </div>
+    <label for="{{ $id }}" class="content-area">
+      <img src="{{ .Get "src" }}" alt="Toggle Image">
+    </label>
+  </div>
+
+  <div class="toggle-code-block">
+    <div class="tab-bar">
+      <label for="{{ $id }}" class="tab inactive">View Image</label>
+      <label class="tab active">YAML Source</label>
+    </div>
+    <label for="{{ $id }}" class="content-area">
+      {{ $code := .Inner | safeHTML }}
+      {{ highlight $code (.Get "lang") "" }}
+    </label>
+  </div>
+</div>

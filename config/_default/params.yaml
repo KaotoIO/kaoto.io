@@ -1,77 +1,291 @@
-# SITE SETUP
-# Guide: https://docs.hugoblox.com/tutorial/
+# ══════════════════════════════════════════════════════════════════════════════
+# HUGO BLOX CONFIGURATION
+# Schema: hugoblox.com/schema/v2
+# Tutorial: https://docs.hugoblox.com/tutorial/
 # Documentation: https://docs.hugoblox.com/
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# ══════════════════════════════════════════════════════════════════════════════
+hugoblox:
+  schema: "2.0"
 
-# removes the copyright stuff from Hugo Blox
-i_am_a_sponsor: true
+  # ────────────────────────────────────────────────────────────────────────────
+  # IDENTITY
+  # Site-level branding (for people/profiles, use the author system in content/authors/)
+  # ────────────────────────────────────────────────────────────────────────────
+  identity:
+    # Site name - shown in navbar, footer, copyright, and browser title by default
+    name: ""
+    # Legal entity for copyright notices (defaults to name if not set)
+    organization: "Kaoto"
+    # Schema.org type for structured data
+    type: organization                        # person | organization | local_business
+    # Short tagline displayed on your site
+    tagline: ""
+    # Site meta description for search engines and social sharing
+    description: "Kaoto is an open source visual editor for Apache Camel integration routes and data transformation, designed to improve the productivity of integration developers in a low-code / no-code way."
+    # Social accounts (used for meta tags like Twitter Cards)
+    social:
+      #twitter: "KaotoIO"              # Twitter/X handle for Twitter Cards (without @)
 
-# Appearance
-appearance:
-  mode: system
-  color: sky
+  # ────────────────────────────────────────────────────────────────────────────
+  # THEME
+  # Color and visual design system
+  # ────────────────────────────────────────────────────────────────────────────
+  theme:
+    # Mode: 'light', 'dark', or 'system' (follows OS preference)
+    mode: system
+    # Theme pack: name from data/themes/ or { light: "x", dark: "y" } for mix-and-match
+    pack: "minimal"
+    # Optional: Override theme pack colors
+    colors:
+      primary: ""                       # Tailwind palette name or hex (e.g., "indigo" or "#6366f1")
+      secondary: ""
+      neutral: "neutral"                       # Affects gray utilities (text-gray-*, bg-gray-*)
+    # Optional: Mode-specific color overrides
+    colors_light: {}
+    colors_dark: {}
+    # Optional: Semantic surface color overrides
+    surfaces:
+      background: ""
+      foreground: ""
+      header:
+        background: ""
+        foreground: ""
+      footer:
+        background: ""
+        foreground: ""
 
-# SEO
-marketing:
-  seo:
-    site_type: SoftwareApplication
-    local_business_type: ''
-    org_name: 'Kaoto'
-    description: 'Kaoto is an open source visual editor for Apache Camel integration routes and data transformation, designed to improve the productivity of integration developers in a low-code / no-code way.'
-    twitter: 'KaotoIO'
-  analytics:
-    google_analytics: ''
-    google_tag_manager: ''
-  verification:
-    google: ''
-    baidu: ''
+  # ────────────────────────────────────────────────────────────────────────────
+  # TYPOGRAPHY
+  # Font and text sizing
+  # ────────────────────────────────────────────────────────────────────────────
+  typography:
+    # Font: 'sans' (Inter), 'serif' (Roboto Slab), or 'native' (system fonts)
+    font: "sans"
+    # Size: 'sm', 'md', 'lg', or 'xl' (affects base font size and scale)
+    size: "md"
 
-# SEO Defaults
-params:
-  description: 'Open source visual designer for Apache Camel integrations. Low-code editor with 300+ components, Enterprise Integration Patterns and Kamelets. Available as VS Code extension.'
-  images: 
-    - 'logo-kaoto.png'
-  keywords:
-    - Apache Camel
-    - Integration Designer
-    - Visual Editor
-    - Low Code
-    - VS Code Extension
-    - Kamelets
-    - Enterprise Integration Patterns
-    - Open Source
-    - EIP
-    - Camel Routes
+  # ────────────────────────────────────────────────────────────────────────────
+  # LAYOUT
+  # Spacing and shape tokens
+  # ────────────────────────────────────────────────────────────────────────────
+  layout:
+    # Border radius: 'none', 'sm', 'md', 'lg', or 'full'
+    radius: "md"
+    # Spacing density: 'compact', 'comfortable', or 'spacious'
+    spacing: "comfortable"
+    # Avatar shape in author profiles
+    avatar_shape: circle                # circle | square | rounded
 
-# Social Media / Open Graph
-social:
-  twitter: 'KaotoIO'
-  github: 'KaotoIO'
-
-# Site header
-header:
-  navbar:
+  # ────────────────────────────────────────────────────────────────────────────
+  # HEADER
+  # Site header and navigation bar
+  # ────────────────────────────────────────────────────────────────────────────
+  header:
     enable: true
-    blox: "navbar"
-    align: "center"
-    fixed_to_top: true
-    logo:
+    # Header style variant
+    style: navbar                       # navbar | navbar-simple | minimal
+    # Stick to top on scroll
+    sticky: true
+    # Menu alignment
+    align: center                       # left | center | right
+    # Feature toggles
+    search: true
+    theme_toggle: true
+    theme_picker: false
+    language_switcher: true
+    # Call-to-action button
+    cta:
+      enable: false
       text: ""
-      # Logo filename in `assets/media/` folder
-      filename: "logo-kaoto.png"
-#    button:
-#      enable: true
-#      text: "GitHub"
-#      url: "https://github.com/KaotoIO/?target=_blank"
-    show_search: true
-    show_theme_chooser: true
+      url: ""
 
-# Site footer
-footer:
+  # ────────────────────────────────────────────────────────────────────────────
+  # FOOTER
+  # Site footer
+  # ────────────────────────────────────────────────────────────────────────────
+  footer:
+    # Footer style variant
+    style: centered                      # minimal | columns | centered
+    language_switcher: true
+    # Custom footer text (HTML supported)
+    text: ""
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # COPYRIGHT
+  # Legal notices and licensing
+  # ────────────────────────────────────────────────────────────────────────────
   copyright:
+    # Copyright notice - supports {year}, {name}, {license} placeholders
     notice: '© {year} - <a href="https://camel.apache.org">Apache Camel</a> is a trademark of the <a href="https://apache.org">Apache Software Foundation</a>.<br/><br/><div style="background-color:#17181c;padding:20px;margin:auto;border-radius: 9px;"><a href="https://redhat.com" target="_blank" rel="noopener noreferrer">![Red Hat Logo](redhat-sponsor.png)</a></div>'
+    license:
+      type: custom                          # cc | custom
+      allow_derivatives: false
+      share_alike: false
+      allow_commercial: false
 
-# Localization
-locale:
-  date_format: 'Jan 2, 2006'
-  time_format: '3:04 PM'
+  # ────────────────────────────────────────────────────────────────────────────
+  # SEO
+  # Search engine optimization - overrides and technical settings
+  # ────────────────────────────────────────────────────────────────────────────
+  seo:
+    # Browser tab title override (defaults to identity.name if not set)
+    title: "Kaoto - The Integration Designer for Apache Camel"
+    # For local_business identity type only
+    location:
+      address:
+        street: ""
+        city: ""
+        region: ""
+        postal_code: ""
+        country: ""
+      coordinates:
+        latitude: null
+        longitude: null
+      phone: ""
+    # AI/LLM crawler guidance (llms.txt)
+    ai:
+      allow:
+        - /
+      disallow: []
+      note: "Kaoto is an open source visual editor for Apache Camel integration routes and data transformation, designed to improve the productivity of integration developers in a low-code / no-code way."
+      contact: ""
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # CONTENT
+  # Content rendering and behavior
+  # ────────────────────────────────────────────────────────────────────────────
+  content:
+    # Math rendering
+    math:
+      enable: false
+    # Table of contents
+    toc:
+      enable: true
+    # Reading time estimates
+    reading_time:
+      enable: true
+    # Academic citations
+    citations:
+      style: apa                        # apa | mla | chicago | ieee
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # SEARCH
+  # Site search
+  # ────────────────────────────────────────────────────────────────────────────
+  search:
+    enable: true
+    # Trending/suggested search terms
+    suggestions: []
+    # Quick action shortcuts in search modal
+    quick_actions: []
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # COMMENTS
+  # User comments system
+  # ────────────────────────────────────────────────────────────────────────────
+  comments:
+    enable: false
+    provider: ""                        # giscus | disqus
+    giscus:
+      repo: ""
+      repo_id: ""
+      category: ""
+      category_id: ""
+    disqus:
+      shortname: ""
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # ANALYTICS
+  # Traffic and behavior analytics
+  # ────────────────────────────────────────────────────────────────────────────
+  analytics:
+    google:
+      measurement_id: ""                # Google Analytics 4: G-XXXXXXXXXX
+    google_tag_manager:
+      container_id: ""                  # GTM-XXXXXXX
+    plausible:
+      domain: ""
+    fathom:
+      site_id: ""
+    pirsch:
+      site_id: ""
+    clarity:
+      project_id: ""
+    baidu:
+      site_id: ""
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # VERIFICATION
+  # Search engine site verification codes
+  # ────────────────────────────────────────────────────────────────────────────
+  verification:
+    google: ""
+    bing: ""
+    baidu: ""
+    yandex: ""
+    pinterest: ""
+    naver: ""
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # REPOSITORY
+  # Source code repository for "Edit this page" links
+  # ────────────────────────────────────────────────────────────────────────────
+  repository:
+    enable: false
+    url: "https://github.com/KaotoIO/kaoto.io"                             # e.g., https://github.com/username/repo
+    branch: main
+    content_dir: content
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # LOCALE
+  # Regional formatting preferences
+  # ────────────────────────────────────────────────────────────────────────────
+  locale:
+    date_format: "Jan 2, 2006"          # Go time format
+    time_format: "3:04 PM"
+    address_format: en-us
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # SECURITY
+  # Security headers and policies (requires Netlify integration)
+  # ────────────────────────────────────────────────────────────────────────────
+  security:
+    csp:
+      policy: ""
+      report_only: false
+    frame_options: allow                 # deny | sameorigin | allow - allow enables iframe embedding
+    permissions_policy: ""
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # PRIVACY
+  # Privacy and compliance features
+  # ────────────────────────────────────────────────────────────────────────────
+  privacy:
+    enable: false
+    anonymize_analytics: true
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # DEBUG
+  # Development and debugging (hidden in production)
+  # ────────────────────────────────────────────────────────────────────────────
+  debug:
+    enable: false
+    hud:
+      position: bottom-left             # top-left | top-right | bottom-left | bottom-right
+      opacity: 1.0
+    export_logs: true
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # PREMIUM
+  # Premium features and creator program (affiliates)
+  # ────────────────────────────────────────────────────────────────────────────
+  pro:
+    # Hide "Powered by HugoBlox" attribution
+    # Requires: HugoBlox Premium to support HugoBlox via alternative means
+    # Note: Even with Premium, you can keep this false to support open source!
+    # Get Premium: https://hugoblox.com/premium
+    hide_attribution: true
+    
+    # Affiliate referral code for rewards program
+    # Join affiliate program: https://hugoblox.com/affiliates
+    affiliate_code: ""

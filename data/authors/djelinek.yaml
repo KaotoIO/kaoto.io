@@ -1,0 +1,29 @@
+schema: hugoblox/author/v1
+slug: Dominik
+is_owner: true
+name:
+  display: Dominik
+  given: Dominik
+  family: Jelinek
+  pronunciation: Dominik Jelinek
+#  pronouns: they/them
+status:
+  icon: "🐫"
+role: Team
+bio: Working on providing you the best experience for editing Apache Camel integrations.
+#affiliations:
+#  - name: Stanford University
+#    url: https://www.stanford.edu/
+links:
+  - icon: at-symbol
+    url: mailto:hellokaoto@gmail.com
+    label: E-mail Me
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/groups/12998297/
+    label: Visit our LinkedIn Group
+  - icon: brands/github
+    url: https://github.com/KaotoIO
+    label: Visit our GitHub
+  - icon: brands/youtube
+    url: https://www.youtube.com/@KaotoIO
+    label: Subscribe to our YouTube Channel

@@ -25,9 +25,6 @@ main:
   - name: Roadmap
     url: roadmap/
     weight: 40
-#  - name: Team
-#    url: authors/
-#    weight: 45
   - name: Contribute
     weight: 50
     url: "contribute/"
@@ -61,4 +58,4 @@ main:
   - parent: Links
     name: "Planning Board"
     url: "https://github.com/orgs/KaotoIO/projects/14"
-  
+    
