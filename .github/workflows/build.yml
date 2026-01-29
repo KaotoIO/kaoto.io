@@ -92,7 +92,7 @@ jobs:
         extended: true
 
     # Cache dependencies (Go modules, node_modules) - stable, rarely changes
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: |
           /tmp/hugo_cache_runner/
@@ -104,7 +104,7 @@ jobs:
           ${{ runner.os }}-hugo-deps-
 
     # Cache Hugo resources (processed images, CSS) - invalidates only when assets/config change
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: resources/
         key: ${{ runner.os }}-hugo-resources-${{ hashFiles('assets/**/*', 'config/**/*',
