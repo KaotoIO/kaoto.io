@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Release | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/tag/release/</link><atom:link href="https://kaoto.io/tag/release/index.xml" rel="self" type="application/rss+xml"/><description>Release</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><copyright>© 2026 Kaoto. Apache Camel and Camel are trademarks of The Apache Software Foundation.</copyright><lastBuildDate>Tue, 16 Dec 2025 00:00:00 +0000</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Release</title><link>https://kaoto.io/tag/release/</link></image><item><title>Kaoto 2.9 Release</title><link>https://kaoto.io/blog/kaoto-2.9-release/</link><pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate><guid>https://kaoto.io/blog/kaoto-2.9-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s New?&lt;/h2>
+&lt;p>This release includes several improvements for the DataMapper, more Canvas UX improvements alongside with architectural improvements that lay the groundwork for interesting catalog use cases, but more on that in the upcoming releases.&lt;/p>
+&lt;h3 id="datamapper-enhancements">DataMapper Enhancements&lt;/h3>
+&lt;p>The DataMapper continues to be a core focus. In 2.9, we&amp;rsquo;ve introduced several improvements to make complex data transformations more intuitive:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Improved Document Visualization:&lt;/strong> The document tree visualization has been improved. Now you can see
+a lot more document fields and mappings without scrolling. It especially helps to oversee larger
+documents and complex mappings.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Improved document visualization" srcset="
+/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_0a71830abbfb2bfdbf83bd62f3c8d722.webp 400w,
+/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_d8c08d41266e9fce65dafcb4e157b57d.webp 760w,
+/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_0a71830abbfb2bfdbf83bd62f3c8d722.webp"
+width="760"
+height="391"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>Field Occurrence Indicators:&lt;/strong> You can now see minOccurs and maxOccurs constraints for schema fields, making it easier to understand field cardinality requirements at a glance.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Field occurrence indicators" srcset="
+/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_97397369ceaaf285176906d9fd098450.webp 400w,
+/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_55d6fed3f072f387acd249b6ed869fc7.webp 760w,
+/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_97397369ceaaf285176906d9fd098450.webp"
+width="427"
+height="137"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>Wrap-with-If Action:&lt;/strong> You can now wrap already mapped fields with a conditional &amp;ldquo;if&amp;rdquo; statement, making it easier to add logic to existing transformations without starting over. Thank you &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for this contribution.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Wrap with if action" srcset="
+/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_4f478d2b79e2b1dfd5144a5d4658b6ef.webp 400w,
+/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_b40eb1de368500079320eba76b6d66a9.webp 760w,
+/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_4f478d2b79e2b1dfd5144a5d4658b6ef.webp"
+width="760"
+height="168"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>Improved Drag &amp;amp; Drop on DataMapper step:&lt;/strong> Better handling of Drag &amp;amp; Drop on DataMapper step, avoid breaking the DataMapper step contents when its position is swapped&lt;/li>
+&lt;li>&lt;strong>Root Element Persistence:&lt;/strong> When attaching an XML schema with multiple root elements, your chosen root element is now properly saved and restored when reopening the DataMapper.&lt;/li>
+&lt;/ul>
+&lt;h3 id="integrations-view">Integrations view&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Tree-like structure&lt;/strong>
+Kaoto now displays the workspace root and nested folders that contain matching integration files. It also highlights Maven roots and children; preserves integration‑specific item types (Route, Pipe, Kamelet).
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Tree structure" srcset="
+/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_bf060e511e68a2cd67751e65e8008aa7.webp 400w,
+/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_6b6a300f7cf83645f956b9231e8e7db8.webp 760w,
+/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_bf060e511e68a2cd67751e65e8008aa7.webp"
+width="428"
+height="319"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Buttons for running Folders and Workspace&lt;/strong>
+Building on top of the new tree-like structure, we introduced two new commands &lt;code>Run: Folder&lt;/code> and &lt;code>Run: Workspace&lt;/code>.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Run workspace and Run folder" srcset="
+/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_81fb586e3863ddc59c839da539752204.webp 400w,
+/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_261f8dd7b9acb13b1de000795dd2a9ce.webp 760w,
+/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_81fb586e3863ddc59c839da539752204.webp"
+width="431"
+height="290"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Buttons for exporting into Maven-based project&lt;/strong>
+We also added the export functionality for folders and workspaces (&lt;code>Export: Folder&lt;/code> and &lt;code>Export: Workspace&lt;/code>), adding kamelet directory loading during export operations.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Export workspace and export folder" srcset="
+/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_118da1e8f19088bc2bc237a013995115.webp 400w,
+/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_bb96128f3058ad6c123d34f5e917d7c7.webp 760w,
+/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_118da1e8f19088bc2bc237a013995115.webp"
+width="430"
+height="287"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Local Kamelets directories User setting&lt;/strong>
+Introducing a new user setting &lt;code>kaoto.localKameletDirectories&lt;/code> that allows users to specify a list of local directories containing Kamelet files. The setting automatically injects the &lt;code>--local-kamelet-dir&lt;/code> argument into Camel JBang run commands, providing a cleaner and more maintainable way to configure local Kamelet directories compared to manually adding the argument to run settings.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Local Kamelet Directories user setting" srcset="
+/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_9d4166246a0bd75a59aafb5bc84144ee.webp 400w,
+/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_68db863acd374a359987082fba6489ef.webp 760w,
+/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_9d4166246a0bd75a59aafb5bc84144ee.webp"
+width="751"
+height="239"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="canvas-and-ui-polish">Canvas and UI Polish&lt;/h3>
+&lt;p>We&amp;rsquo;re happy to thank the amazing work from our contributors, who made several tweaks to the graphical editor to improve clarity and workflow:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Route Auto-Startup Indicator:&lt;/strong> The canvas now visually indicates if a route is set to start up automatically, giving you better visibility into your integration’s lifecycle at a glance. Many thanks to &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for this contribution.&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Auto Startup on/off" srcset="
+/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_b8c95ff698ac60ca0467a71372931868.webp 400w,
+/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_6b7aa71bf791410e6716126f53070e20.webp 760w,
+/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_b8c95ff698ac60ca0467a71372931868.webp"
+width="458"
+height="176"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Updated EIPs Icons:&lt;/strong> New icons have been added for specific EIPs (like Poll) and layout elements to help distinguish between different types of steps more easily. Again, thank you &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for this contribution.&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Poll EIP icon" srcset="
+/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_5dde783302469ffe60b7d6e48dca7afb.webp 400w,
+/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_d415764eb9d75e68d890cd89ad020976.webp 760w,
+/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_5dde783302469ffe60b7d6e48dca7afb.webp"
+width="148"
+height="129"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Flicker-free Image Export:&lt;/strong> Exporting your flows as images is now smoother and higher quality, with fixes to prevent UI distortion during the process. Thank you &lt;a href="https://github.com/hsachdeva9" target="_blank" rel="noopener">Hitesh Sachdeva&lt;/a> for this contribution.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;video controls src="flicker-free-image-export.mp4" title="Flicker-free image export">&lt;/video>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Improved Serialization:&lt;/strong> Better handling of placeholders &lt;code>{{ }}&lt;/code> in parameters to ensure your routes don&amp;rsquo;t fail during XML serialization. Thank you &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for the fix.&lt;/li>
+&lt;/ul>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.9.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible! A special welcome to our new contributors: &lt;strong>@sarth-akvaish&lt;/strong> and &lt;strong>@hsachdeva9&lt;/strong>.&lt;/p>
+&lt;p>Whether you are contributing code, reporting bugs, or sharing feedback in our &lt;a href="https://github.com/KaotoIO/kaoto/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>, your involvement is what keeps the Camel riding! 🐫🎉&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Kaoto 2.8 released</title><link>https://kaoto.io/blog/kaoto-2.8-release/</link><pubDate>Mon, 10 Nov 2025 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.8-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>This release represents a major step forward in Data Mapper maturity, with extensive XML Schema support improvements, better visual feedback, and numerous stability fixes. We&amp;rsquo;ve also enhanced the canvas experience with contextual menus and improved the forms system for better configuration management.&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;h3 id="camel-catalog-version">Camel Catalog Version&lt;/h3>
+&lt;p>This version includes:&lt;/p>
+&lt;ul>
+&lt;li>Camel main: 4.16.0&lt;/li>
+&lt;li>Camel extensions for Quarkus: 3.29.0&lt;/li>
+&lt;li>Camel Spring-boot: 4.14.1&lt;/li>
+&lt;/ul>
+&lt;h3 id="data-mapper-xml-schema-support-enhancements">Data Mapper XML Schema Support Enhancements&lt;/h3>
+&lt;p>Kaoto 2.8 brings improvements to XML Schema handling:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Advanced Schema Features&lt;/strong>: Full support for &lt;code>xs:extension&lt;/code>, &lt;code>xs:restriction&lt;/code>, allowing you to work with sophisticated XML schemas&lt;/li>
+&lt;li>&lt;strong>Field Type Visualization&lt;/strong>: Field type icons now appear in the tree view, making it easier to identify data types at a glance&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: Icons highlighted" srcset="
+/blog/kaoto-2.8-release/datamapper-field-type-icons-highlighted_huf3252f6406fa03e873286766620e6212_12247_0c1740564538b49cf6279e1d453d827a.webp 400w,
+/blog/kaoto-2.8-release/datamapper-field-type-icons-highlighted_huf3252f6406fa03e873286766620e6212_12247_f2f546ea27e158ce16a1ce1d93046306.webp 760w,
+/blog/kaoto-2.8-release/datamapper-field-type-icons-highlighted_huf3252f6406fa03e873286766620e6212_12247_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-field-type-icons-highlighted_huf3252f6406fa03e873286766620e6212_12247_0c1740564538b49cf6279e1d453d827a.webp"
+width="609"
+height="368"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: Container icon tooltip" srcset="
+/blog/kaoto-2.8-release/datamapper-field-type-hover-container_hud6322dc74ce8af8e1ba8ecdca78e8600_6403_6f128230c16f8680d32bfc019327c9ea.webp 400w,
+/blog/kaoto-2.8-release/datamapper-field-type-hover-container_hud6322dc74ce8af8e1ba8ecdca78e8600_6403_478257a1baa64a65d79211681121bd9e.webp 760w,
+/blog/kaoto-2.8-release/datamapper-field-type-hover-container_hud6322dc74ce8af8e1ba8ecdca78e8600_6403_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-field-type-hover-container_hud6322dc74ce8af8e1ba8ecdca78e8600_6403_6f128230c16f8680d32bfc019327c9ea.webp"
+width="284"
+height="120"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: Decimal icon tooltip" srcset="
+/blog/kaoto-2.8-release/datamapper-field-type-hover-decimal_hu4f6b41923152ce3d6d226265b8c27326_4843_061126a5e9beb8361b275d0beccfa85a.webp 400w,
+/blog/kaoto-2.8-release/datamapper-field-type-hover-decimal_hu4f6b41923152ce3d6d226265b8c27326_4843_710f03a110d042ef51301b827d6a2d6d.webp 760w,
+/blog/kaoto-2.8-release/datamapper-field-type-hover-decimal_hu4f6b41923152ce3d6d226265b8c27326_4843_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-field-type-hover-decimal_hu4f6b41923152ce3d6d226265b8c27326_4843_061126a5e9beb8361b275d0beccfa85a.webp"
+width="284"
+height="120"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Occurrence Indicators&lt;/strong>: Display of &lt;code>minOccurs&lt;/code> and &lt;code>maxOccurs&lt;/code> attributes helps you understand cardinality requirements directly in the UI&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: Field minimun and maximum occurrences" srcset="
+/blog/kaoto-2.8-release/datamapper-occurence-indicator_hu251cb4069ff0e99e4c2c87fee4df25c7_9462_45855f5427a8c864e6aa234ee256b0c3.webp 400w,
+/blog/kaoto-2.8-release/datamapper-occurence-indicator_hu251cb4069ff0e99e4c2c87fee4df25c7_9462_134eafbe7246ceac301b8ed3e9b4629f.webp 760w,
+/blog/kaoto-2.8-release/datamapper-occurence-indicator_hu251cb4069ff0e99e4c2c87fee4df25c7_9462_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-occurence-indicator_hu251cb4069ff0e99e4c2c87fee4df25c7_9462_45855f5427a8c864e6aa234ee256b0c3.webp"
+width="448"
+height="111"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Improved XPath Handling&lt;/strong>: Better support for relative xpath with parent (&lt;code>..&lt;/code>) notation and &lt;code>current()&lt;/code> function in expressions&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: XPath with current() function" srcset="
+/blog/kaoto-2.8-release/datamapper-xpath-parent-current_hu26a83bfbe43c74c300be2dc6dbbd9f3d_122705_c652498470ced643cfefa0c7b62126d6.webp 400w,
+/blog/kaoto-2.8-release/datamapper-xpath-parent-current_hu26a83bfbe43c74c300be2dc6dbbd9f3d_122705_8090962907ae1f73df62014674711b15.webp 760w,
+/blog/kaoto-2.8-release/datamapper-xpath-parent-current_hu26a83bfbe43c74c300be2dc6dbbd9f3d_122705_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-xpath-parent-current_hu26a83bfbe43c74c300be2dc6dbbd9f3d_122705_c652498470ced643cfefa0c7b62126d6.webp"
+width="760"
+height="481"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Parameter Renaming&lt;/strong>: Rename parameters directly within the DataMapper interface&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: Rename parameter button" srcset="
+/blog/kaoto-2.8-release/datamapper-rename-parameter-button_huf1f3d2314e0531b93b319ab3cd3d7096_15394_60627394777cd91649b8dbeb9346f5a9.webp 400w,
+/blog/kaoto-2.8-release/datamapper-rename-parameter-button_huf1f3d2314e0531b93b319ab3cd3d7096_15394_8f515d0e6da9c1761814354d7e5f13d5.webp 760w,
+/blog/kaoto-2.8-release/datamapper-rename-parameter-button_huf1f3d2314e0531b93b319ab3cd3d7096_15394_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-rename-parameter-button_huf1f3d2314e0531b93b319ab3cd3d7096_15394_60627394777cd91649b8dbeb9346f5a9.webp"
+width="704"
+height="189"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: Rename parameter" srcset="
+/blog/kaoto-2.8-release/datamapper-rename-parameter_hu0e2a7fa8daa6c70f7f1e54e7100d8098_10392_7701d4e09ffaf104709d7207d4168eae.webp 400w,
+/blog/kaoto-2.8-release/datamapper-rename-parameter_hu0e2a7fa8daa6c70f7f1e54e7100d8098_10392_d420fb233a563a7cf560025f25c99f6d.webp 760w,
+/blog/kaoto-2.8-release/datamapper-rename-parameter_hu0e2a7fa8daa6c70f7f1e54e7100d8098_10392_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-rename-parameter_hu0e2a7fa8daa6c70f7f1e54e7100d8098_10392_7701d4e09ffaf104709d7207d4168eae.webp"
+width="662"
+height="171"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Smart Deletion&lt;/strong>: Warning prompts when deleting mappings with child mappings to prevent accidental data loss&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Datamapper: Delete child" srcset="
+/blog/kaoto-2.8-release/datamapper-delete-child-mappings-warn_hu97de1be13cc950e0b522d32d7223562e_29398_4f184c94eb90566198d0e30b9b156b1e.webp 400w,
+/blog/kaoto-2.8-release/datamapper-delete-child-mappings-warn_hu97de1be13cc950e0b522d32d7223562e_29398_ca930d9399052f6556114d0fb666f884.webp 760w,
+/blog/kaoto-2.8-release/datamapper-delete-child-mappings-warn_hu97de1be13cc950e0b522d32d7223562e_29398_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/datamapper-delete-child-mappings-warn_hu97de1be13cc950e0b522d32d7223562e_29398_4f184c94eb90566198d0e30b9b156b1e.webp"
+width="707"
+height="286"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h3 id="canvas-enhancements">Canvas Enhancements&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Contextual Menu&lt;/strong>: Right-click on canvas nodes to access relevant actions directly where you need them
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/92WqknAa7K4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+>&lt;/iframe>
+&lt;/div>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;strong>Keyboard Support&lt;/strong>: Delete steps quickly by selecting them and pressing the &lt;code>Delete&lt;/code> key&lt;/li>
+&lt;li>&lt;strong>Improved Drag Feedback&lt;/strong>: Different mouse pointer styles clearly indicate which nodes are draggable and which are not
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Disabled drag" srcset="
+/blog/kaoto-2.8-release/drag-disabled_hud437ed59b28120f38388716604983098_6569_51bf41fae305462e157fc99e86884af0.webp 400w,
+/blog/kaoto-2.8-release/drag-disabled_hud437ed59b28120f38388716604983098_6569_389daae8483618878e2b64c978a13340.webp 760w,
+/blog/kaoto-2.8-release/drag-disabled_hud437ed59b28120f38388716604983098_6569_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/drag-disabled_hud437ed59b28120f38388716604983098_6569_51bf41fae305462e157fc99e86884af0.webp"
+width="105"
+height="111"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Enabled drag" srcset="
+/blog/kaoto-2.8-release/drag-enabled_hucc8cbb04b03be7f824fed33d4bcb7f78_7564_9ee32d7e98e9175f6a25693378b3a4ee.webp 400w,
+/blog/kaoto-2.8-release/drag-enabled_hucc8cbb04b03be7f824fed33d4bcb7f78_7564_36e30b85b3ac6e3b68eeed90fe19b478.webp 760w,
+/blog/kaoto-2.8-release/drag-enabled_hucc8cbb04b03be7f824fed33d4bcb7f78_7564_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/drag-enabled_hucc8cbb04b03be7f824fed33d4bcb7f78_7564_9ee32d7e98e9175f6a25693378b3a4ee.webp"
+width="105"
+height="111"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="forms-and-configuration">Forms and Configuration&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Enum Field Support&lt;/strong>: Improved component’s options when &lt;code>enum&lt;/code> type is available
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Salesforce component" srcset="
+/blog/kaoto-2.8-release/salesforce-component-enum.png_hu632072cc158faf454eca5b93e5460d5e_63264_9b593f9df00c928ab8d7400b5f676df1.webp 400w,
+/blog/kaoto-2.8-release/salesforce-component-enum.png_hu632072cc158faf454eca5b93e5460d5e_63264_2dea3e83fab62dbbcd1aacb01ebea920.webp 760w,
+/blog/kaoto-2.8-release/salesforce-component-enum.png_hu632072cc158faf454eca5b93e5460d5e_63264_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/salesforce-component-enum.png_hu632072cc158faf454eca5b93e5460d5e_63264_9b593f9df00c928ab8d7400b5f676df1.webp"
+width="760"
+height="653"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="SNMP component" srcset="
+/blog/kaoto-2.8-release/snmp-component-enum.png_hu872205abb891b9b2407fe6764beaef09_44557_dcd8c155054d0836465574dc102d8617.webp 400w,
+/blog/kaoto-2.8-release/snmp-component-enum.png_hu872205abb891b9b2407fe6764beaef09_44557_402650abb8e344a306ee7d303897dfcf.webp 760w,
+/blog/kaoto-2.8-release/snmp-component-enum.png_hu872205abb891b9b2407fe6764beaef09_44557_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/snmp-component-enum.png_hu872205abb891b9b2407fe6764beaef09_44557_dcd8c155054d0836465574dc102d8617.webp"
+width="760"
+height="489"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;strong>Beans EIP&lt;/strong>: The beans EIP now shows a list of defined beans in the Camel route
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Beans EIP" srcset="
+/blog/kaoto-2.8-release/beans-eip-ref_hu8bdfb8a0c1cc5ff71cc94b6ec9bb4a06_55689_3dcf1ed0783cba743f84ed1238f6321c.webp 400w,
+/blog/kaoto-2.8-release/beans-eip-ref_hu8bdfb8a0c1cc5ff71cc94b6ec9bb4a06_55689_5b042ff99256be650535cf818919d9c0.webp 760w,
+/blog/kaoto-2.8-release/beans-eip-ref_hu8bdfb8a0c1cc5ff71cc94b6ec9bb4a06_55689_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/beans-eip-ref_hu8bdfb8a0c1cc5ff71cc94b6ec9bb4a06_55689_3dcf1ed0783cba743f84ed1238f6321c.webp"
+width="748"
+height="566"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>JDBC component&lt;/strong>: The JDBC now shows the &lt;code>default&lt;/code> and &lt;code>dataSource&lt;/code> options and offers a list of beans to pick a dataSource from
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="JDBC component" srcset="
+/blog/kaoto-2.8-release/jdbc-component-datasource_hu18d57ac170fcf5b63df1152b191654e9_52708_7f8f4057fd47190162b1786a1adfa7c2.webp 400w,
+/blog/kaoto-2.8-release/jdbc-component-datasource_hu18d57ac170fcf5b63df1152b191654e9_52708_a306bec7a3b784c8d24274a31285f1e0.webp 760w,
+/blog/kaoto-2.8-release/jdbc-component-datasource_hu18d57ac170fcf5b63df1152b191654e9_52708_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/jdbc-component-datasource_hu18d57ac170fcf5b63df1152b191654e9_52708_7f8f4057fd47190162b1786a1adfa7c2.webp"
+width="748"
+height="557"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>OnException Validation&lt;/strong>: Enhanced validation for exception handling configurations
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="OnException validation" srcset="
+/blog/kaoto-2.8-release/on-exception-validation_hu4fd137478ac4c550aacdb3f4b2070842_17806_1d01b9cc79df75079ef36ae2e40b2a56.webp 400w,
+/blog/kaoto-2.8-release/on-exception-validation_hu4fd137478ac4c550aacdb3f4b2070842_17806_08ebd16c99fcd81880052cdd210b73f9.webp 760w,
+/blog/kaoto-2.8-release/on-exception-validation_hu4fd137478ac4c550aacdb3f4b2070842_17806_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/on-exception-validation_hu4fd137478ac4c550aacdb3f4b2070842_17806_1d01b9cc79df75079ef36ae2e40b2a56.webp"
+width="473"
+height="242"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="whats-new---overview">What&amp;rsquo;s New - Overview&lt;/h3>
+&lt;p>Starting with Kaoto 2.8 we will inform our users with every update about the news in that specific version. You will get a &lt;code>What's New&lt;/code> tab opened after the installation displaying an overview of the new features and bug fixes.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="VS Code Kaoto: What&amp;amp;rsquo;s New" srcset="
+/blog/kaoto-2.8-release/whatsnew_hu8ccb4be82e5e1dc1b15f4cd512a78345_160296_6f31e118a085c34a27f9a3755e2f42ee.webp 400w,
+/blog/kaoto-2.8-release/whatsnew_hu8ccb4be82e5e1dc1b15f4cd512a78345_160296_3c7a7ac2ef3745ab7ea501aab8723aba.webp 760w,
+/blog/kaoto-2.8-release/whatsnew_hu8ccb4be82e5e1dc1b15f4cd512a78345_160296_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.8-release/whatsnew_hu8ccb4be82e5e1dc1b15f4cd512a78345_160296_6f31e118a085c34a27f9a3755e2f42ee.webp"
+width="760"
+height="391"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>URI Serialization&lt;/strong>: Improved component parameter handling in XML URI serialization when no syntax is present&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;strong>Route Ordering&lt;/strong>: Fixed the order of &lt;code>Intercept&lt;/code> elements to ensure correct processing sequence&lt;/li>
+&lt;/ul>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.8.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Kaoto 2.7 released</title><link>https://kaoto.io/blog/kaoto-2.7-release/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.7-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>It has been quite some time since the last Kaoto release. We have been busy improving Kaoto with more usability features and the addition of JSON support for our Data Mapper.&lt;/p>
+&lt;p>Please take a look below to learn about the exciting new things we added to this version.&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;h3 id="data-mapper-json-support-tech-preview">Data Mapper JSON Support (Tech Preview)&lt;/h3>
+&lt;p align="center">&lt;img src="./datamapper-json.png" alt="DataMapper JSON Support" />&lt;/p>
+&lt;p>Building on the XML support introduced earlier, the Data Mapper now enables you to:&lt;/p>
+&lt;ul>
+&lt;li>serialize and deserialize JSON data structures for visual mapping&lt;/li>
+&lt;li>attach JSON schemas to visualize data structures in a tree view&lt;/li>
+&lt;li>create mappings between JSON and XML formats&lt;/li>
+&lt;li>choose root elements when working with schemas containing multiple root elements&lt;/li>
+&lt;/ul>
+&lt;h4 id="json-support-demo">JSON Support Demo&lt;/h4>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./dm_json.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./dm_json.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h4 id="choose-xml-root-element-demo">Choose XML Root Element Demo&lt;/h4>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./dm_chooserootelement.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./dm_chooserootelement.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;p>You can find more detailed information about the Data Mapper in our online &lt;a href="https://kaoto.io/docs/manual/04_datamapper/">user manual&lt;/a>.&lt;/p>
+&lt;h3 id="improved-maven-support">Improved Maven Support&lt;/h3>
+&lt;p>If you are using the Kaoto VS Code extension and you work in a Maven project then this little improvement might delight you. Whenever you add a new component endpoint to your route, upon saving your &lt;code>pom.xml&lt;/code> file gets updated with the required dependency.&lt;/p>
+&lt;p align="center">&lt;img src="./dep-update.gif" alt="showcasing the dependency update" />&lt;/p>
+&lt;h3 id="drag--drop-support">Drag &amp;amp; Drop Support&lt;/h3>
+&lt;p>In earlier releases we already introduced the drag &amp;amp; drop support partially and you had to enable it in the settings. With this release we consider it good enough to enable it by default.&lt;/p>
+&lt;p>You can now reorder steps directly on the canvas by dragging them into the right positions. Additionally we enabled the support for dragging between different containers and finally we also improved the visual feedback for the drag &amp;amp; drop operation.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./drag-n-drop-simple.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./drag-n-drop-simple.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="copy--paste-support">Copy &amp;amp; Paste Support&lt;/h3>
+&lt;p>We have added support for copying and pasting steps and containers via the right-click context menu in the graphical editor.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./copy-paste.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./copy-paste.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="quick-duplicate">Quick Duplicate&lt;/h3>
+&lt;p>There are sometimes repetetive tasks that require you to create several steps of the same kind just with different configurations. We have added the &lt;strong>Duplicate&lt;/strong> feature to ease the pain. With a single click you can now duplicate existing steps and even containers.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./duplicate.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./duplicate.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="undo--redo-support">Undo / Redo Support&lt;/h3>
+&lt;p>Did you delete something by mistake? This is no longer an issue due to the added support for Undo and Redo in the graphical editor. This way you can now navigate your design changes and recover from accidental modifications easily.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./undo-redo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./undo-redo.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="form-and-ui-enhancements">Form and UI Enhancements&lt;/h3>
+&lt;ul>
+&lt;li>intelligent form suggestions&lt;/li>
+&lt;li>form suggestions help you to complete configurations faster&lt;/li>
+&lt;li>&lt;em>simple&lt;/em> expression language suggestions for easier expression authoring&lt;/li>
+&lt;li>&lt;code>application.properties&lt;/code> suggestions with metadata-driven completions&lt;/li>
+&lt;/ul>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./suggestions-property-placeholders.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./suggestions-property-placeholders.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="other-enhancements">Other Enhancements&lt;/h3>
+&lt;ul>
+&lt;li>Switch between &lt;code>to&lt;/code>, &lt;code>toD&lt;/code>, and &lt;code>poll&lt;/code> variants directly in the form&lt;/li>
+&lt;/ul>
+&lt;p align="center">&lt;img src="./endpoint-switch.png" alt="showcasing the endpoint type selector" />&lt;/p>
+&lt;ul>
+&lt;li>Preserve expressions when switching between different languages&lt;/li>
+&lt;li>Improved parameter handling with URI parsing enhancements&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.7.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Kaoto 2.6 released</title><link>https://kaoto.io/blog/kaoto-2.6-release/</link><pubDate>Tue, 27 May 2025 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.6-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>We are excited to provide you now with the new Kaoto 2.6 version.
+Please take a look below to learn about the exciting new things we added in this release.&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;ul>
+&lt;li>updated list of supported Camel versions&lt;/li>
+&lt;li>new icons for variables EIPs&lt;/li>
+&lt;li>improved visualization in the DataMapper&lt;/li>
+&lt;li>&amp;hellip;and many more little tweaks and fixes&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.6.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Kaoto 2.5 released</title><link>https://kaoto.io/blog/kaoto-2.5-release/</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.5-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>It has been a while since the last Kaoto release and we are excited to provide you now with the new Kaoto 2.5 version.
+Please take a look below to learn about the exciting new things we added to this release.&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;h4 id="updated-list-of-supported-camel-versions">Updated list of supported Camel versions&lt;/h4>
+&lt;p>This version includes the latest Camel catalog version 4.11.0, which brings new components and features to enhance your integration capabilities, alongside the latest LTS version 4.10.3.&lt;/p>
+&lt;p align="center">&lt;img src="./new-camel-versions.png" alt="showcasing the version selector" />&lt;/p>
+&lt;h4 id="xml-io-support">XML IO Support&lt;/h4>
+&lt;p>Not everyone likes YAML and we are happy to help here and announce that Kaoto now supports the Camel XML IO DSL.&lt;/p>
+&lt;p align="center">&lt;img src="./xml-route.png" alt="showcasing an XML IO route"/>&lt;/p>
+&lt;h4 id="generate-markdown-documentation">Generate Markdown Documentation&lt;/h4>
+&lt;p>Do you want to document your routes effortlessly? You can now export your integration flows with Kaoto as Markdown documents, including a visual representation of the flow in addition to the changed route parameters, making it easier to share and review routes.&lt;/p>
+&lt;p align="center">&lt;img src="./generate-route-documentation.png" alt="Generate Route documentation"/>&lt;/p>
+&lt;p align="center">&lt;img src="./documentation-preview.png" alt="Documentation preview"/>&lt;/p>
+&lt;h4 id="datamapper-enhancements">DataMapper Enhancements&lt;/h4>
+&lt;ul>
+&lt;li>Support adding multiple mappings on the collection target field&lt;/li>
+&lt;li>UI polish for better drag-and-drop experience&lt;/li>
+&lt;li>Update generated XSLT version to 3.0&lt;/li>
+&lt;/ul>
+&lt;p align="center">&lt;img src="./datamapper.png" alt="DataMapper News"/>&lt;/p>
+&lt;h4 id="new-kaoto-perspective-in-vs-code">New Kaoto Perspective in VS Code&lt;/h4>
+&lt;p>The Kaoto VS Code extension has been reworked heavily and our goal was to provide you an extension that can work standalone and still provide you most of the features you need for your daily integration work. What does this mean?&lt;/p>
+&lt;ul>
+&lt;li>the &lt;em>Extension Pack for Apache Camel&lt;/em> is no longer required for Kaoto to work&lt;/li>
+&lt;li>the introduction of a new Kaoto perspective (see the Kaoto icon on the VS Code side bar)&lt;/li>
+&lt;li>the new perspective provides you with easy access to
+&lt;ul>
+&lt;li>an &lt;code>Integrations&lt;/code> section providing easy access to your integration files and the contained routes as well as related actions (run, deploy, &amp;hellip;)&lt;/li>
+&lt;li>a &lt;code>Deployments&lt;/code> section providing easy access to local running integrations and their statuses with easy to access actions (start, stop, pause, resume, log, &amp;hellip;)&lt;/li>
+&lt;li>a &lt;code>Help &amp;amp; Feedback&lt;/code> section providing links to useful resources for your daily work&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p align="center">&lt;img src="./kaoto-perspective.png" alt="Shows the new Kaoto perspective in VS Code"/>&lt;/p>
+&lt;h4 id="configuration-form-enhancements">Configuration Form Enhancements&lt;/h4>
+&lt;p>We’re introducing a new Kaoto Form, a redesigned form engine with improved field behavior, better keyboard navigation and filtering for dropdown fields, the possibility to wrap the values in a &lt;code>RAW()&lt;/code> function call and a new &lt;code>Clear&lt;/code> button to completely remove the field from the source code.&lt;/p>
+&lt;p align="center">&lt;img src="./field-contextual-menu.png" alt="Field contextual menu"/>&lt;/p>
+&lt;h4 id="filter-flows-in-the-flows-list">Filter Flows in the Flows List&lt;/h4>
+&lt;p>You can now filter the flows in the flows list by name, making it easier to find specific routes in larger projects.&lt;/p>
+&lt;p align="center">&lt;img src="./filter-flows.png" alt="Filter flows"/>&lt;/p>
+&lt;h4 id="dark-mode">Dark Mode&lt;/h4>
+&lt;p>For those who fancy a darker theme, Kaoto now supports dark mode in the VS Code extension. You can switch to dark mode in the settings.&lt;/p>
+&lt;p align="center">&lt;img src="./kaoto-dark-mode.png" alt="Kaoto dark mode"/>&lt;/p>
+&lt;h4 id="devspaces-ready-with-devfile-support">DevSpaces Ready with Devfile Support&lt;/h4>
+&lt;p>Kaoto now includes an OpenShift-compatible devfile.yaml, making it easier to develop Kaoto in OpenShift Dev Spaces or similar cloud-based workspaces.&lt;/p>
+&lt;p align="center">&lt;img src="./openshift-commands.png" alt="Devfile options"/>&lt;/p>
+&lt;h4 id="other-enhancements">Other Enhancements&lt;/h4>
+&lt;ul>
+&lt;li>various usability improvements in the graphical editor&lt;/li>
+&lt;li>added an &amp;ldquo;About&amp;rdquo; tab with information on the used Kaoto version&lt;/li>
+&lt;li>&amp;hellip;and many more little tweaks and fixes&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.5.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Kaoto 2.4 released</title><link>https://kaoto.io/blog/kaoto-2.4-release/</link><pubDate>Thu, 09 Jan 2025 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.4-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>We are excited to provide you now with the new Kaoto 2.4 version.
+Please take a look below to learn about the exciting new things we added in this release.&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;ul>
+&lt;li>Addition of Rest visual entity on the canvas for easier configuration&lt;/li>
+&lt;li>Experimental Drag &amp;amp; Drop support (check the &lt;strong>Settings&lt;/strong> to enable it)&lt;/li>
+&lt;li>&amp;hellip;and many more little tweaks and fixes&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.4.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Kaoto 2.3 released</title><link>https://kaoto.io/blog/kaoto-2.3-release/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.3-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>It has been over 2 months since the Kaoto 2.2 release and we are excited to provide you now with the new Kaoto 2.3 version.
+Please take a look below to learn about the exciting new things we added in this release.&lt;/p>
+&lt;p align="center">&lt;img src="./CamelJedi.png" alt="Camel Jedi" style="height: 400px;"/>&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;h4 id="more-camel-versions-included-by-default">More Camel versions included by default&lt;/h4>
+&lt;p>We have added more choices to the Camel version selector. Now you will be able to choose between the latest community release, the latest LTS community release as well as the Red Hat Build of Apache Camel releases.&lt;/p>
+&lt;p align="center">&lt;img src="./camel-versions.gif" alt="showcasing the version selector" style="height: 400px;"/>&lt;/p>
+&lt;h4 id="visual-data-mapping--transformation-editor-tech-preview-available-in-vs-code">Visual Data Mapping &amp;amp; Transformation Editor (Tech Preview available in VS Code)&lt;/h4>
+&lt;p>This feature has been requested a lot and we are very happy to provide you with the first iteration of a fully new Data Mapping UI which enables you to do your mappings and transformations in a drag and drop way. In comparison to AtlasMap the new Kaoto DataMapper works based on XSLT and does not require a specific custom runtime component to work. &lt;br>&lt;/p>
+&lt;p align="center">&lt;img src="./datamapper-icon.png" alt="showcasing the datamapper icon"/>&lt;/p>
+&lt;p>This first iteration marks only the beginning of the Kaoto DataMapper story. There are still many more features and capabilities we want to add over the coming months.&lt;/p>
+&lt;p align="center">&lt;img src="./featured.png" alt="showcasing the datamapper" style="height: 600px;"/>&lt;/p>
+&lt;p>Click the video below to watch a short Kaoto DataMapper introduction:
+&lt;a href="https://www.youtube.com/watch?v=iz0yYThHZMc" target="_blank" rel="noopener">
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img src="https://img.youtube.com/vi/iz0yYThHZMc/hqdefault.jpg" alt="Watch the Kaoto DataMapper introduction" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/a>&lt;/p>
+&lt;h4 id="new-action-toolbar">New Action Toolbar&lt;/h4>
+&lt;p>Our long term goal is to improve the usability in a way that users can reach most of the functionalities of Kaoto with the least amount of clicks and searching. Efficiency is key to make using Kaoto a fun experience for everyone. A first step in that direction is the new toolbar. In the long run we hope to make this the replacement for the right-click context menu.&lt;/p>
+&lt;p align="center">&lt;img src="./toolbar.png" alt="showcasing the toolbar" style="height: 200px;"/>&lt;/p>
+&lt;p>In the default settings the toolbar will be visible when hovering over a step or group. However you can also change that behavior in the &lt;em>Settings&lt;/em> dialog to be only visible when selecting a step or group.&lt;/p>
+&lt;h4 id="quick-action-for-appending-and-inserting-new-steps">Quick Action for appending and inserting new steps&lt;/h4>
+&lt;p>Prototyping a new integration should be as easy and fast as possible in a visual designer. To get closer to that state we added a quick action at the end of each group in your integration which is visible as an &lt;strong>arrow&lt;/strong> button. You can now easily append new steps to your integration by clicking that button.&lt;/p>
+&lt;p align="center">&lt;img src="./append.png" alt="showcasing the append button" style="height: 200px;"/>&lt;/p>
+&lt;p>We also introduced an easier way to insert steps between existing ones. You can now just hover over the connection between two steps and this will reveal a &lt;strong>+&lt;/strong> button you can use to insert a new step.&lt;/p>
+&lt;p align="center">&lt;img src="./insert.png" alt="showcasing the insert button" style="height: 200px;"/>&lt;/p>
+&lt;h4 id="new-placeholders">New Placeholders&lt;/h4>
+&lt;p>Whenever there is a container step without any step contained we will now show you a placeholder labeled &amp;ldquo;&lt;em>Add step&lt;/em>&amp;rdquo; to signal where you can add new steps.&lt;/p>
+&lt;p align="center">&lt;img src="./placeholders.png" alt="showcasing the placeholders" style="height: 300px;"/>&lt;/p>
+&lt;h4 id="new-action-enable-all">New Action: Enable All&lt;/h4>
+&lt;p>During the creation of your integration you may have disabled one or more steps for various purposes. Going through your integration now and manually enabling all the deactived steps can be a tedious task and this situation led to the addition of the new &amp;ldquo;Enable All&amp;rdquo; action. You can now reactivate all the disabled steps with a single click.&lt;/p>
+&lt;p align="center">&lt;img src="./enableall.png" alt="showcasing the enableAll button" style="height: 400px;"/>&lt;/p>
+&lt;h4 id="new-action-show-all">New Action: Show All&lt;/h4>
+&lt;p>There is a new action available now which lets you quickly show or hide all of your routes.&lt;/p>
+&lt;p align="center">&lt;img src="./showall.gif" alt="showcasing the Show All button" />&lt;/p>
+&lt;h4 id="other-enhancements">Other Enhancements&lt;/h4>
+&lt;ul>
+&lt;li>Improved visualization of routes&lt;/li>
+&lt;li>Easily close the configuration panel by clicking on a free canvas space&lt;/li>
+&lt;li>The description of a step will be expanded on selection&lt;/li>
+&lt;li>Improved search function in the catalog&lt;/li>
+&lt;li>Support for the Tokenizer EIP&lt;/li>
+&lt;li>&amp;hellip;and many more little tweaks and fixes&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.3.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Kaoto 2.2 released</title><link>https://kaoto.io/blog/kaoto-2.2-release/</link><pubDate>Fri, 20 Sep 2024 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.2-release/</guid><description>&lt;h2 id="say-hello-to-kaoto-220">Say &amp;ldquo;Hello&amp;rdquo; to Kaoto 2.2.0&lt;/h2>
+&lt;p>For this release, we focused on enhancing the usability and the look and feel of the graphical editor. While doing so we also fixed several reported issues, for instance, the visualization of parallel steps inside the &lt;code>Multicast&lt;/code> and &lt;code>LoadBalance&lt;/code> EIPs. We also added new icons for existing and new &lt;a href="http://camel.apache.org" target="_blank" rel="noopener">Apache Camel&lt;/a> components, which helps to better identify them in the catalog as well as in your integrations. This release also ships with &lt;a href="https://camel.apache.org/blog/2024/09/RELEASE-4.8.0/" target="_blank" rel="noopener">Apache Camel 4.8.0&lt;/a> support.&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;ul>
+&lt;li>Apache Camel 4.8.0 LTS support&lt;/li>
+&lt;li>More icons for Camel components&lt;/li>
+&lt;li>Pagination support inside the catalog&lt;/li>
+&lt;li>Introduction of tabs in the configuration panel to quickly switch between &amp;ldquo;Required&amp;rdquo;, &amp;ldquo;Modified&amp;rdquo; and &amp;ldquo;All fields&amp;rdquo;&lt;/li>
+&lt;li>Easier access to the expressions field&lt;/li>
+&lt;li>Introduction of containers in the graphical editor&lt;/li>
+&lt;li>New options to switch between displaying the id or the description of steps&lt;/li>
+&lt;li>Support for multiValue parameter&lt;/li>
+&lt;li>Several other small enhancements and bug fixes&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.2.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p></description></item><item><title>Kaoto 2.1 released</title><link>https://kaoto.io/blog/kaoto-2.1-release/</link><pubDate>Mon, 15 Jul 2024 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.1-release/</guid><description>&lt;h2 id="its-time-to-welcome-the-210-release-of-kaoto">It&amp;rsquo;s time to welcome the 2.1.0 release of Kaoto&lt;/h2>
+&lt;p>For this 2.1.0 release we focused on improving the overall user experience as well as introducing new features. One of the highlights of this release is the ability to select between different Camel versions. You still miss some Camel versions? We enable you to &lt;a href="https://github.com/KaotoIO/kaoto/blob/main/packages/catalog-generator/README.md" target="_blank" rel="noopener">create your own&lt;/a> Catalog library with the versions you want to use.&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;ul>
+&lt;li>Introduced support for multiple Apache Camel versions&lt;/li>
+&lt;li>A new filter field in the configuration panel that lets you easily find the parameter you are looking for&lt;/li>
+&lt;li>A resizable configuration panel&lt;/li>
+&lt;li>Grouping of EIP / Processor properties&lt;/li>
+&lt;li>Several other small enhancements and bug fixes&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.1.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;p>Special thanks go out to &lt;a href="https://github.com/d4n1b" target="_blank" rel="noopener">@d4n1b&lt;/a> for his help with the new Kaoto logo vector image!&lt;/p></description></item><item><title>Kaoto 2.0 released</title><link>https://kaoto.io/blog/kaoto-2.0-release/</link><pubDate>Thu, 16 May 2024 10:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.0-release/</guid><description>&lt;h2 id="its-time-to-celebrate-the-200-release-of-kaoto">It&amp;rsquo;s time to celebrate the 2.0.0 release of Kaoto&lt;/h2>
+&lt;p>With this 2.0.0 release we finished implementing the foundational functionalities for an &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> visual editor. Kaoto will guide you with the creation of new and the editing of existing &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> integrations. Together with the other extensions of the &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack" target="_blank" rel="noopener">Extension Pack for Apache Camel&lt;/a> it offers functionality from the creation over the local execution with the &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Apache Camel CLI&lt;/a> to even the deployment to your cluster.&lt;/p>
+&lt;p>This release is just the beginning for Kaoto! We have &lt;a href="https://github.com/orgs/KaotoIO/projects/14/views/2" target="_blank" rel="noopener">so many exciting features and improvements&lt;/a> in the works, and we&amp;rsquo;re eagerly inviting anyone who wants to join us on this journey. Let&amp;rsquo;s all hop on this Camel ride together! 🐫🎉&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;ul>
+&lt;li>replaced the Log EIP icon to better distinguish it from the Log component&lt;/li>
+&lt;li>added a menu to add new route entities to the canvas&lt;/li>
+&lt;li>renamed steps context menu items to provide better guidance&lt;/li>
+&lt;li>modelines and other comments are now preserved if on top of the integration code&lt;/li>
+&lt;li>added a context menu to enable/disable single steps&lt;/li>
+&lt;li>added a DSL selector on canvas&lt;/li>
+&lt;li>support for RouteConfiguration and related entities&lt;/li>
+&lt;/ul>
+&lt;p>If you wanna learn more, there are &lt;a href="https://kaoto.io/workshop">workshops available here&lt;/a>.&lt;/p>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.0.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;p>&lt;a href="https://github.com/eerkmen" target="_blank" rel="noopener">@eerkmen&lt;/a> &lt;a href="https://github.com/corners2wall" target="_blank" rel="noopener">@corners2wall&lt;/a> &lt;a href="https://github.com/mkralik3" target="_blank" rel="noopener">@mkralik3&lt;/a> &lt;a href="https://github.com/d4n1b" target="_blank" rel="noopener">@d4n1b&lt;/a> &lt;a href="https://github.com/tplevko" target="_blank" rel="noopener">@tplevko&lt;/a> &lt;a href="https://github.com/apupier" target="_blank" rel="noopener">@apupier&lt;/a> &lt;a href="https://github.com/igarashitm" target="_blank" rel="noopener">@igarashitm&lt;/a> &lt;a href="https://github.com/mmelko" target="_blank" rel="noopener">@mmelko&lt;/a> &lt;a href="https://github.com/lordrip" target="_blank" rel="noopener">@lordrip&lt;/a> &lt;a href="https://github.com/lhein" target="_blank" rel="noopener">@lhein&lt;/a> &lt;a href="https://github.com/shivamG640" target="_blank" rel="noopener">@shivamG640&lt;/a> &lt;a href="https://github.com/lburgazzoli" target="_blank" rel="noopener">@lburgazzoli&lt;/a> &lt;a href="https://github.com/brunoNetId" target="_blank" rel="noopener">@brunoNetId&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/GuilhermeCamposo" target="_blank" rel="noopener">@GuilhermeCamposo&lt;/a> &lt;a href="https://github.com/ibek" target="_blank" rel="noopener">@ibek&lt;/a> &lt;a href="https://github.com/jcordes73" target="_blank" rel="noopener">@jcordes73&lt;/a> &lt;a href="https://github.com/Mdenisco" target="_blank" rel="noopener">@Mdenisco&lt;/a> &lt;a href="https://github.com/phantomjinx" target="_blank" rel="noopener">@phantomjinx&lt;/a> &lt;a href="https://github.com/rstroop" target="_blank" rel="noopener">@rstroop&lt;/a> &lt;a href="https://github.com/abkieling" target="_blank" rel="noopener">@abkieling&lt;/a> &lt;a href="https://github.com/Shivam-Gu" target="_blank" rel="noopener">@Shivam-Gu&lt;/a> &lt;a href="https://github.com/kumaradityaraj" target="_blank" rel="noopener">@kumaradityaraj&lt;/a> &lt;a href="https://github.com/oscerd" target="_blank" rel="noopener">@oscerd&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/davsclaus" target="_blank" rel="noopener">@davsclaus&lt;/a> &lt;a href="https://github.com/joshdreagan" target="_blank" rel="noopener">@joshdreagan&lt;/a>&lt;/p>
+&lt;p>Apologies in advance if we&amp;rsquo;ve missed anyone. 🙂&lt;/p></description></item><item><title>Version 2.0.0 TP3 released!</title><link>https://kaoto.io/blog/kaoto-2.0.tp3-release/</link><pubDate>Fri, 05 Apr 2024 06:00:00 +0200</pubDate><guid>https://kaoto.io/blog/kaoto-2.0.tp3-release/</guid><description>&lt;p>&lt;strong>We are happy to announce the release of Kaoto 2.0.0 TP3 (Tech Preview 3).&lt;/strong>&lt;/p>
+&lt;p>Again we are getting closer to the final 2.0 release! TP3 marks the last tech preview release before we will release Kaoto 2.0. Again we spent time to add useful features and improvements to make Kaoto better. Below you will find a list of major things that have changed.&lt;/p>
+&lt;h2 id="new-features">New Features&lt;/h2>
+&lt;h4 id="camel-44-support">Camel 4.4 support&lt;/h4>
+&lt;p>We switched to using Apache Camel 4.4 in our models.&lt;/p>
+&lt;h4 id="kamelet-properties-configuration">Kamelet Properties configuration&lt;/h4>
+&lt;p>We extended the configuration form for Kamelets to allow users to add properties to their Kamelets.&lt;/p>
+&lt;h4 id="support-for-error-handler-and-rest-configuration">Support for Error Handler and REST Configuration&lt;/h4>
+&lt;p>Kaoto now supports global error handlers, route configuration error handlers as well as REST Configuration. At the moment we do not support creating those entities via the UI but you can already add them in the source code and Kaoto will recognize them and offer configuration options.
+We hope to finalize this feature for the 2.0 Final release.&lt;/p>
+&lt;h2 id="ux-improvements">UX Improvements&lt;/h2>
+&lt;h4 id="improved-expression-configuration">Improved Expression configuration&lt;/h4>
+&lt;p>We’ve converted the language drop down to a typeahead component which lets you type the expression language you want to use into the filter field. This way you will find your language of choice easily.
+Additionally we have slightly increased the size of the expression text field so you can better work with multiline expressions.&lt;/p>
+&lt;h4 id="context-menu-actions-on-nodes">Context Menu Actions on Nodes&lt;/h4>
+&lt;p>We simplified the names of the actions in the step context menu for your better understanding.&lt;/p>
+&lt;h4 id="configuration-form">Configuration Form&lt;/h4>
+&lt;p>When opening the configuration form for a step the form does no longer hide underlying nodes on the canvas but moves the nodes to the left. This is convenient when working with smaller resolutions / window sizes.
+Another change you will recognize is that we added groups for the configuration form which will help you find a property more easily. We did also apply the sorting order for parameters as suggested by the Camel catalog.&lt;/p>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto-next/releases/tag/2.0.0-TP3" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="kaotos-future-outlook">Kaoto&amp;rsquo;s Future Outlook&lt;/h2>
+&lt;p>Our plan is to release the 2.0 version around mid of May 2024. At that point the development of Kaoto will not be complete by any means and we will continuously add new features and improvements. We aim at having monthly releases if possible. That way we can provide you with the latest features faster.&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto-next/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;p>&lt;a href="https://github.com/eerkmen" target="_blank" rel="noopener">@eerkmen&lt;/a> &lt;a href="https://github.com/corners2wall" target="_blank" rel="noopener">@corners2wall&lt;/a> &lt;a href="https://github.com/mkralik3" target="_blank" rel="noopener">@mkralik3&lt;/a> &lt;a href="https://github.com/d4n1b" target="_blank" rel="noopener">@d4n1b&lt;/a> &lt;a href="https://github.com/tplevko" target="_blank" rel="noopener">@tplevko&lt;/a> &lt;a href="https://github.com/apupier" target="_blank" rel="noopener">@apupier&lt;/a> &lt;a href="https://github.com/igarashitm" target="_blank" rel="noopener">@igarashitm&lt;/a> &lt;a href="https://github.com/mmelko" target="_blank" rel="noopener">@mmelko&lt;/a> &lt;a href="https://github.com/lordrip" target="_blank" rel="noopener">@lordrip&lt;/a> &lt;a href="https://github.com/lhein" target="_blank" rel="noopener">@lhein&lt;/a> &lt;a href="https://github.com/shivamG640" target="_blank" rel="noopener">@shivamG640&lt;/a> &lt;a href="https://github.com/lburgazzoli" target="_blank" rel="noopener">@lburgazzoli&lt;/a> &lt;a href="https://github.com/brunoNetId" target="_blank" rel="noopener">@brunoNetId&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/GuilhermeCamposo" target="_blank" rel="noopener">@GuilhermeCamposo&lt;/a> &lt;a href="https://github.com/ibek" target="_blank" rel="noopener">@ibek&lt;/a> &lt;a href="https://github.com/jcordes73" target="_blank" rel="noopener">@jcordes73&lt;/a> &lt;a href="https://github.com/Mdenisco" target="_blank" rel="noopener">@Mdenisco&lt;/a> &lt;a href="https://github.com/phantomjinx" target="_blank" rel="noopener">@phantomjinx&lt;/a> &lt;a href="https://github.com/rstroop" target="_blank" rel="noopener">@rstroop&lt;/a> &lt;a href="https://github.com/abkieling" target="_blank" rel="noopener">@abkieling&lt;/a> &lt;a href="https://github.com/Shivam-Gu" target="_blank" rel="noopener">@Shivam-Gu&lt;/a> &lt;a href="https://github.com/kumaradityaraj" target="_blank" rel="noopener">@kumaradityaraj&lt;/a> &lt;a href="https://github.com/oscerd" target="_blank" rel="noopener">@oscerd&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/davsclaus" target="_blank" rel="noopener">@davsclaus&lt;/a> &lt;a href="https://github.com/joshdreagan" target="_blank" rel="noopener">@joshdreagan&lt;/a>&lt;/p>
+&lt;p>Apologies in advance if we&amp;rsquo;ve missed anyone. 🙂&lt;/p></description></item><item><title>Version 2.0.0 TP2 released!</title><link>https://kaoto.io/blog/kaoto-2.0.tp2-release/</link><pubDate>Thu, 29 Feb 2024 11:00:00 +0200</pubDate><guid>https://kaoto.io/blog/kaoto-2.0.tp2-release/</guid><description>&lt;p>&lt;strong>We are happy to announce the release of Kaoto 2.0.0 TP2 (Tech Preview 2).&lt;/strong>&lt;/p>
+&lt;p>We strive to make Kaoto a top choice when it comes to working with &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> integrations. To achieve that we continuously add new features and enhancements to make the integration developer&amp;rsquo;s life easier and closely collaborate with the &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> project.&lt;/p>
+&lt;h2 id="new-features">New Features&lt;/h2>
+&lt;h4 id="camel-routes-configuration">Camel routes configuration&lt;/h4>
+&lt;p>We added root containers for Camel Routes and Kamelets, so you can configure their behavior.&lt;/p>
+&lt;h4 id="support-for-kamelet-beans">Support for Kamelet Beans&lt;/h4>
+&lt;p>Added support for Kamelet Beans using the Form.&lt;/p>
+&lt;h4 id="kamelet-configuration">Kamelet configuration&lt;/h4>
+&lt;p>Included a custom form to configure the most common aspects of a Kamelet easily.&lt;/p>
+&lt;h4 id="dropdown-placeholders">Dropdown placeholders&lt;/h4>
+&lt;p>Users can now enter placeholders in drop-down boxes, enhancing flexibility in defining component configurations.&lt;/p>
+&lt;h2 id="ux-improvements">UX Improvements&lt;/h2>
+&lt;h4 id="sticky-configuration-form-header">Sticky Configuration Form header&lt;/h4>
+&lt;p>We’ve made the form title sticky to ensure a better experience while scrolling through options.&lt;/p>
+&lt;h4 id="sticky-catalog-filter-controls">Sticky Catalog filter controls&lt;/h4>
+&lt;p>Now the catalog’s filter sticks to the top, so the selected filter is always visible.&lt;/p>
+&lt;h4 id="catalog-filter-counts">Catalog filter counts&lt;/h4>
+&lt;p>When searching for a component or a pattern, we included the result count from other categories as well, so we can see what’s available at a glance&lt;/p>
+&lt;h4 id="sorted-patterns-and-components-parameters">Sorted Patterns and Components parameters&lt;/h4>
+&lt;p>For ease of navigation, patterns parameters, and component parameters are now sorted by the Catalog index.&lt;/p>
+&lt;h4 id="consistent-field-spacing">Consistent Field Spacing&lt;/h4>
+&lt;p>We&amp;rsquo;ve improved field spacing across different components for a cleaner and more consistent look.&lt;/p>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;ul>
+&lt;li>The form scroll bar is outside of the form, to avoid colliding with the form controls&lt;/li>
+&lt;li>Empty objects &lt;code>{}&lt;/code> are not persisted in the source code&lt;/li>
+&lt;li>Fix typos in the Bean and OnException definitions upstream (&lt;a href="https://issues.apache.org/jira/browse/CAMEL-20462" target="_blank" rel="noopener">CAMEL-20462&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto-next/releases/tag/2.0.0-TP2" target="_blank" rel="noopener">change log&lt;/a>.&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto-next/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;p>&lt;a href="https://github.com/eerkmen" target="_blank" rel="noopener">@eerkmen&lt;/a> &lt;a href="https://github.com/corners2wall" target="_blank" rel="noopener">@corners2wall&lt;/a> &lt;a href="https://github.com/mkralik3" target="_blank" rel="noopener">@mkralik3&lt;/a> &lt;a href="https://github.com/d4n1b" target="_blank" rel="noopener">@d4n1b&lt;/a> &lt;a href="https://github.com/tplevko" target="_blank" rel="noopener">@tplevko&lt;/a> &lt;a href="https://github.com/apupier" target="_blank" rel="noopener">@apupier&lt;/a> &lt;a href="https://github.com/igarashitm" target="_blank" rel="noopener">@igarashitm&lt;/a> &lt;a href="https://github.com/mmelko" target="_blank" rel="noopener">@mmelko&lt;/a> &lt;a href="https://github.com/lordrip" target="_blank" rel="noopener">@lordrip&lt;/a> &lt;a href="https://github.com/lhein" target="_blank" rel="noopener">@lhein&lt;/a> &lt;a href="https://github.com/shivamG640" target="_blank" rel="noopener">@shivamG640&lt;/a> &lt;a href="https://github.com/lburgazzoli" target="_blank" rel="noopener">@lburgazzoli&lt;/a> &lt;a href="https://github.com/brunoNetId" target="_blank" rel="noopener">@brunoNetId&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/GuilhermeCamposo" target="_blank" rel="noopener">@GuilhermeCamposo&lt;/a> &lt;a href="https://github.com/ibek" target="_blank" rel="noopener">@ibek&lt;/a> &lt;a href="https://github.com/jcordes73" target="_blank" rel="noopener">@jcordes73&lt;/a> &lt;a href="https://github.com/Mdenisco" target="_blank" rel="noopener">@Mdenisco&lt;/a> &lt;a href="https://github.com/phantomjinx" target="_blank" rel="noopener">@phantomjinx&lt;/a> &lt;a href="https://github.com/rstroop" target="_blank" rel="noopener">@rstroop&lt;/a> &lt;a href="https://github.com/abkieling" target="_blank" rel="noopener">@abkieling&lt;/a> &lt;a href="https://github.com/Shivam-Gu" target="_blank" rel="noopener">@Shivam-Gu&lt;/a> &lt;a href="https://github.com/kumaradityaraj" target="_blank" rel="noopener">@kumaradityaraj&lt;/a> &lt;a href="https://github.com/oscerd" target="_blank" rel="noopener">@oscerd&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/davsclaus" target="_blank" rel="noopener">@davsclaus&lt;/a>&lt;/p>
+&lt;p>Apologies in advance if we&amp;rsquo;ve missed anyone. 🙂&lt;/p></description></item><item><title>Version 2.0.0 TP1 released!</title><link>https://kaoto.io/blog/kaoto-2.0.tp1-release/</link><pubDate>Mon, 22 Jan 2024 11:00:00 +0200</pubDate><guid>https://kaoto.io/blog/kaoto-2.0.tp1-release/</guid><description>&lt;h1 id="with-this-200-tp1-tech-preview-release-we-open-up-a-new-chapter-for-the-kaoto-project-we-leveraged-all-the-strengths-of-kaoto-v1-and-used-the-time-to-use-the-upstream-apache-camelhttpscamelapacheorg-models-and-schemas-directly-which-will-ensure-that-we-provide-the-latest-features-of-apache-camelhttpscamelapacheorg-in-kaoto-in-addition-we-managed-to-add-new-features-and-usability-improvements-while-also-trying-to-keep-most-of-the-functionality-of-kaoto-v1">With this 2.0.0 TP1 (Tech Preview) release we open up a new chapter for the Kaoto project. We leveraged all the strengths of Kaoto v1 and used the time to use the upstream &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> models and schemas directly, which will ensure that we provide the latest features of &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> in Kaoto. In addition we managed to add new features and usability improvements while also trying to keep most of the functionality of Kaoto v1.&lt;/h1>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>New catalog with information about the description and parameters for each component and processor&lt;/li>
+&lt;li>Expression definition support&lt;/li>
+&lt;li>Dataformat support&lt;/li>
+&lt;li>Support for adding Beans from the Canvas Configuration Form&lt;/li>
+&lt;li>Support for Object properties&lt;/li>
+&lt;li>Basic node parameter validation&lt;/li>
+&lt;li>Support for &lt;code>from&lt;/code>, &lt;code>to&lt;/code> , &lt;code>toD&lt;/code> and &lt;code>log&lt;/code> string definitions&lt;/li>
+&lt;li>New set of icons&lt;/li>
+&lt;li>Dynamic labels for nodes&lt;/li>
+&lt;li>Support for &lt;a href="https://camel.apache.org/components/next/eips/setHeaders-eip.html" target="_blank" rel="noopener">&lt;code>setHeaders&lt;/code> processor&lt;/a>&lt;/li>
+&lt;li>Several usability improvements&lt;/li>
+&lt;li>Copy Route to Clipboard (for instance to &lt;a href="https://camel.apache.org/manual/camel-jbang.html#_run_from_clipboard" target="_blank" rel="noopener">leverage JBang run from clipboard functionality&lt;/a>)&lt;/li>
+&lt;li>Save Route as Image&lt;/li>
+&lt;li>Support for adding Kamelets in a Camel Route&lt;/li>
+&lt;/ul>
+&lt;p>If you wanna learn more, there are &lt;a href="https://kaoto.io/workshop">workshops available here&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? &lt;a href="https://github.com/KaotoIO/kaoto-next/issues/new/choose" target="_blank" rel="noopener">File an issue&lt;/a>&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;p>&lt;a href="https://github.com/eerkmen" target="_blank" rel="noopener">@eerkmen&lt;/a> &lt;a href="https://github.com/corners2wall" target="_blank" rel="noopener">@corners2wall&lt;/a> &lt;a href="https://github.com/mkralik3" target="_blank" rel="noopener">@mkralik3&lt;/a> &lt;a href="https://github.com/d4n1b" target="_blank" rel="noopener">@d4n1b&lt;/a> &lt;a href="https://github.com/tplevko" target="_blank" rel="noopener">@tplevko&lt;/a> &lt;a href="https://github.com/apupier" target="_blank" rel="noopener">@apupier&lt;/a> &lt;a href="https://github.com/igarashitm" target="_blank" rel="noopener">@igarashitm&lt;/a> &lt;a href="https://github.com/mmelko" target="_blank" rel="noopener">@mmelko&lt;/a> &lt;a href="https://github.com/lordrip" target="_blank" rel="noopener">@lordrip&lt;/a> &lt;a href="https://github.com/lhein" target="_blank" rel="noopener">@lhein&lt;/a> &lt;a href="https://github.com/shivamG640" target="_blank" rel="noopener">@shivamG640&lt;/a> &lt;a href="https://github.com/lburgazzoli" target="_blank" rel="noopener">@lburgazzoli&lt;/a> &lt;a href="https://github.com/brunoNetId" target="_blank" rel="noopener">@brunoNetId&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/GuilhermeCamposo" target="_blank" rel="noopener">@GuilhermeCamposo&lt;/a> &lt;a href="https://github.com/ibek" target="_blank" rel="noopener">@ibek&lt;/a> &lt;a href="https://github.com/jcordes73" target="_blank" rel="noopener">@jcordes73&lt;/a> &lt;a href="https://github.com/Mdenisco" target="_blank" rel="noopener">@Mdenisco&lt;/a> &lt;a href="https://github.com/phantomjinx" target="_blank" rel="noopener">@phantomjinx&lt;/a> &lt;a href="https://github.com/rstroop" target="_blank" rel="noopener">@rstroop&lt;/a> &lt;a href="https://github.com/abkieling" target="_blank" rel="noopener">@abkieling&lt;/a> &lt;a href="https://github.com/Shivam-Gu" target="_blank" rel="noopener">@Shivam-Gu&lt;/a> &lt;a href="https://github.com/kumaradityaraj" target="_blank" rel="noopener">@kumaradityaraj&lt;/a>&lt;/p>
+&lt;p>Apologies in advance if we&amp;rsquo;ve missed anyone. 🙂&lt;/p></description></item></channel></rss>

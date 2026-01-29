@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kaoto 2.5 | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/tag/kaoto-2.5/</link><atom:link href="https://kaoto.io/tag/kaoto-2.5/index.xml" rel="self" type="application/rss+xml"/><description>Kaoto 2.5</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><copyright>© 2026 Kaoto. Apache Camel and Camel are trademarks of The Apache Software Foundation.</copyright><lastBuildDate>Wed, 30 Apr 2025 00:00:00 +0600</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Kaoto 2.5</title><link>https://kaoto.io/tag/kaoto-2.5/</link></image><item><title>Kaoto 2.5 released</title><link>https://kaoto.io/blog/kaoto-2.5-release/</link><pubDate>Wed, 30 Apr 2025 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.5-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>It has been a while since the last Kaoto release and we are excited to provide you now with the new Kaoto 2.5 version.
+Please take a look below to learn about the exciting new things we added to this release.&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;h4 id="updated-list-of-supported-camel-versions">Updated list of supported Camel versions&lt;/h4>
+&lt;p>This version includes the latest Camel catalog version 4.11.0, which brings new components and features to enhance your integration capabilities, alongside the latest LTS version 4.10.3.&lt;/p>
+&lt;p align="center">&lt;img src="./new-camel-versions.png" alt="showcasing the version selector" />&lt;/p>
+&lt;h4 id="xml-io-support">XML IO Support&lt;/h4>
+&lt;p>Not everyone likes YAML and we are happy to help here and announce that Kaoto now supports the Camel XML IO DSL.&lt;/p>
+&lt;p align="center">&lt;img src="./xml-route.png" alt="showcasing an XML IO route"/>&lt;/p>
+&lt;h4 id="generate-markdown-documentation">Generate Markdown Documentation&lt;/h4>
+&lt;p>Do you want to document your routes effortlessly? You can now export your integration flows with Kaoto as Markdown documents, including a visual representation of the flow in addition to the changed route parameters, making it easier to share and review routes.&lt;/p>
+&lt;p align="center">&lt;img src="./generate-route-documentation.png" alt="Generate Route documentation"/>&lt;/p>
+&lt;p align="center">&lt;img src="./documentation-preview.png" alt="Documentation preview"/>&lt;/p>
+&lt;h4 id="datamapper-enhancements">DataMapper Enhancements&lt;/h4>
+&lt;ul>
+&lt;li>Support adding multiple mappings on the collection target field&lt;/li>
+&lt;li>UI polish for better drag-and-drop experience&lt;/li>
+&lt;li>Update generated XSLT version to 3.0&lt;/li>
+&lt;/ul>
+&lt;p align="center">&lt;img src="./datamapper.png" alt="DataMapper News"/>&lt;/p>
+&lt;h4 id="new-kaoto-perspective-in-vs-code">New Kaoto Perspective in VS Code&lt;/h4>
+&lt;p>The Kaoto VS Code extension has been reworked heavily and our goal was to provide you an extension that can work standalone and still provide you most of the features you need for your daily integration work. What does this mean?&lt;/p>
+&lt;ul>
+&lt;li>the &lt;em>Extension Pack for Apache Camel&lt;/em> is no longer required for Kaoto to work&lt;/li>
+&lt;li>the introduction of a new Kaoto perspective (see the Kaoto icon on the VS Code side bar)&lt;/li>
+&lt;li>the new perspective provides you with easy access to
+&lt;ul>
+&lt;li>an &lt;code>Integrations&lt;/code> section providing easy access to your integration files and the contained routes as well as related actions (run, deploy, &amp;hellip;)&lt;/li>
+&lt;li>a &lt;code>Deployments&lt;/code> section providing easy access to local running integrations and their statuses with easy to access actions (start, stop, pause, resume, log, &amp;hellip;)&lt;/li>
+&lt;li>a &lt;code>Help &amp;amp; Feedback&lt;/code> section providing links to useful resources for your daily work&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p align="center">&lt;img src="./kaoto-perspective.png" alt="Shows the new Kaoto perspective in VS Code"/>&lt;/p>
+&lt;h4 id="configuration-form-enhancements">Configuration Form Enhancements&lt;/h4>
+&lt;p>We’re introducing a new Kaoto Form, a redesigned form engine with improved field behavior, better keyboard navigation and filtering for dropdown fields, the possibility to wrap the values in a &lt;code>RAW()&lt;/code> function call and a new &lt;code>Clear&lt;/code> button to completely remove the field from the source code.&lt;/p>
+&lt;p align="center">&lt;img src="./field-contextual-menu.png" alt="Field contextual menu"/>&lt;/p>
+&lt;h4 id="filter-flows-in-the-flows-list">Filter Flows in the Flows List&lt;/h4>
+&lt;p>You can now filter the flows in the flows list by name, making it easier to find specific routes in larger projects.&lt;/p>
+&lt;p align="center">&lt;img src="./filter-flows.png" alt="Filter flows"/>&lt;/p>
+&lt;h4 id="dark-mode">Dark Mode&lt;/h4>
+&lt;p>For those who fancy a darker theme, Kaoto now supports dark mode in the VS Code extension. You can switch to dark mode in the settings.&lt;/p>
+&lt;p align="center">&lt;img src="./kaoto-dark-mode.png" alt="Kaoto dark mode"/>&lt;/p>
+&lt;h4 id="devspaces-ready-with-devfile-support">DevSpaces Ready with Devfile Support&lt;/h4>
+&lt;p>Kaoto now includes an OpenShift-compatible devfile.yaml, making it easier to develop Kaoto in OpenShift Dev Spaces or similar cloud-based workspaces.&lt;/p>
+&lt;p align="center">&lt;img src="./openshift-commands.png" alt="Devfile options"/>&lt;/p>
+&lt;h4 id="other-enhancements">Other Enhancements&lt;/h4>
+&lt;ul>
+&lt;li>various usability improvements in the graphical editor&lt;/li>
+&lt;li>added an &amp;ldquo;About&amp;rdquo; tab with information on the used Kaoto version&lt;/li>
+&lt;li>&amp;hellip;and many more little tweaks and fixes&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.5.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item></channel></rss>

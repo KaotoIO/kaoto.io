@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>User Manual | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/docs/manual/</link><atom:link href="https://kaoto.io/docs/manual/index.xml" rel="self" type="application/rss+xml"/><description>User Manual</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><copyright>© 2026 Kaoto. Apache Camel and Camel are trademarks of The Apache Software Foundation.</copyright><lastBuildDate>Mon, 13 Jan 2025 00:00:00 +0000</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>User Manual</title><link>https://kaoto.io/docs/manual/</link></image><item><title>1. Installation</title><link>https://kaoto.io/docs/manual/01_installation/</link><pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate><guid>https://kaoto.io/docs/manual/01_installation/</guid><description>&lt;h2 id="installation">Installation&lt;/h2>
+&lt;h3 id="requirements">Requirements&lt;/h3>
+&lt;h4 id="microsoft-visual-studio-code">Microsoft Visual Studio Code&lt;/h4>
+&lt;p>Kaoto ships as a Microsoft Visual Studio Code extension. If you haven&amp;rsquo;t installed VS Code on your manchine yet, please do that now.&lt;/p>
+&lt;p>Visit &lt;a href="https://code.visualstudio.com/docs/setup/setup-overview" target="_blank" rel="noopener">the download page&lt;/a> and follow the installation instructions that apply best for you.&lt;/p>
+&lt;h4 id="camel-cli">Camel CLI&lt;/h4>
+&lt;p>To give you the best user experience we recommend to install the Camel CLI, which offers various functionalities for Camel developers.&lt;/p>
+&lt;p>Please follow the below steps to install it.&lt;/p>
+&lt;ul>
+&lt;li>Install &lt;a href="https://www.jbang.dev" target="_blank" rel="noopener">JBang&lt;/a> following these &lt;a href="https://www.jbang.dev/download/" target="_blank" rel="noopener">instructions&lt;/a>&lt;/li>
+&lt;li>Verify that &lt;a href="https://www.jbang.dev" target="_blank" rel="noopener">JBang&lt;/a> is working by executing the following from a command shell. This should output the version of installed &lt;a href="https://www.jbang.dev" target="_blank" rel="noopener">JBang&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">jbang version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Run the following command from a command shell to install the &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Camel CLI&lt;/a>:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">jbang app install camel@apache/camel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Check if the &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Camel CLI&lt;/a> is working by executing the following from a command shell. This should output the version of the installed &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Camel CLI&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">camel version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="citrus-testing">Citrus Testing&lt;/h4>
+&lt;p>If you want to work with the Citrus testing framework, we strongly recommend to install the Citrus JBang plugin.&lt;/p>
+&lt;p>Please follow the below steps to install it.&lt;/p>
+&lt;ul>
+&lt;li>Install &lt;a href="https://www.jbang.dev" target="_blank" rel="noopener">JBang&lt;/a> following these &lt;a href="https://www.jbang.dev/download/" target="_blank" rel="noopener">instructions&lt;/a>&lt;/li>
+&lt;li>Verify that &lt;a href="https://www.jbang.dev" target="_blank" rel="noopener">JBang&lt;/a> is working by executing the following from a command shell. This should output the version of installed &lt;a href="https://www.jbang.dev" target="_blank" rel="noopener">JBang&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">jbang version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Run the following command from a command shell to install the &lt;a href="https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing" target="_blank" rel="noopener">Citrus JBang plugin&lt;/a>:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">jbang app install citrus@citrusframework/citrus
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Check if the &lt;a href="https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing" target="_blank" rel="noopener">Citrus JBang plugin&lt;/a> is working by executing the following from a command shell. This should output the version of the installed &lt;a href="https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing" target="_blank" rel="noopener">Citrus JBang plugin&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">citrus --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="kaoto-extension">Kaoto Extension&lt;/h3>
+&lt;ul>
+&lt;li>Open VS Code&lt;/li>
+&lt;li>Open the &lt;code>Extensions&lt;/code> view on the left side panel (or press &lt;code>CTRL+SHIFT+X&lt;/code>)&lt;/li>
+&lt;li>Type &lt;code>Kaoto&lt;/code> in the search field&lt;/li>
+&lt;li>Click the &lt;code>Install&lt;/code> button&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Install Kaoto Extension" srcset="
+/docs/manual/01_installation/kaoto-install_hu394cb2ab59893cb1de0f4a1457094c8a_32295_a6cac0f2181d302e5f60e2441807a1d3.webp 400w,
+/docs/manual/01_installation/kaoto-install_hu394cb2ab59893cb1de0f4a1457094c8a_32295_c06da823c551f2726b60e8926c82cf31.webp 760w,
+/docs/manual/01_installation/kaoto-install_hu394cb2ab59893cb1de0f4a1457094c8a_32295_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/01_installation/kaoto-install_hu394cb2ab59893cb1de0f4a1457094c8a_32295_a6cac0f2181d302e5f60e2441807a1d3.webp"
+width="590"
+height="244"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p></description></item><item><title>2. Getting Started Guide</title><link>https://kaoto.io/docs/manual/02_gettingstarted/</link><pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate><guid>https://kaoto.io/docs/manual/02_gettingstarted/</guid><description>&lt;h2 id="getting-started">Getting Started&lt;/h2>
+&lt;p>This section describes how to&lt;/p>
+&lt;ul>
+&lt;li>setup a workspace in VS Code&lt;/li>
+&lt;li>access the important commands to create your integration&lt;/li>
+&lt;li>create your first Camel Route&lt;/li>
+&lt;li>run your Camel Route locally&lt;/li>
+&lt;li>get access to the source code of the Camel Route&lt;/li>
+&lt;/ul>
+&lt;h3 id="preparing-the-workspace">Preparing the Workspace&lt;/h3>
+&lt;p>Visual Studio Code requires you to create a workspace for your project to access the full functionality of the environment. If you haven&amp;rsquo;t done so yet, please open your Visual Studio Code instance. You can do that by finding the right launcher on your computer or by opening a command shell and executing &lt;code>code&lt;/code>. This should leave you with a window like the one below. &lt;em>(in the picture below we selected already the Kaoto view - see the Kaoto Camel icon)&lt;/em>&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of a fresh VS Code instance" srcset="
+/docs/manual/02_gettingstarted/empty-vscode_hu509e21688648b5959e40651ab690fa89_84814_c5c3b8bbbde7d8dbb3ce4798f581f12f.webp 400w,
+/docs/manual/02_gettingstarted/empty-vscode_hu509e21688648b5959e40651ab690fa89_84814_12c91763133320365795a745593fb8c8.webp 760w,
+/docs/manual/02_gettingstarted/empty-vscode_hu509e21688648b5959e40651ab690fa89_84814_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/02_gettingstarted/empty-vscode_hu509e21688648b5959e40651ab690fa89_84814_c5c3b8bbbde7d8dbb3ce4798f581f12f.webp"
+width="760"
+height="481"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>Next we need to select our workspace folder which will store our project files. You can either click on the &lt;code>Open Folder&lt;/code> button or you can also go to the &lt;code>File&lt;/code> menu and select the entry &lt;code>Open Folder&lt;/code>. In the following screen browse to the folder you would like to use and select it.&lt;/p>
+&lt;h3 id="create-your-first-camel-route">Create your first Camel Route&lt;/h3>
+&lt;p>With the &lt;code>Kaoto&lt;/code> view (the Kaoto Camel icon) on the left sidebar open you will see the &lt;code>Integration&lt;/code> section on top. When moving the mouse to the right side of the &lt;code>Integrations&lt;/code> headline you will see some small icons, one of the is a file with a plus sign. Click on it, select &lt;code>New Camel Route&lt;/code> and follow the instructions to create your first Camel Route.&lt;/p>
+&lt;p>Once done, the new file will be created and the Kaoto editor should appear as shown in the video below. If the editor does not appear, revisit the earlier steps to ensure you followed all instructions correctly.&lt;/p>
+&lt;video controls width="600">
+&lt;source src="create-integration.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;/video>
+&lt;p>At this point, you have successfully created your first working Camel Route, which can be tested immediately.&lt;/p>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">If the execution fails you should double check if you have installed the &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Camel CLI&lt;/a> correctly. Follow the instructions outline in the section &lt;a href="#camel-cli">Camel CLI&lt;/a> section.&lt;/span>
+&lt;/div>
+&lt;p>You should now see a similar screen like the one below.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of a fresh created Camel Route" srcset="
+/docs/manual/02_gettingstarted/new-route_hu84944b5ab5414e99643a82bbc0b3910a_88710_cf3541de49c6f10274ba0908026f7aec.webp 400w,
+/docs/manual/02_gettingstarted/new-route_hu84944b5ab5414e99643a82bbc0b3910a_88710_4aa2d12f0ace6fc96cf6b6ae29be00bd.webp 760w,
+/docs/manual/02_gettingstarted/new-route_hu84944b5ab5414e99643a82bbc0b3910a_88710_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/02_gettingstarted/new-route_hu84944b5ab5414e99643a82bbc0b3910a_88710_cf3541de49c6f10274ba0908026f7aec.webp"
+width="760"
+height="481"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h3 id="launch-your-camel-route">Launch your Camel Route&lt;/h3>
+&lt;p>Testing your integration is easy and straigth forward. In the &lt;code>Integrations&lt;/code> section hover over the file name of your integration and this will reveal some useful buttons. One of these buttons is a Camel icon with a green play button. Click it to launch your integration locally using &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Camel JBang&lt;/a>. Please check the below video which will show you how to launch the integration and possible actions to interact with a running integration.&lt;/p>
+&lt;video controls width="600">
+&lt;source src="launch-integration.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;/video>
+&lt;p>As you can see in the video your integration is launched in Dev Mode and changes to the integration via the Kaoto editor or the source code will be reloaded whenever you save. This will help you prototyping faster.&lt;/p>
+&lt;h3 id="accessing-the-source-code">Accessing the Source Code&lt;/h3>
+&lt;p>You might wonder how the source of your new Camel Route looks like. While Kaoto tries to relief users from the burden of working with the source code, we still allow access to it via the default Visual Studio Code Text Editor.&lt;/p>
+&lt;p>There are two ways to achieve this. First you can use the &lt;code>Open Source Code&lt;/code> toggle button on the top right of the Kaoto editor. This is the most convenient way. Another option is to invoke the context menu on the tab with the file name of your integration and then use the &lt;code>Reopen Editor with&lt;/code> item. Both ways are shown in the following video.&lt;/p>
+&lt;video controls width="600">
+&lt;source src="show-source.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;/video></description></item><item><title>3. Visual Designer</title><link>https://kaoto.io/docs/manual/03_designer/</link><pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate><guid>https://kaoto.io/docs/manual/03_designer/</guid><description>&lt;h2 id="the-visual-designer">The Visual Designer&lt;/h2>
+&lt;h3 id="overview">Overview&lt;/h3>
+&lt;p>The following picture shows the different parts of the Kaoto Visual Editor.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the launch terminal showing the outputs of the launched Camel Route" srcset="
+/docs/manual/03_designer/ui-overview_hu9f209adabd45776dc349b419a10d1283_111234_36d417eb6e0c5773ae0e332e811f0318.webp 400w,
+/docs/manual/03_designer/ui-overview_hu9f209adabd45776dc349b419a10d1283_111234_af627ed3d36ff24b339610d5926843ef.webp 760w,
+/docs/manual/03_designer/ui-overview_hu9f209adabd45776dc349b419a10d1283_111234_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/ui-overview_hu9f209adabd45776dc349b419a10d1283_111234_36d417eb6e0c5773ae0e332e811f0318.webp"
+width="760"
+height="525"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ol>
+&lt;li>The Explorer View with the opened file selected&lt;/li>
+&lt;li>The currently displayed Integration&lt;/li>
+&lt;li>The configuration panel where you can adjust and customize settings for the selected step&lt;/li>
+&lt;li>Drop down showing the currently selected integration type, here &lt;strong>Camel Route&lt;/strong>&lt;/li>
+&lt;li>Drop down showing the currently selected Camel Route. This is handy if you have more than one Camel Route defined in your file. You can rename, delete, select and switch the visibility for each Camel Route here&lt;/li>
+&lt;li>Drop down enabling you to add more Routes or other global elements to your integration. &lt;strong>Only visible for Camel Routes!&lt;/strong>&lt;/li>
+&lt;li>Copies the full source code of your integration to the Clipboard&lt;/li>
+&lt;li>Exports the currently visible Integration as a PNG image&lt;/li>
+&lt;li>Generate a documentation for your integration and download it in Markdown format.&lt;/li>
+&lt;li>Drop down showing the available Camel versions. Different runtimes are available, like Camel Main, Springboot and Quarkus.&lt;/li>
+&lt;li>A step in your Integration with an &lt;strong>Error&lt;/strong>-Marker to indicate a problem with the configuration of the step.&lt;/li>
+&lt;li>The toolbar of the selected step. It provides available actions for the current selection.&lt;/li>
+&lt;li>This button bar provides you with functionalities like Zoom In / Out, Reset the View, Switching the layout direction between horizontal and vertical and grants you access to the comprehensive Camel Catalog, containing all the available Components/Connectors, Enterprise Integration Patterns and Kamelets&lt;/li>
+&lt;/ol>
+&lt;h3 id="working-with-camel-routes">Working with Camel Routes&lt;/h3>
+&lt;p>In &lt;a href="https://camel.apache.org" target="_blank" rel="noopener">Apache Camel&lt;/a>, a route is a set of processing steps that are applied to a message as it travels from a source to a destination. A route typically consists of a series of processing steps that are connected in a linear sequence.&lt;/p>
+&lt;p>A Camel Route is where the integration flow is defined. For example, you can write a Camel Route to specify how two systems can be integrated. You can also specify how the data can be manipulated, routed, or mediated between the systems.&lt;/p>
+&lt;h4 id="creating-a-new-camel-route">Creating a new Camel Route&lt;/h4>
+&lt;p>We already covered how to create a new Camel Route YAML file in the chapter &lt;a href="#create-your-first-camel-route">Create your first Camel Route&lt;/a>.&lt;/p>
+&lt;p>Let&amp;rsquo;s use another way of creating a new Camel Route. If you have your route from the other chapter still open, click on the Route selection drop down and then delete all the routes using the trashbin icon.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the Delete Camel Route menu item" srcset="
+/docs/manual/03_designer/delete-route_hu96f9065295776c93e98352ea027d9a11_21015_acf564b0003b094359e59dd71fd7a981.webp 400w,
+/docs/manual/03_designer/delete-route_hu96f9065295776c93e98352ea027d9a11_21015_d10427f80bc84aebcf533e0d362ae690.webp 760w,
+/docs/manual/03_designer/delete-route_hu96f9065295776c93e98352ea027d9a11_21015_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/delete-route_hu96f9065295776c93e98352ea027d9a11_21015_acf564b0003b094359e59dd71fd7a981.webp"
+width="760"
+height="239"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>Once you confirmed the deletion of all your routes you should see a blank screen like below.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the editor without any routes" srcset="
+/docs/manual/03_designer/no-route_hue6d2ea274fadd4ea7639970a875c22c5_30426_6fedc6fb81dad9c76003e554632c6609.webp 400w,
+/docs/manual/03_designer/no-route_hue6d2ea274fadd4ea7639970a875c22c5_30426_2d6ab863d8d96b153cbc327eeb992edf.webp 760w,
+/docs/manual/03_designer/no-route_hue6d2ea274fadd4ea7639970a875c22c5_30426_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/no-route_hue6d2ea274fadd4ea7639970a875c22c5_30426_6fedc6fb81dad9c76003e554632c6609.webp"
+width="760"
+height="546"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>You can now create a new Camel Route by either clicking the &lt;code>+ New&lt;/code> button in the center of the canvas or by using the same button in the upper menu bar of the Canvas, next to the Route selection drop down, which will both put a template route in place which uses a &lt;strong>Timer&lt;/strong> component to send every second a message to the &lt;strong>Log&lt;/strong> component.&lt;/p>
+&lt;h4 id="adding-a-step">Adding a step&lt;/h4>
+&lt;p>Now lets add a new step between the &lt;strong>Timer&lt;/strong> and the &lt;strong>Log&lt;/strong> component to modify the message body. There are two ways of adding a step to the route. You can either Right-Click on the step you want to insert before or after. This will bring up a context menu with the available actions to choose from. An easier alternative would be to hover over the connection between the two steps you want to insert between and then click on the &lt;strong>+&lt;/strong> button that appears.&lt;/p>
+&lt;p>Hover over the connection between the &lt;strong>Timer&lt;/strong> and the &lt;strong>Log&lt;/strong> steps now and click the &lt;strong>+&lt;/strong> button to execute the &lt;strong>Add step&lt;/strong> action.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the available step actions" srcset="
+/docs/manual/03_designer/step-actions_hu201dca6d93ed07316b136d76354ab4ea_24759_53bfd2abe8ec42281d4764c008137eb1.webp 400w,
+/docs/manual/03_designer/step-actions_hu201dca6d93ed07316b136d76354ab4ea_24759_8dc35cdcb912eabc05d510e3b2cf2aea.webp 760w,
+/docs/manual/03_designer/step-actions_hu201dca6d93ed07316b136d76354ab4ea_24759_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/step-actions_hu201dca6d93ed07316b136d76354ab4ea_24759_53bfd2abe8ec42281d4764c008137eb1.webp"
+width="638"
+height="594"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">When using the right-click context menu, the set of available actions depend on the selected step and can vary. There are actions for appending, prepending, replacing and deleting steps as well as some more specialized actions.&lt;/span>
+&lt;/div>
+&lt;p>This will open up the Camel Catalog where you can search the step you want to add.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the catalog of Camel steps" srcset="
+/docs/manual/03_designer/catalog_hu427ce3beeeb34180337cdb6b7beb11c1_219169_71b2a092f738195e20041929c93b7e07.webp 400w,
+/docs/manual/03_designer/catalog_hu427ce3beeeb34180337cdb6b7beb11c1_219169_de3b828ca8d2e5f27cfb8ab133d4fe54.webp 760w,
+/docs/manual/03_designer/catalog_hu427ce3beeeb34180337cdb6b7beb11c1_219169_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/catalog_hu427ce3beeeb34180337cdb6b7beb11c1_219169_71b2a092f738195e20041929c93b7e07.webp"
+width="760"
+height="378"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>As already mentioned we would like to modify the message body before sending it along to the &lt;strong>Log&lt;/strong> component. To achieve that we need to add a &lt;strong>Processor&lt;/strong> called &lt;strong>setBody&lt;/strong>. Let&amp;rsquo;s enter this name into the filter text field on top of the Catalog.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the catalog of Camel steps filtering for setBody" srcset="
+/docs/manual/03_designer/catalog-setbody_hu2194b7a0051f11b8b363851f2b4510af_39882_a968622a8116fe398e0dff897539cd7a.webp 400w,
+/docs/manual/03_designer/catalog-setbody_hu2194b7a0051f11b8b363851f2b4510af_39882_3482539052886b27fe3d61f039371dc5.webp 760w,
+/docs/manual/03_designer/catalog-setbody_hu2194b7a0051f11b8b363851f2b4510af_39882_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/catalog-setbody_hu2194b7a0051f11b8b363851f2b4510af_39882_a968622a8116fe398e0dff897539cd7a.webp"
+width="760"
+height="311"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>You can now select the &lt;strong>setBody&lt;/strong> tile to add it to your route. Select the new added step now on the canvas to open the configuration form to the right.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the route with setBody selected and the configuration form opened" srcset="
+/docs/manual/03_designer/setbody-step_hu4fdb31a20315e3bd3839940ecf195942_55824_67151f3172e98ec7e1e05b8ec759b02b.webp 400w,
+/docs/manual/03_designer/setbody-step_hu4fdb31a20315e3bd3839940ecf195942_55824_3fd071a5e88378046f6a14a7c7981669.webp 760w,
+/docs/manual/03_designer/setbody-step_hu4fdb31a20315e3bd3839940ecf195942_55824_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/setbody-step_hu4fdb31a20315e3bd3839940ecf195942_55824_67151f3172e98ec7e1e05b8ec759b02b.webp"
+width="760"
+height="619"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>Let&amp;rsquo;s change the &lt;strong>Expression&lt;/strong> text field to &lt;code>Hello from Kaoto!&lt;/code>.&lt;/p>
+&lt;p>Now the &lt;strong>Log&lt;/strong> component will receive a &lt;code>Hello from Kaoto!&lt;/code> message every second and logs it to the console.&lt;/p>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">&lt;p>When using the right click context menu of a step, adding new steps is usually done with two actions. &lt;strong>Prepend&lt;/strong> can be used to add a step &lt;em>before&lt;/em> the selected step and &lt;strong>Append&lt;/strong> will add the new step &lt;em>after&lt;/em> the selected step.&lt;/p>
+&lt;p>However, on the first step of a flow and on steps that can have children, the &lt;strong>Add Step&lt;/strong> action is used.&lt;/p>
+&lt;/span>
+&lt;/div>
+&lt;h4 id="replacing-a-step">Replacing a step&lt;/h4>
+&lt;p>You can replace any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Replace action.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the toolbar for steps" srcset="
+/docs/manual/03_designer/replace-button_hu9abb472cdff54ea8d401ad04efc7b9db_9602_5278457d05d073e2f57988c48b9ce9a0.webp 400w,
+/docs/manual/03_designer/replace-button_hu9abb472cdff54ea8d401ad04efc7b9db_9602_47cf8c3138a24de36daf51c97a3467f8.webp 760w,
+/docs/manual/03_designer/replace-button_hu9abb472cdff54ea8d401ad04efc7b9db_9602_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/replace-button_hu9abb472cdff54ea8d401ad04efc7b9db_9602_5278457d05d073e2f57988c48b9ce9a0.webp"
+width="195"
+height="64"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>Alternatively you can do that also by invoking the context menu on a step and selecting the item &lt;strong>Replace&lt;/strong>.
+Both ways it will open up the Camel Catalog and you can choose the replacement from there.&lt;/p>
+&lt;h4 id="deleting-a-step">Deleting a step&lt;/h4>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900">
+&lt;span class="pr-3 pt-1 text-red-400">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">When invoking the &lt;strong>Delete&lt;/strong> action on a step with children or on a container element containing children there will be a confirmation dialog because you are about to delete not just the single step or container but also all the contained children. &lt;strong>Be cautious&lt;/strong>!&lt;/span>
+&lt;/div>
+&lt;p>You can delete any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Delete action.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the toolbar for steps" srcset="
+/docs/manual/03_designer/delete-button_hu9abb472cdff54ea8d401ad04efc7b9db_8243_c562a79911e7c19550bd49709b7c9b64.webp 400w,
+/docs/manual/03_designer/delete-button_hu9abb472cdff54ea8d401ad04efc7b9db_8243_c64554dce01b4666103b102333e762d0.webp 760w,
+/docs/manual/03_designer/delete-button_hu9abb472cdff54ea8d401ad04efc7b9db_8243_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/delete-button_hu9abb472cdff54ea8d401ad04efc7b9db_8243_c562a79911e7c19550bd49709b7c9b64.webp"
+width="195"
+height="64"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>Alternatively you can do that also by invoking the context menu on a step and selecting the item &lt;strong>Delete&lt;/strong>. This will remove the step from your integration.&lt;/p>
+&lt;h4 id="enable--disable-a-step">Enable / Disable a step&lt;/h4>
+&lt;p>You can enable or disable any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Enable / Disable action.&lt;/p>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">Disabling a step will instruct the &lt;a href="https://camel.apache.org" target="_blank" rel="noopener">Apache Camel&lt;/a> runtime to ignore the step when executing the flow. This can be convenient when prototyping a new route.&lt;/span>
+&lt;/div>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A Screenshot of the toolbar for steps" srcset="
+/docs/manual/03_designer/disable-button_hu9abb472cdff54ea8d401ad04efc7b9db_8288_ed0a17d01df9787f99cfecbee0945cef.webp 400w,
+/docs/manual/03_designer/disable-button_hu9abb472cdff54ea8d401ad04efc7b9db_8288_9010c55184992b74fe6e4b1fe86bc99c.webp 760w,
+/docs/manual/03_designer/disable-button_hu9abb472cdff54ea8d401ad04efc7b9db_8288_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/disable-button_hu9abb472cdff54ea8d401ad04efc7b9db_8288_ed0a17d01df9787f99cfecbee0945cef.webp"
+width="195"
+height="64"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>Alternatively you can enable / disable any step in your route by invoking the context menu on a step and selecting the item &lt;strong>Enable / Disable&lt;/strong>.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Showing a disabled step" srcset="
+/docs/manual/03_designer/disabled-step_huad456ab1a122f9428f9b28a258fab416_19031_5f735dd8c76bec425e7c872e7f33fc8b.webp 400w,
+/docs/manual/03_designer/disabled-step_huad456ab1a122f9428f9b28a258fab416_19031_faacefa6c3f84485fa8a8504ffd5bc8d.webp 760w,
+/docs/manual/03_designer/disabled-step_huad456ab1a122f9428f9b28a258fab416_19031_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/disabled-step_huad456ab1a122f9428f9b28a258fab416_19031_5f735dd8c76bec425e7c872e7f33fc8b.webp"
+width="666"
+height="242"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>In the picture above the &lt;strong>Log&lt;/strong> component has been disabled. The icon is grayed out and there is a marker icon at the top right of the step to indicate it is disabled.&lt;/p>
+&lt;h4 id="generate-integration-documentation">Generate Integration Documentation&lt;/h4>
+&lt;p>You can use the built-in documentation generating feature to create a Markdown file containing all the steps in your integration and all the changed parameters for these steps together with an image of your integration.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A screenshot showing the generate documentation button" srcset="
+/docs/manual/03_designer/generate-docs-button_hu06e9579e52f20cf6baeec9496f719315_6568_94ec88419663bdc83b07b4533503450d.webp 400w,
+/docs/manual/03_designer/generate-docs-button_hu06e9579e52f20cf6baeec9496f719315_6568_3d7f55b637e647d5bb0fb01d1cf589c3.webp 760w,
+/docs/manual/03_designer/generate-docs-button_hu06e9579e52f20cf6baeec9496f719315_6568_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/generate-docs-button_hu06e9579e52f20cf6baeec9496f719315_6568_94ec88419663bdc83b07b4533503450d.webp"
+width="399"
+height="59"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>When you click the button it will open up a dialog with a preview of your integration documentation.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="A screenshot showing the generate documentation dialog" srcset="
+/docs/manual/03_designer/generate-documentation_hu4e69c3417b3e01e4327f58aae70c4086_71212_d3766cfb6215a60bdb2e6147f05daf27.webp 400w,
+/docs/manual/03_designer/generate-documentation_hu4e69c3417b3e01e4327f58aae70c4086_71212_8f9a7ab307fa2ce94e0e00f149ed2f41.webp 760w,
+/docs/manual/03_designer/generate-documentation_hu4e69c3417b3e01e4327f58aae70c4086_71212_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/03_designer/generate-documentation_hu4e69c3417b3e01e4327f58aae70c4086_71212_d3766cfb6215a60bdb2e6147f05daf27.webp"
+width="621"
+height="760"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>You can use the &lt;strong>Visible Entities&lt;/strong> control in the top left of the dialog to control which routes are part of the documentation. You can either select all, just a subset or even just a single route. Once you have made your choice you can specify a file name in the top right and then hit the &lt;strong>Download&lt;/strong> button to retrieve the file in ZIP format.&lt;/p></description></item><item><title>4. Kaoto DataMapper</title><link>https://kaoto.io/docs/manual/04_datamapper/</link><pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate><guid>https://kaoto.io/docs/manual/04_datamapper/</guid><description>&lt;h2 id="kaoto-datamapper">Kaoto DataMapper&lt;/h2>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">Currently Kaoto DataMapper is only supported inside the Visual Studio Code extension as a technical preview feature. In the future we will aim to bring this functionality also to the pure web version of Kaoto.&lt;/span>
+&lt;/div>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">The DataMapper supports both XML and JSON schema for rendering the data structure. For both XML and JSON data, it internally generates a single XSLT step to perform configured data mappings at runtime. For JSON data, it leverages the json-to-xml() and xml-to-json() functions available in XSLT 3.0 to handle JSON transformations. While you can consume multiple XML/JSON documents using Camel Variables and/or Message Headers which are mapped to transformation parameters, the output is only a Camel Message Body.&lt;/span>
+&lt;/div>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Example Data Mappings" srcset="
+/docs/manual/04_datamapper/datamapper-done_hu5cc41cb112316bd583983b24af1dca02_182253_e917bc04167a8393914b5ffe9f80bd98.webp 400w,
+/docs/manual/04_datamapper/datamapper-done_hu5cc41cb112316bd583983b24af1dca02_182253_8ddc6ead3ddebbc5f06de76a132e6c30.webp 760w,
+/docs/manual/04_datamapper/datamapper-done_hu5cc41cb112316bd583983b24af1dca02_182253_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-done_hu5cc41cb112316bd583983b24af1dca02_182253_e917bc04167a8393914b5ffe9f80bd98.webp"
+width="760"
+height="429"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>In addition to the regular Camel steps, Kaoto supports a &lt;strong>Kaoto DataMapper&lt;/strong> step to be placed in the Camel Route. The Kaoto DataMapper step provides a graphical user interface to create data mappings inside the Camel Route.&lt;/p>
+&lt;h3 id="adding-a-datamapper-step">Adding a DataMapper step&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>Add a &lt;strong>Kaoto DataMapper&lt;/strong> step in your Camel route. When you &lt;code>Append&lt;/code>, &lt;code>Prepend&lt;/code> or &lt;code>Replace&lt;/code> a step in the Kaoto Design view, you can find the &lt;strong>Kaoto DataMapper&lt;/strong> step in the catalog.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="DataMapper Catalog Tile" srcset="
+/docs/manual/04_datamapper/catalog-datamapper-tile_hu1dcea359e4e54b1b01f5f9e62af2ea76_65616_e35d9c96d8132d3adc6cfb9e4e864b00.webp 400w,
+/docs/manual/04_datamapper/catalog-datamapper-tile_hu1dcea359e4e54b1b01f5f9e62af2ea76_65616_75287ee2207cc574c96d668be965c66f.webp 760w,
+/docs/manual/04_datamapper/catalog-datamapper-tile_hu1dcea359e4e54b1b01f5f9e62af2ea76_65616_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/catalog-datamapper-tile_hu1dcea359e4e54b1b01f5f9e62af2ea76_65616_e35d9c96d8132d3adc6cfb9e4e864b00.webp"
+width="760"
+height="346"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Click the added &lt;strong>Kaoto DataMapper&lt;/strong> step in the Kaoto Design to open the config form.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Kaoto DataMapper step" srcset="
+/docs/manual/04_datamapper/kaoto-datamapper-step_hu9b8ae50a14e8f42ff60db82eb3272973_14079_204889aafefedcba1cfa199aff21f920.webp 400w,
+/docs/manual/04_datamapper/kaoto-datamapper-step_hu9b8ae50a14e8f42ff60db82eb3272973_14079_e5d4908c572fa7e404b7f969e5546fe8.webp 760w,
+/docs/manual/04_datamapper/kaoto-datamapper-step_hu9b8ae50a14e8f42ff60db82eb3272973_14079_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/kaoto-datamapper-step_hu9b8ae50a14e8f42ff60db82eb3272973_14079_204889aafefedcba1cfa199aff21f920.webp"
+width="311"
+height="201"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In the config form, click the &lt;code>Configure&lt;/code> button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="DataMapper Configure button" srcset="
+/docs/manual/04_datamapper/datamapper-configure-button_hu6132bc4faa4251f90630f5a8ff4cc0e9_56575_fe2c59d1c2b1de18a0ae25fe3130fc02.webp 400w,
+/docs/manual/04_datamapper/datamapper-configure-button_hu6132bc4faa4251f90630f5a8ff4cc0e9_56575_efd51fc9bd6f39ea806bb95be38d6d75.webp 760w,
+/docs/manual/04_datamapper/datamapper-configure-button_hu6132bc4faa4251f90630f5a8ff4cc0e9_56575_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-configure-button_hu6132bc4faa4251f90630f5a8ff4cc0e9_56575_fe2c59d1c2b1de18a0ae25fe3130fc02.webp"
+width="594"
+height="659"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>This will open the visual DataMapper editor.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Blank DataMapper UI" srcset="
+/docs/manual/04_datamapper/datamapper-blank_hucedf50b29451b1ccf31665d1fc3df551_30939_18def1721e3e2a802b0a5dce6725eb0b.webp 400w,
+/docs/manual/04_datamapper/datamapper-blank_hucedf50b29451b1ccf31665d1fc3df551_30939_7befc6d31b093287ea13a8dccc2b8f02.webp 760w,
+/docs/manual/04_datamapper/datamapper-blank_hucedf50b29451b1ccf31665d1fc3df551_30939_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-blank_hucedf50b29451b1ccf31665d1fc3df551_30939_18def1721e3e2a802b0a5dce6725eb0b.webp"
+width="760"
+height="390"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="source-and-target">Source and Target&lt;/h3>
+&lt;p>In the DataMapper editor, you can see a &lt;code>Source&lt;/code> section at the left and a &lt;code>Target&lt;/code> section at the right side.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Source and Target" srcset="
+/docs/manual/04_datamapper/datamapper-source-target_hu32f04d0a5f00e017c97cc120186da233_20220_489057a7532e12d019142f5e9174ceef.webp 400w,
+/docs/manual/04_datamapper/datamapper-source-target_hu32f04d0a5f00e017c97cc120186da233_20220_c55ee84a928264e0569b839b32944294.webp 760w,
+/docs/manual/04_datamapper/datamapper-source-target_hu32f04d0a5f00e017c97cc120186da233_20220_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-source-target_hu32f04d0a5f00e017c97cc120186da233_20220_489057a7532e12d019142f5e9174ceef.webp"
+width="760"
+height="235"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>The &lt;code>Source&lt;/code> section represents the input side of your mappings, where the DataMapper step reads the data from. This is mapped to the incoming Camel &lt;code>Message&lt;/code> as well as possible Camel &lt;code>Variables&lt;/code>.&lt;/p>
+&lt;p>The &lt;code>Target&lt;/code> section represents the output side of your mappings, where the DataMapper step writes the data to. This is mapped to the outgoing Camel &lt;code>Message&lt;/code>.&lt;/p>
+&lt;h3 id="parameters">Parameters&lt;/h3>
+&lt;p>The &lt;code>Parameters&lt;/code> section inside the &lt;code>Source&lt;/code> section is mapped to any of the incoming Camel &lt;code>Variables&lt;/code> and &lt;code>Message Headers&lt;/code>. For example, if there is an incoming Camel Variable &lt;code>orderSequence&lt;/code>, you can consume it by adding a parameter &lt;code>orderSequence&lt;/code> in the DataMapper Source/Parameters section.&lt;/p>
+&lt;p>Follow the below steps to add a parameter.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click the plus &lt;strong>+&lt;/strong> button on the right side of the &lt;code>Parameters&lt;/code> title.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Parameters" srcset="
+/docs/manual/04_datamapper/datamapper-add-parameter_hu7db3ced4689a0af2dc3a781b252f846a_12132_b1c7fa9fa66a021404989798b31fd0ff.webp 400w,
+/docs/manual/04_datamapper/datamapper-add-parameter_hu7db3ced4689a0af2dc3a781b252f846a_12132_a1ee4b7d066c6e4ad12e68e789b14701.webp 760w,
+/docs/manual/04_datamapper/datamapper-add-parameter_hu7db3ced4689a0af2dc3a781b252f846a_12132_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-add-parameter_hu7db3ced4689a0af2dc3a781b252f846a_12132_b1c7fa9fa66a021404989798b31fd0ff.webp"
+width="760"
+height="178"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now type the parameter name and click the check button on the right.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Add Parameter confirm" srcset="
+/docs/manual/04_datamapper/datamapper-add-parameter-confirm_hue98140f7f890d442b5ca056c3efac58d_7470_7eb5196950642a6710787b45a313421b.webp 400w,
+/docs/manual/04_datamapper/datamapper-add-parameter-confirm_hue98140f7f890d442b5ca056c3efac58d_7470_1f511c9a4ec6ef8a53c4fecfdd996268.webp 760w,
+/docs/manual/04_datamapper/datamapper-add-parameter-confirm_hue98140f7f890d442b5ca056c3efac58d_7470_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-add-parameter-confirm_hue98140f7f890d442b5ca056c3efac58d_7470_7eb5196950642a6710787b45a313421b.webp"
+width="622"
+height="111"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">While Camel Exchange Properties are also mapped to parameters in the current &lt;code>camel-xslt-saxon&lt;/code> implementation, after the &lt;a href="https://camel.apache.org/manual/variables.html" target="_blank" rel="noopener">Camel Variables&lt;/a> have been introduced, it is no longer recommended to store application data in Camel Exchange Properties. We encourage to use &lt;a href="https://camel.apache.org/manual/variables.html" target="_blank" rel="noopener">Camel Variables&lt;/a> instead.&lt;/span>
+&lt;/div>
+&lt;h3 id="attaching-document-schema-files">Attaching Document Schema files&lt;/h3>
+&lt;p>If any of &lt;code>Source Body&lt;/code>, &lt;code>Target Body&lt;/code> and/or &lt;code>Parameter(s)&lt;/code> are structured data, you can attach a schema file and visualize the data structure in a tree style view. The DataMapper supports both XML Schema (XSD) and JSON Schema files.&lt;/p>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">If the data is not structured and just a primitive value, you don&amp;rsquo;t need to attach a schema file.&lt;/span>
+&lt;/div>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">JSON schemas can be attached to &lt;code>Target Body&lt;/code> and &lt;code>Parameter(s)&lt;/code>. However, it is currently not supported to attach JSON schema to &lt;code>Source Body&lt;/code>.&lt;/span>
+&lt;/div>
+&lt;p>Follow the below steps to attach a schema file.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Place schema file(s) inside the workspace directory.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Click &lt;code>Attach a schema&lt;/code> button in one of the &lt;code>Source Body&lt;/code>, &lt;code>Target Body&lt;/code> or &lt;code>Parameters&lt;/code> sections.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Attach Schema" srcset="
+/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_694b28cdb75bb18514696c321188e72a.webp 400w,
+/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_576b98349b2d9e21320d1f599ea3fa8e.webp 760w,
+/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_694b28cdb75bb18514696c321188e72a.webp"
+width="35"
+height="33"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In the Attach schema modal, click the file button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Schema File Upload" srcset="
+/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_47abea3093e4329d4a211612a0d81489.webp 400w,
+/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_c5f136eb39474881990ef4ee84b66244.webp 760w,
+/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_47abea3093e4329d4a211612a0d81489.webp"
+width="686"
+height="304"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Select the schema file to attach.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Select schema" srcset="
+/docs/manual/04_datamapper/datamapper-select-schema_hu31f2ab68a7d7697a5a138ca3199789d6_31119_89f8f962216ead2db2356575ad0be6bc.webp 400w,
+/docs/manual/04_datamapper/datamapper-select-schema_hu31f2ab68a7d7697a5a138ca3199789d6_31119_c0692fc34f352d93f36a95aa3e55828e.webp 760w,
+/docs/manual/04_datamapper/datamapper-select-schema_hu31f2ab68a7d7697a5a138ca3199789d6_31119_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-select-schema_hu31f2ab68a7d7697a5a138ca3199789d6_31119_89f8f962216ead2db2356575ad0be6bc.webp"
+width="760"
+height="195"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>New!&lt;/strong> (XML only) Select the root element. The first element in the schema is selected by default. If the XML schema defines multiple top level elements and you want to use the other element than the first one, select one from the dropdown. This step is applicable only for XML. For JSON, skip to the next.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Select root element" srcset="
+/docs/manual/04_datamapper/datamapper-select-root-element_huf2e3142c9b6ca90af2887a928bc45810_34647_00dc7e0fb4de2da7cd59f061f3055ebf.webp 400w,
+/docs/manual/04_datamapper/datamapper-select-root-element_huf2e3142c9b6ca90af2887a928bc45810_34647_07be577f477f832d1863b39ebe99dd16.webp 760w,
+/docs/manual/04_datamapper/datamapper-select-root-element_huf2e3142c9b6ca90af2887a928bc45810_34647_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-select-root-element_huf2e3142c9b6ca90af2887a928bc45810_34647_00dc7e0fb4de2da7cd59f061f3055ebf.webp"
+width="690"
+height="392"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Here is a demo screencast to choose a root element.
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./dm_chooserootelement.mp4" type="video/mp4">
+&lt;track
+label="English"
+kind="subtitles"
+srclang="en"
+src="./dm_chooserootelement.vtt"
+default />
+Your browser does not support the video tag.
+&lt;a href="./dm_chooserootelement.mp4">Download the video&lt;/a>.
+&lt;/video>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click &lt;code>Attach&lt;/code> button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Attach button" srcset="
+/docs/manual/04_datamapper/datamapper-attach-schema-attach_huf2e3142c9b6ca90af2887a928bc45810_34604_33afad0d9cc734c29756646e15b66b6b.webp 400w,
+/docs/manual/04_datamapper/datamapper-attach-schema-attach_huf2e3142c9b6ca90af2887a928bc45810_34604_0acfa3078b299f26bb76585ee2e8571d.webp 760w,
+/docs/manual/04_datamapper/datamapper-attach-schema-attach_huf2e3142c9b6ca90af2887a928bc45810_34604_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-attach-schema-attach_huf2e3142c9b6ca90af2887a928bc45810_34604_33afad0d9cc734c29756646e15b66b6b.webp"
+width="690"
+height="392"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now the document structure is rendered inside a tree.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Schema attached" srcset="
+/docs/manual/04_datamapper/datamapper-schema-attached_huc01e817de599a99c979525f8b1444e4e_21509_231d84bf0d7050cf1db06f1428dff56b.webp 400w,
+/docs/manual/04_datamapper/datamapper-schema-attached_huc01e817de599a99c979525f8b1444e4e_21509_6021e77319b5900704c0d8b32d0eeebe.webp 760w,
+/docs/manual/04_datamapper/datamapper-schema-attached_huc01e817de599a99c979525f8b1444e4e_21509_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-schema-attached_huc01e817de599a99c979525f8b1444e4e_21509_231d84bf0d7050cf1db06f1428dff56b.webp"
+width="430"
+height="523"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="json-schema-document">JSON Schema Document&lt;/h3>
+&lt;p>Kaoto DataMapper supports reading structured JSON parameter(s) and writing a JSON target body. If any of them is
+a structured JSON data and you have a JSON schema which defines the JSON data structure, you can attach
+the JSON schema file, render the document tree in DataMapper UI and create data mappings with it.&lt;/p>
+&lt;p>Follow the below steps to attach a JSON schema file.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Place schema file(s) inside the workspace directory.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Click &lt;code>Attach a schema&lt;/code> button in one of the &lt;code>Target Body&lt;/code> or &lt;code>Parameters&lt;/code> sections.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Attach JSON Schema" srcset="
+/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_694b28cdb75bb18514696c321188e72a.webp 400w,
+/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_576b98349b2d9e21320d1f599ea3fa8e.webp 760w,
+/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-attach-schema_hu872c91c8929a4c4d4cae6f5e655cd050_926_694b28cdb75bb18514696c321188e72a.webp"
+width="35"
+height="33"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In the Attach schema modal, click the file button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="JSON Schema File Upload" srcset="
+/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_47abea3093e4329d4a211612a0d81489.webp 400w,
+/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_c5f136eb39474881990ef4ee84b66244.webp 760w,
+/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-attach-schema-file-btn_hu85ac397bd9c64043598ab15137896390_21466_47abea3093e4329d4a211612a0d81489.webp"
+width="686"
+height="304"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Select the schema file to attach.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Select JSON schema" srcset="
+/docs/manual/04_datamapper/datamapper-json-select-schema_hu800545404e548840998a8945f8d3ca86_114438_8f15b178bd44db311ac603eb2aa71c3d.webp 400w,
+/docs/manual/04_datamapper/datamapper-json-select-schema_hu800545404e548840998a8945f8d3ca86_114438_fb26d4906717a776fb6bf027c885e20b.webp 760w,
+/docs/manual/04_datamapper/datamapper-json-select-schema_hu800545404e548840998a8945f8d3ca86_114438_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-json-select-schema_hu800545404e548840998a8945f8d3ca86_114438_8f15b178bd44db311ac603eb2aa71c3d.webp"
+width="760"
+height="595"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If the file extension is &lt;code>.json&lt;/code>, it automatically switch the radio button below to &lt;code>JSON Schema&lt;/code>. Otherwise, choose &lt;code>JSON Schema&lt;/code>. Click &lt;code>Attach&lt;/code> button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Attach button" srcset="
+/docs/manual/04_datamapper/datamapper-json-attach-schema-attach_hu01291532db155795cb1e25d429f55bae_31094_bba912943a88506e5d556b26018e4526.webp 400w,
+/docs/manual/04_datamapper/datamapper-json-attach-schema-attach_hu01291532db155795cb1e25d429f55bae_31094_b34856ee82adccf9725fb03b8216bdcc.webp 760w,
+/docs/manual/04_datamapper/datamapper-json-attach-schema-attach_hu01291532db155795cb1e25d429f55bae_31094_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-json-attach-schema-attach_hu01291532db155795cb1e25d429f55bae_31094_bba912943a88506e5d556b26018e4526.webp"
+width="691"
+height="338"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now the JSON schema document structure is rendered inside a tree.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Schema attached" srcset="
+/docs/manual/04_datamapper/datamapper-json-schema-attached_hud093f4b1ba40db4fef60af8ad50a233f_39460_a85c6a0422b5468bee98f81e3e8facd5.webp 400w,
+/docs/manual/04_datamapper/datamapper-json-schema-attached_hud093f4b1ba40db4fef60af8ad50a233f_39460_61bba2c366203a6257a6d5b8954aaf2b.webp 760w,
+/docs/manual/04_datamapper/datamapper-json-schema-attached_hud093f4b1ba40db4fef60af8ad50a233f_39460_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-json-schema-attached_hud093f4b1ba40db4fef60af8ad50a233f_39460_a85c6a0422b5468bee98f81e3e8facd5.webp"
+width="527"
+height="647"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Here is a demo screencast for creating JSON mappings.
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./dm_json.mp4" type="video/mp4">
+&lt;track
+label="English"
+kind="subtitles"
+srclang="en"
+src="./dm_json.vtt"
+default />
+Your browser does not support the video tag.
+&lt;a href="./dm_json.mp4">Download the video&lt;/a>.
+&lt;/video>&lt;/p>
+&lt;h4 id="json-schema-document-tree">JSON schema document tree&lt;/h4>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">&lt;p>Kaoto DataMapper uses XSLT 3.0 &lt;code>json-to-xml()&lt;/code> and &lt;code>xml-to-json()&lt;/code> functions to support JSON mappings. JSON document specific characteristics described in this section are mostly influenced by these XSLT 3.0 JSON support functions. Please visit XSLT 3.0 specification for more internal details.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.w3.org/TR/xslt-30/#func-json-to-xml" target="_blank" rel="noopener">json-to-xml()&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.w3.org/TR/xslt-30/#func-xml-to-json" target="_blank" rel="noopener">xml-to-json()&lt;/a>&lt;/li>
+&lt;/ul>&lt;/span>
+&lt;/div>
+&lt;p>When an XML schema document is rendered in DataMapper document tree, their element name and attribute name alone is shown as the field label. For JSON schema document, it is slightly different. Since JSON
+document field sometimes doesn&amp;rsquo;t have a name (anonymous), it uses field type as a primary field label.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>map&lt;/code> : object field&lt;/li>
+&lt;li>&lt;code>array&lt;/code> : array field&lt;/li>
+&lt;li>&lt;code>string&lt;/code> : string field&lt;/li>
+&lt;li>&lt;code>number&lt;/code> : number field&lt;/li>
+&lt;/ul>
+&lt;p>In addition to that, if the field has a name, it will show as a &lt;code>@key&lt;/code> attribute following the field type.
+For example, a &lt;code>string&lt;/code> type field with a name &lt;code>AccountId&lt;/code> will show the field label &lt;code>string [@key = AccountId]&lt;/code>.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="AccountId field label" srcset="
+/docs/manual/04_datamapper/datamapper-json-field-label-accountid_hub91416ed1782da264fa9511a7dc39640_4122_ec0e57e29bd4fe47eaffe196cfbb8a04.webp 400w,
+/docs/manual/04_datamapper/datamapper-json-field-label-accountid_hub91416ed1782da264fa9511a7dc39640_4122_c0d60cf5d068747c38770031630174cc.webp 760w,
+/docs/manual/04_datamapper/datamapper-json-field-label-accountid_hub91416ed1782da264fa9511a7dc39640_4122_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-json-field-label-accountid_hub91416ed1782da264fa9511a7dc39640_4122_ec0e57e29bd4fe47eaffe196cfbb8a04.webp"
+width="224"
+height="35"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>An anonymous object field will show just &lt;code>map&lt;/code>.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Object field label" srcset="
+/docs/manual/04_datamapper/datamapper-json-field-label-object_hue127eda03e6d437eb885a3c63daf49da_1394_f25f8a3f80d33f1ed4d440dd33e184e8.webp 400w,
+/docs/manual/04_datamapper/datamapper-json-field-label-object_hue127eda03e6d437eb885a3c63daf49da_1394_8ff7f04d3e971bb2e1c0c485835cbb3e.webp 760w,
+/docs/manual/04_datamapper/datamapper-json-field-label-object_hue127eda03e6d437eb885a3c63daf49da_1394_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-json-field-label-object_hue127eda03e6d437eb885a3c63daf49da_1394_f25f8a3f80d33f1ed4d440dd33e184e8.webp"
+width="97"
+height="33"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>There is one thing that requires attention for &lt;code>array&lt;/code> type field. The &lt;code>array&lt;/code> type field indicates that its &lt;strong>children&lt;/strong> are collection, in other words repeating field, but not the &lt;code>array&lt;/code> type field itself.
+For example, &lt;code>array&lt;/code> type field with the name &lt;code>Item&lt;/code> is rendered in DataMapper UI as following:
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="JSON array field" srcset="
+/docs/manual/04_datamapper/datamapper-json-array-field_hu05bf04941882f857bc1e9808a0e6f130_22832_13967fcb4bd4ea72e2486266d9ebf042.webp 400w,
+/docs/manual/04_datamapper/datamapper-json-array-field_hu05bf04941882f857bc1e9808a0e6f130_22832_742971c19b98f8472260e2d29154fbc1.webp 760w,
+/docs/manual/04_datamapper/datamapper-json-array-field_hu05bf04941882f857bc1e9808a0e6f130_22832_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-json-array-field_hu05bf04941882f857bc1e9808a0e6f130_22832_13967fcb4bd4ea72e2486266d9ebf042.webp"
+width="601"
+height="379"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+In this case, the &lt;code>map&lt;/code> type field which is a direct child of &lt;code>array&lt;/code> type field &lt;code>Item&lt;/code>, is a collection field. The layer icon
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Collection field" srcset="
+/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_083d972ae8c62828e47b1094412488ef.webp 400w,
+/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_780c7cfe05bce7c2d0f84bc5f997b62b.webp 760w,
+/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_083d972ae8c62828e47b1094412488ef.webp"
+width="43"
+height="39"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+indicates that the &lt;code>map&lt;/code> field is a collection field. This is important when creating a &lt;code>for-each&lt;/code> mapping. We will look into how to create a &lt;code>for-each&lt;/code> mapping in details &lt;a href="#create-a-for-each-mapping">later in this manual&lt;/a>.&lt;/p>
+&lt;p>Here is an example JSON data mappings created in Kaoto DataMapper UI. It consumes &lt;code>Account&lt;/code> and &lt;code>Cart&lt;/code> structured JSON parameters as well as &lt;code>orderSequence&lt;/code> primitive parameter, and create a &lt;code>ShipOrder&lt;/code> JSON target body.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="JSON mappings" srcset="
+/docs/manual/04_datamapper/datamapper-json-mappings-all_huce57d45baaf51962f36f033e00be81b7_273847_c62f0a88ece08724d246cb79ba8dcb83.webp 400w,
+/docs/manual/04_datamapper/datamapper-json-mappings-all_huce57d45baaf51962f36f033e00be81b7_273847_136b205beb2987ee295db913f8fee3e1.webp 760w,
+/docs/manual/04_datamapper/datamapper-json-mappings-all_huce57d45baaf51962f36f033e00be81b7_273847_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-json-mappings-all_huce57d45baaf51962f36f033e00be81b7_273847_c62f0a88ece08724d246cb79ba8dcb83.webp"
+width="760"
+height="599"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+You might notice that in the XPath expression, it uses &lt;code>$Account-x&lt;/code> to refer the parameter &lt;code>Account&lt;/code>, not just &lt;code>$Account&lt;/code>, but with a suffix &lt;code>-x&lt;/code>.
+Since &lt;code>Account&lt;/code> parameter is a structured JSON, it is internally converted into XML with using &lt;code>json-to-xml&lt;/code>. &lt;code>$Account-x&lt;/code> is a variable which stores that XML document converted from JSON.
+When data mappings are created through drag and drop, Kaoto DataMapper automatically handles that.
+However when you edit the XPath expression manually, please keep this fact in mind.&lt;/p>
+&lt;p>With those JSON specific characteristics in mind, the rest of the way how to create mappings is same for
+XML and JSON. You can create mappings for XML to XML, XML to JSON, JSON to XML and JSON to JSON with Kaoto DataMapper. We will look into those in the following sections.&lt;/p>
+&lt;h3 id="creating-simple-mappings">Creating simple mappings&lt;/h3>
+&lt;h4 id="creating-a-mapping-by-dragging-and-dropping-a-field">Creating a mapping by dragging and dropping a field&lt;/h4>
+&lt;p>When you perform drag and drop between the source and the target, a mapping is created and a line is drawn between the fields.&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> Mapping the &lt;code>Name&lt;/code> fields by dragging and dropping the source &lt;code>Name&lt;/code> field on the target &lt;code>Name&lt;/code> field.&lt;/p>
+&lt;p>&lt;strong>Before:&lt;/strong>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Drag name" srcset="
+/docs/manual/04_datamapper/datamapper-drag-name_hudf14820035bcb4a4b9964519f17b445a_71463_3a58f09a5be2bff55ab7ce2f3e0e9e5e.webp 400w,
+/docs/manual/04_datamapper/datamapper-drag-name_hudf14820035bcb4a4b9964519f17b445a_71463_3dd77dfe952378c51e50a4e11f8421bc.webp 760w,
+/docs/manual/04_datamapper/datamapper-drag-name_hudf14820035bcb4a4b9964519f17b445a_71463_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-drag-name_hudf14820035bcb4a4b9964519f17b445a_71463_3a58f09a5be2bff55ab7ce2f3e0e9e5e.webp"
+width="760"
+height="475"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;strong>After:&lt;/strong>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Drop name" srcset="
+/docs/manual/04_datamapper/datamapper-drop-name_hu12ac8f4d5fc79ef9e870c567028d671a_79250_390a19f195bd801ebfbf7141a7f6ceca.webp 400w,
+/docs/manual/04_datamapper/datamapper-drop-name_hu12ac8f4d5fc79ef9e870c567028d671a_79250_502f234db8b21b776973827623f59f81.webp 760w,
+/docs/manual/04_datamapper/datamapper-drop-name_hu12ac8f4d5fc79ef9e870c567028d671a_79250_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-drop-name_hu12ac8f4d5fc79ef9e870c567028d671a_79250_390a19f195bd801ebfbf7141a7f6ceca.webp"
+width="760"
+height="475"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h4 id="creating-a-mapping-by-typing-an-xpath-expression">Creating a mapping by typing an XPath expression&lt;/h4>
+&lt;p>You can also create a mapping by entering a &lt;code>XPath&lt;/code> expression.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click the 3 dots context menu on the target field and choose &lt;code>Add selector expression&lt;/code>.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Add selector" srcset="
+/docs/manual/04_datamapper/datamapper-add-selector_hu7df0f81751626b46249dcc363b136204_49476_3708b5449ebda41b2cdfca4339ae912d.webp 400w,
+/docs/manual/04_datamapper/datamapper-add-selector_hu7df0f81751626b46249dcc363b136204_49476_07a265d1ee97b8d72b11f097d8a87a6f.webp 760w,
+/docs/manual/04_datamapper/datamapper-add-selector_hu7df0f81751626b46249dcc363b136204_49476_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-add-selector_hu7df0f81751626b46249dcc363b136204_49476_3708b5449ebda41b2cdfca4339ae912d.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Then enter the &lt;code>XPath&lt;/code> expression.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Type xpath" srcset="
+/docs/manual/04_datamapper/datamapper-type-xpath_huf9e69d76cdaab922bc6556d062277dbb_45664_38ec14b513aad99b5ecd53d52e36247e.webp 400w,
+/docs/manual/04_datamapper/datamapper-type-xpath_huf9e69d76cdaab922bc6556d062277dbb_45664_e3b4e712314e956a1e48ce6ef3447389.webp 760w,
+/docs/manual/04_datamapper/datamapper-type-xpath_huf9e69d76cdaab922bc6556d062277dbb_45664_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-type-xpath_huf9e69d76cdaab922bc6556d062277dbb_45664_38ec14b513aad99b5ecd53d52e36247e.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="creating-conditional-mappings">Creating conditional mappings&lt;/h3>
+&lt;p>The DataMapper supports creating 3 types of conditional mappings:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>if&lt;/code> - The mapping is created only when the specified condition is met.&lt;/li>
+&lt;li>&lt;code>choose-when-otherwise&lt;/code> - The mapping is created depending on how the condition is satisfied. If the &lt;code>when&lt;/code> branch condition is satisfied, the &lt;code>when&lt;/code> branch mapping is created. If no &lt;code>when&lt;/code> branch condition is satisfied, then the &lt;code>otherwise&lt;/code> branch mapping is created.&lt;/li>
+&lt;li>&lt;code>for-each&lt;/code> - The mapping is created for each item in the collection. Collection means multiple occurrences, which is often represented as an array.&lt;/li>
+&lt;/ul>
+&lt;h4 id="create-a-if-mapping">Create a &lt;code>if&lt;/code> mapping&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>Click the 3 dots context menu on the target section&amp;rsquo;s field. Then select &lt;code>wrap with &amp;quot;if&amp;quot;&lt;/code> to create a mapping.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="3 dots menu" srcset="
+/docs/manual/04_datamapper/datamapper-if-3dots_huf2d72b91ee65308e41a61e691af22d35_37879_83924493e6b6d9ae39209b6437b34853.webp 400w,
+/docs/manual/04_datamapper/datamapper-if-3dots_huf2d72b91ee65308e41a61e691af22d35_37879_ad8660ceb2398503090e31b05636b455.webp 760w,
+/docs/manual/04_datamapper/datamapper-if-3dots_huf2d72b91ee65308e41a61e691af22d35_37879_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-if-3dots_huf2d72b91ee65308e41a61e691af22d35_37879_83924493e6b6d9ae39209b6437b34853.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Wrap with if" srcset="
+/docs/manual/04_datamapper/datamapper-if-if_hubc1c5835bfe10b3d8bd26920e0411a70_49164_c690e2c77dcd0c27d4b49034ae35f238.webp 400w,
+/docs/manual/04_datamapper/datamapper-if-if_hubc1c5835bfe10b3d8bd26920e0411a70_49164_efb1901217f7f84f794527527be04e92.webp 760w,
+/docs/manual/04_datamapper/datamapper-if-if_hubc1c5835bfe10b3d8bd26920e0411a70_49164_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-if-if_hubc1c5835bfe10b3d8bd26920e0411a70_49164_c690e2c77dcd0c27d4b49034ae35f238.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure the &lt;code>if&lt;/code> condition. You can drag the source field and drop it into the input field to start writing a condition, or alternatively type everything manually.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure if condition" srcset="
+/docs/manual/04_datamapper/datamapper-if-condition_hu1c7962d8a45f8010ae67f101e8f59756_44247_315ec9b58bca73077a514200880a0b0a.webp 400w,
+/docs/manual/04_datamapper/datamapper-if-condition_hu1c7962d8a45f8010ae67f101e8f59756_44247_f16f8f3a60ac7a488d914058f4f83165.webp 760w,
+/docs/manual/04_datamapper/datamapper-if-condition_hu1c7962d8a45f8010ae67f101e8f59756_44247_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-if-condition_hu1c7962d8a45f8010ae67f101e8f59756_44247_315ec9b58bca73077a514200880a0b0a.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure the mapping by using drag and drop or by typing it manually.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure mapping" srcset="
+/docs/manual/04_datamapper/datamapper-if-mapping_hu1b7da761a1083fa1158f292ec14028c0_50050_08b1b9b0451671a2fddc7d1f196ffa83.webp 400w,
+/docs/manual/04_datamapper/datamapper-if-mapping_hu1b7da761a1083fa1158f292ec14028c0_50050_8f8d9825b7fdf706d36fa98cfe3fae07.webp 760w,
+/docs/manual/04_datamapper/datamapper-if-mapping_hu1b7da761a1083fa1158f292ec14028c0_50050_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-if-mapping_hu1b7da761a1083fa1158f292ec14028c0_50050_08b1b9b0451671a2fddc7d1f196ffa83.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="create-a-choose-when-otherwise-mapping">Create a &lt;code>choose-when-otherwise&lt;/code> mapping&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>Click the 3 dots context menu on the target section&amp;rsquo;s field. Then select &lt;code>wrap with &amp;quot;choose-when-otherwise&amp;quot;&lt;/code> to create a mapping.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Wrap with choose-when-otherwise" srcset="
+/docs/manual/04_datamapper/datamapper-choose-choose_hubc1c5835bfe10b3d8bd26920e0411a70_49269_61b7731e132bac468ae91f5dc2f7ec67.webp 400w,
+/docs/manual/04_datamapper/datamapper-choose-choose_hubc1c5835bfe10b3d8bd26920e0411a70_49269_ff71d97004bde263746f5f9c8fd3b51b.webp 760w,
+/docs/manual/04_datamapper/datamapper-choose-choose_hubc1c5835bfe10b3d8bd26920e0411a70_49269_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-choose-choose_hubc1c5835bfe10b3d8bd26920e0411a70_49269_61b7731e132bac468ae91f5dc2f7ec67.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure the &lt;code>when&lt;/code> condition.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure when condition" srcset="
+/docs/manual/04_datamapper/datamapper-choose-when-condition_hubcd163641203ddd5070b5021616c441b_47564_f64f7aedcd8efc3651a1b17971f76492.webp 400w,
+/docs/manual/04_datamapper/datamapper-choose-when-condition_hubcd163641203ddd5070b5021616c441b_47564_560bc639c3c59242e7aee5ce7ff7822c.webp 760w,
+/docs/manual/04_datamapper/datamapper-choose-when-condition_hubcd163641203ddd5070b5021616c441b_47564_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-choose-when-condition_hubcd163641203ddd5070b5021616c441b_47564_f64f7aedcd8efc3651a1b17971f76492.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure the mapping for the &lt;code>when&lt;/code> branch.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure when mapping" srcset="
+/docs/manual/04_datamapper/datamapper-choose-when-mapping_huc123a9fdb95b829597f50830c521d763_54244_bf139a77a02f94865bd898cf84ddf09a.webp 400w,
+/docs/manual/04_datamapper/datamapper-choose-when-mapping_huc123a9fdb95b829597f50830c521d763_54244_337fdc9e1e4c284ae5916be6e81b286d.webp 760w,
+/docs/manual/04_datamapper/datamapper-choose-when-mapping_huc123a9fdb95b829597f50830c521d763_54244_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-choose-when-mapping_huc123a9fdb95b829597f50830c521d763_54244_bf139a77a02f94865bd898cf84ddf09a.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure the mapping for the &lt;code>otherwise&lt;/code> branch.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure when mapping" srcset="
+/docs/manual/04_datamapper/datamapper-choose-otherwise-mapping_huaeade4b7b69ee5b9a96a2f905d72e9fb_64119_5c8e3a099ba5ba68bd3d703e63df2482.webp 400w,
+/docs/manual/04_datamapper/datamapper-choose-otherwise-mapping_huaeade4b7b69ee5b9a96a2f905d72e9fb_64119_bead24318a766232e66387f7257d2da1.webp 760w,
+/docs/manual/04_datamapper/datamapper-choose-otherwise-mapping_huaeade4b7b69ee5b9a96a2f905d72e9fb_64119_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-choose-otherwise-mapping_huaeade4b7b69ee5b9a96a2f905d72e9fb_64119_5c8e3a099ba5ba68bd3d703e63df2482.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If required, you can add one or more &lt;code>when&lt;/code> branches. To add another &lt;code>when&lt;/code> branch you can click the 3 dots menu on the &lt;code>choose&lt;/code> field in the &lt;code>Target&lt;/code> section and then select &lt;code>Add &amp;quot;when&amp;quot;&lt;/code>.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure when mapping" srcset="
+/docs/manual/04_datamapper/datamapper-choose-add-when_hu2b970cc23b6855b0ead01549099131dc_68653_d14945bf41e4e7357df0d874b977017b.webp 400w,
+/docs/manual/04_datamapper/datamapper-choose-add-when_hu2b970cc23b6855b0ead01549099131dc_68653_47a03677ebf1d2ac6f8f1587a65610fb.webp 760w,
+/docs/manual/04_datamapper/datamapper-choose-add-when_hu2b970cc23b6855b0ead01549099131dc_68653_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-choose-add-when_hu2b970cc23b6855b0ead01549099131dc_68653_d14945bf41e4e7357df0d874b977017b.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure when mapping" srcset="
+/docs/manual/04_datamapper/datamapper-choose-when-added_hu0538f748754ab57ab23b61d69cc64946_60689_e5c0efebce60c2d9892af469c750683b.webp 400w,
+/docs/manual/04_datamapper/datamapper-choose-when-added_hu0538f748754ab57ab23b61d69cc64946_60689_a03cc431d97733456d16096af4adc374.webp 760w,
+/docs/manual/04_datamapper/datamapper-choose-when-added_hu0538f748754ab57ab23b61d69cc64946_60689_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-choose-when-added_hu0538f748754ab57ab23b61d69cc64946_60689_e5c0efebce60c2d9892af469c750683b.webp"
+width="760"
+height="249"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="create-a-for-each-mapping">Create a &lt;code>for-each&lt;/code> mapping&lt;/h4>
+&lt;p>When a field is a collection field (means multiple occurrences, often represented as an array), you can create a &lt;code>for-each&lt;/code> mapping. The layer icon on the field indicates that it is a collection field.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Collection field" srcset="
+/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_083d972ae8c62828e47b1094412488ef.webp 400w,
+/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_780c7cfe05bce7c2d0f84bc5f997b62b.webp 760w,
+/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-collection-field_hufa5e5aade631743375bcf798282fde31_2285_083d972ae8c62828e47b1094412488ef.webp"
+width="43"
+height="39"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click the 3 dots context menu on the target section&amp;rsquo;s collection field. Then select &lt;code>wrap with &amp;quot;for-each&amp;quot;&lt;/code> to create a mapping.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Wrap with for-each" srcset="
+/docs/manual/04_datamapper/datamapper-for-each-for-each_hu2d426c3340d60270254887ee39f4009d_47280_5ef53a16a4e4b3550376f70e9c3ba33b.webp 400w,
+/docs/manual/04_datamapper/datamapper-for-each-for-each_hu2d426c3340d60270254887ee39f4009d_47280_0e2e6a8e26ec4dc25063a5cda865f796.webp 760w,
+/docs/manual/04_datamapper/datamapper-for-each-for-each_hu2d426c3340d60270254887ee39f4009d_47280_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-for-each-for-each_hu2d426c3340d60270254887ee39f4009d_47280_5ef53a16a4e4b3550376f70e9c3ba33b.webp"
+width="760"
+height="250"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure the &lt;code>for-each&lt;/code> condition by specifying the source collection field to iterate over.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure for-each condition" srcset="
+/docs/manual/04_datamapper/datamapper-for-each-condition_huafc812a6a2c0fcf53be66d030ee929d9_37966_9286bd21eaacfd5d811132287166371b.webp 400w,
+/docs/manual/04_datamapper/datamapper-for-each-condition_huafc812a6a2c0fcf53be66d030ee929d9_37966_c2429d2e67cff948d788e29421f4167c.webp 760w,
+/docs/manual/04_datamapper/datamapper-for-each-condition_huafc812a6a2c0fcf53be66d030ee929d9_37966_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-for-each-condition_huafc812a6a2c0fcf53be66d030ee929d9_37966_9286bd21eaacfd5d811132287166371b.webp"
+width="760"
+height="250"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configure the mappings below. Note that the mapping field path is now a relative path from the collection field specified in the &lt;code>for-each&lt;/code> condition.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Configure for-each mappings" srcset="
+/docs/manual/04_datamapper/datamapper-for-each-mappings_huca98daee49f3d0a27e633e7a79bccfa2_59648_75bb1e51a9103fc509fcd60c82f74c85.webp 400w,
+/docs/manual/04_datamapper/datamapper-for-each-mappings_huca98daee49f3d0a27e633e7a79bccfa2_59648_4b7af2891afcfc03a2e73d0953060bb3.webp 760w,
+/docs/manual/04_datamapper/datamapper-for-each-mappings_huca98daee49f3d0a27e633e7a79bccfa2_59648_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-for-each-mappings_huca98daee49f3d0a27e633e7a79bccfa2_59648_75bb1e51a9103fc509fcd60c82f74c85.webp"
+width="760"
+height="250"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="create-multiple-mappings-for-a-collection-target-field">Create multiple mappings for a collection target field&lt;/h3>
+&lt;p>A target collection field can have multiple mappings. For example, it can have multiple &lt;code>for-each&lt;/code> loops
+to merge 2 different source collection fields into one target collection field. Once you create a first
+mapping, you will see a place holder which has buttons to add more mappings.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Add more mapping" srcset="
+/docs/manual/04_datamapper/datamapper-add-more-mapping_hu7c6b11ca49429662257e3840fd30c4c8_48895_73d7226f92c06fba0a137fb269281c65.webp 400w,
+/docs/manual/04_datamapper/datamapper-add-more-mapping_hu7c6b11ca49429662257e3840fd30c4c8_48895_fd1fea4e15ad80e2ac5b0fc30ee9cf58.webp 760w,
+/docs/manual/04_datamapper/datamapper-add-more-mapping_hu7c6b11ca49429662257e3840fd30c4c8_48895_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-add-more-mapping_hu7c6b11ca49429662257e3840fd30c4c8_48895_73d7226f92c06fba0a137fb269281c65.webp"
+width="760"
+height="511"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>After creating a first &lt;code>for-each&lt;/code> mapping by following &lt;a href="#create-a-for-each-mapping">previous section&lt;/a>, click &lt;code>Add Conditional Mapping&lt;/code> in the placeholder below the added &lt;code>for-each&lt;/code> mapping
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Add Conditional Mapping" srcset="
+/docs/manual/04_datamapper/datamapper-add-conditional-mapping_hu3056c4bddfc61a18538269e465e2799c_38846_b59a71b27dfbd4a75cd87b71121a4c8e.webp 400w,
+/docs/manual/04_datamapper/datamapper-add-conditional-mapping_hu3056c4bddfc61a18538269e465e2799c_38846_b344fc55476576c5f78fc5f736492d18.webp 760w,
+/docs/manual/04_datamapper/datamapper-add-conditional-mapping_hu3056c4bddfc61a18538269e465e2799c_38846_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-add-conditional-mapping_hu3056c4bddfc61a18538269e465e2799c_38846_b59a71b27dfbd4a75cd87b71121a4c8e.webp"
+width="760"
+height="396"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Click &lt;code>Wrap with &amp;quot;for-each&amp;quot;&lt;/code>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Wrap with for-each" srcset="
+/docs/manual/04_datamapper/datamapper-wrap-with-for-each_hud950321406e5a9961739047ad2f6cd57_25126_790ca83bb0e98630ba6b80e45aaa8e32.webp 400w,
+/docs/manual/04_datamapper/datamapper-wrap-with-for-each_hud950321406e5a9961739047ad2f6cd57_25126_2109fa6b8bbb074f4182bdaeb0c39c42.webp 760w,
+/docs/manual/04_datamapper/datamapper-wrap-with-for-each_hud950321406e5a9961739047ad2f6cd57_25126_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-wrap-with-for-each_hud950321406e5a9961739047ad2f6cd57_25126_790ca83bb0e98630ba6b80e45aaa8e32.webp"
+width="720"
+height="257"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Map other source collection to the added &lt;code>for-each&lt;/code> mapping
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Map 2nd for-each" srcset="
+/docs/manual/04_datamapper/datamapper-map-2nd-for-each_hu5d8abcb9d28fcde252552f12fe9dcb61_115583_691bd0a0bd7ae3720162cb3c5e70916f.webp 400w,
+/docs/manual/04_datamapper/datamapper-map-2nd-for-each_hu5d8abcb9d28fcde252552f12fe9dcb61_115583_bec077f04ff8c087d49592398004a290.webp 760w,
+/docs/manual/04_datamapper/datamapper-map-2nd-for-each_hu5d8abcb9d28fcde252552f12fe9dcb61_115583_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-map-2nd-for-each_hu5d8abcb9d28fcde252552f12fe9dcb61_115583_691bd0a0bd7ae3720162cb3c5e70916f.webp"
+width="760"
+height="504"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Create subsequent mappings
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Map 2nd for-each children" srcset="
+/docs/manual/04_datamapper/datamapper-map-2nd-for-each-children_hu5d8abcb9d28fcde252552f12fe9dcb61_135450_3fcd3bc9c6ceed316a43c020ecb4ab7a.webp 400w,
+/docs/manual/04_datamapper/datamapper-map-2nd-for-each-children_hu5d8abcb9d28fcde252552f12fe9dcb61_135450_0d4906277083a378b1a873f879b39cb0.webp 760w,
+/docs/manual/04_datamapper/datamapper-map-2nd-for-each-children_hu5d8abcb9d28fcde252552f12fe9dcb61_135450_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-map-2nd-for-each-children_hu5d8abcb9d28fcde252552f12fe9dcb61_135450_3fcd3bc9c6ceed316a43c020ecb4ab7a.webp"
+width="760"
+height="504"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>Here is a demo screencast for merging 2 source collection fields with multiple &lt;code>for-each&lt;/code> mappings.
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./dm_multiplemappings.mp4" type="video/mp4">
+&lt;track
+label="English"
+kind="subtitles"
+srclang="en"
+src="./dm_multiplemappings.vtt"
+default />
+Your browser does not support the video tag.
+&lt;a href="./dm_multiplemappings.mp4">Download the video&lt;/a>.
+&lt;/video>&lt;/p>
+&lt;h3 id="using-xpath-expression-editor">Using XPath expression editor&lt;/h3>
+&lt;div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+&lt;span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+&lt;svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/>&lt;/svg>
+&lt;/span>
+&lt;span class="dark:text-neutral-300">The &lt;code>XPath&lt;/code> editor is still under initial development and it currently supports only limited drag and drop. In future releases, more syntax assisting features will be added.&lt;/span>
+&lt;/div>
+&lt;p>If you want to write something more in XPath expression rather than just a field path, you can launch the &lt;code>XPath&lt;/code> expression editor and work with it. There is a pencil icon on the target field which launches the &lt;code>XPath&lt;/code> expression editor when you click it.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click the pencil button on a target field which has a mapping.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Launch XPath editor" srcset="
+/docs/manual/04_datamapper/datamapper-xpath-pencil_hu089132f6f0ba9ad251af020ef330e9c6_14688_be4417861ca2cb19cd3191ffa7ac18a6.webp 400w,
+/docs/manual/04_datamapper/datamapper-xpath-pencil_hu089132f6f0ba9ad251af020ef330e9c6_14688_a153db8b0e735397ccb56eb806446dbe.webp 760w,
+/docs/manual/04_datamapper/datamapper-xpath-pencil_hu089132f6f0ba9ad251af020ef330e9c6_14688_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-xpath-pencil_hu089132f6f0ba9ad251af020ef330e9c6_14688_be4417861ca2cb19cd3191ffa7ac18a6.webp"
+width="760"
+height="160"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>This will open up the &lt;code>XPath&lt;/code> editor.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="XPath editor" srcset="
+/docs/manual/04_datamapper/datamapper-xpath-editor_hua620988239915c557b6c01b0c486a0c4_61202_886dbb84ff3280925f121b9b9da8fcc5.webp 400w,
+/docs/manual/04_datamapper/datamapper-xpath-editor_hua620988239915c557b6c01b0c486a0c4_61202_a5cfe8bdc73674f4b3ea0dc9f59b7c26.webp 760w,
+/docs/manual/04_datamapper/datamapper-xpath-editor_hua620988239915c557b6c01b0c486a0c4_61202_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-xpath-editor_hua620988239915c557b6c01b0c486a0c4_61202_886dbb84ff3280925f121b9b9da8fcc5.webp"
+width="760"
+height="498"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>You can then type in the editor at the right or drag a &lt;code>Field&lt;/code> from the left and drop onto the editor.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="XPath editor: DnD fields" srcset="
+/docs/manual/04_datamapper/datamapper-xpath-dnd-fields_hu393e46987a30404ff05d15048a3d6185_66415_9ba3e9f9b7b5795aab63e283313bbe26.webp 400w,
+/docs/manual/04_datamapper/datamapper-xpath-dnd-fields_hu393e46987a30404ff05d15048a3d6185_66415_bc75dcc05fb2d2f010d2f52f195d6f36.webp 760w,
+/docs/manual/04_datamapper/datamapper-xpath-dnd-fields_hu393e46987a30404ff05d15048a3d6185_66415_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-xpath-dnd-fields_hu393e46987a30404ff05d15048a3d6185_66415_9ba3e9f9b7b5795aab63e283313bbe26.webp"
+width="760"
+height="498"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>You can also drag and drop &lt;code>XPath&lt;/code> functions from the &lt;code>Function&lt;/code> tab on the left side.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="XPath editor: Functions" srcset="
+/docs/manual/04_datamapper/datamapper-xpath-functions_hu393e46987a30404ff05d15048a3d6185_101420_34ccd24247b3e7ad26da6b4b197d7ccb.webp 400w,
+/docs/manual/04_datamapper/datamapper-xpath-functions_hu393e46987a30404ff05d15048a3d6185_101420_454cc185af33432bbe0545aedb13b280.webp 760w,
+/docs/manual/04_datamapper/datamapper-xpath-functions_hu393e46987a30404ff05d15048a3d6185_101420_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-xpath-functions_hu393e46987a30404ff05d15048a3d6185_101420_34ccd24247b3e7ad26da6b4b197d7ccb.webp"
+width="760"
+height="498"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Drag the function and drop it onto the editor.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="XPath editor: DnD functions" srcset="
+/docs/manual/04_datamapper/datamapper-xpath-functions-dnd_hu393e46987a30404ff05d15048a3d6185_103394_af0fa7036df8f9bbd8970dd63df8512e.webp 400w,
+/docs/manual/04_datamapper/datamapper-xpath-functions-dnd_hu393e46987a30404ff05d15048a3d6185_103394_07e139a544bb6dd6cc930baf0fd7d299.webp 760w,
+/docs/manual/04_datamapper/datamapper-xpath-functions-dnd_hu393e46987a30404ff05d15048a3d6185_103394_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-xpath-functions-dnd_hu393e46987a30404ff05d15048a3d6185_103394_af0fa7036df8f9bbd8970dd63df8512e.webp"
+width="760"
+height="498"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Once it&amp;rsquo;s completed, click the &lt;code>Close&lt;/code> button at the bottom left.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="XPath editor: Close" srcset="
+/docs/manual/04_datamapper/datamapper-xpath-close_hu393e46987a30404ff05d15048a3d6185_103627_80c001c3a114ddfa98310b6033e92f4e.webp 400w,
+/docs/manual/04_datamapper/datamapper-xpath-close_hu393e46987a30404ff05d15048a3d6185_103627_41cf0112326c9764bd68510f7fafd7cf.webp 760w,
+/docs/manual/04_datamapper/datamapper-xpath-close_hu393e46987a30404ff05d15048a3d6185_103627_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-xpath-close_hu393e46987a30404ff05d15048a3d6185_103627_80c001c3a114ddfa98310b6033e92f4e.webp"
+width="760"
+height="498"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now you can see the new mapping in the tree view.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="XPath editor: Done" srcset="
+/docs/manual/04_datamapper/datamapper-xpath-done_hu959d68f8f8d5ecfae0ccbf27b0c9a245_92675_9345b3b771068d94c0d0866aa4c3224e.webp 400w,
+/docs/manual/04_datamapper/datamapper-xpath-done_hu959d68f8f8d5ecfae0ccbf27b0c9a245_92675_41c77419ba60a00669a3aa45928927eb.webp 760w,
+/docs/manual/04_datamapper/datamapper-xpath-done_hu959d68f8f8d5ecfae0ccbf27b0c9a245_92675_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-xpath-done_hu959d68f8f8d5ecfae0ccbf27b0c9a245_92675_9345b3b771068d94c0d0866aa4c3224e.webp"
+width="760"
+height="498"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="delete-a-mapping">Delete a mapping&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>To delete a mapping you can click the dustbin button next to the target field.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Delete a mapping" srcset="
+/docs/manual/04_datamapper/datamapper-delete-mapping-btn_hu5ab31cf8eaf1b186a7756397dfe4576e_1265_c4ffadeba24cdfcedf658bce952fad24.webp 400w,
+/docs/manual/04_datamapper/datamapper-delete-mapping-btn_hu5ab31cf8eaf1b186a7756397dfe4576e_1265_a22644e246f7c9675b3932ae30b23179.webp 760w,
+/docs/manual/04_datamapper/datamapper-delete-mapping-btn_hu5ab31cf8eaf1b186a7756397dfe4576e_1265_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-delete-mapping-btn_hu5ab31cf8eaf1b186a7756397dfe4576e_1265_c4ffadeba24cdfcedf658bce952fad24.webp"
+width="32"
+height="36"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>You then have to confirm the deletion by clicking the &lt;code>Confirm&lt;/code> button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Confirm delete mapping" srcset="
+/docs/manual/04_datamapper/datamapper-delete-mapping-confirm_hu7c14a779395907703cdcbb397d663cb0_27050_620ece2303f86dfbf8321a0ff0d906f7.webp 400w,
+/docs/manual/04_datamapper/datamapper-delete-mapping-confirm_hu7c14a779395907703cdcbb397d663cb0_27050_235696d2a2b6e6603c1dff250d7fef8e.webp 760w,
+/docs/manual/04_datamapper/datamapper-delete-mapping-confirm_hu7c14a779395907703cdcbb397d663cb0_27050_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-delete-mapping-confirm_hu7c14a779395907703cdcbb397d663cb0_27050_620ece2303f86dfbf8321a0ff0d906f7.webp"
+width="725"
+height="257"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="delete-a-parameter">Delete a parameter&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>To delete a parameter, click the dustbin button next to the parameter.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Delete parameter" srcset="
+/docs/manual/04_datamapper/datamapper-delete-param-trash_hu50124ca70bc62110012b022ed294234d_17211_abbecf51d895667b13309dd646308494.webp 400w,
+/docs/manual/04_datamapper/datamapper-delete-param-trash_hu50124ca70bc62110012b022ed294234d_17211_68c728b3d7df1dd2d64fb6ca9b3d7fb3.webp 760w,
+/docs/manual/04_datamapper/datamapper-delete-param-trash_hu50124ca70bc62110012b022ed294234d_17211_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-delete-param-trash_hu50124ca70bc62110012b022ed294234d_17211_abbecf51d895667b13309dd646308494.webp"
+width="573"
+height="245"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>You then have to confirm the deletion by clicking the &lt;code>Confirm&lt;/code> button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Delete parameter confirm" srcset="
+/docs/manual/04_datamapper/datamapper-delete-param-confirm_hu88a722f1d6d9775c6d56769deb1041e5_22756_86c942283805231e82d2c56246f39b22.webp 400w,
+/docs/manual/04_datamapper/datamapper-delete-param-confirm_hu88a722f1d6d9775c6d56769deb1041e5_22756_ce58d9021336c05c1cd30973a0bbe2a4.webp 760w,
+/docs/manual/04_datamapper/datamapper-delete-param-confirm_hu88a722f1d6d9775c6d56769deb1041e5_22756_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-delete-param-confirm_hu88a722f1d6d9775c6d56769deb1041e5_22756_86c942283805231e82d2c56246f39b22.webp"
+width="702"
+height="250"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="detach-a-schema">Detach a schema&lt;/h3>
+&lt;p>Similar to attaching a schema you can also remove / detach a schema.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Click the &lt;code>Detach schema&lt;/code> button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Detach schema button" srcset="
+/docs/manual/04_datamapper/datamapper-detach-button_huea40821058cd51e695c34d2a26ba6f32_834_28101f923e7f1e79dd12d3a101e790f1.webp 400w,
+/docs/manual/04_datamapper/datamapper-detach-button_huea40821058cd51e695c34d2a26ba6f32_834_011576f7d33759a5475666d777ec57bc.webp 760w,
+/docs/manual/04_datamapper/datamapper-detach-button_huea40821058cd51e695c34d2a26ba6f32_834_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-detach-button_huea40821058cd51e695c34d2a26ba6f32_834_28101f923e7f1e79dd12d3a101e790f1.webp"
+width="31"
+height="32"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Click the &lt;code>Confirm&lt;/code> button.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Detach schema confirm" srcset="
+/docs/manual/04_datamapper/datamapper-detach-confirm_hude117633b9e89dd89cfe44480875dcf0_26159_3406ff964078fd88d8e9a7e6457d5148.webp 400w,
+/docs/manual/04_datamapper/datamapper-detach-confirm_hude117633b9e89dd89cfe44480875dcf0_26159_27b639212debc07ea93311b1b85ec5b9.webp 760w,
+/docs/manual/04_datamapper/datamapper-detach-confirm_hude117633b9e89dd89cfe44480875dcf0_26159_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/04_datamapper/datamapper-detach-confirm_hude117633b9e89dd89cfe44480875dcf0_26159_3406ff964078fd88d8e9a7e6457d5148.webp"
+width="702"
+height="250"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>Generating a catalog</title><link>https://kaoto.io/docs/manual/09_generatingcatalog/</link><pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate><guid>https://kaoto.io/docs/manual/09_generatingcatalog/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>By default, every Kaoto release includes the latest Camel version available at the moment of the build, nevertheless, generating a different set of catalogs is possible.&lt;/p>
+&lt;h3 id="catalog-generator-cli">Catalog generator CLI&lt;/h3>
+&lt;p>Kaoto provides a Camel catalog generator CLI to ease this process, it supports the following runtimes:&lt;/p>
+&lt;ul>
+&lt;li>Main&lt;/li>
+&lt;li>Quarkus&lt;/li>
+&lt;li>Spring Boot&lt;/li>
+&lt;/ul>
+&lt;h4 id="how-to-use">How to use?&lt;/h4>
+&lt;ol>
+&lt;li>Clone &lt;a href="https://github.com/KaotoIO/camel-catalog/" target="_blank" rel="noopener">the Kaoto Camel catalog project&lt;/a>&lt;/li>
+&lt;li>Navigate to the &lt;code>camel-catalog&lt;/code> directory&lt;/li>
+&lt;li>Install the project dependencies&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yarn install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>Build the default catalogs&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yarn build
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
+&lt;li>This will generate a Catalog library containing:
+&lt;ul>
+&lt;li>Camel Main versions&lt;/li>
+&lt;li>Camel extensions for Quarkus&lt;/li>
+&lt;li>Camel Spring boot&lt;/li>
+&lt;li>Camel Kamelets&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote class="note">&lt;p>To check what specific versions are included, please visit &lt;a href="https://github.com/KaotoIO/camel-catalog/blob/main/index.js" target="_blank" rel="noopener">the index file&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>The resulting files will be in the &lt;code>catalog&lt;/code> folder&lt;/li>
+&lt;/ol>
+&lt;blockquote class="note">&lt;p>The latest catalog is version is available in &lt;a href="https://github.com/KaotoIO/camel-catalog/tree/main/catalog" target="_blank" rel="noopener">the GitHub repository&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>Providing that folder through a http server will make it available for using it in Kaoto&lt;/li>
+&lt;/ol>
+&lt;h4 id="creating-a-catalog-library-with-different-runtimes">Creating a Catalog library with different runtimes&lt;/h4>
+&lt;p>In order to add multiple runtimes to the Catalog library, we can provide each runtime with its version using the following flags:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> -m,--main &amp;lt;version&amp;gt; Camel Main version. If not specified,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> it will use the generator installed
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -q,--quarkus &amp;lt;version&amp;gt; Camel Extensions &lt;span class="k">for&lt;/span> Quarkus version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -s,--springboot &amp;lt;version&amp;gt; Camel SpringBoot version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For instance, running the following command will create a Catalog library with Camel Main 4.15.0 and Camel extensions for Quarkus 3.27.0:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./mvnw package&lt;span class="p">;&lt;/span> java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.15.0 -m 4.15.0 -q 3.27.0 -n &lt;span class="s2">&amp;#34;My Catalog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For a different Kamelets catalog version, the &lt;code>--kamelets or -k&lt;/code> flag can be specified&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">./mvnw package&lt;span class="p">;&lt;/span> java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.15.0 -m 4.15.0 -n &lt;span class="s2">&amp;#34;My Catalog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="how-to-instruct-kaoto-to-use-a-specific-catalog-library">How to instruct Kaoto to use a specific Catalog library&lt;/h3>
+&lt;ol>
+&lt;li>In VSCode, go to the settings page and look for &amp;ldquo;Kaoto&amp;rdquo;&lt;/li>
+&lt;/ol>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="VSCode Kaoto settings" srcset="
+/docs/manual/09_generatingcatalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_0776677cd9a532ae55bf6448f5909d32.webp 400w,
+/docs/manual/09_generatingcatalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_c8879722ed886b00d13c42c7745a5fe6.webp 760w,
+/docs/manual/09_generatingcatalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/09_generatingcatalog/vscode-kaoto-settings_huf56e2cd9939d9a2b1e6833ababe595d8_37691_0776677cd9a532ae55bf6448f5909d32.webp"
+width="760"
+height="164"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ol>
+&lt;li>In the &lt;code>TextField&lt;/code>, provide the URL of the &lt;code>index.json&lt;/code> file that specifies the location of the subsequent catalogs, for instance, the public Kaoto catalog can be used:&lt;/li>
+&lt;/ol>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Setting a Kaoto catalog URL" srcset="
+/docs/manual/09_generatingcatalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_ef9a47be0f3b0ed43cf1ae9831862ce1.webp 400w,
+/docs/manual/09_generatingcatalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_0568aed2784b6d4314daf8632da57cd4.webp 760w,
+/docs/manual/09_generatingcatalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/09_generatingcatalog/setting-kaoto-catalog-url_hu02fcb02399c78bcfd091441f62753f1c_42436_ef9a47be0f3b0ed43cf1ae9831862ce1.webp"
+width="760"
+height="150"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ol>
+&lt;li>Restart Kaoto for the changes to have effect&lt;/li>
+&lt;/ol>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Kaoto runtime selector" srcset="
+/docs/manual/09_generatingcatalog/runtime-selector_hue20c4f62780df08790711c0c6242e9de_37537_8ebdcaaa9bf8c988fa286de4137d85c8.webp 400w,
+/docs/manual/09_generatingcatalog/runtime-selector_hue20c4f62780df08790711c0c6242e9de_37537_40668bf9e842bb8eb80887e6dc5bf48b.webp 760w,
+/docs/manual/09_generatingcatalog/runtime-selector_hue20c4f62780df08790711c0c6242e9de_37537_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/docs/manual/09_generatingcatalog/runtime-selector_hue20c4f62780df08790711c0c6242e9de_37537_8ebdcaaa9bf8c988fa286de4137d85c8.webp"
+width="630"
+height="357"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p></description></item></channel></rss>

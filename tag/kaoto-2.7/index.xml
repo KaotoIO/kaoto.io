@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kaoto 2.7 | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/tag/kaoto-2.7/</link><atom:link href="https://kaoto.io/tag/kaoto-2.7/index.xml" rel="self" type="application/rss+xml"/><description>Kaoto 2.7</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><copyright>© 2026 Kaoto. Apache Camel and Camel are trademarks of The Apache Software Foundation.</copyright><lastBuildDate>Wed, 03 Sep 2025 00:00:00 +0600</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Kaoto 2.7</title><link>https://kaoto.io/tag/kaoto-2.7/</link></image><item><title>Kaoto 2.7 released</title><link>https://kaoto.io/blog/kaoto-2.7-release/</link><pubDate>Wed, 03 Sep 2025 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.7-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>It has been quite some time since the last Kaoto release. We have been busy improving Kaoto with more usability features and the addition of JSON support for our Data Mapper.&lt;/p>
+&lt;p>Please take a look below to learn about the exciting new things we added to this version.&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;h3 id="data-mapper-json-support-tech-preview">Data Mapper JSON Support (Tech Preview)&lt;/h3>
+&lt;p align="center">&lt;img src="./datamapper-json.png" alt="DataMapper JSON Support" />&lt;/p>
+&lt;p>Building on the XML support introduced earlier, the Data Mapper now enables you to:&lt;/p>
+&lt;ul>
+&lt;li>serialize and deserialize JSON data structures for visual mapping&lt;/li>
+&lt;li>attach JSON schemas to visualize data structures in a tree view&lt;/li>
+&lt;li>create mappings between JSON and XML formats&lt;/li>
+&lt;li>choose root elements when working with schemas containing multiple root elements&lt;/li>
+&lt;/ul>
+&lt;h4 id="json-support-demo">JSON Support Demo&lt;/h4>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./dm_json.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./dm_json.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h4 id="choose-xml-root-element-demo">Choose XML Root Element Demo&lt;/h4>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./dm_chooserootelement.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./dm_chooserootelement.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;p>You can find more detailed information about the Data Mapper in our online &lt;a href="https://kaoto.io/docs/manual/04_datamapper/">user manual&lt;/a>.&lt;/p>
+&lt;h3 id="improved-maven-support">Improved Maven Support&lt;/h3>
+&lt;p>If you are using the Kaoto VS Code extension and you work in a Maven project then this little improvement might delight you. Whenever you add a new component endpoint to your route, upon saving your &lt;code>pom.xml&lt;/code> file gets updated with the required dependency.&lt;/p>
+&lt;p align="center">&lt;img src="./dep-update.gif" alt="showcasing the dependency update" />&lt;/p>
+&lt;h3 id="drag--drop-support">Drag &amp;amp; Drop Support&lt;/h3>
+&lt;p>In earlier releases we already introduced the drag &amp;amp; drop support partially and you had to enable it in the settings. With this release we consider it good enough to enable it by default.&lt;/p>
+&lt;p>You can now reorder steps directly on the canvas by dragging them into the right positions. Additionally we enabled the support for dragging between different containers and finally we also improved the visual feedback for the drag &amp;amp; drop operation.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./drag-n-drop-simple.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./drag-n-drop-simple.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="copy--paste-support">Copy &amp;amp; Paste Support&lt;/h3>
+&lt;p>We have added support for copying and pasting steps and containers via the right-click context menu in the graphical editor.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./copy-paste.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./copy-paste.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="quick-duplicate">Quick Duplicate&lt;/h3>
+&lt;p>There are sometimes repetetive tasks that require you to create several steps of the same kind just with different configurations. We have added the &lt;strong>Duplicate&lt;/strong> feature to ease the pain. With a single click you can now duplicate existing steps and even containers.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./duplicate.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./duplicate.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="undo--redo-support">Undo / Redo Support&lt;/h3>
+&lt;p>Did you delete something by mistake? This is no longer an issue due to the added support for Undo and Redo in the graphical editor. This way you can now navigate your design changes and recover from accidental modifications easily.&lt;/p>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./undo-redo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./undo-redo.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="form-and-ui-enhancements">Form and UI Enhancements&lt;/h3>
+&lt;ul>
+&lt;li>intelligent form suggestions&lt;/li>
+&lt;li>form suggestions help you to complete configurations faster&lt;/li>
+&lt;li>&lt;em>simple&lt;/em> expression language suggestions for easier expression authoring&lt;/li>
+&lt;li>&lt;code>application.properties&lt;/code> suggestions with metadata-driven completions&lt;/li>
+&lt;/ul>
+&lt;video controls preload="metadata" playsinline style="max-width:100%;height:auto;">
+&lt;source src="./suggestions-property-placeholders.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;a href="./suggestions-property-placeholders.mp4">Download the video&lt;/a>.
+&lt;/video>
+&lt;h3 id="other-enhancements">Other Enhancements&lt;/h3>
+&lt;ul>
+&lt;li>Switch between &lt;code>to&lt;/code>, &lt;code>toD&lt;/code>, and &lt;code>poll&lt;/code> variants directly in the form&lt;/li>
+&lt;/ul>
+&lt;p align="center">&lt;img src="./endpoint-switch.png" alt="showcasing the endpoint type selector" />&lt;/p>
+&lt;ul>
+&lt;li>Preserve expressions when switching between different languages&lt;/li>
+&lt;li>Improved parameter handling with URI parsing enhancements&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.7.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kaoto 2.9 | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/tag/kaoto-2.9/</link><atom:link href="https://kaoto.io/tag/kaoto-2.9/index.xml" rel="self" type="application/rss+xml"/><description>Kaoto 2.9</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><copyright>© 2026 Kaoto. Apache Camel and Camel are trademarks of The Apache Software Foundation.</copyright><lastBuildDate>Tue, 16 Dec 2025 00:00:00 +0000</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Kaoto 2.9</title><link>https://kaoto.io/tag/kaoto-2.9/</link></image><item><title>Kaoto 2.9 Release</title><link>https://kaoto.io/blog/kaoto-2.9-release/</link><pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate><guid>https://kaoto.io/blog/kaoto-2.9-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s New?&lt;/h2>
+&lt;p>This release includes several improvements for the DataMapper, more Canvas UX improvements alongside with architectural improvements that lay the groundwork for interesting catalog use cases, but more on that in the upcoming releases.&lt;/p>
+&lt;h3 id="datamapper-enhancements">DataMapper Enhancements&lt;/h3>
+&lt;p>The DataMapper continues to be a core focus. In 2.9, we&amp;rsquo;ve introduced several improvements to make complex data transformations more intuitive:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Improved Document Visualization:&lt;/strong> The document tree visualization has been improved. Now you can see
+a lot more document fields and mappings without scrolling. It especially helps to oversee larger
+documents and complex mappings.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Improved document visualization" srcset="
+/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_0a71830abbfb2bfdbf83bd62f3c8d722.webp 400w,
+/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_d8c08d41266e9fce65dafcb4e157b57d.webp 760w,
+/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/dm-improved-doc-viz_hu6eb58c63512ba5636dfab4588bd98c16_253782_0a71830abbfb2bfdbf83bd62f3c8d722.webp"
+width="760"
+height="391"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>Field Occurrence Indicators:&lt;/strong> You can now see minOccurs and maxOccurs constraints for schema fields, making it easier to understand field cardinality requirements at a glance.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Field occurrence indicators" srcset="
+/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_97397369ceaaf285176906d9fd098450.webp 400w,
+/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_55d6fed3f072f387acd249b6ed869fc7.webp 760w,
+/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/dm-occurence-indicators_hua0d9b717ae1dbf4feb493d7eaf97ff11_13289_97397369ceaaf285176906d9fd098450.webp"
+width="427"
+height="137"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>Wrap-with-If Action:&lt;/strong> You can now wrap already mapped fields with a conditional &amp;ldquo;if&amp;rdquo; statement, making it easier to add logic to existing transformations without starting over. Thank you &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for this contribution.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Wrap with if action" srcset="
+/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_4f478d2b79e2b1dfd5144a5d4658b6ef.webp 400w,
+/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_b40eb1de368500079320eba76b6d66a9.webp 760w,
+/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/dm-wrap-with-if_huda277b3211a0b1f82ddddbd58ec12c99_43584_4f478d2b79e2b1dfd5144a5d4658b6ef.webp"
+width="760"
+height="168"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/li>
+&lt;li>&lt;strong>Improved Drag &amp;amp; Drop on DataMapper step:&lt;/strong> Better handling of Drag &amp;amp; Drop on DataMapper step, avoid breaking the DataMapper step contents when its position is swapped&lt;/li>
+&lt;li>&lt;strong>Root Element Persistence:&lt;/strong> When attaching an XML schema with multiple root elements, your chosen root element is now properly saved and restored when reopening the DataMapper.&lt;/li>
+&lt;/ul>
+&lt;h3 id="integrations-view">Integrations view&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Tree-like structure&lt;/strong>
+Kaoto now displays the workspace root and nested folders that contain matching integration files. It also highlights Maven roots and children; preserves integration‑specific item types (Route, Pipe, Kamelet).
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Tree structure" srcset="
+/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_bf060e511e68a2cd67751e65e8008aa7.webp 400w,
+/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_6b6a300f7cf83645f956b9231e8e7db8.webp 760w,
+/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/tree-structure_hue35e09659fff6b0f3fbf2a552bd254fe_31359_bf060e511e68a2cd67751e65e8008aa7.webp"
+width="428"
+height="319"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Buttons for running Folders and Workspace&lt;/strong>
+Building on top of the new tree-like structure, we introduced two new commands &lt;code>Run: Folder&lt;/code> and &lt;code>Run: Workspace&lt;/code>.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Run workspace and Run folder" srcset="
+/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_81fb586e3863ddc59c839da539752204.webp 400w,
+/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_261f8dd7b9acb13b1de000795dd2a9ce.webp 760w,
+/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/run-workspace-and-run-folder_hu5b4ab6b038c661904064f17ccaaa93f1_21891_81fb586e3863ddc59c839da539752204.webp"
+width="431"
+height="290"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Buttons for exporting into Maven-based project&lt;/strong>
+We also added the export functionality for folders and workspaces (&lt;code>Export: Folder&lt;/code> and &lt;code>Export: Workspace&lt;/code>), adding kamelet directory loading during export operations.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Export workspace and export folder" srcset="
+/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_118da1e8f19088bc2bc237a013995115.webp 400w,
+/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_bb96128f3058ad6c123d34f5e917d7c7.webp 760w,
+/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/export-workspace-and-export-folder_hu633057ea65887ef2f41253a2766615ee_22366_118da1e8f19088bc2bc237a013995115.webp"
+width="430"
+height="287"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Local Kamelets directories User setting&lt;/strong>
+Introducing a new user setting &lt;code>kaoto.localKameletDirectories&lt;/code> that allows users to specify a list of local directories containing Kamelet files. The setting automatically injects the &lt;code>--local-kamelet-dir&lt;/code> argument into Camel JBang run commands, providing a cleaner and more maintainable way to configure local Kamelet directories compared to manually adding the argument to run settings.
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Local Kamelet Directories user setting" srcset="
+/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_9d4166246a0bd75a59aafb5bc84144ee.webp 400w,
+/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_68db863acd374a359987082fba6489ef.webp 760w,
+/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/kamelets-dir-setting_hu405e6c4f24eadb69073d60d4a8be57fc_33900_9d4166246a0bd75a59aafb5bc84144ee.webp"
+width="751"
+height="239"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="canvas-and-ui-polish">Canvas and UI Polish&lt;/h3>
+&lt;p>We&amp;rsquo;re happy to thank the amazing work from our contributors, who made several tweaks to the graphical editor to improve clarity and workflow:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Route Auto-Startup Indicator:&lt;/strong> The canvas now visually indicates if a route is set to start up automatically, giving you better visibility into your integration’s lifecycle at a glance. Many thanks to &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for this contribution.&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Auto Startup on/off" srcset="
+/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_b8c95ff698ac60ca0467a71372931868.webp 400w,
+/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_6b7aa71bf791410e6716126f53070e20.webp 760w,
+/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/auto-startup-on-off_hu71cc500ef262afbff587e82e80728e05_8981_b8c95ff698ac60ca0467a71372931868.webp"
+width="458"
+height="176"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Updated EIPs Icons:&lt;/strong> New icons have been added for specific EIPs (like Poll) and layout elements to help distinguish between different types of steps more easily. Again, thank you &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for this contribution.&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Poll EIP icon" srcset="
+/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_5dde783302469ffe60b7d6e48dca7afb.webp 400w,
+/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_d415764eb9d75e68d890cd89ad020976.webp 760w,
+/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/blog/kaoto-2.9-release/poll-eip-icon_hu4d713a73a13b4f7c717d6983debcb23b_5440_5dde783302469ffe60b7d6e48dca7afb.webp"
+width="148"
+height="129"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Flicker-free Image Export:&lt;/strong> Exporting your flows as images is now smoother and higher quality, with fixes to prevent UI distortion during the process. Thank you &lt;a href="https://github.com/hsachdeva9" target="_blank" rel="noopener">Hitesh Sachdeva&lt;/a> for this contribution.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;video controls src="flicker-free-image-export.mp4" title="Flicker-free image export">&lt;/video>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Improved Serialization:&lt;/strong> Better handling of placeholders &lt;code>{{ }}&lt;/code> in parameters to ensure your routes don&amp;rsquo;t fail during XML serialization. Thank you &lt;a href="https://github.com/sarth-akvaish" target="_blank" rel="noopener">Sarthak Vaish&lt;/a> for the fix.&lt;/li>
+&lt;/ul>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.9.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible! A special welcome to our new contributors: &lt;strong>@sarth-akvaish&lt;/strong> and &lt;strong>@hsachdeva9&lt;/strong>.&lt;/p>
+&lt;p>Whether you are contributing code, reporting bugs, or sharing feedback in our &lt;a href="https://github.com/KaotoIO/kaoto/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>, your involvement is what keeps the Camel riding! 🐫🎉&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item></channel></rss>
