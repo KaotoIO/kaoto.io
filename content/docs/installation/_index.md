@@ -18,19 +18,16 @@ Learn more about how to use Kaoto in the [Quickstart](/docs/quickstart)
 
 Do you already use [Visual Studio Code](https://code.visualstudio.com/)? If you don't, you will need to install it first.
 
-{{% callout note %}}
-To be able to easily create and launch your integrations locally, we also suggest to install [Camel JBang](https://camel.apache.org/manual/camel-jbang.html).
-{{% /callout %}}
+> [!NOTE]
+> To be able to easily create and launch your integrations locally, we also suggest to install [Camel JBang](https://camel.apache.org/manual/camel-jbang.html).
 
-{{% callout note %}}
-If you want to run Citrus tests for your integration, we also suggest to install [Citrus JBang](https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing).
-{{% /callout %}}
+> [!NOTE]
+> If you want to run Citrus tests for your integration, we also suggest to install [Citrus JBang](https://github.com/apache/camel-jbang-examples?tab=readme-ov-file#integration-testing).
 
 ### Install the Kaoto VS Code extension
 
-{{% callout note %}}
-We provide the Kaoto extension to be able to work as a standalone extension. It provides all the required functionality to create and run your integrations locally.
-{{% /callout %}}
+> [!NOTE]
+> We provide the Kaoto extension to be able to work as a standalone extension. It provides all the required functionality to create and run your integrations locally.
 
 - Open VS Code
 - Open the Extensions view on the left side panel (or press <code>CTRL+SHIFT+X</code>)

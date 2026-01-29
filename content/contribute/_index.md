@@ -1,5 +1,7 @@
 ---
 title: 'Contribute'
+type: docs
+toc: true
 ---
 ## Contributing to Kaoto
 

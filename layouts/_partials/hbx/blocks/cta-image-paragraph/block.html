@@ -1,0 +1,38 @@
+{{/* Simple CTA image + paragraph block for Hugo Blox v3 fallback. */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+<div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+  {{ with $block.content.items }}
+    <div class="grid gap-12">
+      {{ range $index, $item := . }}
+        {{ $is_even := eq (mod $index 2) 0 }}
+        <div class="grid items-center gap-8 lg:grid-cols-2">
+          <div class="{{ if $is_even }}order-2 lg:order-1{{ else }}order-2{{ end }} text-center">
+            {{ with $item.title }}
+              <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 text-center">
+                {{ . | markdownify }}
+              </h3>
+            {{ end }}
+            {{ with $item.text }}
+              <p class="mt-4 text-base leading-7 text-gray-600 dark:text-gray-300 text-center">
+                {{ . | $page.RenderString | emojify }}
+              </p>
+            {{ end }}
+          </div>
+          <div class="{{ if $is_even }}order-1 lg:order-2{{ else }}order-1{{ end }}">
+            {{ $img := "" }}
+            {{ with $item.image }}
+              {{ $img = resources.Get (path.Join "media" .) }}
+              {{ if $img }}
+                <img class="w-full rounded-xl shadow-sm mx-auto" src="{{ $img.RelPermalink }}" alt="{{ $item.title | default "" | plainify }}" loading="lazy" />
+              {{ else }}
+                <img class="w-full rounded-xl shadow-sm mx-auto" src="{{ . | safeURL }}" alt="{{ $item.title | default "" | plainify }}" loading="lazy" />
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

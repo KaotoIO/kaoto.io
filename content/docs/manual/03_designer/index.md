@@ -54,9 +54,8 @@ Hover over the connection between the **Timer** and the **Log** steps now and cl
 
 ![A Screenshot of the available step actions](step-actions.png)
 
-{{% callout note %}}
-When using the right-click context menu, the set of available actions depend on the selected step and can vary. There are actions for appending, prepending, replacing and deleting steps as well as some more specialized actions.
-{{% /callout %}}
+> [!NOTE]
+> When using the right-click context menu, the set of available actions depend on the selected step and can vary. There are actions for appending, prepending, replacing and deleting steps as well as some more specialized actions.
 
 This will open up the Camel Catalog where you can search the step you want to add.
 
@@ -74,11 +73,10 @@ Let's change the **Expression** text field to <code>Hello from Kaoto!</code>.
 
 Now the **Log** component will receive a <code>Hello from Kaoto!</code> message every second and logs it to the console.
 
-{{% callout note %}}
-When using the right click context menu of a step, adding new steps is usually done with two actions. **Prepend** can be used to add a step _before_ the selected step and **Append** will add the new step _after_ the selected step.
+> [!NOTE]
+> When using the right click context menu of a step, adding new steps is usually done with two actions. **Prepend** can be used to add a step _before_ the selected step and **Append** will add the new step _after_ the selected step.
+> However, on the first step of a flow and on steps that can have children, the **Add Step** action is used.
 
-However, on the first step of a flow and on steps that can have children, the **Add Step** action is used.
-{{% /callout %}}
 
 #### Replacing a step
 
@@ -91,9 +89,8 @@ Both ways it will open up the Camel Catalog and you can choose the replacement f
 
 #### Deleting a step
 
-{{% callout warning %}}
-When invoking the **Delete** action on a step with children or on a container element containing children there will be a confirmation dialog because you are about to delete not just the single step or container but also all the contained children. **Be cautious**!
-{{% /callout %}}
+> [!WARNING]
+> When invoking the **Delete** action on a step with children or on a container element containing children there will be a confirmation dialog because you are about to delete not just the single step or container but also all the contained children. **Be cautious**!
 
 You can delete any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Delete action.
 
@@ -105,9 +102,8 @@ Alternatively you can do that also by invoking the context menu on a step and se
 
 You can enable or disable any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Enable / Disable action.
 
-{{% callout note %}}
-Disabling a step will instruct the [Apache Camel](https://camel.apache.org) runtime to ignore the step when executing the flow. This can be convenient when prototyping a new route.
-{{% /callout %}}
+> [!NOTE]
+> Disabling a step will instruct the [Apache Camel](https://camel.apache.org) runtime to ignore the step when executing the flow. This can be convenient when prototyping a new route.
 
 ![A Screenshot of the toolbar for steps](disable-button.png)
 

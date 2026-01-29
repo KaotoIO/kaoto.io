@@ -26,8 +26,13 @@ https://kaotoio.github.io/kaoto/
 
 This repository holds the website for https://kaoto.io/. Built with [Hugo Blox](https://hugoblox.com/).
 
-## Development
+## Build
+```bash
+pnpm install
+```
 
+
+## Development
 ```bash
 hugo server
 ```
