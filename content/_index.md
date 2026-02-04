@@ -40,10 +40,10 @@ sections:
         text: Try Online
         url: "https://red.ht/kaoto"
       announcement:
-        text: "Kaoto 2.9 is available!"
+        text: "New workshop available!"
         link:
           text: "Check it out!"
-          url: "blog/kaoto-2.9-release/"
+          url: "blog/process-csv/"
     design:
       spacing:
         padding: ["1rem", 0, "1rem", 0]
