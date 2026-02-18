@@ -1,136 +1,427 @@
 ---
-title: "Listen to a folder"
-date: 2024-01-24T12:14:34+06:00
+title: "Listen to a Folder"
+date: 2026-03-09T10:00:00+06:00
 categories: ["beginner"]
-summary: "Create a route that listens to a folder and outputs by log the modified files."
+summary: "Learn to build a file monitoring integration using Kaoto's visual designer and Apache Camel. Monitor directories, filter events, and back up files automatically."
+authors:
+  - pvinaches
 ---
-## 1 - Log changes
+## Introduction
 
-The goals for this exercise are:
+In this hands-on workshop, you will build a file monitoring integration using **Kaoto's visual designer** and **Apache Camel**. You'll learn how to watch a directory for file system changes, filter events based on conditions, and automatically back up files when they are created.
 
-- Create a new Camel route and let it start with a `file-watch` step, which will watch a local folder like `/tmp/tutorial/` and configure the parameter `recursive` as `false`, because we don't want to watch subfolders
-- Then `log` the detected change with an output like `Detected  ${header.CamelFileEventType} on file ${header.CamelFileName} at ${header.CamelFileLastModified}`
+**What You'll Learn:**
+- File system monitoring with the `file-watch` component
+- Extracting metadata from Camel message headers
+- Filtering events using the Message Filter pattern
+- Copying files to backup locations
+- Testing and debugging Camel routes locally
+- Using Apache Camel's Simple Expression Language
 
-### Hints
+**What You'll Build:**
+A Camel route that monitors a directory for file changes, filters CREATE events, backs up newly created files to a separate directory, and logs all file system events to the console.
 
-Helpful advice for doing things better or more easily.
+## Prerequisites
 
-- To add new, delete or replace steps on the canvas, right click an existing node. This will provide you a contextual menu.
-- To configure a step and fill the configuration properties, click on the step icon in the canvas.
-- The first step you want to add is called `file-watch`. Don't confuse it with `file`
-- The second step is a `log` processor. There is also a `log` component available, but we use the processor here.
+Before starting this workshop, ensure you have the following installed and configured on your system:
 
-### Solution
+### Required Software
 
-The following video showcases the solution.
+- **Visual Studio Code** - Download from [code.visualstudio.com](https://code.visualstudio.com/)
+- **Kaoto Extension for VSCode** - Install from the [VSCode Marketplace](https://kaoto.io/docs/installation/)
+- **Java Development Kit (JDK) 17 or later** - Required for running Apache Camel
+  - Download from [Adoptium](https://adoptium.net/) or your preferred JDK distribution
+- **Apache Camel JBang** - For easy infrastructure setup
+  - Install via: `curl -Ls https://sh.jbang.dev | bash -s - trust add https://github.com/apache/camel`
+  - Then: `jbang app install camel@apache/camel`
 
-{{< video src="1-log-changes.webm" controls="yes" >}}
+### Required Knowledge
 
-At this point, the source editor should show something similar to the following code:
+This workshop assumes you have:
 
-```yaml
+- **Basic understanding of integration concepts** - Familiarity with data processing
+- **Basic command-line skills** - Ability to navigate directories and run commands
+- **Familiarity with VSCode** - Basic navigation and file management
+
+### What You'll Set Up During the Workshop
+
+The following will be configured as part of the workshop steps:
+
+- Test directories for file monitoring
+- Backup directory for file copies
+- Camel integration route
+
+> [!TIP]
+> If you're new to Kaoto or Apache Camel, this beginner workshop is the perfect starting point. It introduces core concepts progressively.
+
+## Project Setup
+
+1. Install the [Kaoto extension for VSCode](https://kaoto.io/docs/installation/).
+2. Create a new directory for the workshop:
+
+```bash
+$ mkdir file-monitor-workshop
+$ cd file-monitor-workshop
+```
+
+> [!NOTE]
+> **Windows users:** This workshop was created in a Unix-based environment. While the commands shown should work in PowerShell, Command Prompt, and Git Bash, you may need to make adjustments accordingly. For example, if using Command Prompt, use `md` instead of `mkdir`, and adjust file paths to use Windows-style paths (e.g., `C:\tmp\tutorial\` instead of `/tmp/tutorial/`).
+
+## Description
+
+This workshop guides you through building a file monitoring integration using **Apache Camel** and **Kaoto**. You will create a route that demonstrates the **File Integration Pattern** and **Message Filter Pattern**, two fundamental Enterprise Integration Patterns (EIPs).
+
+**The Route Flow:**
+
+```
+File System Events → File Watch → Filter (CREATE only) → Copy to Backup
+                                                       ↓
+                                                    Log All Events
+```
+
+The route continuously monitors a directory, processes each file system event, filters for CREATE events to trigger backups, and logs all events for visibility.
+
+## Part 1: Log Changes
+
+### Goal
+
+Create a route that watches a folder and logs file system events (CREATE, MODIFY, DELETE) with detailed information about each change.
+
+### Step-by-Step Instructions
+
+#### Step 1: Create a New Route
+
+1. Open VSCode and navigate to your `file-monitor-workshop` directory
+2. Click the **Kaoto** icon in the left sidebar
+3. Click the **Camel File...** button to create a new integration
+
+![Creating a new route in Kaoto](kaoto-ext-start.webp)
+
+4. If the **Camel File...** button is not showing, click on the second icon next to **Integrations** (a file with a + sign).
+5. In the dialog that appears:
+   - Select **Camel Route** as the file type
+   - Select **YAML** as the Camel DSL
+   - Choose your workshop folder as the saving location
+   - Name the file `file-monitor`
+
+A new route will appear in the Kaoto visual designer with a default timer component, a SetBody step and Log processor.
+
+![New route created](new-route.webp)
+
+6. Select **Camel Main 4.16.0** from the options that appear when clicking the Camel version selector. This tutorial was created using this version and other versions have not been tested in this context. If chosen other Camel versions, they may present slight variations in component availability and presentation.
+
+![Camel version selector](top-panel.webp)
+
+#### Step 2: Configure the File Watcher
+
+The first component needs to monitor the test directory for file changes.
+
+1. **Hover** over the timer component in the visual designer
+2. Click the **Replace** icon (circular arrow) that appears
+
+![Replace-timer](replace-timer.webp)
+
+3. In the search box, type `file-watch` and select the **File Watch** component
+
+![Search for filewatch](search-file-watch.webp)
+
+4. Click on the File Watch component to open its properties panel on the right
+5. Navigate to the **All** tab at the top of the properties panel
+6. Configure the following properties:
+
+   | Property | Value | What it does |
+   |----------|-------|--------------|
+   | **path** | `/tmp/tutorial/` | Directory to monitor for changes |
+   | **recursive** | `false` | Don't watch subdirectories |
+   | **auto create** | `true` | Creates the directory automatically. True by default |
+
+![File watch form](file-watch-form.webp)
+
+7. **Save** the file using `Ctrl/Cmd + S` or by clicking **File** → **Save** in the VS Code menu bar
+
+> [!IMPORTANT]
+> Use the `file-watch` component, not the `file` component. The `file-watch` component monitors for file system events, while `file` is for reading file contents.
+
+#### Step 3: Add Log Processor
+
+Now we'll add a log step to output information about detected changes.
+
+1. **Hover** over the second component (SetBody) in the route
+2. Click the **Delete** icon
+3. Click on the Log processor to open its properties
+4. Configure the message property in **Required** tab:
+
+   | Property | Value |
+   |----------|-------|
+   | **message** | `Detected ${header.CamelFileEventType} on file ${header.CamelFileName} at ${header.CamelFileLastModified}` |
+
+5. **Save** the changes
+
+> **💡 Understanding Camel Headers:** The `file-watch` component populates message headers with metadata about file events:
+> - `CamelFileEventType`: Type of event (CREATE, MODIFY, DELETE)
+> - `CamelFileName`: Name of the affected file
+> - `CamelFileLastModified`: Timestamp of last modification
+
+#### Step 4: Review Your Route
+
+You can find the source code by clicking in the </> icon on the top right of the visual designer.
+
+![Source code icon](source-code-icon.webp)
+
+Your completed route should look like this in the visual designer. The YAML source should be similar to:
+
+{{< img-toggle src="./partial-route.webp" lang="yaml" >}}
 - route:
-    id: route-2341
+    id: route-2573
     from:
-      id: from-2542
+      id: from-3280
       uri: file-watch
       parameters:
         path: /tmp/tutorial/
         recursive: false
       steps:
         - log:
-            id: log-4286
-            message: Detected  ${header.CamelFileEventType} on file ${header.CamelFileName}
+            message: Detected ${header.CamelFileEventType} on file ${header.CamelFileName}
               at ${header.CamelFileLastModified}
-```
+{{< /img-toggle >}}
 
-If it doesn't look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.
+> [!TIP]
+> If your YAML doesn't match exactly, you can copy and paste this code into the source editor. Kaoto will automatically update the visual designer.
+
+**✅ Checkpoint:** You've completed Part 1! The route will now monitor the folder and log all file system events.
 
 ---
 
-## 2 - Add a filter
+## Part 2: Add a Filter
 
-Now we want to add a `filter` and a `file` between the `file-watch` and the `log`, which copies the files to another folder everytime a file gets created.
+### Goal
 
-This will require adding two steps:
+Enhance the route to filter events and only back up files when they are created (not modified or deleted). This introduces the **Message Filter Pattern**.
 
-- A step `filter` that will open a branch of steps that will be executed only when `${header.CamelFileEventType}` equals `CREATE`
-- A step `file` to create the new file in `/tmp/backup/` or whatever folder you choose (different from the previous one)
+### Step-by-Step Instructions
 
-### Hints
+#### Step 1: Add Filter Processor
 
-- To create a new file, you have to use the step `file`. Make sure to add it `into` the `filter` step.
-- Configure the `directory name` of the `file` step as `/tmp/backup/` (or whatever folder you are using)
-- The condition of the filter is configured in the filter expression field as `${header.CamelFileEventType} == 'CREATE'` using the `simple` expression language.
+We'll insert a filter between the file-watch and log components.
 
-### Solution
+1. **Hover** over the arrow between file-watch and log
 
-The following video showcases the solution.
+![Hover arrow](hover-arrow.webp)
 
-{{< video src="2-add-filter.webm" controls="yes" >}}
+2. Click the **+** icon that appears on the arrow
+3. Search for `filter` and select the **Filter** processor
+4. Click on the Filter component to open its properties
+5. Configure the filter expression in **Required** tab:
 
-At this point, the source editor should show something similar to the following code:
+   | Property | Value | What it does |
+   |----------|-------|--------------|
+   | **Expression language** | **Simple** | The expression language to use |
+   | **Expression** | `${header.CamelFileEventType} == 'CREATE'` | Condition to evaluate |
 
-```yaml
+![Filter form](filter-form.webp)
+
+6. **Save** the changes
+
+> **💡 Understanding the Filter:** The filter creates a conditional branch. Steps inside the filter only execute when the condition is true. In this case, only CREATE events will pass through.
+
+#### Step 2: Add File Component Inside Filter
+
+Now we'll add a file component inside the filter to copy created files.
+
+1. Click **inside the filter placeholder** (the dotted box area)
+
+![Filter placeholder](filter-placeholder.webp)
+
+2. This will add a new component inside the filter branch
+3. Search for `file` and select the **File** component
+4. Click on the File component to open its properties
+5. Configure in **Required** tab:
+
+   | Property | Value | What it does |
+   |----------|-------|--------------|
+   | **directoryName** | `/tmp/backup/` | Destination folder for file copies |
+   | **auto create** | `true` | Creates the directory automatically. True by default |
+
+6. **Save** the changes
+
+> [!IMPORTANT]
+> The file component must be placed **inside** the filter. Use the "Insert into" context menu or click inside the filter placeholder to ensure proper nesting.
+
+#### Step 3: Review Your Route
+
+Your completed route should look like this in the visual designer. The YAML source should be similar to:
+
+{{< img-toggle src="./partial-route2.webp" lang="yaml" >}}
 - route:
-    id: route-2341
+    id: route-2573
     from:
-      id: from-2542
+      id: from-3280
       uri: file-watch
       parameters:
         path: /tmp/tutorial/
         recursive: false
       steps:
         - filter:
-            id: filter-1643
+            id: filter-2413
             steps:
               - to:
-                  id: to-2886
+                  id: to-2610
                   uri: file
                   parameters:
                     directoryName: /tmp/backup/
-            expression:
-              simple:
-                expression: ${header.CamelFileEventType} == 'CREATE'
+            simple:
+              expression: ${header.CamelFileEventType} == 'CREATE'
         - log:
-            id: log-4286
-            message: Detected  ${header.CamelFileEventType} on file ${header.CamelFileName}
+            message: Detected ${header.CamelFileEventType} on file ${header.CamelFileName}
               at ${header.CamelFileLastModified}
+{{< /img-toggle >}}
+
+**✅ Checkpoint:** You've completed Part 2! The route now backs up files only when they are created, while still logging all events.
+
+---
+
+## Part 3: Testing Your Route
+
+### Goal
+
+Launch the route locally and verify it works correctly by creating, modifying, and deleting test files.
+
+### Step-by-Step Instructions
+
+#### Step 1: Launch the Route
+
+1. In the VSCode file explorer, locate your `file-monitor-workshop` folder
+2. In the Kaoto extension panel, find the folder containing your YAML route file
+3. Click the **Play** button (▶️) next to Integrations or next to the folder name
+
+![Play button location](play-route.webp)
+![Play button location 2](play-route2.webp)
+
+4. A new terminal will open in VSCode
+5. Watch the terminal output as Camel JBang starts the route
+
+You should see output similar to:
+
+```
+INFO  [route-2573] Apache Camel 4.16.0 (file-monitor) started in ...
 ```
 
-If it doesn't look like that but you want to go to the following exercise, you can copy and paste that code to the source editor and save the changes. This will update the design editor as well.
+> **💡 What's happening:** The Kaoto extension uses Camel JBang to run your route locally, making it easy to test without complex setup.
 
----
+#### Step 2: Test the Integration
 
-## 3 - Testing your route
+With the route running, test it by creating files in the monitored directory:
 
-So after we finished setting up our little Camel route it would be great if we could test it locally, right? Ok, then let's do that now!
+1. Open a new terminal window
+2. Create a test file:
 
-Maybe you already discovered the little buttons on the top right of the Kaoto editor. You can hover over them to know more about what they are doing. In the picture below the launch button has been marked with red coloring.
+```bash
+$ echo "test content" > /tmp/tutorial/test1.txt
+```
 
-![Launch Button](launch-button.png "Launch Button")
+3. Watch the Camel terminal for log output showing the CREATE event
+4. Verify the file was copied to `/tmp/backup/`
+5. Try modifying the file:
 
-Click this button now and watch what happens. If everything goes well you should see a similar output as in the image below.
+```bash
+$ echo "modified" >> /tmp/tutorial/test1.txt
+```
 
-![Terminal Output](terminal-output.png "Terminal Output")
+6. Watch for the MODIFY event in the logs (file won't be copied again)
+7. Try deleting the file:
 
-If you see something different and maybe errors, please check the `Hints` section below.
+```bash
+$ rm /tmp/tutorial/test1.txt
+```
 
-### Hints
+8. Watch for the DELETE event in the logs
 
-- Please make sure that you have saved your route before running it.
-- Make sure you installed the [Extension Pack for Apache Camel](https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack) as this will add buttons for easy access to launch / debug functionality. Also ensure you have installed [Camel JBang](https://camel.apache.org/manual/camel-jbang.html), otherwise the launch will throw errors. (see [Installation Guide](/docs/installation))
-- Make sure your folder (`/tmp/tutorial/`) exists before running this integration.
-- This integration will work better when running it locally, as the folder must be on the same machine when it gets executed.
+#### Step 3: Stop the Route
 
-### Solution
+To stop the running integration:
 
-The following video showcases the solution.
+1. Go to the terminal where Camel is running
+2. Press `Ctrl + C`
 
-{{< video src="3-launch-route.webm" controls="yes" >}}
+**✅ Checkpoint:** You've completed the workshop! You now understand file monitoring, filtering, and local testing with Kaoto.
 
----
+## Key Concepts Covered
 
-## More information
+### Apache Camel Components
 
-More information about Apache Camel routes can be found on [the Apache Camel website](https://camel.apache.org/components/4.0.x/others/yaml-dsl.html)
+**Components** are the building blocks of Camel routes. They represent endpoints that can send or receive messages.
+
+| Component | Purpose | Used In |
+|-----------|---------|---------|
+| **file-watch** | Monitors directories for file events | Part 1 |
+| **file** | Reads from or writes to files | Part 2 |
+
+### Apache Camel Processors
+
+**Processors** transform or manipulate messages as they flow through a route.
+
+| Processor | Purpose | Used In |
+|-----------|---------|---------|
+| **log** | Outputs messages to console | Part 1 |
+| **filter** | Conditionally executes steps | Part 2 |
+
+### Simple Expression Language
+
+Camel's **Simple Expression Language** is used for accessing message data and performing operations.
+
+| Expression | What it accesses | Example |
+|------------|------------------|---------|
+| `${header.name}` | Message header | `${header.CamelFileEventType}` |
+| `${header.CamelFileEventType}` | File event type | CREATE, MODIFY, DELETE |
+| `${header.CamelFileName}` | File name | test1.txt |
+| `${header.CamelFileLastModified}` | Last modified timestamp | 2024-01-24T12:30:00 |
+
+### Enterprise Integration Patterns
+
+This workshop demonstrates the **Message Filter Pattern**:
+
+**Message Filter** - Selectively processes messages based on criteria. In this workshop, we filter file events to process only CREATE events for backup purposes.
+
+## Best Practices
+
+### Route Design
+
+1. **Start simple**: Begin with basic routes, add complexity gradually
+2. **Use meaningful names**: Name components and routes clearly
+3. **Add descriptions**: Use the description property to document components
+4. **Test incrementally**: Test after each major change
+
+### Component Selection
+
+1. **Choose the right component**: Understand component vs. processor differences
+2. **Read documentation**: Reference Apache Camel docs for details
+3. **Configure properly**: Fill all required parameters
+4. **Use appropriate expressions**: Match expression language to use case
+
+### Testing Strategy
+
+1. **Verify prerequisites**: Check installations before testing
+2. **Create test data**: Prepare files and directories
+3. **Monitor output**: Watch terminal for errors and results
+4. **Iterate quickly**: Make small changes and retest
+
+### Troubleshooting
+
+1. **Check prerequisites**: Verify Extension Pack and JBang installed
+2. **Verify paths**: Ensure directories exist and are accessible
+3. **Review configuration**: Double-check parameter values
+4. **Read error messages**: Camel provides detailed error information
+
+## Additional Resources
+
+### Documentation
+
+- [Kaoto Documentation](https://kaoto.io/docs/) - Kaoto user guide and tutorials
+- [Apache Camel Documentation](https://camel.apache.org/docs/) - Complete Camel reference
+- [Apache Camel YAML DSL](https://camel.apache.org/components/4.14.x/others/yaml-dsl.html) - YAML DSL reference
+- [Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/) - EIP reference
+
+### Community
+
+- [Kaoto GitHub](https://github.com/KaotoIO/kaoto) - Report issues and contribute
+- [Apache Camel Community](https://camel.apache.org/community/) - Get help and connect with other users
