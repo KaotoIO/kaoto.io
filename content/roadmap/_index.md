@@ -186,19 +186,11 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card wip">
-        <div class="icon" style="background-image: url('./images/openapi.svg');"></div>
-        <div class="content">
-            <h3>OpenAPI support</h3>
-            <p>Provide better support for working with OpenAPI in your integrations</p>
-            <div class="delivery-time">2026</div>
-        </div>
-    </div>
-    <div class="roadmap-card wip">
         <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
         <div class="content">
-            <h3>Improved Rest DSL Support</h3>
-            <p>Allow users to edit Camel Rest DSL</p>
-            <div class="delivery-time">2026</div>
+            <h3>Custom Kamelet Support</h3>
+            <p>Allow users to define their own custom Kamelet catalog.</p>
+            <div class="delivery-time">Q2 / 2026</div>
         </div>
     </div>
     <div class="roadmap-card wip">
@@ -206,15 +198,23 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Citrus Testing Support</h3>
             <p>Enable users to create and run tests for their integrations.</p>
-            <div class="delivery-time">2026</div>
+            <div class="delivery-time">Q2 / 2026</div>
+        </div>
+    </div>
+    <div class="roadmap-card wip">
+        <div class="icon" style="background-image: url('./images/openapi.svg');"></div>
+        <div class="content">
+            <h3>OpenAPI support</h3>
+            <p>Provide better support for working with OpenAPI in your integrations</p>
+            <div class="delivery-time">Q1 / 2026</div>
         </div>
     </div>
     <div class="roadmap-card wip">
         <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
         <div class="content">
-            <h3>Custom Kamelet Support</h3>
-            <p>Allow users to define their own custom Kamelet catalog.</p>
-            <div class="delivery-time">2026</div>
+            <h3>Improved Rest DSL Support</h3>
+            <p>Allow users to edit Camel Rest DSL</p>
+            <div class="delivery-time">Q1 / 2026</div>
         </div>
     </div>
     <div class="roadmap-card completed">
