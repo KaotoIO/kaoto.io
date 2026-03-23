@@ -115,4 +115,27 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
   }
 }
 
+/* Youtube video and images shortcodes styling*/
+video, video > iframe, figure.image, figure.image > img {
+  justify-items: anchor-center;
+  justify-self: anchor-center;
+}
+
+video > iframe, figure.image > img {
+  width: 100%;
+  height: auto;
+}
+
+figure.image > img {
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .image {
+    max-width: 80%;
+    min-width: 40%;
+  }
+}
+
 /* ...existing code... */
