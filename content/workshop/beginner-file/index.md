@@ -32,8 +32,13 @@ Before starting this workshop, ensure you have the following installed and confi
 - **Java Development Kit (JDK) 17 or later** - Required for running Apache Camel
   - Download from [Adoptium](https://adoptium.net/) or your preferred JDK distribution
 - **Apache Camel JBang** - For easy infrastructure setup
-  - Install via: `curl -Ls https://sh.jbang.dev | bash -s - trust add https://github.com/apache/camel`
-  - Then: `jbang app install camel@apache/camel`
+  - **Installation:** Visit [jbang.dev](https://www.jbang.dev/download/) for platform-specific instructions
+  - **macOS/Linux:** `curl -Ls https://sh.jbang.dev | bash -s - trust add https://github.com/apache/camel`
+  - **Windows:** Follow the installation instructions at [jbang.dev](https://www.jbang.dev/download/) (includes installers for Chocolatey, Scoop, or manual installation)
+  - **After installation:** `jbang app install camel@apache/camel`
+
+> [!NOTE]
+> **JBang is the only hard requirement.** The Kaoto extension will automatically install Trusts, Camel CLI, and Camel plugins as needed during extension installation.
 
 ### Required Knowledge
 
@@ -188,6 +193,28 @@ Your completed route should look like this in the visual designer. The YAML sour
 > [!TIP]
 > If your YAML doesn't match exactly, you can copy and paste this code into the source editor. Kaoto will automatically update the visual designer.
 
+#### Step 5: Test Your Route
+
+Before continuing, you can test this basic route to see it in action:
+
+1. In the Kaoto extension panel, click the **Play** button (▶️) next to your folder or Integrations
+2. A new terminal will open showing Camel JBang starting the route
+3. In a new terminal window, create a test file:
+
+```bash
+$ echo "test content" > /tmp/tutorial/test.txt
+```
+
+4. Watch the Camel terminal for log output showing the CREATE event
+
+```bash
+INFO 40740 --- [elFileWatchPoll] file-monitor.camel.yaml:10               : Detected CREATE on file test.txt at 1774260948651
+```
+
+5. Press `Ctrl + C` in the Camel terminal to stop the route when done
+
+> **💡 Testing incrementally:** It's good practice to test your route after each major addition. This helps catch issues early and builds understanding step-by-step.
+
 **✅ Checkpoint:** You've completed Part 1! The route will now monitor the folder and log all file system events.
 
 ---
@@ -320,6 +347,11 @@ $ echo "test content" > /tmp/tutorial/test1.txt
 ```
 
 3. Watch the Camel terminal for log output showing the CREATE event
+
+```bash
+INFO 43481 --- [elFileWatchPoll] file-monitor.camel.yaml:10               : Detected CREATE on file test1.txt at 1774260948651
+```
+
 4. Verify the file was copied to `/tmp/backup/`
 5. Try modifying the file:
 
@@ -328,6 +360,11 @@ $ echo "modified" >> /tmp/tutorial/test1.txt
 ```
 
 6. Watch for the MODIFY event in the logs (file won't be copied again)
+
+```bash
+INFO 43481 --- [elFileWatchPoll] file-monitor.camel.yaml:20               : Detected MODIFY on file test1.txt at 1774261092994
+```
+
 7. Try deleting the file:
 
 ```bash
@@ -335,6 +372,10 @@ $ rm /tmp/tutorial/test1.txt
 ```
 
 8. Watch for the DELETE event in the logs
+
+```bash
+INFO 43481 --- [elFileWatchPoll] file-monitor.camel.yaml:20               : Detected DELETE on file test1.txt at 1774261151985
+```
 
 #### Step 3: Stop the Route
 
