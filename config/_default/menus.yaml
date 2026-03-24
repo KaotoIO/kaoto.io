@@ -12,16 +12,6 @@ main:
   - name: Documentation
     weight: 30
     url: docs/
-    hasChildren: true
-  - parent: Documentation
-    name: "Installation Guide"
-    url: "docs/installation/"
-  - parent: Documentation
-    name: "Quickstart Guide"
-    url: "docs/quickstart/"
-  - parent: Documentation
-    name: "User Manual"
-    url: "docs/manual/"    
   - name: Roadmap
     url: roadmap/
     weight: 40
