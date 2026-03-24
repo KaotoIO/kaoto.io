@@ -46,7 +46,7 @@ jobs:
 
     - name: Setup pnpm
       if: hashFiles('package.json') != ''
-      uses: pnpm/action-setup@v4
+      uses: pnpm/action-setup@v5
 
     - name: Get Hugo Version
       id: hugo-version
