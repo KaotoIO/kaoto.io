@@ -1,7 +1,8 @@
 ---
-title: Installation
+title: "Installation"
 description: "Complete guide on how to install and run Kaoto, the visual designer for Apache Camel integrations"
 date: 2026-03-24
+weight: 1
 ---
 
 ## Overview
