@@ -201,7 +201,7 @@ This roadmap is subject to change.
             <div class="delivery-time">Q2 / 2026</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./images/openapi.svg');"></div>
         <div class="content">
             <h3>OpenAPI support</h3>
@@ -209,7 +209,7 @@ This roadmap is subject to change.
             <div class="delivery-time">Q1 / 2026</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
         <div class="content">
             <h3>Improved Rest DSL Support</h3>
