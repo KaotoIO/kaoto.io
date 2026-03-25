@@ -1,5 +1,18 @@
 <!-- ...existing code... -->
+{{/* Get the name of the page relative to the relative URL (e.g., /docs/install/) */}}
+{{ $urlPath := .RelPermalink | path.Clean }}
+{{ $currentPath := $urlPath | strings.TrimPrefix "/" | replaceRE "/" "-" }}
+{{ $pageClass := $currentPath | default "home" }}
+{{ if .Params.body_class }}
+  {{ $pageClass = .Params.body_class }}
+{{ end }}
+
 <script>
+  (function() {
+    const pageName = "{{ $pageClass }}";
+    document.body.classList.add(pageName);
+  })();
+
   document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.slideshow-section .item');
     let currentIndex = 0;

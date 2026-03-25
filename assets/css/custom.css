@@ -101,7 +101,8 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
 
 /* Locate the table of content to the left (only needed for big screens after that is hidden */
 @media (min-width: 1279px) {
-  .mx-auto.flex.max-w-screen-xl:has(nav.hb-toc) {
+  body[class*="blog-"] > .page-body > .mx-auto.flex:has(nav.hb-toc),
+  body[class*="workshop-"] > .page-body > .mx-auto.flex:has(nav.hb-toc) {
     flex-direction: row-reverse;
   }
 }
@@ -116,12 +117,12 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
 }
 
 /* Youtube video and images shortcodes styling*/
-video, video > iframe, figure.image, figure.image > img {
+div.video, div.video > iframe, figure.image, figure.image > img {
   justify-items: anchor-center;
   justify-self: anchor-center;
 }
 
-video > iframe, figure.image > img {
+div.video > iframe, figure.image > img {
   width: 100%;
   height: auto;
 }
