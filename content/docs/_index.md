@@ -10,7 +10,7 @@ This documentation is organized into several sections that you can access from t
 
 - **[Installation](installation/)** - Get started by installing Kaoto in your environment
 - **[Quickstart](quickstart/)** - Learn the basics with a quick tutorial
-- **[User Guide](user-guide/)** - Step-by-step instructions for common tasks
+- **[Manual](manual/)** - Step-by-step instructions for common tasks
 <!-- 
 Instructions: place before User Guide the new sections added. The last section from this list will also delete the User Guide.
 
