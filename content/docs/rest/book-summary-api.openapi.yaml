@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Book Summarization API
+  version: 1.0.0
+  description: AI-powered book summaries using Project Gutenberg and OpenAI
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /books/{id}/fun-extract:
+    get:
+      operationId: getBookFunExtract
+      summary: Get AI-generated fun extract of a book
+      description: Fetches a book from Project Gutenberg and generates an AI extract using OpenAI
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Project Gutenberg book ID (e.g., 11 for Alice's Adventures in Wonderland)
+          schema:
+            type: integer
+          example: 11
+      responses:
+        '200':
+          description: Book fun extract generated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bookId:
+                    type: integer
+                    example: 11
+                  title:
+                    type: string
+                    example: "Alice's Adventures in Wonderland"
+                  summary:
+                    type: string
+                    example: "A whimsical tale of a young girl who falls down a rabbit hole into a fantasy world populated by peculiar creatures with a funny twist."
+        '404':
+          description: Book not found in Project Gutenberg
+        '500':
+          description: Server error during processing
+          
