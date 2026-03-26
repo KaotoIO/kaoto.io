@@ -1,5 +1,5 @@
 ---
-title: User Manual
+title: User Guide
 description: "This document describes how to install and use Kaoto."
 date: 2025-01-13
 ---
