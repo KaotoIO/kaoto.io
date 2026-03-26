@@ -34,10 +34,10 @@ This documentation is organized into several sections that you can access from t
 - **[Quickstart](quickstart/)** - Learn the basics with a quick tutorial
 - **[Designer](designer/)** - Explore the visual designer interface and features
 - **[DataMapper](datamapper/)** - Transform and map data between different formats
+- **[REST](rest/)** - Work with REST APIs in your integrations
 
 <!--
 Instructions: place before User Guide the new sections added. The last section from this list will also delete the User Guide.
-- **[REST](rest/)** - Work with REST APIs in your integrations
 - **[Beans](beans/)** - Configure and use beans in your Camel routes
 - **[Metadata](metadata/)** - Understand and manage integration metadata
 -->
