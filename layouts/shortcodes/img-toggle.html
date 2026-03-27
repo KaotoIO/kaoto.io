@@ -1,17 +1,18 @@
 {{/* Generate a unique ID if one isn't provided */}}
 {{ $id := .Get "id" | default (printf "toggle-%d" (now.UnixNano)) }}
+{{ $modalId := printf "modal-%s" $id }}
 
 <div class="toggle-wrapper chroma">
   <input type="checkbox" id="{{ $id }}" class="toggle-input">
-  
+
   <div class="toggle-image-block">
     <div class="tab-bar">
       <label class="tab active">Image Preview</label>
       <label for="{{ $id }}" class="tab inactive">View YAML</label>
     </div>
-    <label for="{{ $id }}" class="content-area">
-      <img src="{{ .Get "src" }}" alt="Toggle Image">
-    </label>
+    <div class="content-area">
+      <img src="{{ .Get "src" }}" alt="Toggle Image" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
+    </div>
   </div>
 
   <div class="toggle-code-block">
@@ -25,3 +26,13 @@
     </label>
   </div>
 </div>
+
+<!-- Image Dialog -->
+<dialog id="{{ $modalId }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ .Get "src" }}" alt="Expanded Image">
+</dialog>
+<script>
+  document.getElementById('{{ $modalId }}').addEventListener('toggle', function(e) {
+    document.querySelector('.modal-close').style.display = this.open ? 'block' : 'none';
+  });
+</script>
