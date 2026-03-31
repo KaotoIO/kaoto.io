@@ -20,42 +20,7 @@ Before starting, ensure you have:
 
 ## Create and Run Your First Route
 
-### Navigate to Kaoto Perspective
-
-1. Open VS Code
-2. Click on the Kaoto icon in the Activity Bar (left sidebar)
-3. The Kaoto perspective will open, showing the route designer
-
-{{< figure src="00-kaoto-perspective.png" alt="Kaoto perspective" caption="Kaoto perspective" class="image" >}}
-
-### Create a New Camel Route
-
-1. In the Kaoto perspective, click **"Camel File..."**
-{{< figure src="01-new-camel-file.png" alt="New Camel file" caption="New Camel file" class="image" >}}
-
-2. Choose **"Camel Route"** as the route type
-{{< figure src="01-camel-route-item.png" alt="Camel route item" caption="Camel route item" class="image" >}}
-
-3. Choose **"YAML DSL"** as the route type
-{{< figure src="01-yaml-dsl-item.png" alt="YAML DSL item" caption="YAML DSL item" class="image" >}}
-
-4. Give a name to the new route
-{{< figure src="01-name.png" alt="New route name" caption="New route name" class="image" >}}
-
-5. A basic timer-based route will be created automatically
-
-{{< img-toggle src="./01-result.png" lang="yaml" >}}
-- route:
-    from:
-      uri: timer:yaml
-      parameters:
-        period: "1000"
-      steps:
-        - setBody:
-            simple: Hello Camel from ${routeId}
-        - log: ${body}
-    id: route-1905
-{{< /img-toggle >}}
+{{% create-integration-steps %}}
 
 ### Run the Simple Route
 

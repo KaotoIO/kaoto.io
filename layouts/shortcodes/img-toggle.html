@@ -21,8 +21,7 @@
       <label class="tab active">YAML Source</label>
     </div>
     <label for="{{ $id }}" class="content-area">
-      {{ $code := .Inner | safeHTML }}
-      {{ highlight $code (.Get "lang") "" }}
+      {{ highlight .Inner (.Get "lang") "" | safeHTML }}
     </label>
   </div>
 </div>
