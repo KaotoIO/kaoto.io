@@ -1,41 +1,23 @@
 ---
 title: "Designer"
-description: "update here"
-date: 2026-03-25
+description: "Learn how to use Kaoto's visual designer to build and manage Apache Camel integrations"
+date: 2026-03-31
 weight: 3
-draft: true
 ---
 
-Some instructions:
+## Welcome to the Kaoto Designer
 
-1. All the text and references should be written in this index file
+Kaoto provides a powerful visual designer for building Apache Camel integrations without writing code. Whether you're creating simple file processors or complex AI-powered workflows, the designer helps you:
 
-2. You can add sub-folders (ex. in manual folder) and inside add index.md
+- **Create and manage integrations** visually using drag-and-drop components
+- **Configure components** through intuitive forms instead of YAML syntax
+- **Build routes** by connecting Camel components, Kamelets, and EIPs (Enterprise Integration Patterns)
+- **Test and run** your integrations directly from VS Code
 
-3. The featured image for the main folder (ex.metadata) should be saved as featured.png
+The designer supports all major Camel resource types including Routes, Kamelets, and Pipes, giving you the flexibility to build integrations that match your specific needs.
 
-4. Example of useful shortcodes for image-code toggle, images and youtube videos:
+## Getting Started
 
+New to Kaoto? Start with **[Managing Integrations](./01-managing-integrations/)** to learn how to create, organize, and work with your first integration. This guide covers everything from creating new integrations to understanding the different resource types available in Kaoto.
 
-{{< img-toggle src="./partial-route.webp" lang="yaml" >}}
-- route:
-    id: route-2573
-    from:
-      id: from-3280
-      uri: file-watch
-      parameters:
-        path: /tmp/tutorial/
-        recursive: false
-      steps:
-        - log:
-            message: Detected ${header.CamelFileEventType} on file ${header.CamelFileName}
-              at ${header.CamelFileLastModified}
-{{< /img-toggle >}}
-
-{{< figure src="dm-04-01-icon-opt.png" alt="Opt icon for optional field" caption="Opt icon for optional field" class="image" >}}
-
-{{< youtube id="nuzl3p986Mc" class="video" title="DataMapper Expansion Panels Demo" >}}
-
-5. Use markdown features as you want and have fun!
-
-6. Once finished, update the description, date and delete draft: true
+Once you're comfortable with the basics, explore the other sections to master component configuration, node management, and advanced designer features.
