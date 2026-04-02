@@ -5,6 +5,8 @@ date: 2026-03-31
 weight: 1
 ---
 
+## Overview
+
 Managing integrations is a core part of working with Kaoto. This guide covers everything you need to know about creating, organizing, and managing integrations in your projects.
 
 ## Understanding Resource Types

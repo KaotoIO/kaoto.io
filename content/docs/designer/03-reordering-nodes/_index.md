@@ -5,17 +5,15 @@ date: 2026-03-31
 weight: 3
 ---
 
+## Overview
+
 Kaoto provides multiple ways to reorganize Apache Camel routes on the canvas. You can reorder steps using drag-and-drop, copy/paste nodes between routes, or use move-before/after operations for precise positioning.
-
----
-
-## Overview of Reordering Methods
 
 Kaoto offers three primary methods for reordering nodes:
 
-1. **Drag and Drop**: Visually reorganize nodes by dragging them to new positions with real-time feedback
-2. **Copy/Paste**: Duplicate nodes within or across routes while preserving their configuration
-3. **Move Before/After**: Precisely reposition nodes using context menu actions
+1. **[Drag and Drop](#drag-and-drop)**: Visually reorganize nodes by dragging them to new positions with real-time feedback
+2. **[Copy/Paste](#copy-and-paste-nodes)**: Duplicate nodes within or across routes while preserving their configuration
+3. **[Move Before/After](#move-beforeafter)**: Precisely reposition nodes using context menu actions
 
 Each method serves different use cases and can be combined for efficient workflow design.
 
@@ -25,7 +23,7 @@ Each method serves different use cases and can be combined for efficient workflo
 
 Kaoto's drag-and-drop functionality allows you to reorganize Apache Camel routes directly on the canvas. You can reorder steps within a route, move steps across routes, and reorganize container structures with visual feedback guiding your operations.
 
-For a comprehensive guide on drag-and-drop capabilities, including video demonstrations and detailed examples, see our [Drag and Drop blog post](https://kaoto.io/blog/kaoto-2.6-release/#drag-and-drop-support).
+For a comprehensive guide on drag-and-drop capabilities, including video demonstrations and detailed examples, see our [Drag and Drop blog post](https://kaoto.io/blog/drag-and-drop/).
 
 ---
 
@@ -137,6 +135,5 @@ To get the most out of Kaoto's node reordering capabilities:
 
 Now that you understand node reordering, explore these related topics:
 
-- **[Managing Integrations](../01-managing-integrations)**: Learn how to create, rename, and organize your integrations
-- **[Working with Nodes](../02-nodes)**: Understand how to add and configure components in your integrations
-- **[Runtime Selector](../04-runtime-selector)**: Choose the right Camel runtime for your project
+<!-- - **[Working with Nodes](../02-nodes)**: Understand how to add and configure components in your integrations
+- **[Runtime Selector](../04-runtime-selector)**: Choose the right Camel runtime for your project -->
