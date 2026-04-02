@@ -195,10 +195,10 @@ OnException catches specific exceptions and defines custom handling logic for di
 
 ---
 
-<!-- ## Next Steps
+## Next Steps
 
 Now that you understand integration management, explore these related topics:
 
-- **[Working with Nodes](../02-nodes)**: Learn how to add and configure components in your integrations
+- **[Working with Nodes](../02-working-with-nodes)**: Learn how to add and configure components in your integrations
 - **[Reordering Nodes](../03-reordering-nodes)**: Organize the flow of your integration logic
-- **[Runtime Selector](../04-runtime-selector)**: Choose the right Camel runtime for your project -->
+- **[Runtime Selector](../04-runtime-selector)**: Choose the right Camel runtime for your project
