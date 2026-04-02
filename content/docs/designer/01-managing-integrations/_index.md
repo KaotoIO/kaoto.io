@@ -11,7 +11,7 @@ Managing integrations is a core part of working with Kaoto. This guide covers ev
 
 Kaoto supports three main resource types for building integrations, each determined by its file extension:
 
-### Camel Route (`.camel.yaml`)
+### Camel Route (`.camel.yaml` | `.camel.xml`)
 
 In Apache Camel, a route is a set of processing steps that are applied to a message as it travels from a source to a destination. A route typically consists of a series of processing steps that are connected in a linear sequence.
 
