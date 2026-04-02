@@ -135,5 +135,4 @@ To get the most out of Kaoto's node reordering capabilities:
 
 Now that you understand node reordering, explore these related topics:
 
-<!-- - **[Working with Nodes](../02-nodes)**: Understand how to add and configure components in your integrations
-- **[Runtime Selector](../04-runtime-selector)**: Choose the right Camel runtime for your project -->
+- **[Runtime Selector](../04-runtime-selector)**: Choose the right Camel runtime for your project

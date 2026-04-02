@@ -3,39 +3,86 @@ title: "Runtime Selector"
 description: "update here"
 date: 2026-03-25
 weight: 4
-draft: true
 ---
 
-Some instructions:
+## Overview
 
-1. All the text and references should be written in this index file
+By default, every Kaoto release includes the latest Camel version available at the moment of the build, nevertheless, generating a different set of catalogs is possible.
 
-2. You can add sub-folders (ex. in manual folder) and inside add index.md
+### Catalog generator CLI
 
-3. The featured image for the main folder (ex.metadata) should be saved as featured.png
+Kaoto provides a Camel catalog generator CLI to ease this process, it supports the following runtimes:
 
-4. Example of useful shortcodes for image-code toggle, images and youtube videos:
+* Main
+* Quarkus
+* Spring Boot
 
+#### How to use?
 
-{{< img-toggle src="./partial-route.webp" lang="yaml" >}}
-- route:
-    id: route-2573
-    from:
-      id: from-3280
-      uri: file-watch
-      parameters:
-        path: /tmp/tutorial/
-        recursive: false
-      steps:
-        - log:
-            message: Detected ${header.CamelFileEventType} on file ${header.CamelFileName}
-              at ${header.CamelFileLastModified}
-{{< /img-toggle >}}
+1. Clone [the Kaoto Camel catalog project](https://github.com/KaotoIO/camel-catalog/)
+2. Navigate to the `camel-catalog` directory
+3. Install the project dependencies
 
-{{< figure src="dm-04-01-icon-opt.png" alt="Opt icon for optional field" caption="Opt icon for optional field" class="image" >}}
+```bash
+yarn install
+```
 
-{{< youtube id="nuzl3p986Mc" class="video" title="DataMapper Expansion Panels Demo" >}}
+1. Build the default catalogs
 
-5. Use markdown features as you want and have fun!
+```bash
+yarn build
+```
 
-6. Once finished, update the description, date and delete draft: true
+1. This will generate a Catalog library containing:
+    * Camel Main versions
+    * Camel extensions for Quarkus
+    * Camel Spring boot
+    * Camel Kamelets
+
+> To check what specific versions are included, please visit [the index file](https://github.com/KaotoIO/camel-catalog/blob/main/index.js)
+{.note}
+
+1. The resulting files will be in the `catalog` folder
+
+> The latest catalog is version is available in [the GitHub repository](https://github.com/KaotoIO/camel-catalog/tree/main/catalog)
+{.note}
+
+1. Providing that folder through a http server will make it available for using it in Kaoto
+
+#### Creating a Catalog library with different runtimes
+
+In order to add multiple runtimes to the Catalog library, we can provide each runtime with its version using the following flags:
+
+```bash
+ -m,--main <version>               Camel Main version. If not specified,
+                                   it will use the generator installed
+                                   version
+ -q,--quarkus <version>            Camel Extensions for Quarkus version
+ -s,--springboot <version>         Camel SpringBoot version
+```
+
+For instance, running the following command will create a Catalog library with Camel Main 4.15.0 and Camel extensions for Quarkus 3.27.0:
+
+```bash
+./mvnw package; java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.15.0 -m 4.15.0 -q 3.27.0 -n "My Catalog"
+```
+
+For a different Kamelets catalog version, the `--kamelets or -k` flag can be specified
+
+```bash
+./mvnw package; java -jar ./target/catalog-generator-0.0.1-SNAPSHOT.jar -o ./dist/camel-catalog -k 4.15.0 -m 4.15.0  -n "My Catalog"
+```
+
+### How to instruct Kaoto to use a specific Catalog library
+
+1. In VSCode, go to the settings page and look for "Kaoto"
+
+{{< figure src="vscode-kaoto-settings.png" alt="VSCode Kaoto settings" caption="VSCode Kaoto settings" class="image" >}}
+
+1. In the `TextField`, provide the URL of the `index.json` file that specifies the location of the subsequent catalogs, for instance, the public Kaoto catalog can be used:
+
+{{< figure src="setting-kaoto-catalog-url.png" alt="Setting a Kaoto catalog URL" caption="Setting a Kaoto catalog URL" class="image" >}}
+
+1. Restart Kaoto for the changes to have effect
+
+{{< figure src="runtime-selector.png" alt="Kaoto runtime selector" caption="Kaoto runtime selector" class="image" >}}

@@ -20,6 +20,10 @@ The designer supports all major Camel resource types including Routes, Kamelets,
 
 New to Kaoto? Start with **[Managing Integrations](./01-managing-integrations/)** to learn how to create, organize, and work with your first integration. This guide covers everything from creating new integrations to understanding the different resource types available in Kaoto.
 
+Once you have an integration created, dive into **[Working with Nodes](./02-working-with-nodes/)** to master the essential operations for building your routes. This guide shows you how to add, replace, delete, and configure steps in your integration, as well as how to enable or disable components during development and generate documentation for your work.
+
 After building your first integration, learn how to **[Reordering Nodes](./03-reordering-nodes/)** to reorganize your routes efficiently. This guide covers drag-and-drop operations, copy/paste functionality, and move-before/after actions to help you structure your integrations exactly how you need them.
+
+As your projects grow, you'll want to explore the **[Runtime Selector](./04-runtime-selector/)** to choose the right Apache Camel runtime for your needs. This guide explains how to work with different Camel versions including Main, Quarkus, and Spring Boot, and how to configure custom catalog libraries to match your project's requirements.
 
 Once you're comfortable with the basics, explore the other sections to master component configuration, node management, and advanced designer features.
