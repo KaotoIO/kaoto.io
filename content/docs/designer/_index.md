@@ -26,4 +26,6 @@ After building your first integration, learn how to **[Reordering Nodes](./03-re
 
 As your projects grow, you'll want to explore the **[Runtime Selector](./04-runtime-selector/)** to choose the right Apache Camel runtime for your needs. This guide explains how to work with different Camel versions including Main, Quarkus, and Spring Boot, and how to configure custom catalog libraries to match your project's requirements.
 
+Ready to test your integrations? The **[Executing Integrations](./05-executing-integrations/)** guide shows you how to run and test your Camel routes directly from VS Code. Learn how to execute a single route for focused testing, run all routes in a folder for integration testing, or launch your entire workspace to verify end-to-end flows. This guide covers everything from starting and stopping routes to troubleshooting common execution issues and following best practices for development workflows.
+
 Once you're comfortable with the basics, explore the other sections to master component configuration, node management, and advanced designer features.
