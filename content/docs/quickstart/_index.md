@@ -25,48 +25,48 @@ Before starting, ensure you have:
 ### Run the Simple Route
 
 1. Click the **"Run: Workspace"** button in the Integrations panel
-{{< figure src="02-run-workspace-button.png" alt="Run workspace button" caption="Run workspace button" class="image" >}}
+{{< image-sh src="02-run-workspace-button.png" text="Run workspace button" >}}
 
 2. The route will start executing, check the terminal output - you should see "Hello Camel from route1" printed every second
-{{< figure src="02-run-workspace-output.png" alt="Run workspace output" caption="Run workspace output" class="image" >}}
+{{< image-sh src="02-run-workspace-output.png" text="Run workspace output" >}}
 
 3. To stop the route, you can click on the **"Terminate"** button
-{{< figure src="02-run-workspace-terminate.png" alt="Stop the route" caption="Stop the route" class="image" >}}
+{{< image-sh src="02-run-workspace-terminate.png" text="Stop the route" >}}
 
 
 ## Add AI Summarization
 For this route, we're gonna use Apache Camel 4.18 (or newer), make sure to select that version in the **Runtime selector**
-{{< figure src="03-select-camel-4-18.png" alt="Select Camel 4.18 or newer" caption="Select Camel 4.18 or newer" class="image" >}}
+{{< image-sh src="03-select-camel-4-18.png" text="Select Camel 4.18 or newer" >}}
 
 For starters, instead of automatically producing empty messages with the **timer** component, we're gonna use a **file** component for reading text files from a directory where we're gonna place the text to summarize
 
 ### Add the File Component
 1. Hover over the **timer** node and click the replace button
-{{< figure src="03-replace-timer.png" alt="Replace timer" caption="Replace timer" class="image" >}}
+{{< image-sh src="03-replace-timer.png" text="Replace timer" >}}
 
 2. In the component catalog, search for **"file"** and select it
-{{< figure src="03-pick-file-component.png" alt="Pick file component" caption="Pick file component" class="image" >}}
+{{< image-sh src="03-pick-file-component.png" text="Pick file component" >}}
 
 3. You'll end up having something like this, notice how hovering over the exclamation mark tell us that we're missing the **`directoryName`** configuration
-{{< figure src="03-missing-directory-name.png" alt="Missing directoryName" caption="Missing directoryName" class="image" >}}
+{{< image-sh src="03-missing-directory-name.png" text="Missing directoryName" >}}
 
 4. Click on the **file** component, and fill the **directoryName** field with **./input**
-{{< figure src="03-configuring-directory-name.png" alt="Configuring directoryName" caption="Configuring directoryName" class="image" >}}
+{{< image-sh src="03-configuring-directory-name.png" text="Configuring directoryName" >}}
 
 5. Click on the **All** toggle, and search for the **`noop`** property and enable it
-{{< figure src="03-enabling-noop-property.png" alt="Noop property" caption="Noop property" class="image" >}}
+{{< image-sh src="03-enabling-noop-property.png" text="Noop property" >}}
 
 6. Search for the **`idempotent`** property and enable it
-{{< figure src="03-enabling-idempotent-property.png" alt="Idempotent property" caption="Idempotent property" class="image" >}}
+{{< image-sh src="03-enabling-idempotent-property.png" text="Idempotent property" >}}
 
 7. Hover over the **setBody** node and click the delete button
-{{< figure src="03-delete-setBody-node.png" alt="Delete setBody" caption="Delete setBody" class="image" >}}
+{{< image-sh src="03-delete-setBody-node.png" text="Delete setBody" >}}
 
 8. Switch to the File explorer
-{{< figure src="03-file-explorer.png" alt="Navigate to file explorer" caption="Navigate to file explorer" class="image" >}}
+{{< image-sh src="03-file-explorer.png" text="Navigate to file explorer" >}}
 
 9. Create a new folder called **`input`** with a **`story.txt`** file inside where we're gonna write the text to summarize.
-{{< figure src="03-folder-structure.png" alt="Folder structure" caption="Folder structure" class="image" >}}
+{{< image-sh src="03-folder-structure.png" text="Folder structure" >}}
 
 > [!TIP]
 > For a text example, we're gonna visit [the wonderful Project Gutenberg](https://www.gutenberg.org/) and use a paragraph from [the Alice's Adventures in Wonderland by Lewis Carroll book](https://www.gutenberg.org/ebooks/11)
@@ -108,20 +108,20 @@ Notice how we can see the text as the route output.
 {{< /img-toggle >}}
 
 11. We can stop the route now. In the next step, we're gonna add the **`open ai`** component to perform the summary
-{{< figure src="03-stop-route.png" alt="Stop route" caption="Stop route" class="image" >}}
+{{< image-sh src="03-stop-route.png" text="Stop route" >}}
 
 
 ### Add the Open AI Component
 For the summary process, we're gonna use the **`Open AI`** component to leverage our local Ollama instance with the Granite model
 
 1. Hover in the edge between the **`file`** and **`log`** components, and click on the **Add step** button
-{{< figure src="04-add-openai-component.png" alt="Add Open AI component" caption="Add Open AI component" class="image" >}}
+{{< image-sh src="04-add-openai-component.png" text="Add Open AI component" >}}
 
 2. In the component catalog, search for **`openai`**
-{{< figure src="04-pick-openai-component.png" alt="Pick Open AI component" caption="Pick Open AI component" class="image" >}}
+{{< image-sh src="04-pick-openai-component.png" text="Pick Open AI component" >}}
 
 3. Once the **`openai`** component is added, click on it and pick the **All** view to configure the follow options:
-{{< figure src="04-openai-all-configuration.png" alt="Select all configuration" caption="Select all configuration" class="image" >}}
+{{< image-sh src="04-openai-all-configuration.png" text="Select all configuration" >}}
 
 | Property           | Value                                                                          |
 | ---                | ---                                                                            |
@@ -136,7 +136,7 @@ For the summary process, we're gonna use the **`Open AI`** component to leverage
 
 > [!TIP]
 > After editing the option, you can click on the **Modified** toggle to see what has changed
-> {{< figure src="04-modified-properties.png" alt="Modified properties" caption="Modified properties" class="image" >}}
+> {{< image-sh src="04-modified-properties.png" text="Modified properties" >}}
 
 > [!WARNING]
 > For the next step, make sure to run `ollama run granite4:tiny-h` in your terminal beforehand

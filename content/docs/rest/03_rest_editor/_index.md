@@ -27,7 +27,7 @@ This example extends the REST API from the [Code-First Approach](../02_code_firs
 1. In the Kaoto toolbar, click the **REST DSL** button
 2. Kaoto's REST Editor will open, displaying your REST structure in a tree view
 
-{{< figure src="add-rest-configuration.png" alt="Kaoto REST Editor interface" caption="Kaoto's REST Editor shows your API structure in a tree" class="image" >}}
+{{< image-sh src="add-rest-configuration.png" text="Kaoto's REST Editor shows your API structure in a tree" >}}
 
 You should see in the tree:
 - Your REST service
@@ -63,7 +63,7 @@ Since the new endpoint shares the same base path (`/books`), we'll add it to the
 
 Click **Add** to create the operation in the tree.
 
-{{< figure src="add-operation-modal.png" alt="Add Operation modal dialog" caption="Configure the new GET operation in Kaoto's modal" class="image" >}}
+{{< image-sh src="add-operation-modal.png" text="Configure the new GET operation in Kaoto's modal" >}}
 
 ### Step 2: Configure the Operation in Kaoto's Form
 
@@ -74,7 +74,7 @@ With the new operation selected in the tree, configure its properties using Kaot
 | **Produces** | application/json |
 | **Description** | Lists popular books from Project Gutenberg |
 
-{{< figure src="rest-form.png" alt="REST operation configuration form" caption="Configure operation properties in Kaoto's form" class="image" >}}
+{{< image-sh src="rest-form.png" text="Configure operation properties in Kaoto's form" >}}
 
 ### Step 3: Add Response Messages Using the Form
 
@@ -180,7 +180,7 @@ Current state of the route file:
 2. Click **Create Route**
 3. Kaoto will generate a new direct route stub for `direct:listBooks` and show it in the Canvas
 
-{{< figure src="new-route-created.png" alt="New route created in Canvas" caption="Kaoto generates a direct route stub ready for implementation" class="image" >}}
+{{< image-sh src="new-route-created.png" text="Kaoto generates a direct route stub ready for implementation" >}}
 
 ## Implement the Popular Books Route in Kaoto
 
@@ -199,7 +199,7 @@ Since both routes call the same RapidAPI service, you can duplicate the common s
 2. Select the `removeHeaders` step
 3. Right-click over the component and select **Duplicate**
 
-{{< figure src="duplicate-component.png" alt="Duplicate component context menu" caption="Right-click on a component to duplicate it" class="image" >}}
+{{< image-sh src="duplicate-component.png" text="Right-click on a component to duplicate it" >}}
 
 4. Drag the duplicated step to the `route-listBooks` route and drop it after the `direct` component
 5. Repeat for both `setHeader` steps (x-rapidapi-host and x-rapidapi-key)

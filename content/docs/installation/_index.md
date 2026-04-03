@@ -71,7 +71,7 @@ Before installing the Kaoto extension, ensure you have:
 3. Type `Kaoto` in the search field
 4. Click the **Install** button on the **Kaoto** extension
 
-{{< figure src="kaoto-install.png" alt="Install Kaoto Extension" caption="Install Kaoto Extension in VS Code" class="image" >}}
+{{< image-sh src="kaoto-install.png" text="Install Kaoto Extension in VS Code" >}}
 
 **What you get:**
 - Visual designer for Apache Camel routes

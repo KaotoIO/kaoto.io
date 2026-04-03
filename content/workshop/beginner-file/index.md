@@ -100,7 +100,7 @@ Create a route that watches a folder and logs file system events (CREATE, MODIFY
 2. Click the **Kaoto** icon in the left sidebar
 3. Click the **Camel File...** button to create a new integration
 
-![Creating a new route in Kaoto](kaoto-ext-start.webp)
+{{< image-sh src="kaoto-ext-start.webp" text="Creating a new route in Kaoto" >}}
 
 4. If the **Camel File...** button is not showing, click on the second icon next to **Integrations** (a file with a + sign).
 5. In the dialog that appears:
@@ -111,11 +111,11 @@ Create a route that watches a folder and logs file system events (CREATE, MODIFY
 
 A new route will appear in the Kaoto visual designer with a default timer component, a SetBody step and Log processor.
 
-![New route created](new-route.webp)
+{{< image-sh src="new-route.webp" text="New route created" >}}
 
 6. Select **Camel Main 4.16.0** from the options that appear when clicking the Camel version selector. This tutorial was created using this version and other versions have not been tested in this context. If chosen other Camel versions, they may present slight variations in component availability and presentation.
 
-![Camel version selector](top-panel.webp)
+{{< image-sh src="top-panel.webp" text="Camel version selector" >}}
 
 #### Step 2: Configure the File Watcher
 
@@ -124,11 +124,11 @@ The first component needs to monitor the test directory for file changes.
 1. **Hover** over the timer component in the visual designer
 2. Click the **Replace** icon (circular arrow) that appears
 
-![Replace-timer](replace-timer.webp)
+{{< image-sh src="replace-timer.webp" text="Replace timer component" >}}
 
 3. In the search box, type `file-watch` and select the **File Watch** component
 
-![Search for filewatch](search-file-watch.webp)
+{{< image-sh src="search-file-watch.webp" text="Search for file-watch component" >}}
 
 4. Click on the File Watch component to open its properties panel on the right
 5. Navigate to the **All** tab at the top of the properties panel
@@ -140,7 +140,7 @@ The first component needs to monitor the test directory for file changes.
    | **recursive** | `false` | Don't watch subdirectories |
    | **auto create** | `true` | Creates the directory automatically. True by default |
 
-![File watch form](file-watch-form.webp)
+{{< image-sh src="file-watch-form.webp" text="File watch configuration form" >}}
 
 7. **Save** the file using `Ctrl/Cmd + S` or by clicking **File** → **Save** in the VS Code menu bar
 
@@ -171,7 +171,7 @@ Now we'll add a log step to output information about detected changes.
 
 You can find the source code by clicking in the </> icon on the top right of the visual designer.
 
-![Source code icon](source-code-icon.webp)
+{{< image-sh src="source-code-icon.webp" text="Source code icon" >}}
 
 Your completed route should look like this in the visual designer. The YAML source should be similar to:
 
@@ -233,7 +233,7 @@ We'll insert a filter between the file-watch and log components.
 
 1. **Hover** over the arrow between file-watch and log
 
-![Hover arrow](hover-arrow.webp)
+{{< image-sh src="hover-arrow.webp" text="Hover over arrow to add component" >}}
 
 2. Click the **+** icon that appears on the arrow
 3. Search for `filter` and select the **Filter** processor
@@ -245,7 +245,7 @@ We'll insert a filter between the file-watch and log components.
    | **Expression language** | **Simple** | The expression language to use |
    | **Expression** | `${header.CamelFileEventType} == 'CREATE'` | Condition to evaluate |
 
-![Filter form](filter-form.webp)
+{{< image-sh src="filter-form.webp" text="Filter configuration form" >}}
 
 6. **Save** the changes
 
@@ -257,7 +257,7 @@ Now we'll add a file component inside the filter to copy created files.
 
 1. Click **inside the filter placeholder** (the dotted box area)
 
-![Filter placeholder](filter-placeholder.webp)
+{{< image-sh src="filter-placeholder.webp" text="Filter placeholder for adding components" >}}
 
 2. This will add a new component inside the filter branch
 3. Search for `file` and select the **File** component
@@ -321,8 +321,8 @@ Launch the route locally and verify it works correctly by creating, modifying, a
 2. In the Kaoto extension panel, find the folder containing your YAML route file
 3. Click the **Play** button (▶️) next to Integrations or next to the folder name
 
-![Play button location](play-route.webp)
-![Play button location 2](play-route2.webp)
+{{< image-sh src="play-route.webp" text="Play button location" >}}
+{{< image-sh src="play-route2.webp" text="Play button location alternative view" >}}
 
 4. A new terminal will open in VSCode
 5. Watch the terminal output as Camel JBang starts the route

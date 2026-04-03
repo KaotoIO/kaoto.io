@@ -1,0 +1,20 @@
+{{/* Enhanced Figure Shortcode - Combines figure with clickable modal expansion */}}
+{{/* Parameters: src (required), text (required - used for both alt and caption) */}}
+
+{{/* Generate a unique ID for this figure instance */}}
+{{ $id := printf "fig-%d" (now.UnixNano) }}
+{{ $modalId := printf "modal-%s" $id }}
+
+{{/* Get parameters */}}
+{{ $src := .Get "src" }}
+{{ $text := .Get "text" }}
+
+<figure class="image">
+  <img src="{{ $src }}" alt="{{ $text }}" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
+  <figcaption>{{ $text }}</figcaption>
+</figure>
+
+<!-- Image Modal Dialog -->
+<dialog id="{{ $modalId }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ $src }}" alt="{{ $text }}">
+</dialog>

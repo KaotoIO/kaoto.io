@@ -32,7 +32,7 @@ Some instructions:
               at ${header.CamelFileLastModified}
 {{< /img-toggle >}}
 
-{{< figure src="dm-04-01-icon-opt.png" alt="Opt icon for optional field" caption="Opt icon for optional field" class="image" >}}
+{{< image-sh src="dm-04-01-icon-opt.png" text="Opt icon for optional field" >}}
 
 {{< youtube id="nuzl3p986Mc" class="video" title="DataMapper Expansion Panels Demo" >}}
 

@@ -137,9 +137,9 @@ Before running your integration, you need to configure Kaoto's run settings. Fol
    - Add: `--management-port=8080`
    - This sets a separate port for JBang management to avoid conflicts
 
-{{< figure src="settings1.png" alt="Kaoto settings run arguments" caption="Kaoto settings run arguments" class="image" >}}
+{{< image-sh src="settings1.png" text="Kaoto settings run arguments" >}}
 
-{{< figure src="settings2.png" alt="Kaoto settings run folder" caption="Kaoto settings run folder" class="image" >}}
+{{< image-sh src="settings2.png" text="Kaoto settings run folder" >}}
 
 > [!IMPORTANT]
 > **Why Workspace-Level Settings Matter**
@@ -160,7 +160,7 @@ Before running your integration, you need to configure Kaoto's run settings. Fol
    - Kaoto will start your integration using JBang
    - You should see output in the terminal showing the integration starting up
 
-{{< figure src="run-button.png" alt="Running the route" caption="Running the route" class="image" >}}
+{{< image-sh src="run-button.png" text="Running the route" >}}
 
 ### Test the Endpoint
 
