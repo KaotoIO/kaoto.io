@@ -117,7 +117,7 @@ This route reads the source CSV file and splits it into individual patient recor
 1. In VSCode, look for the **Kaoto** icon in the left sidebar and click it
 2. Click the **Camel File...** button
 
-![Creating a new route in Kaoto](kaoto-ext-start.webp)
+{{< image-sh src="kaoto-ext-start.webp" text="Creating a new route in Kaoto" >}}
 
 3. If the previous **Camel File...** button is not showing, click on the second icon next to **Integrations** (a file with a + sign).
 
@@ -131,7 +131,7 @@ A new route will appear in the Kaoto visual designer with a default timer compon
 
 5. Select Camel Main 4.16.0 from the options that appear when clicking the Camel version. Other options present some variations related to the versions releases that may differ in some of the components presentation.
 
-![Camel version selector](top-panel.webp)
+{{< image-sh src="top-panel.webp" text="Camel version selector" >}}
 
 #### Step 2: Configure the File Reader Component
 
@@ -140,7 +140,7 @@ The first component needs to read files from the `test-file` directory.
 1. **Hover** over the first component (timer) in the visual designer
 2. Click the **Replace** icon (circular arrow) that appears
 
-![Replacing the timer component](timer-component.webp)
+{{< image-sh src="timer-component.webp" text="Replacing the timer component" >}}
 
 3. In the search box, type `file` and select the **File** component
 4. Click on the File component to open its properties panel on the right
@@ -192,7 +192,7 @@ We need to split the CSV data into individual patient records.
 1. **Hover** over the arrow after the Unmarshal component
 2. Click the **+** icon that appears on the arrow
 
-![Adding a component using the plus icon](plus-arrow.webp)
+{{< image-sh src="plus-arrow.webp" text="Adding a component using the plus icon" >}}
 
 3. Search for `split` and select the **Split** processor
 4. Click on the Split component to open its properties
@@ -275,7 +275,7 @@ This route validates patient records by checking if they have a ZIP code. Valid 
 1. This step follows the same process as in the previous route (**Route 1: CSV Ingestion and Archiving**) step 1
 2. Name the new route `filter-publish`
 
-![Creating a new route](next-route.webp)
+{{< image-sh src="next-route.webp" text="Creating a new route" >}}
 
 #### Step 2: Configure the Direct Receiver
 
@@ -312,7 +312,7 @@ Now we'll add logic to check if the ZIP code is present.
 
 Click **inside the filter placeholder** (the dotted box) to add components that handle invalid records.
 
-![Filter component with placeholder](filter-placeholder.webp)
+{{< image-sh src="filter-placeholder.webp" text="Filter component with placeholder" >}}
 
 1. Add a **Direct** component:
    - **name**: `Send-To-Error`
@@ -859,8 +859,8 @@ Before running, ensure:
 2. In the Kaoto extension panel, find the folder containing all your YAML route files
 3. Click the **Play** button (▶️) next to Integrations or next to the folder name
 
-![Play button location](play-route.webp)
-![Play button location 2](play-route2.webp)
+{{< image-sh src="play-route.webp" text="Play button location" >}}
+{{< image-sh src="play-route2.webp" text="Play button location alternative view" >}}
 
 > **💡 Why run from the folder?** Running all routes together ensures they execute within the same **Camel context**, allowing them to communicate through the Direct endpoints.
 

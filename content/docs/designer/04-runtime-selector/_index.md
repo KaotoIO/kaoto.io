@@ -77,12 +77,12 @@ For a different Kamelets catalog version, the `--kamelets or -k` flag can be spe
 
 1. In VSCode, go to the settings page and look for "Kaoto"
 
-{{< figure src="vscode-kaoto-settings.png" alt="VSCode Kaoto settings" caption="VSCode Kaoto settings" class="image" >}}
+{{< image-sh src="vscode-kaoto-settings.png" text="VSCode Kaoto settings" >}}
 
 1. In the `TextField`, provide the URL of the `index.json` file that specifies the location of the subsequent catalogs, for instance, the public Kaoto catalog can be used:
 
-{{< figure src="setting-kaoto-catalog-url.png" alt="Setting a Kaoto catalog URL" caption="Setting a Kaoto catalog URL" class="image" >}}
+{{< image-sh src="setting-kaoto-catalog-url.png" text="Setting a Kaoto catalog URL" >}}
 
 1. Restart Kaoto for the changes to have effect
 
-{{< figure src="runtime-selector.png" alt="Kaoto runtime selector" caption="Kaoto runtime selector" class="image" >}}
+{{< image-sh src="runtime-selector.png" text="Kaoto runtime selector" >}}

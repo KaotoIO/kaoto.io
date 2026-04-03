@@ -14,22 +14,22 @@ Now lets add a new step between the **Timer** and the **Log** component to modif
 
 Hover over the connection between the **Timer** and the **Log** steps now and click the **+** button to execute the **Add step** action.
 
-{{< figure src="step-actions.png" alt="A Screenshot of the available step actions" caption="A Screenshot of the available step actions" class="image" >}}
+{{< image-sh src="step-actions.png" text="A Screenshot of the available step actions" >}}
 
 > [!NOTE]
 > When using the right-click context menu, the set of available actions depend on the selected step and can vary. There are actions for appending, prepending, replacing and deleting steps as well as some more specialized actions.
 
 This will open up the Camel Catalog where you can search the step you want to add.
 
-{{< figure src="catalog.png" alt="A Screenshot of the catalog of Camel steps" caption="A Screenshot of the catalog of Camel steps" class="image" >}}
+{{< image-sh src="catalog.png" text="A Screenshot of the catalog of Camel steps" >}}
 
 As already mentioned we would like to modify the message body before sending it along to the **Log** component. To achieve that we need to add a **Processor** called **setBody**. Let's enter this name into the filter text field on top of the Catalog.
 
-{{< figure src="catalog-setbody.png" alt="A Screenshot of the catalog of Camel steps filtering for setBody" caption="A Screenshot of the catalog of Camel steps filtering for setBody" class="image" >}}
+{{< image-sh src="catalog-setbody.png" text="A Screenshot of the catalog of Camel steps filtering for setBody" >}}
 
 You can now select the **setBody** tile to add it to your route. Select the new added step now on the canvas to open the configuration form to the right.
 
-{{< figure src="setbody-step.png" alt="A Screenshot of the route with setBody selected and the configuration form opened" caption="A Screenshot of the route with setBody selected and the configuration form opened" class="image" >}}
+{{< image-sh src="setbody-step.png" text="A Screenshot of the route with setBody selected and the configuration form opened" >}}
 
 Let's change the **Expression** text field to <code>Hello from Kaoto!</code>.
 
@@ -44,7 +44,7 @@ Now the **Log** component will receive a <code>Hello from Kaoto!</code> message 
 
 You can replace any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Replace action.
 
-{{< figure src="replace-button.png" alt="A Screenshot of the toolbar for steps" caption="A Screenshot of the toolbar for steps" class="image" >}}
+{{< image-sh src="replace-button.png" text="A Screenshot of the toolbar for steps" >}}
 
 Alternatively you can do that also by invoking the context menu on a step and selecting the item **Replace**.
 Both ways it will open up the Camel Catalog and you can choose the replacement from there.
@@ -56,7 +56,7 @@ Both ways it will open up the Camel Catalog and you can choose the replacement f
 
 You can delete any step on the canvas by hovering over or by selecting the step. This will spawn a toolbar which contains a button for the Delete action.
 
-{{< figure src="delete-button.png" alt="A Screenshot of the toolbar for steps" caption="A Screenshot of the toolbar for steps" class="image" >}}
+{{< image-sh src="delete-button.png" text="A Screenshot of the toolbar for steps" >}}
 
 Alternatively you can do that also by invoking the context menu on a step and selecting the item **Delete**. This will remove the step from your integration.
 
@@ -67,11 +67,11 @@ You can enable or disable any step on the canvas by hovering over or by selectin
 > [!NOTE]
 > Disabling a step will instruct the [Apache Camel](https://camel.apache.org) runtime to ignore the step when executing the flow. This can be convenient when prototyping a new route.
 
-{{< figure src="disable-button.png" alt="A Screenshot of the toolbar for steps" caption="A Screenshot of the toolbar for steps" class="image" >}}
+{{< image-sh src="disable-button.png" text="A Screenshot of the toolbar for steps" >}}
 
 Alternatively you can enable / disable any step in your route by invoking the context menu on a step and selecting the item **Enable / Disable**.
 
-{{< figure src="disabled-step.png" alt="Showing a disabled step" caption="Showing a disabled step" class="image" >}}
+{{< image-sh src="disabled-step.png" text="Showing a disabled step" >}}
 
 In the picture above the **Log** component has been disabled. The icon is grayed out and there is a marker icon at the top right of the step to indicate it is disabled.
 
@@ -79,11 +79,11 @@ In the picture above the **Log** component has been disabled. The icon is grayed
 
 You can use the built-in documentation generating feature to create a Markdown file containing all the steps in your integration and all the changed parameters for these steps together with an image of your integration.
 
-{{< figure src="generate-docs-button.png" alt="A screenshot showing the generate documentation button" caption="A screenshot showing the generate documentation button" class="image" >}}
+{{< image-sh src="generate-docs-button.png" text="A screenshot showing the generate documentation button" >}}
 
 When you click the button it will open up a dialog with a preview of your integration documentation.
 
-{{< figure src="generate-documentation.png" alt="A screenshot showing the generate documentation dialog" caption="A screenshot showing the generate documentation dialog" class="image" >}}
+{{< image-sh src="generate-documentation.png" text="A screenshot showing the generate documentation dialog" >}}
 
 You can use the **Visible Entities** control in the top left of the dialog to control which routes are part of the documentation. You can either select all, just a subset or even just a single route. Once you have made your choice you can specify a file name in the top right and then hit the **Download** button to retrieve the file in ZIP format.
 

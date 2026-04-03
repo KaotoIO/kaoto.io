@@ -83,7 +83,7 @@ For Camel Routes, the **flows list** in the top toolbar is your central control 
 - **2. Visibility control**: Show or hide integrations on the canvas
 - **3. Delete**: Remove integrations from the file
 
-{{< figure src="01-flow-list.png" alt="Flows list" caption="Flows list" class="image" >}}
+{{< image-sh src="01-flow-list.png" text="Flows list" >}}
 
 ### Renaming Integrations
 
@@ -91,9 +91,9 @@ To rename an existing integration:
 
 1. Locate the integration in the flows list
 2. Click on the pencil button
-{{< figure src="01-rename-click-in-the-pencil.png" alt="Pencil button" caption="Pencil button" class="image" >}}
+{{< image-sh src="01-rename-click-in-the-pencil.png" text="Pencil button" >}}
 3. Type the new name
-{{< figure src="01-rename-write-the-new-name.png" alt="The name gets editable" caption="The name gets editable" class="image" >}}
+{{< image-sh src="01-rename-write-the-new-name.png" text="The name gets editable" >}}
 4. Press Enter or click in the accept button
 5. Save the file
 
@@ -108,9 +108,9 @@ When working with files containing multiple integrations, you can control which 
 
 1. Locate the integration in the flows list
 2. Click the eye icon next to the integration name
-{{< figure src="02-visibility-button.png" alt="Visibility button" caption="Visibility button" class="image" >}}
+{{< image-sh src="02-visibility-button.png" text="Visibility button" >}}
 3. The integration toggles between visible and hidden on the canvas
-{{< figure src="02-visibility-hidden-route.png" alt="Hidden flow" caption="Hidden flow" class="image" >}}
+{{< image-sh src="02-visibility-hidden-route.png" text="Hidden flow" >}}
 
 Hidden integrations remain in the file but don't clutter your canvas, making it easier to focus on specific integrations in complex files.
 
@@ -120,9 +120,9 @@ To delete an integration:
 
 1. Locate the integration in the flows list
 2. Click the delete icon next to the integration name
-{{< figure src="03-delete-button.png" alt="Delete button" caption="Delete button" class="image" >}}
+{{< image-sh src="03-delete-button.png" text="Delete button" >}}
 3. Confirm deletion in the dialog that appears
-{{< figure src="03-delete-confirmation-modal.png" alt="Delete confirmation modal" caption="Delete confirmation modal" class="image" >}}
+{{< image-sh src="03-delete-confirmation-modal.png" text="Delete confirmation modal" >}}
 4. The integration content is removed from the file
 
 > [!TIP]
@@ -137,7 +137,7 @@ To delete an integration:
 ## Other Camel Entities in Kaoto
 
 Beyond integrations, Kaoto supports additional Apache Camel entities for advanced integration patterns. All of these can be created via the **"Add new" dropdown** in the top toolbar.
-{{< figure src="04-new-integration.png" alt="Add new dropdown" caption="Add new dropdown" class="image" >}}
+{{< image-sh src="04-new-integration.png" text="Add new dropdown" >}}
 
 ### RouteConfiguration
 

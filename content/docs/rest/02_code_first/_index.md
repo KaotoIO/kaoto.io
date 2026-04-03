@@ -15,14 +15,14 @@ The code-first approach uses Kaoto's REST Import Wizard to import OpenAPI specif
 
 1. In the Kaoto extension, click in Import next to OpenAPI and it will open the REST Import Wizard.
 
-{{< figure src="rest-import-button.png" alt="REST Import button in Kaoto" caption="Kaoto's REST Import Wizard button" class="image" >}}
+{{< image-sh src="rest-import-button.png" text="Kaoto's REST Import Wizard button" >}}
 
 2. In the Kaoto Import Wizard, select **Upload file** as the source
 3. Click **Choose file** and select the `book-summary-api.openapi.yaml` file
 
 4. The wizard will parse the file and show all discovered operations
 
-{{< figure src="rest-import-wizard-1.png" alt="REST Import Wizard - Step 1 in Kaoto" caption="Kaoto parses the OpenAPI file and shows operations" class="image" >}}
+{{< image-sh src="rest-import-wizard-1.png" text="Kaoto parses the OpenAPI file and shows operations" >}}
 
 You should see the `GET /books/{id}/fun-extract` operation listed.
 
@@ -31,11 +31,11 @@ You should see the `GET /books/{id}/fun-extract` operation listed.
 - ☑ **Create REST DSL operations** - Generates REST endpoint definitions
 - ☑ **Create routes with direct endpoints** - Generates route stubs for each operation
 
-{{< figure src="rest-import-generation.png" alt="REST Import generation options" caption="Configure REST DSL and route generation options" class="image" >}}
+{{< image-sh src="rest-import-generation.png" text="Configure REST DSL and route generation options" >}}
 
 6. Choose the folder to save the information and then give a name to the route.
 
-{{< figure src="rest-import-wizard-2.png" alt="REST Import Wizard - Step 2 in Kaoto" caption="Configure how Kaoto generates the routes" class="image" >}}
+{{< image-sh src="rest-import-wizard-2.png" text="Configure how Kaoto generates the routes" >}}
 
 
 ### Step 2: Review Generated Structure in Kaoto
@@ -96,7 +96,7 @@ Now you'll implement the logic by reusing the route from the API-first approach 
 2. In Kaoto's Design view, locate the `route-getBookFunExtract` route
 3. Right-click on the **route** (not on individual steps) and select **Copy**
 
-{{< figure src="copy-route.png" alt="Copy route in Kaoto" caption="Copy the complete route from API-first implementation" class="image" >}}
+{{< image-sh src="copy-route.png" text="Copy the complete route from API-first implementation" >}}
 
 ### Step 4: Paste Route into Code-First Route
 
@@ -104,7 +104,7 @@ Now you'll implement the logic by reusing the route from the API-first approach 
 2. In the Design view, find the `route-getBookFunExtract` route
 3. Right-click on the Design canvas itself (not on the setBody step) and select **Paste**. This pastes the complete route from the API-first route.
 
-{{< figure src="paste-route.png" alt="Paste route in Kaoto" caption="Paste the complete route into the code-first route file" class="image" >}}
+{{< image-sh src="paste-route.png" text="Paste the complete route into the code-first route file" >}}
 
 ### Step 5: Drag and Drop Steps to Reorder
 
