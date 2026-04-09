@@ -30,6 +30,14 @@ In this article, we'll explore the full range of drag-and-drop capabilities in K
 ## What Kind of Drag and Drop is Supported?
 
 Kaoto's drag-and-drop system is designed to handle various scenarios you'll encounter when building and refining integration flows. Before you explore each capability in detail, it's important to know that Kaoto uses an intelligent visual feedback mechanism to guide your drag-and-drop operations:
+
+- **Cursor feedback**: The cursor provides immediate visual feedback during drag operations:
+
+| Cursor | Description | Icon |
+|--------|-------------|------|
+| **Grab** | Appears when hovering over a draggable area (anywhere on regular steps, or the blue header/title bar for containers) | {{< figure src="grab.gif" alt="Grab cursor" class="inline-image cursor-grab" >}} |
+| **Grabbing** | Appears once you click and start dragging | {{< figure src="grabbing.gif" alt="Grabbing cursor" class="inline-image cursor-grabbing" >}} |
+
 - **Dashed blue outlines**: While you drag, every place that can accept your step or branch shows a dashed blue outline, indicating "this is a valid drop zone." For a dragged step node, the valid drop zones are either an edge (the connector connecting the two step nodes) or a placeholder node. For a dragged sub-container node like a 'when' inside a 'Choice', the valid drop zones are either another 'when' or a placeholder inside the 'Choice'.
 
 {{< figure src="valid-drop-zone-for-step-node.png" alt="Valid drop zones for step node" caption="Blue dashed outlines indicate all valid positions where a step can be dropped - either on an edge between steps or on a placeholder node" class="image" >}}
@@ -95,9 +103,12 @@ Kaoto allows you to reorder these sub-containers within their parent container, 
 
 **How it works:**
 - Identify the sub-container you want to move (e.g., a "when" branch in a Choice)
-- Drag and drop the entire sub-container to a new position within the parent. Note that only the valid targets provide visual feedback
+- Click and hold on the **blue header/title bar** of the container to initiate the drag
+- Drag the entire sub-container to a new position within the parent. Note that only the valid targets provide visual feedback
 - Other sub-containers automatically adjust their positions
 - The parent container structure remains intact
+
+> **Note:** To drag container nodes, you must click on their blue header/title bar. Clicking elsewhere on the container will not initiate a drag operation.
 
 {{< youtube id="celWKbJocoM" class="video" title="Reposition Containers Within Parent" >}}
 

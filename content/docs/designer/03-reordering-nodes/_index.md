@@ -21,9 +21,58 @@ Each method serves different use cases and can be combined for efficient workflo
 
 ## Drag and Drop
 
-Kaoto's drag-and-drop functionality allows you to reorganize Apache Camel routes directly on the canvas. You can reorder steps within a route, move steps across routes, and reorganize container structures with visual feedback guiding your operations.
+Kaoto's drag-and-drop functionality allows you to reorganize Apache Camel routes directly on the canvas with real-time visual feedback. You can reorder steps within a route, move steps across routes, and reorganize container structures intuitively.
 
-For a comprehensive guide on drag-and-drop capabilities, including video demonstrations and detailed examples, see our [Drag and Drop blog post](https://kaoto.io/blog/drag-and-drop/).
+**How it works:**
+- Click and hold on the node you want to move:
+  - For **regular steps**: Click anywhere on the node
+  - For **container nodes**: Click on the **blue header/title bar** of the container
+  - The cursor changes to a **grab** icon when hovering over a draggable area
+  - Once you click and start dragging, the cursor changes to a **grabbing** icon
+- Drag it to the desired position on the canvas
+- Visual indicators show valid drop zones:
+  - **Blue dashed outlines** appear on all compatible drop targets
+  - **Green highlights** appear when hovering over a specific valid target
+  - **No feedback** means the location is not a valid drop zone
+- Release the mouse to place the node in its new location
+
+**What you can drag:**
+
+Drag and drop works with various node types:
+
+- **Regular steps** – Move individual processing steps within or across routes (e.g., [`log`](https://camel.apache.org/components/latest/eips/log-eip.html), [`transform`](https://camel.apache.org/components/latest/eips/transform-eip.html), [`filter`](https://camel.apache.org/components/latest/eips/filter-eip.html))
+- **Container nodes** – Relocate entire containers with their nested content (e.g., [`choice`](https://camel.apache.org/components/latest/eips/choice-eip.html), [`doTry`](https://camel.apache.org/components/latest/eips/doTry-eip.html))
+- **Sub-containers** – Reorder branches within parent containers:
+  - [`when`](https://camel.apache.org/components/latest/eips/when-eip.html) branches inside [`choice`](https://camel.apache.org/components/latest/eips/choice-eip.html)
+  - [`doCatch`](https://camel.apache.org/components/latest/eips/doCatch-eip.html) blocks inside [`doTry`](https://camel.apache.org/components/latest/eips/doTry-eip.html)
+  - Other nested container structures
+
+**Drop targets:**
+
+You can drop nodes on different types of targets:
+
+- **Edges** – Drop on the connector between two steps to insert the node between them
+- **Placeholders** – Drop on placeholder nodes to append at the end of a sequence
+- **Compatible containers** – Drop sub-containers onto other compatible containers to reorder them
+
+**Use cases:**
+
+- Reorder steps within a route to optimize processing flow
+- Move steps between different routes for better organization
+- Reorganize conditional branches within a [`choice`](https://camel.apache.org/components/latest/eips/choice-eip.html) processor
+- Reposition exception handlers within a [`doTry`](https://camel.apache.org/components/latest/eips/doTry-eip.html) block
+- Move steps into or out of container nodes
+- Transfer sub-containers between compatible parent containers
+
+> [!TIP]
+> Watch the visual feedback carefully - blue dashed outlines show all possible drop zones, while green highlights indicate where you'll drop if you release. If you don't see any feedback, the target is incompatible with what you're dragging.
+
+> [!IMPORTANT]
+> To drag container nodes, you must click on their blue header/title bar. Clicking elsewhere on the container will not initiate a drag operation.
+
+> [!NOTE]
+> For detailed examples with video demonstrations, see our [Drag and Drop blog post](https://kaoto.io/blog/drag-and-drop/).
+
 
 ---
 
