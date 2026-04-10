@@ -1,6 +1,6 @@
 ---
 title: "Kaoto Documentation Revamp: Your Complete Guide to Visual Integration Design"
-date: 2026-04-10
+date: 2026-04-14
 summary: We've completely revamped the Kaoto documentation to make it easier than ever to build Apache Camel integrations visually. Explore the new structure, comprehensive guides, and step-by-step tutorials.
 authors:
   - pvinaches
