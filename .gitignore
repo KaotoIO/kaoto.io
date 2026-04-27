@@ -67,3 +67,4 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+.codex
