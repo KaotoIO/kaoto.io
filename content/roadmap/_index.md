@@ -162,14 +162,6 @@ This roadmap is subject to change.
         </div>
     </div>
     <div class="roadmap-card">
-        <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
-        <div class="content">
-            <h3>Camel Infra Support</h3>
-            <p>Enable users to leverage the Camel Infra features to test their integrations.</p>
-            <div class="delivery-time">2026</div>
-        </div>
-    </div>
-    <div class="roadmap-card">
         <div class="icon" style="background-image: url('./images/tracing.svg');"></div>
         <div class="content">
             <h3>Visual Tracing</h3>
@@ -190,6 +182,14 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Custom Kamelet Support</h3>
             <p>Allow users to define their own custom Kamelet catalog.</p>
+            <div class="delivery-time">Q2 / 2026</div>
+        </div>
+    </div>
+    <div class="roadmap-card wip">
+        <div class="icon" style="background-image: url('./images/camel-logo.svg');"></div>
+        <div class="content">
+            <h3>Camel Infra Support</h3>
+            <p>Enable users to leverage the Camel Infra features to test their integrations.</p>
             <div class="delivery-time">Q2 / 2026</div>
         </div>
     </div>
