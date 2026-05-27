@@ -19,7 +19,7 @@ Please take a look below to learn about the exciting new things we added to this
 
 ### Data Mapper JSON Support (Tech Preview)
 
-<p align="center"><img src="./datamapper-json.png" alt="DataMapper JSON Support" /></p>
+{{< figure src="./datamapper-json.png" alt="DataMapper JSON Support" caption="DataMapper JSON Support" class="image" >}}
 
 Building on the XML support introduced earlier, the Data Mapper now enables you to:
 
@@ -50,7 +50,7 @@ You can find more detailed information about the Data Mapper in our online [user
 
 If you are using the Kaoto VS Code extension and you work in a Maven project then this little improvement might delight you. Whenever you add a new component endpoint to your route, upon saving your `pom.xml` file gets updated with the required dependency.
 
-<p align="center"><img src="./dep-update.gif" alt="showcasing the dependency update" /></p>
+{{< figure src="./dep-update.gif" alt="showcasing the dependency update" caption="Showcasing the dependency update" class="image" >}}
 
 ### Drag & Drop Support
 
@@ -111,7 +111,7 @@ Your browser does not support the video tag.
 
 * Switch between `to`, `toD`, and `poll` variants directly in the form
 
-<p align="center"><img src="./endpoint-switch.png" alt="showcasing the endpoint type selector" /></p>
+{{< figure src="./endpoint-switch.png" alt="showcasing the endpoint type selector" caption="Showcasing the endpoint type selector" class="image" >}}
 
 * Preserve expressions when switching between different languages
 * Improved parameter handling with URI parsing enhancements
