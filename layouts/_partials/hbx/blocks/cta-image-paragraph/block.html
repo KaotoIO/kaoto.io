@@ -2,7 +2,7 @@
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
 
-<div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+<div class="mx-auto max-w-96 px-6 py-12 lg:px-8">
   {{ with $block.content.items }}
     <div class="grid gap-12">
       {{ range $index, $item := . }}
