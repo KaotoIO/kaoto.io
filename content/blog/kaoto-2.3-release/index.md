@@ -14,7 +14,7 @@ tags:
 It has been over 2 months since the Kaoto 2.2 release and we are excited to provide you now with the new Kaoto 2.3 version.
 Please take a look below to learn about the exciting new things we added in this release.
 
-<p align="center"><img src="./CamelJedi.png" alt="Camel Jedi" style="height: 400px;"/></p>
+{{< figure src="./CamelJedi.png" alt="Camel Jedi" caption="Camel Jedi" class="image" >}}
 
 ## Features & Improvements
 
@@ -22,17 +22,17 @@ Please take a look below to learn about the exciting new things we added in this
 
 We have added more choices to the Camel version selector. Now you will be able to choose between the latest community release, the latest LTS community release as well as the Red Hat Build of Apache Camel releases.
 
-<p align="center"><img src="./camel-versions.gif" alt="showcasing the version selector" style="height: 400px;"/></p>
+{{< figure src="./camel-versions.gif" alt="Showcasing the version selector" caption="Showcasing the version selector" class="image" >}}
 
 #### Visual Data Mapping & Transformation Editor (Tech Preview available in VS Code)
 
 This feature has been requested a lot and we are very happy to provide you with the first iteration of a fully new Data Mapping UI which enables you to do your mappings and transformations in a drag and drop way. In comparison to AtlasMap the new Kaoto DataMapper works based on XSLT and does not require a specific custom runtime component to work. <br>
 
-<p align="center"><img src="./datamapper-icon.png" alt="showcasing the datamapper icon"/></p>
+{{< figure src="./datamapper-icon.png" alt="Showcasing the datamapper icon" caption="Showcasing the datamapper icon" class="image" >}}
 
 This first iteration marks only the beginning of the Kaoto DataMapper story. There are still many more features and capabilities we want to add over the coming months.
 
-<p align="center"><img src="./featured.png" alt="showcasing the datamapper" style="height: 600px;"/></p>
+{{< figure src="./featured.png" alt="Showcasing the datamapper" caption="Showcasing the datamapper" class="image" >}}
 
 Click the video below to watch a short Kaoto DataMapper introduction:
 [![Watch the Kaoto DataMapper introduction](https://img.youtube.com/vi/iz0yYThHZMc/hqdefault.jpg)](https://www.youtube.com/watch?v=iz0yYThHZMc)
@@ -41,7 +41,7 @@ Click the video below to watch a short Kaoto DataMapper introduction:
 
 Our long term goal is to improve the usability in a way that users can reach most of the functionalities of Kaoto with the least amount of clicks and searching. Efficiency is key to make using Kaoto a fun experience for everyone. A first step in that direction is the new toolbar. In the long run we hope to make this the replacement for the right-click context menu.
 
-<p align="center"><img src="./toolbar.png" alt="showcasing the toolbar" style="height: 200px;"/></p>
+{{< figure src="./toolbar.png" alt="Showcasing the toolbar" caption="Showcasing the toolbar" class="image" >}}
 
 In the default settings the toolbar will be visible when hovering over a step or group. However you can also change that behavior in the *Settings* dialog to be only visible when selecting a step or group.
 
@@ -49,29 +49,29 @@ In the default settings the toolbar will be visible when hovering over a step or
 
 Prototyping a new integration should be as easy and fast as possible in a visual designer. To get closer to that state we added a quick action at the end of each group in your integration which is visible as an **arrow** button. You can now easily append new steps to your integration by clicking that button.
 
-<p align="center"><img src="./append.png" alt="showcasing the append button" style="height: 200px;"/></p>
+{{< figure src="./append.png" alt="Showcasing the append button" caption="Showcasing the append button" class="image" >}}
 
 We also introduced an easier way to insert steps between existing ones. You can now just hover over the connection between two steps and this will reveal a **+** button you can use to insert a new step.
 
-<p align="center"><img src="./insert.png" alt="showcasing the insert button" style="height: 200px;"/></p>
+{{< figure src="./insert.png" alt="Showcasing the insert button" caption="Showcasing the insert button" class="image" >}}
 
 #### New Placeholders
 
 Whenever there is a container step without any step contained we will now show you a placeholder labeled "*Add step*" to signal where you can add new steps.
 
-<p align="center"><img src="./placeholders.png" alt="showcasing the placeholders" style="height: 300px;"/></p>
+{{< figure src="./placeholders.png" alt="Showcasing the placeholders" caption="Showcasing the placeholders" class="image" >}}
 
 #### New Action: Enable All
 
 During the creation of your integration you may have disabled one or more steps for various purposes. Going through your integration now and manually enabling all the deactived steps can be a tedious task and this situation led to the addition of the new "Enable All" action. You can now reactivate all the disabled steps with a single click.
 
-<p align="center"><img src="./enableall.png" alt="showcasing the enableAll button" style="height: 400px;"/></p>
+{{< figure src="./enableall.png" alt="Showcasing the enableAll button" caption="Showcasing the enableAll button" class="image" >}}
 
 #### New Action: Show All
 
 There is a new action available now which lets you quickly show or hide all of your routes.
 
-<p align="center"><img src="./showall.gif" alt="showcasing the Show All button" /></p>
+{{< figure src="./showall.gif" alt="Showcasing the Show All button" caption="Showcasing the Show All button" class="image" >}}
 
 #### Other Enhancements
 
