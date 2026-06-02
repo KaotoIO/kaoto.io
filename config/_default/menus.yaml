@@ -12,6 +12,9 @@ main:
   - name: Documentation
     weight: 30
     url: docs/
+  - name: Playground
+    url: playground/
+    weight: 35
   - name: Roadmap
     url: roadmap/
     weight: 40

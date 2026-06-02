@@ -108,9 +108,24 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
 }
 
 /* Align the header navbar with the content in bigger screens */
-@media (min-width: 1279px) {
+@media (min-width: 1600px) {
+  header.header > nav.navbar {
+    max-width: 1600px; /* Instead of 1280px */
+  }
+  
+  .mx-auto {
+    max-width: 1600px !important;
+  }
+}
+
+@media (max-width: 1600px) and (min-width: 1280px) {
   header.header > nav.navbar {
     max-width: 1280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  header.header > nav.navbar {
     margin-left: auto;
     margin-right: auto;
   }
@@ -195,4 +210,3 @@ figure.image > img {
   cursor: zoom-in !important;
 }
 
-/* ...existing code... */
