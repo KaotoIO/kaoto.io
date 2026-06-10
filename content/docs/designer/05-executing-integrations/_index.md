@@ -15,6 +15,17 @@ Before running integrations in Kaoto, ensure you have completed the installation
 
 ---
 
+## Selecting an executor
+
+Starting with Kaoto 2.11, there's a new setting to select the runtime executor, which can be either `jbang` (default) or `camel-launcher` (experimental). This setting can be found in the same settings page as the Catalog library URL.
+
+{{< image-sh src="setting-executor-selection.png" text="Setting the runtime executor" >}}
+
+> [!WARNING]
+> At the moment, the `camel-launcher` executor is experimental and may not work with all Apache Camel versions.
+
+---
+
 ## Understanding Execution Scopes
 
 Kaoto provides three execution scopes to match your workflow:
