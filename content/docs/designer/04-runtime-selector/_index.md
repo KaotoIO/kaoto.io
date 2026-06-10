@@ -27,13 +27,13 @@ Kaoto provides a Camel catalog generator CLI to ease this process, it supports t
 yarn install
 ```
 
-1. Build the default catalogs
+4. Build the default catalogs
 
 ```bash
 yarn build
 ```
 
-1. This will generate a Catalog library containing:
+5. This will generate a Catalog library containing:
     * Camel Main versions
     * Camel extensions for Quarkus
     * Camel Spring boot
@@ -42,12 +42,12 @@ yarn build
 > To check what specific versions are included, please visit [the index file](https://github.com/KaotoIO/camel-catalog/blob/main/index.js)
 {.note}
 
-1. The resulting files will be in the `catalog` folder
+6. The resulting files will be in the `catalog` folder
 
 > The latest catalog is version is available in [the GitHub repository](https://github.com/KaotoIO/camel-catalog/tree/main/catalog)
 {.note}
 
-1. Providing that folder through a http server will make it available for using it in Kaoto
+7. Providing that folder through a http server will make it available for using it in Kaoto
 
 #### Creating a Catalog library with different runtimes
 
@@ -79,10 +79,12 @@ For a different Kamelets catalog version, the `--kamelets or -k` flag can be spe
 
 {{< image-sh src="vscode-kaoto-settings.png" text="VSCode Kaoto settings" >}}
 
-1. In the `TextField`, provide the URL of the `index.json` file that specifies the location of the subsequent catalogs, for instance, the public Kaoto catalog can be used:
+2. In the `TextField`, provide the URL of the `index.json` file that specifies the location of the subsequent catalogs, for instance, the public Kaoto catalog can be used:
 
 {{< image-sh src="setting-kaoto-catalog-url.png" text="Setting a Kaoto catalog URL" >}}
 
-1. Restart Kaoto for the changes to have effect
+3. Use the Kaoto editor status bar to select from a custom catalogs.
 
 {{< image-sh src="runtime-selector.png" text="Kaoto runtime selector" >}}
+
+4. Restart Kaoto for the changes to have effect
