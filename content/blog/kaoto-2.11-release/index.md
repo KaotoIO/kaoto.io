@@ -19,25 +19,54 @@ This release brings significant enhancements to testing capabilities with Citrus
 
 ### Citrus Testing Capabilities
 
-Kaoto 2.11 introduces comprehensive Citrus framework integration for automated testing of your Apache Camel integrations:
+Kaoto 2.11 introduces comprehensive Citrus framework integration, bringing automated testing capabilities directly into your visual integration design workflow. Build and manage Citrus tests alongside your Apache Camel routes, ensuring your integrations work correctly through behavior-driven testing.
 
-- **Citrus Test Support** - Full integration with the Citrus testing framework, enabling you to create, manage, and execute automated tests directly within Kaoto
-- **Visual Test Actions** - Dedicated icons for Citrus test actions, making it easy to identify and work with test components in your integration flows
-- **Custom Test Fields** - Specialized configuration fields for Citrus Endpoints and MessageBody, streamlining test setup and configuration
+**Visual Test Design**
 
-This feature bridges the gap between integration development and testing, allowing you to validate your Camel routes with enterprise-grade testing capabilities.
+- **Citrus Test Support** - Full integration with the Citrus testing framework, enabling you to create and manage automated tests directly within Kaoto's visual interface
+- **Dedicated Test Icons** - Visual indicators for Citrus test actions make it easy to identify and distinguish test components from regular integration steps in your flows
+- **Test Action Library** - Access to Citrus test actions (send, receive, echo, sleep, etc.) through Kaoto's component catalog, allowing you to build test scenarios visually
+
+**Test Configuration and Management**
+
+- **Citrus Endpoint Configuration** - Specialized configuration fields for Citrus Endpoints, providing a streamlined interface for defining test endpoints with proper protocols and message formats
+- **Standard Property Forms** - Configure test actions using Kaoto's familiar property forms, maintaining consistency with how you configure Camel components
+- **YAML/XML Serialization** - Tests are serialized to standard Citrus YAML or XML format, making them portable and compatible with the broader Citrus ecosystem
+
+**Integrated Testing Workflow**
+
+- **Side-by-Side Development** - Create tests in the same workspace as your integration routes, keeping test scenarios close to the code they validate
+- **Visual Test Organization** - Manage test files through Kaoto's file explorer, with clear visual distinction between integration routes and test definitions
+- **Test Execution** - Run Citrus tests directly from Kaoto's interface to validate your integration behavior during development
+
+This feature bridges the gap between integration development and testing, allowing you to validate your Camel routes with behavior-driven testing capabilities while maintaining the visual approach that makes Kaoto powerful.
 
 VIDEO SHOWING CITRUS CAPABILITIES IN KAOTO
 
 
 ### Catalog and Runtime Management
 
-Enhanced runtime and catalog management capabilities provide better control over your development environment:
+Enhanced runtime and catalog management capabilities provide better control over your development environment, giving you the flexibility to choose how you execute and test your integrations.
 
-- **Multiple Executors** - Support for both Camel CLI and experimental new feature Camel Launcher, giving you flexibility in how you run your integrations
-- **Settings-Based Catalog Versions** - Catalog versions are now read from settings, providing centralized version management
-- **Custom Run Arguments** - Users can now overwrite default run arguments for greater control over execution
-- **Camel JBang 4.20.0** - Upgraded default Camel JBang version from 4.18.0 to 4.20.0
+**Multiple Execution Options**
+
+Kaoto 2.11 introduces support for multiple executors, allowing you to choose the best runtime approach for your workflow:
+
+- **Camel CLI (Default)** - The traditional and stable Camel JBang CLI executor provides reliable integration execution with full Camel JBang feature support. This is the recommended option for most users, offering proven stability and comprehensive Camel runtime capabilities
+  
+- **Camel Launcher (Experimental)** - A new experimental executor that offers an alternative execution approach. This feature is under active development and provides early access to upcoming runtime improvements. Perfect for users who want to explore new capabilities and provide feedback on future execution features
+
+**Why Multiple Executors Matter**
+
+Different development scenarios benefit from different execution approaches. The Camel CLI excels at production-like testing with full JBang capabilities, while the experimental Camel Launcher explores new execution patterns that may offer performance or feature advantages in the future. Having both options ensures you can choose the right tool for your specific needs while maintaining backward compatibility.
+
+**Centralized Configuration**
+
+- **Settings-Based Catalog Versions** - Catalog versions are now read from settings, providing centralized version management across your workspace. This ensures consistency when working with multiple integration files and makes it easier to upgrade or switch between Camel versions
+  
+- **Custom Run Arguments** - Override default run arguments to fine-tune execution behavior. Add custom JVM options, enable specific Camel features, or configure runtime parameters without modifying your integration files
+  
+- **Camel JBang 4.20.0** - Upgraded default Camel JBang version from 4.18.0 to 4.20.0, bringing the latest Camel features, performance improvements, and bug fixes to your development environment
 
 FIGURE OF SETTINGS PAGE
 
