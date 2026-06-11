@@ -46,42 +46,30 @@ FIGURE OF SETTINGS PAGE
 
 The DataMapper has received substantial improvements for handling complex data transformation scenarios:
 
+**Rendering Engine Re-invented**
+
+Kaoto DataMapper rendering engine has been re-invented to be enterprise-grade — with virtual scrolling and browser-native rendering, you can flawlessly navigate through large data mappings with complex document schema structures.
+
 **Advanced Schema Support**
-- **Abstract Elements** - Full support for abstract element and abstract complexType definitions, enabling more flexible schema designs
-- **Nillable Attributes** - Support for `xs:element nillable` attribute, properly handling nullable fields in XML schemas
-- **Choice Improvements** - Enhanced `xs:choice` support with dedicated ChoiceSelectionService for better choice element handling
-- **Circular Includes** - Support for circular `xs:include` references, allowing complex schema dependency graphs
-- **Include Resolution** - Fixed `xs:include` resolution for same file names in different directories
-
-**Literal and Expression Support**
-- **Literal Deserialization** - DataMapper now supports literal value deserialization for direct value mapping
-- **XSLT Comments** - Ability to add comments into generated XSLT for better documentation
-- **Namespace Management** - Added `exclude-result-prefixes` to generated XSLT to prevent namespace leakage
-
-**Field and Element Management**
-- **Field Type Override UI** - Visual interface for overriding field types when needed
-- **Element Substitution UI** - Dedicated UI for managing element substitution groups
-- **Abstract Field Substitution** - Context menu support for substituting abstract fields with concrete implementations
-- **Double-Click Editing** - Quick field editing via double-click for improved workflow
-- **Choice Context Menu** - Specialized context menu for working with choice elements
-
-**Collection and Container Handling**
-- **Collection Semantics** - Members of collection choice now properly inherit collection semantics
-- **For-Each Wrapping** - Collection choice mappings are automatically wrapped with for-each constructs
-- **Container Auto Mapping** - Intelligent auto-mapping for container elements
-
-**File Management**
-- **Resource Existence Check** - New `isResourceExist` method in metadata API for validating resources
-- **XSLT Recovery** - XSLT file recovery and rename functionality for better file management
+- **Field Override** - Support for overriding a document field or its type where it's compatible. Complex XML schema uses `Substitution Group` to allow element substitution, and `xs:extension`/`xs:restriction` to declare hierarchical type definitions. Kaoto DataMapper now offers to leverage this extensibility where the schema definition allows. Right-clicking on the document field offers override options
+- **Abstract Elements** - An abstract element now shows its substitution candidates as children in the document tree, enabling direct mapping from/to the substituted fields
+- **Choice Improvements** - Enhanced `xs:choice` support with dedicated context menu for choosing from choice options. Right-clicking on the document field offers choice options
+- **Nillable Attributes** - Support for `xs:element nillable` attribute, properly handling nullable fields as declared in the XML schema
+- **And more to come...** We continue working on improving complex document/mapping support. Further improvements to Abstract Elements support are on the way
 
 **UI/UX Improvements**
-
-The DataMapper interface has been refined for better usability:
-
-- **Virtual Scrolling** - Improved performance when working with large schemas through virtual scrolling
-- **Collapsed Collections** - Drag and drop now shows collections in collapsed state for cleaner visualization
-- **Delete Key Support** - Delete data mapping usage by pressing the Delete key for faster workflow
+- **Auto Mapping** - Several auto mapping options through Drag and Drop have been added:
+  - Source collection field to target collection field: `for-each` mapping is automatically created
+  - Container field to Container field: Automatically creates appropriate mappings, it either uses `xsl:copy-of` or creates mappings for individual children
+- **Double-Click Editing** - If you're familiar with XPath, just double-click the target field and write the XPath expression right away
+- **Delete Key Support** - Delete data mapping item by pressing the Delete key for faster workflow
+- Allow renaming XSLT file associated with Kaoto DataMapper step
 - Allow to collapse the function list in XPath editor
+- Highlight the selected field border, not only its title
+
+**Other XSLT improvements**
+- **XSLT Comments** - Ability to add comments into generated XSLT for better documentation. Once a comment is added, a comment icon appears on the mapping element — hover over it to see the comment in a tooltip
+- Added `exclude-result-prefixes` to generated XSLT to prevent namespace leakage into transformed target XML instance
 
 ### Canvas and Visual Editor Enhancements
 
