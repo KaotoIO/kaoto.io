@@ -3,10 +3,10 @@ title: "Kaoto 2.11 release"
 date: 2026-06-10
 summary: Kaoto 2.11 is available.
 authors: 
-  - djelinek
+  - lordrip
   - igarashitm
   - PVinaches
-  - lordrip
+  - djelinek
 tags:
   - Kaoto
   - Release
@@ -24,14 +24,21 @@ Kaoto 2.11 introduces comprehensive Citrus framework integration, bringing autom
 **Visual Test Design**
 
 - **Citrus Test Support** - Full integration with the Citrus testing framework, enabling you to create and manage automated tests directly within Kaoto's visual interface
+
+{{< figure src="kaoto-extension.png" alt="Kaoto VS Code extension showing Citrus test integration" caption="Kaoto VS Code extension with Citrus testing support" class="image" >}}
+
 - **Dedicated Test Icons** - Visual indicators for Citrus test actions make it easy to identify and distinguish test components from regular integration steps in your flows
 - **Test Action Library** - Access to Citrus test actions (send, receive, echo, sleep, etc.) through Kaoto's component catalog, allowing you to build test scenarios visually
+
+{{< figure src="test-icons.png" alt="Visual indicators for Citrus test actions in the component catalog" caption="Dedicated icons for Citrus test actions" class="image" >}}
 
 **Test Configuration and Management**
 
 - **Citrus Endpoint Configuration** - Specialized configuration fields for Citrus Endpoints, providing a streamlined interface for defining test endpoints with proper protocols and message formats
 - **Standard Property Forms** - Configure test actions using Kaoto's familiar property forms, maintaining consistency with how you configure Camel components
 - **YAML/XML Serialization** - Tests are serialized to standard Citrus YAML or XML format, making them portable and compatible with the broader Citrus ecosystem
+
+{{< figure src="test-forms.png" alt="Configuration form for Citrus test actions" caption="Citrus test action configuration using Kaoto property forms" class="image" >}}
 
 **Integrated Testing Workflow**
 
@@ -40,9 +47,6 @@ Kaoto 2.11 introduces comprehensive Citrus framework integration, bringing autom
 - **Test Execution** - Run Citrus tests directly from Kaoto's interface to validate your integration behavior during development
 
 This feature bridges the gap between integration development and testing, allowing you to validate your Camel routes with behavior-driven testing capabilities while maintaining the visual approach that makes Kaoto powerful.
-
-VIDEO SHOWING CITRUS CAPABILITIES IN KAOTO
-
 
 ### Catalog and Runtime Management
 
@@ -56,6 +60,8 @@ Kaoto 2.11 introduces support for multiple executors, allowing you to choose the
   
 - **Camel Launcher (Experimental)** - A new experimental executor that offers an alternative execution approach. This feature is under active development and provides early access to upcoming runtime improvements. Perfect for users who want to explore new capabilities and provide feedback on future execution features
 
+{{< figure src="settings.png" alt="Kaoto settings showing executor selection between Camel CLI and Camel Launcher" caption="Multiple executor options in Kaoto settings" class="image" >}}
+
 **Why Multiple Executors Matter**
 
 Different development scenarios benefit from different execution approaches. The Camel CLI excels at production-like testing with full JBang capabilities, while the experimental Camel Launcher explores new execution patterns that may offer performance or feature advantages in the future. Having both options ensures you can choose the right tool for your specific needs while maintaining backward compatibility.
@@ -65,11 +71,10 @@ Different development scenarios benefit from different execution approaches. The
 - **Settings-Based Catalog Versions** - Catalog versions are now read from settings, providing centralized version management across your workspace. This ensures consistency when working with multiple integration files and makes it easier to upgrade or switch between Camel versions
   
 - **Custom Run Arguments** - Override default run arguments to fine-tune execution behavior. Add custom JVM options, enable specific Camel features, or configure runtime parameters without modifying your integration files
+
+{{< figure src="run-arguments.png" alt="Custom run arguments configuration interface" caption="Override default run arguments for fine-tuned execution" class="image" >}}
   
 - **Camel JBang 4.20.0** - Upgraded default Camel JBang version from 4.18.0 to 4.20.0, bringing the latest Camel features, performance improvements, and bug fixes to your development environment
-
-FIGURE OF SETTINGS PAGE
-
 
 ### DataMapper Enhancements
 
@@ -79,10 +84,15 @@ The DataMapper has received substantial improvements for handling complex data t
 
 Kaoto DataMapper rendering engine has been re-invented to be enterprise-grade â€” with virtual scrolling and browser-native rendering, you can flawlessly navigate through large data mappings with complex document schema structures.
 
+---Video for complex mapping with scrolling
+
 **Advanced Schema Support**
 - **Field Override** - Support for overriding a document field or its type where it's compatible. Complex XML schema uses `Substitution Group` to allow element substitution, and `xs:extension`/`xs:restriction` to declare hierarchical type definitions. Kaoto DataMapper now offers to leverage this extensibility where the schema definition allows. Right-clicking on the document field offers override options
 - **Abstract Elements** - An abstract element now shows its substitution candidates as children in the document tree, enabling direct mapping from/to the substituted fields
 - **Choice Improvements** - Enhanced `xs:choice` support with dedicated context menu for choosing from choice options. Right-clicking on the document field offers choice options
+
+---Video for choice improvements
+
 - **Nillable Attributes** - Support for `xs:element nillable` attribute, properly handling nullable fields as declared in the XML schema
 - **And more to come...** We continue working on improving complex document/mapping support. Further improvements to Abstract Elements support are on the way
 
@@ -91,6 +101,9 @@ Kaoto DataMapper rendering engine has been re-invented to be enterprise-grade â€
   - Source collection field to target collection field: `for-each` mapping is automatically created
   - Container field to Container field: Automatically creates appropriate mappings, it either uses `xsl:copy-of` or creates mappings for individual children
 - **Double-Click Editing** - If you're familiar with XPath, just double-click the target field and write the XPath expression right away
+
+---Video for editing
+
 - **Delete Key Support** - Delete data mapping item by pressing the Delete key for faster workflow
 - Allow renaming XSLT file associated with Kaoto DataMapper step
 - Allow to collapse the function list in XPath editor
@@ -100,25 +113,28 @@ Kaoto DataMapper rendering engine has been re-invented to be enterprise-grade â€
 - **XSLT Comments** - Ability to add comments into generated XSLT for better documentation. Once a comment is added, a comment icon appears on the mapping element â€” hover over it to see the comment in a tooltip
 - Added `exclude-result-prefixes` to generated XSLT to prevent namespace leakage into transformed target XML instance
 
+---Video for ccomments
+
 ### Canvas and Visual Editor Enhancements
 
 Building integrations is now more intuitive with these canvas improvements:
 
 - **Route AutoStartup Toggle** - Toggle switch in the title bar for controlling route autoStartup property
 
-FIGURE OF A ROUTE
+{{< figure src="autostartup-toggle.png" alt="Toggle switch in route title bar for controlling autoStartup property" caption="Route autoStartup toggle in the title bar" class="image" >}}
 
 - **Space Bar Navigation** - Move the canvas by pressing and holding the Space bar for easier navigation
 - **Container Selection Styles** - Visual styles for selected containers in NodeContainer for better feedback
 
-FIGURE OR VIDEO OF CANVAS
+{{< figure src="selection-colors.png" alt="Visual feedback when moving selected element highliting the possible drop zones" caption="Visual feedback when moving selected element highliting the possible drop zones" class="image" >}}
 
+{{< figure src="selection-colors-container.png" alt="Visual feedback when moving selected containers highliting the possible drop zones" caption="Visual feedback when moving selected containers highliting the possible drop zones" class="image" >}}
 
 ### REST DSL and OpenAPI Support
 
 - **Property Search Filter** - Search functionality in RestDslEditor for quickly finding properties
 
-FIGURE OF REST DSL EDITOR
+{{< figure src="rest-search.png" alt="Search functionality in REST DSL editor for filtering properties" caption="Property search filter in REST DSL editor" class="image" >}}
 
 - **Accessible REST Editor** - REST DSL editor built with resizable split panels featuring improved accessibility
 - **Improved OpenAPI Support** - Enhanced OpenAPI file handling with automatic detection of `*openapi.yml` files and flexible API URL imports without file extension restrictions
@@ -129,8 +145,9 @@ Configuration forms have been enhanced for better usability:
 
 - **Custom Properties Configuration** - Support for key/value configuration format for endpoint properties in components like To, ToD, and other endpoint-based components, providing a more intuitive way to configure component parameters
 
-FIGURE OF TOD AND ANOTHER COMPONENT
+{{< figure src="toD.png" alt="ToD component showing key/value configuration format for endpoint properties" caption="Custom properties configuration in ToD component" class="image" >}}
 
+{{< figure src="kamelet-comp.png" alt="Kamelet component showing key/value configuration format for parameters" caption="Custom properties configuration in Kamelet component" class="image" >}}
 
 ---
 
@@ -192,8 +209,6 @@ Kaoto 2.11 includes support for:
 - **Camel extensions for Quarkus** - 3.35.0, 3.33.1, 3.27.4, 3.20.4 
 - **Camel Spring Boot** - 4.20.0, 4.18.2, 4.14.7, 4.10.9
 - **Citrus** - 4.10.0, 4.10.1
-
-For a full list of changes please refer to the [changelog](https://github.com/KaotoIO/kaoto/releases/tag/2.11.0).
 
 ---
 
