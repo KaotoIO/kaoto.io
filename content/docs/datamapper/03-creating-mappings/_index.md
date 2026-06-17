@@ -41,6 +41,20 @@ For more control over your mappings, you can type XPath expressions directly.
 
 ---
 
+## Comment on a Mapping
+
+Once a mapping is created, you can also comment on it.
+
+1. **Click the 3-dot menu** on the target field 
+
+{{< image-sh src="datamapper-add-comment-dropdown.png" text="Add comment in dropdown" >}}
+
+2. **Add your comment**
+
+{{< image-sh src="datamapper-add-comment.png" text="Add comment" >}}
+
+---
+
 ## Delete a Mapping
 
 If you need to remove a mapping, click the trash icon <img src="datamapper-delete-mapping-btn.png" alt="Delete mapping icon" style="display: inline; height: 1.2em; vertical-align: middle;"> next to the target field and confirm the deletion.
