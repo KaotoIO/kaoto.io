@@ -52,7 +52,7 @@ pnpm install
 ## Development
 
 ```bash
-hugo server
+hugo server -D -F
 ```
 
 **Once Hugo started successfully, you will find the page at [http://localhost:1313](http://localhost:1313).**
