@@ -1,6 +1,6 @@
 ---
 title: "Kaoto 2.11 release"
-date: 2026-06-18
+date: 2026-06-17
 summary: Kaoto 2.11 is available.
 authors: 
   - lordrip
@@ -91,6 +91,8 @@ The DataMapper has received substantial improvements for handling complex data t
 
 Kaoto DataMapper rendering engine has been re-invented to be enterprise-grade — with virtual scrolling and browser-native rendering, you can flawlessly navigate through large data mappings with complex document schema structures.
 
+{{< youtube id="ZUuyfZd1C4E" class="video" title="DataMapper rendering engine re-invented" >}}
+
 **Advanced Schema Support**
 
 - **Field Override** - Support for overriding a document field or its type where it's compatible. Complex XML schema uses `Substitution Group` to allow element substitution, and `xs:extension`/`xs:restriction` to declare hierarchical type definitions. Kaoto DataMapper now offers to leverage this extensibility where the schema definition allows. Right-clicking on the document field offers override options
@@ -116,11 +118,25 @@ Kaoto DataMapper rendering engine has been re-invented to be enterprise-grade �
 {{< youtube id="CyD8PnidEm0" class="video" title="DataMapper UI/UX Improvements - Auto Mapping, Double-Click Editing, and Delete Key" >}}
 
 - Allow renaming XSLT file associated with Kaoto DataMapper step
+
+{{< figure src="datamapper-rename-xslt.png" alt="Rename XSLT file associated with the DataMapper step" caption="Rename XSLT file associated with the DataMapper step" class="image" >}}
+
 - Allow to collapse the function list in XPath editor
 - Highlight the selected field border, not only its title
 
+  {{< figure src="datamapper-highlight-field.png" alt="Select a field" caption="Select a field" class="image" >}}
+
 **Other XSLT improvements**
 - **XSLT Comments** - Add documentation comments to your XSLT transformations for better maintainability. Right-click on any mapping element and select "Add Comment" to document the purpose or logic of that transformation. Once a comment is added, a comment icon appears on the mapping element — hover over it to see the comment in a tooltip. This makes it easier for team members to understand complex transformations
+
+{{< figure src="datamapper-add-comment-dropdown.png" alt="Click 3-dots mapping context menu and click `Add Comment`" caption="Click 3-dots mapping context menu and click `Add Comment`" class="image" >}}
+{{< figure src="datamapper-add-comment.png" alt="Add Comment Modal" caption="Add Comment Modal" class="image" >}}
+
+- **Configure `sort` on `for-each` mapping** - Add `xsl:sort` configuration to the `xsl:for-each` mapping. Click 3-dots mapping context menu on `for-each` node and select `Configure Sort` to open sort configuration modal.
+
+{{< figure src="datamapper-configure-sort.png" alt="Configure Sort" caption="Configure Sort" class="image" >}}
+{{< figure src="datamapper-configure-sort-modal.png" alt="Configure Sort Modal" caption="Configure Sort Modal" class="image" >}}
+
 - Added `exclude-result-prefixes` to generated XSLT to prevent namespace leakage into transformed target XML instance
 
 ### Canvas and Visual Editor Enhancements
