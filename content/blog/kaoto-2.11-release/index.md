@@ -122,6 +122,9 @@ Kaoto DataMapper rendering engine has been re-invented to be enterprise-grade â€
 {{< figure src="datamapper-rename-xslt.png" alt="Rename XSLT file associated with the DataMapper step" caption="Rename XSLT file associated with the DataMapper step" class="image" >}}
 
 - Allow to collapse the function list in XPath editor
+
+{{< figure src="datamapper-xpath-functions-collapse.png" alt="Collapse a category in XPath function list" caption="Collapse a category in XPath function list" class="image" >}}
+
 - Highlight the selected field border, not only its title
 
   {{< figure src="datamapper-highlight-field.png" alt="Select a field" caption="Select a field" class="image" >}}
