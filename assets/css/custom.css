@@ -137,7 +137,19 @@ div.video, div.video > iframe, figure.image, figure.image > img {
   justify-self: anchor-center;
 }
 
-div.video > iframe, figure.image > img {
+div.video {
+  max-width: 100%;
+  margin: 2rem auto;
+}
+
+div.video > iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  min-height: 400px;
+}
+
+figure.image > img {
   width: 100%;
   height: auto;
 }
