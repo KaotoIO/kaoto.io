@@ -182,7 +182,7 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Custom Kamelet Support</h3>
             <p>Allow users to define their own custom Kamelet catalog.</p>
-            <div class="delivery-time">Q2 / 2026</div>
+            <div class="delivery-time">Q3 / 2026</div>
         </div>
     </div>
     <div class="roadmap-card wip">
@@ -190,10 +190,10 @@ This roadmap is subject to change.
         <div class="content">
             <h3>Camel Infra Support</h3>
             <p>Enable users to leverage the Camel Infra features to test their integrations.</p>
-            <div class="delivery-time">Q2 / 2026</div>
+            <div class="delivery-time">Q3 / 2026</div>
         </div>
     </div>
-    <div class="roadmap-card wip">
+    <div class="roadmap-card completed">
         <div class="icon" style="background-image: url('./images/citrus.png');"></div>
         <div class="content">
             <h3>Citrus Testing Support</h3>
