@@ -34,3 +34,5 @@ After attaching your schemas, learn how to **[Create Mappings](./03-creating-map
 As your transformations grow more complex, explore **[Conditional Mappings](./04-conditional-mappings/)** to add logic with if statements, choose-when-otherwise, and for-each loops for processing collections.
 
 When you need complex transformations, the **[XPath Editor](./05-xpath-editor/)** guide shows you how to use XPath functions with practical examples for string manipulation, conditionals, calculations, and more.
+
+For advanced scenarios, the **[Advanced Features](./07-advanced-features/)** guide shows you how to work with polymorphic data through type overrides and element substitution, and how to handle schema choice elements (`xs:choice`) in your mappings.
