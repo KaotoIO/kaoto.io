@@ -9,6 +9,8 @@ tags:
   - Release
   - Kaoto 2.0 TP1
   - Tech Preview
+aliases:
+  - /blog/kaoto-2.0.tp1-release/
 ---
 # With this 2.0.0 TP1 (Tech Preview) release we open up a new chapter for the Kaoto project. We leveraged all the strengths of Kaoto v1 and used the time to use the upstream [Apache Camel](https://camel.apache.org/) models and schemas directly, which will ensure that we provide the latest features of [Apache Camel](https://camel.apache.org/) in Kaoto. In addition we managed to add new features and usability improvements while also trying to keep most of the functionality of Kaoto v1.
 

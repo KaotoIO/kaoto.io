@@ -9,6 +9,8 @@ tags:
   - Release
   - Kaoto 2.0 TP3
   - Tech Preview
+aliases:
+  - /blog/kaoto-2.0.tp3-release/
 ---
 **We are happy to announce the release of Kaoto 2.0.0 TP3 (Tech Preview 3).**
 

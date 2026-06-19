@@ -11,6 +11,8 @@ tags:
   - Visual Designer
   - Apache Camel
   - UX
+aliases:
+  - /blog/drag-and-drop/
 ---
 
 ## Introduction

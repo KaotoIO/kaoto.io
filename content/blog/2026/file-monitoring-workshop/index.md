@@ -10,6 +10,8 @@ tags:
   - Message Filter Pattern
   - Apache Camel
   - Beginner
+aliases:
+  - /blog/file-monitoring-workshop/
 ---
 
 We're excited to announce an updated **beginner-level workshop** that teaches you how to build a file monitoring integration using **Kaoto's visual designer** and **Apache Camel**!
