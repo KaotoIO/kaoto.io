@@ -59,7 +59,7 @@ enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
 ignoreFiles: [".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
-disableAliases: true
+disableAliases: false
 outputs:
   home: [HTML, RSS, headers, redirects]
   section: [HTML, RSS]
