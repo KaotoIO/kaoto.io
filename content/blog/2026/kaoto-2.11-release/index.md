@@ -12,6 +12,8 @@ tags:
   - Kaoto
   - Release
   - Kaoto 2.11
+aliases:
+  - /blog/kaoto-2.11-release/
 ---
 
 ## What's New?

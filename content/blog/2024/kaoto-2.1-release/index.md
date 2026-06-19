@@ -8,6 +8,8 @@ tags:
   - Kaoto
   - Release
   - Kaoto 2.1
+aliases:
+  - /blog/kaoto-2.1-release/
 ---
 ## It's time to welcome the 2.1.0 release of Kaoto
 

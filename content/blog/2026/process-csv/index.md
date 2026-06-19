@@ -12,6 +12,8 @@ tags:
   - PostgreSQL
   - Data Pipeline
   - Intermediate
+aliases:
+  - /blog/process-csv/
 ---
 
 We're excited to announce a new **intermediate-level workshop** that teaches you how to build a complete data processing pipeline using **Kaoto's visual designer** and **Apache Camel**!

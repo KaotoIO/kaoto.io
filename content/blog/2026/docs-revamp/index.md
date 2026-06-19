@@ -9,6 +9,8 @@ tags:
   - Kaoto
   - Documentation
   - Guide
+aliases:
+  - /blog/docs-revamp/
 ---
 
 ## A Fresh Start for Kaoto Documentation

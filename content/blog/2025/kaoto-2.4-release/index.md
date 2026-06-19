@@ -8,6 +8,8 @@ tags:
   - Kaoto
   - Release
   - Kaoto 2.4
+aliases:
+  - /blog/kaoto-2.4-release/
 ---
 ## What's new?
 
