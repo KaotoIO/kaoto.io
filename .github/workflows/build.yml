@@ -34,7 +34,7 @@ jobs:
       artifact-id: ${{ steps.upload.outputs.artifact-id }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         # Fetch history for Hugo's .GitInfo and .Lastmod
         fetch-depth: 0
