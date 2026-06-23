@@ -100,9 +100,9 @@ You have two options to stop a running integration:
 
 **Option 1: Using the Deployments Panel**
 
-Navigate to the **Deployments** panel and click the **Stop** button (⏹️) next to your running integration:
+Navigate to the **Deployments** panel and click the **Terminate** button (🚫) next to your running integration:
 
-{{< image-sh src="stop-route.png" text="Stop a running integration from the Deployments panel" >}}
+{{< image-sh src="stop-route.png" text="Terminate a running integration from the Deployments panel" >}}
 
 **Option 2: Using the Terminal**
 
