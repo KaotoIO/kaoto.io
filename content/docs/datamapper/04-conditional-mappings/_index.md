@@ -77,6 +77,38 @@ When working with arrays or repeating elements, use for-each mappings to transfo
 
 ---
 
+## Sorting For-Each Results
+
+When iterating over a collection with for-each, you can configure sorting to control the order of the output elements. This adds `xsl:sort` to the generated `xsl:for-each`.
+
+### Steps
+
+1. **Create a for-each mapping** as described above
+
+2. **Click the 3-dot menu** on the `for-each` node and select **"Configure Sort"**
+{{< image-sh src="datamapper-configure-sort.png" text="Select Configure Sort from the for-each context menu" >}}
+
+3. **Configure sort keys** in the modal dialog — enter the XPath expression for the field to sort by, or use the dropdown to select a field
+{{< image-sh src="datamapper-configure-sort-modal.png" text="Configure Sort modal with sort key and options" >}}
+
+4. **Add additional sort keys** (optional) — click **"Add sort key"** to add secondary sort criteria. Items are sorted by the first key, then by the second key for ties, and so on. Drag the handle on the left to reorder sort keys.
+{{< image-sh src="datamapper-add-sort-key.png" text="Add sort key" >}}
+
+5. **Configure Ascending/Descending** (optional) - click Ascending/Descending button to toggle the direction
+{{< image-sh src="datamapper-asc-desc.png" text="Ascending/Descending" >}}
+
+6. **Re-order sort keys by drag-and-drop** (optional)
+{{< image-sh src="datamapper-dnd-sort-key-order.png" text="Re-order sort keys" >}}
+
+6. **Configure sort key advanced properties** (optional) - click slider button on the sort key to expand advanced properties
+{{< image-sh src="datamapper-advanced-sort-key-properties.png" text="Configure Sort key advanced properties" >}}
+{{< image-sh src="datamapper-advanced-sort-key-properties-expanded.png" text="Advanced properties expanded" >}}
+
+7. **Click Save** to apply the sort configuration
+{{< image-sh src="datamapper-sort-save.png" text="Save sort configuration" >}}
+
+---
+
 ## Multiple For-Each Mappings
 
 Merge multiple source collections into a single target collection by adding multiple for-each mappings.

@@ -83,11 +83,15 @@ For more control over your mappings, you can type XPath expressions directly.
 
 ### Create a Mapping with XPath
 
-1. **Click the 3-dot menu** on the target field
+1. **Double-click** on a target field to activate inline editing and type an XPath expression directly, without opening the 3-dot menu.
+
+{{< image-sh src="datamapper-double-click-edit.gif" text="Double-click a target field to enter XPath directly" >}}
+
+   Alternatively, you can click the 3-dot mapping context menu on the target field and click "Add Selector expression"
 {{< image-sh src="datamapper-add-selector.png" text="Select 'Add selector expression'" >}}
 
 2. **Enter your XPath expression**
-{{< image-sh src="datamapper-type-xpath.png" text="Type the XPath expression" >}}
+{{< image-sh src="datamapper-input-xpath.png" text="Type the XPath expression" >}}
 
 > [!NOTE]
 > XPath expressions give you full control over data transformation, including string manipulation, calculations, and conditional logic. For complex expressions, consider using the [XPath Editor](../05-xpath-editor/).
@@ -114,6 +118,9 @@ If you need to remove a mapping, click the trash icon <img src="datamapper-delet
 
 {{< image-sh src="datamapper-delete-mapping.png" text="Delete mapping" >}}
 {{< image-sh src="datamapper-delete-mapping-confirm.png" text="Confirm mapping deletion" >}}
+
+> [!TIP]
+> You can also delete a mapping by selecting the target field and pressing the **Delete** key on your keyboard.
 
 > [!WARNING]
 > Deleting a mapping is permanent and cannot be undone. Make sure you want to remove the mapping before confirming.
