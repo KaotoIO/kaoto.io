@@ -17,10 +17,63 @@ The easiest way to create a mapping is by dragging a source field onto a target 
 
 ### Example: Map the Name Field
 
-{{< video src="./datamapper-drag-name.mp4" >}}
+{{< image-sh src="datamapper-drag-name.gif" text="Drag and drop to create a field mapping" >}}
 
 > [!TIP]
 > Drag-and-drop is the fastest way to create simple field mappings. The DataMapper automatically generates the correct XPath expression for you.
+
+---
+
+## Container Mappings
+
+When you drag a **container field** (a field that contains other fields, such as an XML element with child elements or a JSON object with properties) onto another container field, the DataMapper automatically maps their matching children — you don't need to connect each child field individually.
+
+### How Container Mapping Works
+
+1. **Drag a container field** from the source tree onto a matching container field in the target tree
+2. The DataMapper **automatically pairs children** by name and creates individual mappings for each match
+3. This works **recursively** — nested containers are also matched and mapped automatically
+4. **Children that exist only on one side are skipped**
+
+{{< image-sh src="datamapper-container-mapping.gif" text="Dragging a container field to automatically map matching children" >}}
+
+For **XML schemas**, children are matched by element name and namespace. For **JSON schemas**, children are matched by property key. When mapping between XML and JSON, children are matched by name.
+
+### Collection Mappings
+
+When both the source and target fields are **collections** (marked with the collection icon), the DataMapper additionally wraps the mapping in a `for-each` loop that iterates over each item in the source collection.
+
+{{< image-sh src="datamapper-collection-mappings.gif" text="Collection-to-collection mapping with for-each loop" >}}
+
+### Mapping Line Styles
+
+After creating a container mapping, you'll notice different line styles in the mapping view:
+
+**Regular** — A solid gray line. A simple field-to-field mapping.
+
+**Copy-of** — A double dark line. The source and target XML containers have identical structure (same name and namespace), so the DataMapper copies the entire subtree efficiently.
+
+{{< image-sh src="datamapper-line-style-copy-of.png" text="Copy-of mapping shown as a double dark line" >}}
+
+**Complete** — A dashed line with long dashes. All target children are mapped, and all nested containers among them use copy-of.
+
+**Partial** — A dashed line with short dashes. Some target children are mapped, but not all have a matching source field, or nested containers are mapped field-by-field.
+
+{{< image-sh src="datamapper-line-styles.png" text="Mapping line styles" >}}
+
+> [!TIP]
+> A partial mapping is not an error — it simply means some target fields don't have a corresponding source field. You can add individual mappings for the remaining fields manually.
+
+### When Container Mapping Is Not Available
+
+In some cases, the DataMapper will not allow a container-to-container mapping:
+
+- **Mismatched field types**: A container field can only be mapped to another container field. Dragging a container onto a leaf field (or vice versa) will be rejected.
+- **No compatible children**: If the source and target containers have no children with matching names, the mapping cannot be created.
+- **JSON arrays**: JSON array wrapper fields cannot be mapped directly — expand the array and map its children instead.
+
+> [!TIP]
+> If a drop is rejected, try mapping the children individually instead of the parent container.
 
 ---
 
