@@ -39,8 +39,8 @@ The DataMapper editor is divided into two main sections that represent the data 
 
 The **Source** section represents where your data comes from - the input side of your mappings. This is where the DataMapper step reads the data from.
 
-- **Body** - The incoming Camel Message Body (the main data payload)
-- **Parameters** - Additional data from Camel Variables and Message Headers
+- **Source Body** - The incoming Camel Message Body (the main data payload)
+- **Source Parameters** - Additional data from Camel Variables and Message Headers
 
 Think of this as the "input" side of your transformation - the data you're reading from.
 
@@ -48,7 +48,7 @@ Think of this as the "input" side of your transformation - the data you're readi
 
 The **Target** section represents where your data goes to - the output side of your mappings. This is where the DataMapper step writes the transformed data.
 
-- **Body** - The outgoing Camel Message Body (the transformed result)
+- **Target Body** - The outgoing Camel Message Body (the transformed result)
 
 Think of this as the "output" side of your transformation - the data structure you're creating.
 
@@ -66,7 +66,7 @@ Parameters allow you to access Camel Variables and Message Headers in your mappi
 
 Follow the below steps to add a parameter.
 
-1. Click the plus **+** button on the right side of the `Parameters` title.
+1. Click the plus **+** button on the right side of the `Source Parameters` title.
 {{< image-sh src="datamapper-add-parameter.png" text="Parameters" >}}
 
 2. Now type the parameter name and click the check button on the right.
@@ -88,6 +88,24 @@ To remove a parameter, click the trash icon next to it and confirm the deletion.
 
 > [!NOTE]
 > If the parameter is used in any mappings, those mappings will become invalid after deletion. Review your mappings before removing parameters.
+
+---
+
+## Renaming the XSLT File
+
+By default, the DataMapper generates an XSLT file with an auto-generated name. You can rename this file to give it a more meaningful name that reflects the transformation's purpose.
+
+### Steps
+
+1. **Click the DataMapper step** in the Kaoto Design view to open the config form
+2. **Click the pencil icon next to the file name** in the **Document** field to make it editable
+
+{{< image-sh src="datamapper-rename-xslt.png" text="Rename the XSLT file in the DataMapper config form" >}}
+
+3. **Type the new name** for your XSLT file
+4. **Click the check button** to confirm, or the cancel button to discard
+
+{{< image-sh src="datamapper-rename-xslt-confirm.png" text="Confirm Renaming the XSLT file" >}}
 
 ---
 

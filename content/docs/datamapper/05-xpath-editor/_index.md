@@ -23,9 +23,9 @@ The XPath Editor provides a powerful way to create complex data transformations 
 
 ## Opening the XPath Editor
 
-To edit or create complex XPath expressions, click the pencil icon on any target field that has a mapping. This opens the XPath Editor where you can build your expression.
+To edit or create complex XPath expressions, click the fx icon on any target field that has a mapping. This opens the XPath Editor where you can build your expression.
 
-{{< image-sh src="datamapper-xpath-pencil.png" text="Click pencil icon to open XPath Editor" >}}
+{{< image-sh src="datamapper-edit-xpath.png" text="Click fx icon to open XPath Editor" >}}
 
 ---
 
@@ -70,6 +70,10 @@ To use functions:
 
 1. **Switch to the Functions tab** in the left palette
 {{< image-sh src="datamapper-xpath-functions.png" text="Browse available XPath functions" >}}
+
+> [!TIP]
+> You can collapse function categories by clicking the chevron next to the category header. This helps you focus on the category you need when browsing through the available functions.
+> {{< image-sh src="datamapper-xpath-functions-collapse.png" text="Click Chevron to collapse" >}}
 
 2. **Drag the function** you need and drop it into the editor
 {{< image-sh src="datamapper-xpath-functions-dnd.png" text="Drag and drop functions" >}}

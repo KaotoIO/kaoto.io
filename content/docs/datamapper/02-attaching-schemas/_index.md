@@ -14,16 +14,16 @@ Schemas define the structure of your data and enable the visual tree representat
 
 ---
 
-## Attaching a Schema
+## Attaching Schema files
 
-Follow these steps to attach a schema file to Source Body, Target Body, or Parameters:
+Follow these steps to attach schema files to Source Body, Target Body, or Parameters:
 
-1. **Place your schema file** (`.xsd` or `.json`) in the workspace directory
-2. **Click "Attach a schema"** in the Source Body, Target Body, or Parameters section
+1. **Place your schema files** (`.xsd` or `.json`) in the workspace directory
+2. **Click "Attach schema"** in the Source Body, Target Body, or Parameters section
 {{< image-sh src="datamapper-attach-schema.png" text="Click to attach a schema" >}}
-3. **Click the file button** in the modal
+3. **Click the "Upload schema file(s)"** in the modal
 {{< image-sh src="datamapper-attach-schema-file-btn.png" text="Select schema file" >}}
-4. **Select your schema file**
+4. **Select your schema files**
 {{< image-sh src="datamapper-select-schema.png" text="Choose the schema file" >}}
 
 > [!TIP]
