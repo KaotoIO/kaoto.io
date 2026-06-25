@@ -3,6 +3,8 @@ title: "Runtime Selector"
 description: "update here"
 date: 2026-03-25
 weight: 4
+aliases:
+  - /docs/manual/09_generatingcatalog/
 ---
 
 ## Overview
