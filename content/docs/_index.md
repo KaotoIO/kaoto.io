@@ -1,5 +1,7 @@
 ---
 title: "Documentation"
+aliases:
+  - /docs/manual/
 ---
 
 Welcome to the **official Kaoto documentation**!
