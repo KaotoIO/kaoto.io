@@ -12,7 +12,13 @@ authors:
 In this hands-on workshop, you will write an integration test for an Apache Camel route using the **Citrus testing framework**. Citrus lets you describe every test action in YAML, provision infrastructure on demand, and verify both log output and messaging endpoints without writing a single line of Java.
 
 **What You'll Learn:**
-TODO
+- How to create a Citrus test in the Kaoto VSCode extension
+- How to define reusable test payload variables in a Citrus YAML file
+- How to start and stop Kafka test infrastructure with `camel-infra-run` and `camel-infra-stop`
+- How to launch a Camel route during the test with `jbang-run`
+- How to verify route logs with `jbang-verify`
+- How to validate Kafka output with a `receive` action
+- How to run the test from the Kaoto extension and inspect the result
 
 **What You'll Test:**
 A Camel route that exposes an HTTP endpoint, unmarshals incoming JSON, routes messages based on an `id` field, sets a custom header, logs the result, and publishes the processed message to a Kafka topic.
@@ -303,8 +309,290 @@ JBang reads this file automatically when running the test and downloads the list
 
 ---
 
-## Part N: Running the Test
+## Part 4: Adding the jbang-run and Delay Components
 
+### Goal
+
+Start the Camel route as part of the test using the `jbang-run` action, and add a short `delay` after it so Kafka has time to become ready before the first HTTP request is sent.
+
+### Step-by-Step Instructions
+
+#### Step 1: Add the jbang-run Component
+
+Hover over the arrow between the `camel-infra-run` node and the `doFinally` block. A **+** icon will appear. Click it and search for `jbang-run`. Select it to insert the action between them.
+
+Repeat the same process on the arrow that appears after `jbang-run`: hover over it, click **+**, and this time search for `delay`. Select it.
+
+#### Step 2: Configure jbang-run — Integration File
+
+Click on the `jbang-run` node to open its configuration panel. Navigate to the **All** tab.
+
+You will see an **Integration** row with a pencil (✏️) icon on the right. Click the pencil to expand the integration entry form.
+
+{{< image-sh src="jbang-run-pencil.png" text="Kaoto All tab for jbang-run showing the Integration row with the pencil icon" >}}
+
+Fill in the fields:
+
+| Field | Value |
+|-------|-------|
+| **File** | `../my-route.camel.yaml` |
+| **Name** | `my-route` |
+
+This tells Citrus which Camel route file to run and assigns it an internal name so it can be stopped cleanly later.
+
+#### Step 3: Configure jbang-run — System Properties
+
+Still in the `jbang-run` **All** tab, scroll down and expand the **Advanced** section. Locate **SystemProperties** and click **+** inside the **Properties** group to add a new entry.
+
+{{< image-sh src="jbang-run-systemproperties.png" text="Kaoto Advanced section for jbang-run showing SystemProperties with the kafka.bootstrap.servers property configured" >}}
+
+| Field | Value |
+|-------|-------|
+| **Name** | `kafka.bootstrap.servers` |
+| **Value** | `${CITRUS_CAMEL_INFRA_KAFKA_BOOTSTRAP_SERVERS}` |
+
+This overrides the `kafka.bootstrap.servers` property at runtime with the address of the Kafka container that Citrus started in the previous action. The route picks it up automatically without any code change.
+
+#### Step 4: Configure the Delay Component
+
+Click on the `delay` node. In its configuration panel, set the **Milliseconds** field to `2000`.
+
+This 2-second pause gives the Camel route time to start up and connect to Kafka before the test begins sending HTTP requests.
+
+**✅ Checkpoint:** The canvas shows `camel-infra-run` → `jbang-run` (with the integration file and system property configured) → `delay` (2000 ms) → `doFinally`.
+
+{{< img-toggle src="./kaoto-next.png" lang="yaml" >}}
+name: my-integration.citrus
+author: Citrus
+status: FINAL
+description: Sample test in YAML
+variables:
+  - name: test.payload
+    value: "'{\"id\": 1, \"message\": \"test data\"}'"
+  - name: test.payload.unknown
+    value: "'{\"id\": 99, \"message\": \"unknown test data\"}'"
+  - name: test.payload.missing.field
+    value: "'{\"message\": \"no id\"}'"
+actions:
+  - camel:
+      infra:
+        run:
+          service: kafka
+  - camel:
+      jbang:
+        run:
+          integration:
+            file: ../my-route.camel.yaml
+            name: my-route
+            systemProperties:
+              properties:
+                - name: kafka.bootstrap.servers
+                  value: ${CITRUS_CAMEL_INFRA_KAFKA_BOOTSTRAP_SERVERS}
+  - delay:
+      milliseconds: "2000"
+  - doFinally:
+      actions:
+        - camel:
+            infra:
+              stop:
+                service: kafka
+        - echo:
+            message: Tests completed
+{{< /img-toggle >}}
+
+---
+
+## Part 5: Validating the Choice Outputs
+
+### Goal
+
+Add the test actions that verify each route branch produces the expected log output, and validate the Kafka message for the standard scenario.
+
+### Step-by-Step Instructions
+
+#### Step 1: Add the Standard Scenario Actions
+
+After the `delay` action and before `doFinally`, add these components in order:
+
+1. `send`
+2. `jbang-verify`
+3. `receive`
+4. `echo`
+
+Configure them with the following values:
+
+**send**
+
+| Field | Value |
+|-------|-------|
+| **Endpoint** | `http://localhost:8080/test/route-input` |
+
+In **Message** → **Body** → **Data**, add `${test.payload}`.
+
+In **Headers**, add one entry:
+
+| Field | Value |
+|-------|-------|
+| **Name** | `Content-Type` |
+| **Value** | `application/json` |
+
+**jbang-verify**
+
+| Field | Value |
+|-------|-------|
+| **Integration** | `my-route` |
+| **LogMessage** | `Output: Message processed successfully with header ProcessedBy=my-integration` |
+
+**receive**
+
+| Field | Value |
+|-------|-------|
+| **Endpoint** | `kafka:my-topic?server=${CITRUS_CAMEL_INFRA_KAFKA_BOOTSTRAP_SERVERS}` |
+
+In **Message** → **Body** → **Data**, enter `Message processed successfully`.
+
+**echo**
+
+| Field | Value |
+|-------|-------|
+| **Message** | `✓ Standard scenario (ID=1) log and Kafka message validated` |
+
+{{< img-toggle src="./kaoto-next.png" lang="yaml" >}}
+name: my-integration.citrus
+{{</ img-toggle >}}
+
+#### Step 2: Add the Remaining Choice Scenarios After the img-toggle
+
+After the `img-toggle`, add the actions for the other two route branches. For each one, add these components in order:
+
+1. `send`
+2. `jbang-verify`
+3. `echo`
+
+Use the same fields as in the standard scenario, but replace the values with the following ones.
+
+**Unknown scenario**
+
+**send**
+
+| Field | Value |
+|-------|-------|
+| **Endpoint** | `http://localhost:8080/test/route-input` |
+
+In **Message** → **Body** → **Data**, add `${test.payload.unknown}`.
+
+In **Headers**, add one entry:
+
+| Field | Value |
+|-------|-------|
+| **Name** | `Content-Type` |
+| **Value** | `application/json` |
+
+**jbang-verify**
+
+| Field | Value |
+|-------|-------|
+| **Integration** | `my-route` |
+| **LogMessage** | `Output: Message processed with unknown type with header ProcessedBy=my-integration` |
+
+**echo**
+
+| Field | Value |
+|-------|-------|
+| **Message** | `✓ Unknown scenario (ID=99) log validated` |
+
+**Missing field scenario**
+
+**send**
+
+| Field | Value |
+|-------|-------|
+| **Endpoint** | `http://localhost:8080/test/route-input` |
+
+In **Message** → **Body** → **Data**, add `${test.payload.missing.field}`.
+
+In **Headers**, add one entry:
+
+| Field | Value |
+|-------|-------|
+| **Name** | `Content-Type` |
+| **Value** | `application/json` |
+
+**jbang-verify**
+
+| Field | Value |
+|-------|-------|
+| **Integration** | `my-route` |
+| **LogMessage** | `Output: Message processed with unknown type with header ProcessedBy=my-integration` |
+
+**echo**
+
+| Field | Value |
+|-------|-------|
+| **Message** | `✓ Missing field scenario (No ID) log validated` |
+
+All of these actions must be inserted before the `doFinally` block.
+
+**✅ Checkpoint:** The test now covers all three route outcomes: the standard scenario validates both the log and Kafka output, and the other two scenarios validate the expected log entry.
+
+{{< img-toggle src="./kaoto-next.png" lang="yaml" >}}
+name: my-integration.citrus
+{{</ img-toggle >}}
+
+## Part 6: Running the Test
+
+### Goal
+
+Run the Citrus test directly from the Kaoto extension and confirm it passed.
+
+### Step-by-Step Instructions
+
+#### Step 1: Start the Test from the Kaoto Extension
+
+In the Kaoto extension, locate the `test/` folder that contains `my-integration.citrus.yaml`. When you hover over the test file, Kaoto shows a **Play** button.
+
+Make sure Docker Desktop or Podman Desktop is already running, then click **Play** and wait for the test to complete.
+
+#### Step 2: Watch the Terminal Output
+
+Kaoto opens a terminal and starts the Citrus test run for you.
+
+At the beginning of the run, the output will start with lines similar to these:
+
+```text
+Reading Citrus application properties file: ./citrus-application.properties
+2026-06-26 14:26:35.846  INFO 95584 --- [           main] framework.main.TestRunConfiguration : Setting application property citrus.camel.jbang.dump.integration.output=true
+2026-06-26 14:26:35.848  INFO 95584 --- [           main] framework.main.TestRunConfiguration : Setting application property citrus.camel.jbang.version=4.20.0
+2026-06-26 14:26:35.987  INFO 95584 --- [           main] rk.junit.jupiter.JUnitJupiterEngine : Reset test sources for a fresh test run
+2026-06-26 14:26:35.987  INFO 95584 --- [           main] rk.junit.jupiter.JUnitJupiterEngine : Adding test source my-integration.citrus
+```
+
+When the test finishes successfully, the output will end with lines similar to these:
+
+```text
+2026-06-26 14:26:52.668  INFO 95584 --- [           main] rusframework.report.LoggingReporter : CITRUS TEST RESULTS
+2026-06-26 14:26:52.668  INFO 95584 --- [           main] rusframework.report.LoggingReporter :
+2026-06-26 14:26:52.669  INFO 95584 --- [           main] rusframework.report.LoggingReporter : SUCCESS ( 16397 ms) my-integration.citrus
+2026-06-26 14:26:52.669  INFO 95584 --- [           main] rusframework.report.LoggingReporter :
+2026-06-26 14:26:52.669  INFO 95584 --- [           main] rusframework.report.LoggingReporter : TOTAL:          1
+2026-06-26 14:26:52.669  INFO 95584 --- [           main] rusframework.report.LoggingReporter : PASSED:         1 (100.0%)
+2026-06-26 14:26:52.670  INFO 95584 --- [           main] rusframework.report.LoggingReporter : FAILED:         0 (0.0%)
+2026-06-26 14:26:52.671  INFO 95584 --- [           main] rusframework.report.LoggingReporter : TIME:           16397 ms
+2026-06-26 14:26:52.671  INFO 95584 --- [           main] rusframework.report.LoggingReporter :
+2026-06-26 14:26:52.671  INFO 95584 --- [           main] rusframework.report.LoggingReporter : ------------------------------------------------------------------------
+2026-06-26 14:26:52.678  INFO 95584 --- [           main] k.report.AbstractOutputFileReporter : Generated test report: .citrus-jbang/citrus-reports/citrus-test-results.html
+
+Tests finished after 16643 ms
+Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
+ *  Press any key to close the terminal.
+```
+
+#### Step 3: Confirm the Result in the Kaoto Extension
+
+After the run completes, Kaoto shows the test result next to the test file:
+
+- a green check mark if the test passed
+- a red cross if the test failed
 
 **✅ Checkpoint:** You've successfully run the full Citrus test suite.
 
