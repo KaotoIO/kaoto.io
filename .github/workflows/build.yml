@@ -46,7 +46,7 @@ jobs:
 
     - name: Setup pnpm
       if: hashFiles('package.json') != ''
-      uses: pnpm/action-setup@v6
+      uses: pnpm/action-setup@f520eceda224fe1a4aed5a2a27a194379a409996 # v6
 
     - name: Get Hugo Version
       id: hugo-version
@@ -86,7 +86,7 @@ jobs:
         fi
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v3
+      uses: peaceiris/actions-hugo@6b1ee2dcc06c9b6629a5317fa0146473914d05e1 # v3
       with:
         hugo-version: ${{ env.HUGO_VERSION }}
         extended: true
