@@ -10,6 +10,6 @@ test('build workflow disables lifecycle scripts during dependency installation',
 });
 
 test('build workflow does not use npx fallback for pagefind', () => {
-  assert.doesNotMatch(workflow, /npx pagefind --site "public"/);
+  assert.doesNotMatch(workflow, /\bnpx\b[^\n]*\bpagefind\b/);
   assert.match(workflow, /pnpm exec pagefind --site "public"/);
 });
