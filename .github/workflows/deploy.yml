@@ -10,8 +10,6 @@ on:
 # Provide permission to clone the repo and deploy it to GitHub Pages
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: 'pages'
