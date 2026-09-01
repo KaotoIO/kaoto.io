@@ -182,6 +182,16 @@ Current state of the route file:
 
 {{< image-sh src="new-route-created.png" text="Kaoto generates a direct route stub ready for implementation" >}}
 
+### Step 5: Delete a Node in the REST Tree
+
+The REST Editor provides two ways to delete a node (REST configuration, service, or operation):
+
+1. **Toolbar actions menu** — Select the node you want to remove, then click the actions menu in the REST tree toolbar and choose **Delete**.
+2. **Context menu** — Right-click any node in the REST tree and select **Delete** from the context menu.
+
+{{< image-sh src="rest-delete-context-menu.png" text="Right-click a node in the REST tree to access the Delete option" >}}
+
+
 ## Implement the Popular Books Route in Kaoto
 
 Now you'll implement the logic using Kaoto's Canvas view.
