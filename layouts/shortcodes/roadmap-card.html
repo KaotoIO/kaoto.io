@@ -15,6 +15,19 @@
 {{ if not ($.Page.Store.Get "roadmap-card-css") }}
 {{ $.Page.Store.Set "roadmap-card-css" true }}
 <style>
+/* --- Screen-reader only utility --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* --- Badges --- */
 .roadmap-badge {
     display: inline-block;
@@ -169,6 +182,17 @@
     85%      { transform: scale(0); opacity: 0; }
     100%     { transform: scale(0); opacity: 0; }
 }
+@media (prefers-reduced-motion: reduce) {
+    .roadmap-badge--preview,
+    .icon-preview,
+    .icon-final,
+    .icon-unboxing-container::after {
+        animation: none;
+    }
+    /* Show the final icon statically; hide the preview and burst overlay */
+    .icon-final   { opacity: 1; transform: scale(1); }
+    .icon-preview { opacity: 0; }
+}
 </style>
 {{ end }}
 
@@ -179,7 +203,6 @@
 {{ $title        := .Get "title" }}
 {{ $description  := .Get "description" }}
 {{ $deliveryTime := .Get "delivery-time" }}
-
 {{ $cardClass := "roadmap-card" }}
 {{ if eq $status "wip" }}
   {{ $cardClass = "roadmap-card wip" }}
@@ -191,19 +214,20 @@
 
   {{/* Icon area — animated unboxing when badge=FINAL and preview-icon is set */}}
   {{ if and (eq $badge "FINAL") $previewIcon }}
-    <div class="icon-unboxing-container">
+    <div class="icon-unboxing-container" aria-hidden="true">
       <div class="icon icon-final" style="background-image: url('{{ $icon }}');"></div>
       <div class="icon icon-preview" style="background-image: url('{{ $previewIcon }}');"></div>
     </div>
   {{ else }}
-    <div class="icon" style="background-image: url('{{ $icon }}');"></div>
+    <div class="icon" aria-hidden="true" style="background-image: url('{{ $icon }}');"></div>
   {{ end }}
+  <span class="sr-only">{{ $title }} icon</span>
 
   <div class="content">
     <h3>
       {{- $title -}}
       {{ if $badge }}
-        <span class="roadmap-badge{{ if eq $badge "PREVIEW" }} roadmap-badge--preview{{ end }}">{{ $badge }}</span>
+        <span class="roadmap-badge{{ if eq $badge "PREVIEW" }} roadmap-badge--preview{{ end }}"><span class="sr-only">Status: </span>{{ $badge }}</span>
       {{ end }}
     </h3>
     <p>{{ $description }}</p>

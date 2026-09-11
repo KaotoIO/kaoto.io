@@ -8,6 +8,8 @@
       {{< roadmap-card ... >}}
     {{< /roadmap-container >}}
 */}}
+{{ if not ($.Page.Store.Get "roadmap-container-css") }}
+{{ $.Page.Store.Set "roadmap-container-css" true }}
 <style>
 h1 { text-align: center; }
 
@@ -38,6 +40,7 @@ h1 { text-align: center; }
     padding-bottom: 20px;
 }
 </style>
+{{ end }}
 
 <div class="roadmap-container">
   <div class="roadmap-timeline"></div>
