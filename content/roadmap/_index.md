@@ -23,6 +23,7 @@ This roadmap is subject to change.
 >}}
 
 {{< roadmap-card
+    status="wip"
     icon="./images/tracing.svg"
     title="Visual Tracing"
     description="Enable users to trace messages."
@@ -30,6 +31,7 @@ This roadmap is subject to change.
 >}}
 
 {{< roadmap-card
+    status="wip"
     icon="./images/puzzle.png"
     title="Connections"
     description="Provide an easy way to configure connections (for instance to databases or brokers) via a wizard like functionality"
@@ -37,6 +39,7 @@ This roadmap is subject to change.
 >}}
 
 {{< roadmap-card
+    status="wip"
     icon="./images/camel-logo.svg"
     preview-icon="./images/lab.png"
     badge="FINAL"
@@ -46,7 +49,7 @@ This roadmap is subject to change.
 >}}
 
 {{< roadmap-card
-    status="wip"
+    status="completed"
     icon="./images/camel-logo.svg"
     title="Custom Kamelet Support"
     description="Allow users to define their own custom Kamelet catalog."
@@ -54,7 +57,7 @@ This roadmap is subject to change.
 >}}
 
 {{< roadmap-card
-    status="wip"
+    status="completed"
     icon="./images/lab.png"
     badge="PREVIEW"
     title="Camel Infra Support"
