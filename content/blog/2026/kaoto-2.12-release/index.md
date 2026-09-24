@@ -2,9 +2,10 @@
 title: "Kaoto 2.12 release"
 date: 2026-09-23
 summary: Kaoto 2.12 is available.
-authors: 
+authors:
   - djelinek
   - lhein
+  - mmelko
 tags:
   - Kaoto
   - Release
@@ -36,13 +37,6 @@ Kaoto 2.12 introduces an experimental Infrastructure view for starting, monitori
 
 The DataMapper adds more flexible mapping instructions, improved XPath editing, and expanded support for complex XML schemas.
 
-**Enhanced Mapping Context Menu**
-
-- **Value and Copy Selectors** - Add `xsl:value-of` and `xsl:copy-of` instructions from the mapping context menu, or use `Duplicate` to add multiple mappings to a collection target field.
-- **Mapping Instructions** - Use the new `Wrap with Instruction` and `Inner Instruction` submenus to control how mapping instructions are nested.
-
-{{< figure src="dm-context-menu.png" alt="DataMapper context menu showing mapping options" caption="New mapping options in the DataMapper context menu" class="image" >}}
-
 **XPath 3.1 and XSLT 3.0 Functions**
 
 The XPath expression editor provides more guidance when writing mapping expressions:
@@ -55,14 +49,50 @@ The XPath expression editor provides more guidance when writing mapping expressi
 
 **Advanced Schema and Type Support**
 
+- **Collection Abstract Fields** - Abstract and choice wrapper fields with `maxOccurs > 1` are now treated as collections, so substituted elements can be iterated correctly.
+
+{{< figure src="dm-collection-abstract.gif" alt="DataMapper showing abstract fields with collection support" caption="Abstract and choice wrapper fields with maxOccurs > 1 as collections" class="image" >}}
+
 - **Sequence Choices** - Select an `xs:sequence` branch within an `xs:choice` field. Change or clear selections from the context menu, with support for nested choices and inherited collection and cardinality constraints.
-- **Type Attributes** - Generated XSLT now includes `xsi:type` attributes for compatible type overrides, allowing XML Schema validators to identify the selected type.
+
+{{< figure src="dm-sequence-in-choice.gif" alt="DataMapper showing xs:sequence selection within xs:choice field" caption="Select an xs:sequence branch within an xs:choice field" class="image" >}}
+
 - **Abstract Type Detection** - The DataMapper detects wrapper field selections and substitutions from XSLT and removes user-created fields that are no longer valid.
+- **Type Overrides** - Generated XSLT now includes `xsi:type` attributes for compatible type overrides, allowing XML Schema validators to identify the selected type. The Field Override modal now uses a typeahead selector to search and filter available types as you type.
 
 **Variables and Grouping**
 
 - **Variables** - Use local and global `xsl:variable` definitions as mapping sources and reference them in XPath expressions.
+
+{{< figure src="dm-variables.gif" alt="DataMapper Variables panel with local and global xsl:variable support" caption="Use xsl:variable definitions as mapping sources" class="image" >}}
+
 - **Grouping and Sorting** - Create collection mappings with `xsl:for-each-group` and configure sorting with `xsl:sort`.
+
+{{< figure src="dm-for-each-group.gif" alt="DataMapper configuring xsl:for-each-group mapping" caption="Configure grouping strategy and sort keys with xsl:for-each-group" class="image" >}}
+
+**Enhanced Mapping Context Menu**
+
+- **Value and Copy Selectors** - Add `xsl:value-of` and `xsl:copy-of` instructions from the mapping context menu, or use `Duplicate` to add multiple mappings to a collection target field.
+- **Mapping Instructions** - Use the new `Wrap with Instruction` and `Inner Instruction` submenus to control how mapping instructions are nested.
+- **Complex Field Expressions** - Primitive target fields can now use a full XPath expression as their value, not just a direct field reference.
+
+{{< figure src="dm-context-menu.png" alt="DataMapper context menu showing mapping options" caption="New mapping options in the DataMapper context menu" class="image" >}}
+
+**UX Improvements and Fixes**
+
+- **XML Declaration Control** - A new settings modal lets you control whether the generated XSLT output includes an XML declaration header (`<?xml version="1.0"?>`).
+
+{{< figure src="dm-settings-modal.gif" alt="DataMapper Settings modal with Omit XML declaration checkbox" caption="Control XML declaration output from the DataMapper settings" class="image" >}}
+
+- **Field Info Popover** - Click any schema field to see its XSD type, cardinality, and description in a popover.
+
+{{< figure src="dm-field-popover.png" alt="DataMapper source panel with field info popover showing type and cardinality" caption="View field type and cardinality details in a popover" class="image" >}}
+
+- **Cleaner Mapping View** - Unconfigured wrapper children are hidden by default to reduce visual noise.
+- Fixed field expansion state being lost when the first mapping was created
+- Fixed mixed content (text + elements) rendering and `value-of`/`copy-of` consistency
+- Fixed XSD type alias resolution (e.g. `xs:string` ↔ `xsd:string`) for field overrides
+- Removed the XSLT catalog entry from the catalog dropdown to avoid confusion
 
 ### Custom Kamelet Improvements
 
