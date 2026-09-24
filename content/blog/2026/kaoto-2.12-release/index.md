@@ -66,10 +66,10 @@ The XPath expression editor provides more guidance when writing mapping expressi
 
 ### Custom Kamelet Improvements
 
-Working with custom Kamelets is easier with these updates:
+Kaoto now treats your Kamelets like catalog citizens. Working with custom Kamelets is easier with these updates:
 
+- **Workspace Kamelets** - Custom Kamelets in your workspace are automatically available in the catalog so you place it on any route and tune properties per step through configuration forms.
 - **Live Property Refresh** - Changes to a custom Kamelet's properties now appear in the configuration forms of routes that use it, without reopening the route file.
-- **Workspace Kamelets** - Custom Kamelets in your workspace are automatically available in the catalog and configuration forms.
 - **Paste Support** - Pasting a Kamelet or Pipe now restores its complete definition, including beans, error handlers, and metadata.
 
 {{< figure src="kamelet-catalog.png" alt="Shows a local Kamelet in the Kaoto Catalog" caption="Access and use your local Kamelets directly in your routes" class="image" >}}
