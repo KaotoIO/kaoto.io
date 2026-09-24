@@ -118,7 +118,12 @@ jobs:
         HUGO_BLOX_LICENSE: ${{ secrets.HUGO_BLOX_LICENSE }}
       run: |
         echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
-        hugo --minify
+        # Use fork baseURL when not building for the canonical domain
+        if [ "${{ github.repository }}" != "KaotoIO/kaoto.io" ]; then
+          hugo --minify --baseURL "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        else
+          hugo --minify
+        fi
 
     - name: Generate Pagefind search index (if applicable)
       run: |
