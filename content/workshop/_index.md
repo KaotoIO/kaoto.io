@@ -3,4 +3,4 @@ title: "Workshops"
 view: article-grid
 ---
 
-Please select the workshop your are interested in.
+Please select the workshop you are interested in.
