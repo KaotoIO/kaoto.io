@@ -148,7 +148,7 @@ That's the teachable moment: two different consumers (metrics vs partner API), *
 
 You're **not** going to paste a hard-coded allowlist into every route, and you're **not** going to clone `setBody` JSON on each route either. Instead, you'll create the Kamelet once in Kaoto (New → Kamelet, or your editor's create-Kamelet flow):
 
-1. Set the name to `content-filter-action` and the type to **action**.
+1. Set the name to `content-filter-action` and the type to **action** — not source (which produces messages) or sink (which consumes them), but action.
 2. Add a single property: **`allowlist`** (string) — one control that each route will configure independently.
 3. Give it a sensible default: the company baseline of safe shipping fields (no customer identity).
 4. On the Kamelet canvas, wire `kamelet:source` → unmarshal JSON → `setBody` to keep only the fields named in `{{allowlist}}` → marshal JSON.
@@ -312,9 +312,11 @@ To change what **one** consumer receives, edit that step's `allowlist` in Kaoto.
 ## Takeaways
 
 1. **Show the leak first** — a multi-route file makes it obvious that analytics and partner-export share the same problem.
-2. **Build the Content Filter as a Kamelet** — one template, many call sites, zero duplication.
+2. **Build the Content Filter as a Kamelet of type `action`** — actions sit mid-route and transform the message, which is exactly what a filter does. One template, many call sites, zero duplication.
 3. **Kaoto closes the loop** — save the Kamelet → catalog tile appears → drop it onto routes → edit each `allowlist` in the form.
 4. **Keep PII out of allowlists by convention** — the property description and code review are your guardrails.
+
+The same approach works beyond data filtering. Anywhere you catch yourself copy-pasting the same transformation, enrichment, or validation logic across routes — currency conversion, audit stamping, schema validation, payload size trimming — a custom action Kamelet is the right fix. Define the logic once, expose the variable parts as properties, and let each route configure its own values through the Kaoto form.
 
 ## Further reading
 
