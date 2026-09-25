@@ -12,26 +12,20 @@ main:
   - name: Documentation
     weight: 30
     url: docs/
-  - name: Playground
-    url: playground/
-    weight: 35
+  - name: Workshops
+    weight: 40
+    url: workshop/
   - name: Roadmap
     url: roadmap/
-    weight: 40
-  - name: Contribute
     weight: 50
-    url: "contribute/"
-  - name: Resources
+  - name: Playground
+    url: playground/
     weight: 60
-    hasChildren: true
-  - parent: Resources
-    name: Use Cases
-    url: portfolio/
-  - parent: Resources
-    name: Workshops
-    url: workshop/
-  - name: Links
+  - name: Contribute
     weight: 70
+    url: "contribute/"
+  - name: Links
+    weight: 80
     hasChildren: true
   - parent: Links
     name: "Youtube"

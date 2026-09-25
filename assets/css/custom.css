@@ -107,6 +107,13 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
   }
 }
 
+/* Highlight the current page in the main navigation. */
+#nav-menu .nav-link.active {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+
 /* Align the header navbar with the content in bigger screens */
 @media (min-width: 1600px) {
   header.header > nav.navbar {
