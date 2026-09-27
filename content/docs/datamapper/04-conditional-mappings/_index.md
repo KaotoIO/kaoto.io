@@ -1,30 +1,31 @@
 ---
 title: "Conditional Mappings"
-description: "Use if, choose-when-otherwise, and for-each logic for complex transformations"
+description: "Use if and choose-when-otherwise to apply branch logic in your mappings"
 date: 2026-04-01
 weight: 4
 ---
 
 ## Overview
 
-The DataMapper supports three types of conditional mappings to handle complex transformation logic:
+Conditional mappings execute a mapping only when a specific condition is true. The DataMapper supports two types:
 
-- **`if`** - Execute mapping only when a condition is met
-- **`choose-when-otherwise`** - Branch based on multiple conditions
-- **`for-each`** - Iterate over collection fields (arrays)
+- **`if`** — Execute a mapping only when a condition is met
+- **`choose-when-otherwise`** — Branch across multiple conditions and execute the first matching branch, like a switch-case statement
+
+For iterating over collections, see [Loop Mappings](../05-loop-mappings/).
 
 ---
 
 ## If Mapping
 
-Create a mapping that only executes when a specific condition is true.
+Use `if` to wrap a target field: the entire field element is included in the output only when the condition is true.
 
 ### Steps
 
-1. **Click the 3-dot menu** on the target field and select **"wrap with if"**
+1. **Click the `⋮` menu** on the target field and select **"Wrap with Instruction" → "Wrap with if"**
 {{< image-sh src="datamapper-if-if.png" text="Select wrap with if" >}}
 
-2. **Configure the condition** - Drag source fields or type manually
+2. **Configure the condition** — Drag source fields or type manually
 {{< image-sh src="datamapper-if-condition.png" text="Define the if condition" >}}
 
 3. **Create the mapping** for when the condition is true
@@ -33,100 +34,74 @@ Create a mapping that only executes when a specific condition is true.
 > [!TIP]
 > You can drag source fields into the condition input to quickly build expressions like `$sourceField > 100` or `$status = 'active'`.
 
+### Conditional value with Inner "if"
+
+Use **Inner "if"** when the target field is always emitted but its *value* should depend on a condition. The field element appears in the output regardless; only the content written into it is gated.
+
+**When to use Inner "if" instead of Wrap with "if":**
+
+| Scenario | Use |
+|---|---|
+| Omit the field entirely when the condition is false | **Wrap with "if"** |
+| Always emit the field, but write its value conditionally | **Inner "if"** |
+
+#### Steps
+
+1. **Click the `⋮` menu** on the target field and select **"Inner Instruction" → "Inner if"**
+
+{{< image-sh src="datamapper-inner-if-menu.png" text="Inner Instruction flyout — click 'Inner if' to apply" >}}
+
+2. **Set the condition** on the `if` node that appears inside the field row
+
+3. **Map the value** onto the `if` node's child — this is the value written when the condition is true
+
+{{< image-sh src="datamapper-inner-if-result.png" text="Resulting inner-if structure with condition and value mapping" >}}
+
+> [!TIP]
+> You can add a second **Inner "if"** on the same field to create an alternative branch: click the `⋮` menu on the existing `if` node and again select **"Inner Instruction" → "Inner if"**. The two `if` nodes become siblings inside the field, each writing its value when its own condition is true.
+
 ---
 
 ## Choose-When-Otherwise Mapping
 
-Create branching logic with multiple conditions, similar to switch-case statements.
+Create branching logic with multiple conditions, similar to switch-case statements. Use `choose-when-otherwise` to wrap a target field: the field is emitted only through the branch whose condition matches.
 
 ### Steps
 
-1. **Click the 3-dot menu** and select **"wrap with choose-when-otherwise"**
+1. **Click the `⋮` menu** and select **"Wrap with Instruction" → "Wrap with choose-when-otherwise"**
 {{< image-sh src="datamapper-choose-choose.png" text="Select choose-when-otherwise" >}}
 
-2. **Configure when and otherwise conditions** - Similar to if mapping, configure the condition and create mappings for both when and otherwise branches
+2. **Map the `when` and `otherwise` branches** — set a condition on the `when` node, then add mappings for both branches. The `otherwise` branch runs automatically when no `when` condition matches.
 {{< image-sh src="datamapper-choose-otherwise-mapping.png" text="Configure when and otherwise mappings" >}}
 
-3. **Add more when branches** (optional) - If you need multiple conditions, click the 3-dot menu on the choose field and select "Add when" to create additional when branches. Each branch can have its own condition and mappings.
+3. **Add more when branches** (optional) — Click the `⋮` menu on the `choose` node and select **"Add when"** to create additional `when` branches. Each branch can have its own condition and mappings.
 {{< image-sh src="datamapper-choose-add-when.png" text="Add another when branch" >}}
 
 > [!NOTE]
 > The `otherwise` branch executes when none of the `when` conditions are satisfied, providing a default fallback.
 
----
+### Conditional value with Inner "choose-when-otherwise"
 
-## For-Each Mapping
-
-When working with arrays or repeating elements, use for-each mappings to transform each item in the collection. Collection fields are identified by a layer icon <img src="datamapper-layer.png" alt="Layer icon" style="display: inline; height: 1.2em; vertical-align: middle;"> in the document tree.
-
-### Steps
-
-1. **Identify the target collection field** - Look for fields marked with the layer icon <img src="datamapper-layer.png" alt="Layer icon" style="display: inline; height: 1.2em; vertical-align: middle;">, indicating they contain multiple items
-
-2. **Create the for-each mapping** - Click the 3-dot menu on the target collection field and select **"wrap with for-each"**
-{{< image-sh src="datamapper-for-each-for-each.png" text="Select wrap with for-each" >}}
-
-3. **Specify the source collection** - Choose which source collection to iterate over. This determines what data will be processed for each target item.
-{{< image-sh src="datamapper-for-each-condition.png" text="Select source collection to iterate" >}}
-
-4. **Map the collection item fields** - Create mappings for individual fields within each collection item. These mappings will be applied to every item in the collection.
-{{< image-sh src="datamapper-for-each-mappings.png" text="Map fields for each collection item" >}}
-
-> [!IMPORTANT]
-> Inside a for-each mapping, field paths are relative to the collection item. For example, if iterating over `Items`, you reference `Name` instead of `Items/Name`.
-
----
-
-## Sorting For-Each Results
-
-When iterating over a collection with for-each, you can configure sorting to control the order of the output elements. This adds `xsl:sort` to the generated `xsl:for-each`.
-
-### Steps
-
-1. **Create a for-each mapping** as described above
-
-2. **Click the 3-dot menu** on the `for-each` node and select **"Configure Sort"**
-{{< image-sh src="datamapper-configure-sort.png" text="Select Configure Sort from the for-each context menu" >}}
-
-3. **Configure sort keys** in the modal dialog — enter the XPath expression for the field to sort by, or use the dropdown to select a field
-{{< image-sh src="datamapper-configure-sort-modal.png" text="Configure Sort modal with sort key and options" >}}
-
-4. **Add additional sort keys** (optional) — click **"Add sort key"** to add secondary sort criteria. Items are sorted by the first key, then by the second key for ties, and so on. Drag the handle on the left to reorder sort keys.
-{{< image-sh src="datamapper-add-sort-key.png" text="Add sort key" >}}
-
-5. **Configure Ascending/Descending** (optional) - click Ascending/Descending button to toggle the direction
-{{< image-sh src="datamapper-asc-desc.png" text="Ascending/Descending" >}}
-
-6. **Re-order sort keys by drag-and-drop** (optional)
-{{< image-sh src="datamapper-dnd-sort-key-order.png" text="Re-order sort keys" >}}
-
-6. **Configure sort key advanced properties** (optional) - click slider button on the sort key to expand advanced properties
-{{< image-sh src="datamapper-advanced-sort-key-properties.png" text="Configure Sort key advanced properties" >}}
-{{< image-sh src="datamapper-advanced-sort-key-properties-expanded.png" text="Advanced properties expanded" >}}
-
-7. **Click Save** to apply the sort configuration
-{{< image-sh src="datamapper-sort-save.png" text="Save sort configuration" >}}
-
----
-
-## Multiple For-Each Mappings
-
-Merge multiple source collections into a single target collection by adding multiple for-each mappings.
-
-### Steps
-
-1. **Create the first for-each mapping** as described above
-
-2. **Add another for-each mapping** - Click "Add Conditional Mapping" in the placeholder below the first mapping, then select "Wrap with for-each"
-{{< image-sh src="datamapper-wrap-with-for-each.png" text="Add second for-each mapping" >}}
-
-3. **Configure the second collection mappings** - Select the second source collection to iterate over, then create field mappings for each item. This allows you to merge data from multiple collections into a single target array, combining items from different sources.
-{{< image-sh src="datamapper-map-2nd-for-each-children.png" text="Configure second collection and map its fields" >}}
-
-{{< video src="./dm_multiplemappings.mp4" subtitles="./dm_multiplemappings.vtt" >}}
+Use **Inner "choose-when-otherwise"** when the target field is always emitted but its *value* should come from one of several branches. The field element is always present in the output; the `choose` structure determines which value expression is used.
 
 > [!TIP]
-> This technique is useful for merging data from multiple sources, such as combining orders from different systems into a single output array.
+> If the target field already has a value mapping (a `value-of` or dragged source field), the DataMapper automatically moves the existing mapping into the `when` branch and clones it into the `otherwise` branch when you apply Inner "choose-when-otherwise". You can then adjust each branch independently.
+
+#### Steps
+
+1. **Click the `⋮` menu** on the target field and select **"Inner Instruction" → "Inner choose-when-otherwise"**
+
+{{< image-sh src="datamapper-inner-choose-menu.png" text="Inner Instruction flyout — click 'Inner choose-when-otherwise' to apply" >}}
+
+2. **Set the `when` condition** — click the condition input on the `when` node and drag a source field or type an XPath expression
+
+3. **Map the value for `when`** — drag a source field (or enter an XPath expression) onto the `when` node's child row
+
+4. **Map the value for `otherwise`** — drag a source field or expression onto the `otherwise` node's child row
+
+{{< image-sh src="datamapper-inner-choose-result.png" text="Resulting inner-choose-when-otherwise with value mappings on each branch" >}}
+
+5. **Add more when branches** (optional) — click the `⋮` menu on the `choose` node and select **"Add when"**
 
 ---
 
@@ -134,5 +109,5 @@ Merge multiple source collections into a single target collection by adding mult
 
 Now that you understand conditional mappings:
 
-1. **[Use the XPath editor](../05-xpath-editor/)** for complex expressions with functions
-2. Return to the [DataMapper overview](../) to explore other features
+1. **[Loop Mappings](../05-loop-mappings/)** — iterate over collections with for-each and for-each-group
+2. **[XPath Editor](../07-xpath-editor/)** — build complex expressions with functions
