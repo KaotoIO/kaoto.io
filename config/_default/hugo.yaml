@@ -79,5 +79,13 @@ markup:
     lineNos: false
 security:
   _merge: deep
+  exec:
+    allow:
+      - ^dart-sass-embedded$
+      - ^go$
+      - ^node$
+      - ^npx$
+      - ^postcss$
+      - ^tailwindcss$
 sitemap:
   _merge: deep
