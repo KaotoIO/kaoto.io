@@ -69,7 +69,7 @@ JSON schema fields are rendered with type-based labels in the tree view. Here's 
 {{< image-sh src="datamapper-json-fields.png" text="JSON schema field types in the tree view" >}}
 
 **Understanding the labels:**
-- **Named fields** display as `type [@key = FieldName]` - For example, `string [@key = AccountId]` represents a string field named "AccountId"
+- **Named fields** display as `type [@key = FieldName]` - For example, `string [@key = Title]` represents a string field named "Title"
 - **Anonymous fields** show only the type - For example, `map` represents an unnamed object
 - **Primitive types** like `string`, `number`, `boolean` indicate the data type
 - **Complex types** like `map` (object) and `array` represent structured data
@@ -103,4 +103,4 @@ Now that you have schemas attached:
 
 1. **[Create simple mappings](../03-creating-mappings/)** between source and target fields
 2. **[Add conditional logic](../04-conditional-mappings/)** for complex transformations
-3. **[Use the XPath editor](../05-xpath-editor/)** for advanced expressions
+3. **[Use the XPath editor](../07-xpath-editor/)** for advanced expressions

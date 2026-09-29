@@ -31,8 +31,12 @@ Once you have the DataMapper added, dive into **[Attaching Schemas](./02-attachi
 
 After attaching your schemas, learn how to **[Create Mappings](./03-creating-mappings/)** between source and target fields using drag-and-drop or XPath expressions.
 
-As your transformations grow more complex, explore **[Conditional Mappings](./04-conditional-mappings/)** to add logic with if statements, choose-when-otherwise, and for-each loops for processing collections.
+As your transformations grow more complex, explore **[Conditional Mappings](./04-conditional-mappings/)** to add `if` and `choose-when-otherwise` logic. For iterating over collections, **[Loop Mappings](./05-loop-mappings/)** covers `for-each` and the grouping-based `for-each-group`.
 
-When you need complex transformations, the **[XPath Editor](./05-xpath-editor/)** guide shows you how to use XPath functions with practical examples for string manipulation, conditionals, calculations, and more.
+To compute intermediate values and reuse them across mappings, **[Variables](./06-variables/)** explains how to define `xsl:variable` globally or locally and use them as draggable mapping sources.
 
-For advanced scenarios, the **[Advanced Features](./07-advanced-features/)** guide shows you how to work with polymorphic data through type overrides and element substitution, and how to handle schema choice elements (`xs:choice`) in your mappings.
+When you need complex transformations, the **[XPath Editor](./07-xpath-editor/)** guide shows you how to use XPath functions with practical examples for string manipulation, conditionals, calculations, and more.
+
+For advanced scenarios, the **[Field Context Menu](./08-field-context-menu/)** guide covers right-click operations for working with polymorphic data through type overrides and element substitution, and how to select choice members for `xs:choice` fields.
+
+To control how the generated XSLT serialises its output (for example, suppressing the XML declaration), open the **[DataMapper Settings](./09-settings/)** modal from the gear icon in the target body header.
