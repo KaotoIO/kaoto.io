@@ -28,4 +28,6 @@ As your projects grow, you'll want to explore the **[Runtime Selector](./04-runt
 
 Ready to test your integrations? The **[Executing Integrations](./05-executing-integrations/)** guide shows you how to run and test your Camel routes directly from VS Code. Learn how to execute a single route for focused testing, run all routes in a folder for integration testing, or launch your entire workspace to verify end-to-end flows. This guide covers everything from starting and stopping routes to troubleshooting common execution issues and following best practices for development workflows.
 
+Once you're comfortable with the basics, explore **[Custom Kamelets](./07-custom-kamelets/)** to learn how to build your own reusable Kamelet components. Save a `.kamelet.yaml` file in your workspace and the tile appears in the catalog automatically — no rebuild needed. Drop the Kamelet onto any route, configure its properties per step, and avoid duplicating transformation logic across routes.
+
 Once you're comfortable with the basics, explore the other sections to master component configuration, node management, and advanced designer features.
