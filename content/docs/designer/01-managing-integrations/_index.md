@@ -31,6 +31,13 @@ Kamelets are reusable integration templates that encapsulate integration logic. 
 **Key characteristics:**
 - Single integration per file only
 - Designed for reusability and sharing
+- Three types: **source** (produces messages), **sink** (consumes messages), and **action** (transforms mid-route)
+
+**Custom Kamelets in the catalog**
+
+Any `.kamelet.yaml` file you save in your workspace is automatically picked up by Kaoto and added to the catalog as a tile — no catalog rebuild or IDE restart needed. Once the tile appears you can drop the Kamelet onto any route and configure its properties through the standard step form, just like a built-in Kamelet. Each route step stores its own property values independently, so two routes can use the same Kamelet with different configurations.
+
+See **[Custom Kamelets](../07-custom-kamelets/)** for a step-by-step guide to building and using your own Kamelets.
 
 [Learn more about Apache Camel Kamelets](https://camel.apache.org/camel-kamelets/next/index.html)
 

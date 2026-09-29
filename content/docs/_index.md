@@ -14,7 +14,7 @@ The audience for this guide is Apache Camel developers. This guide assumes famil
 
 Kaoto is an acronym for **KA**mel **O**rchestration **TO**ol. It is an integration designer to create and edit integrations based on Apache Camel. Kaoto is extendable, flexible, and adaptable to different use cases.
 
-Kaoto offers a rich catalog of building blocks for use in graphical design. By default, Kaoto loads the official upstream Camel Catalog and Kamelet Catalog while also providing Red Hat supported Catalogs.
+Kaoto offers a rich catalog of building blocks for use in graphical design. By default, Kaoto loads the official upstream Camel Catalog and Kamelet Catalog while also providing Red Hat supported Catalogs. You can also create **custom Kamelets** directly in the Kaoto editor — save a `.kamelet.yaml` file in your workspace and the tile appears in the catalog automatically, ready to be dropped into any route with per-step configuration.
 
 Benefits of using Kaoto can be listed as follows:
 
@@ -38,6 +38,7 @@ This documentation is organized into several sections that you can access from t
 - **[DataMapper](datamapper/)** - Transform and map data between different formats
 - **[REST](rest/)** - Work with REST APIs in your integrations
 - **[Beans](beans/)** - Configure and use beans in your Camel routes
+- **[Custom Kamelets](designer/07-custom-kamelets/)** - Build reusable Kamelets and use them across routes from the catalog
 
 <!--
 Instructions: place before User Guide the new sections added. The last section from this list will also delete the User Guide.
