@@ -11,6 +11,24 @@
   (function() {
     const pageName = "{{ $pageClass }}";
     document.body.classList.add(pageName);
+
+    // Keep the current section highlighted on descendant pages.
+    const currentPath = window.location.pathname.replace(/\/$/, '') + '/';
+    const homePath = "{{ site.Home.RelPermalink }}";
+    document.querySelectorAll('#nav-menu > .nav-item > a.nav-link').forEach(link => {
+      const url = new URL(link.href);
+      if (url.origin !== window.location.origin || url.hash || url.search) return;
+
+      const menuPath = url.pathname.replace(/\/$/, '') + '/';
+      const isCurrentPage = currentPath === menuPath;
+      const isActive = isCurrentPage || (menuPath !== homePath && currentPath.startsWith(menuPath));
+      link.classList.toggle('active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', isCurrentPage ? 'page' : 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
   })();
 
   document.addEventListener('DOMContentLoaded', function() {
