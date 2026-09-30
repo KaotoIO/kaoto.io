@@ -1,6 +1,10 @@
 {{/* Generate a unique ID if one isn't provided */}}
 {{ $id := .Get "id" | default (printf "toggle-%d" (now.UnixNano)) }}
 {{ $modalId := printf "modal-%s" $id }}
+{{ $lang := .Get "lang" | default "yaml" }}
+{{ $isYaml := or (eq $lang "yaml") (eq $lang "yml") }}
+{{ $sourceLabel := cond $isYaml "YAML Source" "Text Output" }}
+{{ $viewLabel := cond $isYaml "View YAML" "View Output" }}
 
 <div class="toggle-wrapper chroma">
   <input type="checkbox" id="{{ $id }}" class="toggle-input">
@@ -8,7 +12,7 @@
   <div class="toggle-image-block">
     <div class="tab-bar">
       <label class="tab active">Image Preview</label>
-      <label for="{{ $id }}" class="tab inactive">View YAML</label>
+      <label for="{{ $id }}" class="tab inactive">{{ $viewLabel }}</label>
     </div>
     <div class="content-area">
       <img src="{{ .Get "src" }}" alt="Toggle Image" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
@@ -18,7 +22,7 @@
   <div class="toggle-code-block">
     <div class="tab-bar">
       <label for="{{ $id }}" class="tab inactive">View Image</label>
-      <label class="tab active">YAML Source</label>
+      <label class="tab active">{{ $sourceLabel }}</label>
     </div>
     <label for="{{ $id }}" class="content-area">
       {{ highlight .Inner (.Get "lang") "" | safeHTML }}
