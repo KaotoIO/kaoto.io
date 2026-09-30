@@ -150,7 +150,7 @@ You're **not** going to paste a hard-coded allowlist into every route, and you'r
 
 Use this as a check against **Source Code** view after building in Kaoto — or paste the code from the **YAML Source** directly if you're skipping the visual designer:
 
-{{< img-toggle src="./canvas-with-content-filter-kamelet.png" lang="txt" >}}
+{{< img-toggle src="./canvas-with-content-filter-kamelet.png" lang="yaml" >}}
 metadata:
   name: content-filter-action
   labels:
