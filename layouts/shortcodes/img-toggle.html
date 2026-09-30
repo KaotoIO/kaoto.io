@@ -11,7 +11,7 @@
 
   <div class="toggle-image-block">
     <div class="tab-bar">
-      <label class="tab active">Image Preview</label>
+      <span class="tab active">Image Preview</span>
       <label for="{{ $id }}" class="tab inactive">{{ $viewLabel }}</label>
     </div>
     <div class="content-area">
@@ -22,7 +22,7 @@
   <div class="toggle-code-block">
     <div class="tab-bar">
       <label for="{{ $id }}" class="tab inactive">View Image</label>
-      <label class="tab active">{{ $sourceLabel }}</label>
+      <span class="tab active">{{ $sourceLabel }}</span>
     </div>
     <label for="{{ $id }}" class="content-area">
       {{ highlight .Inner (.Get "lang") "" | safeHTML }}
