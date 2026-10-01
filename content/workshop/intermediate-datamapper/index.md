@@ -275,7 +275,7 @@ The Kaoto canvas opens with a default route. Delete it and start fresh — see [
 
 #### Step 1.4.2 — Fetch the order backlog
 
-All `/oms/*`, `/lsp/*`, and `/svc/*` endpoints are protected — every request must carry the Bearer token from Part 1.1. We set it once as a message header at the start of Route 1 — if it carries through to Route 2 via `direct`, we only need to set it once.
+All `/oms/*`, `/lsp/*`, and `/svc/*` endpoints require the Bearer token from Part 1.1. Set it once as a message header here — it will be available to all subsequent steps including Route 2.
 
 1. Click **+** → search `setHeader` → select **Set Header**.
 
@@ -310,9 +310,6 @@ Split the JSON array so each order ID is processed individually, then hand it of
    |----------|-------|
    | **Expression type** | `Simple` |
    | **Expression** | `${body}` |
-
-> [!TIP]
-> After saving, verify the Split expression is preserved in the source editor. If you see `Unsupported definition: null` on startup, the expression was lost — re-enter `${body}` in the properties panel and save again.
 
 2. Click **+** inside the split → search `setHeader` → select **Set Header**.
 
@@ -374,7 +371,7 @@ The message body is now the raw `PurchaseOrder` XML.
 
 #### Step 1.4.6 — Acknowledge the order
 
-The dispatch succeeded — now tell the OMS. This step is intentionally last: if anything earlier failed (transform error, LSP rejected the payload), the ACK is never sent and the order stays `PENDING`. Camel will pick it up again on the next poll and retry automatically.
+The dispatch succeeded — now tell the OMS. This step must come last: if the dispatch failed for any reason, the ACK is never sent and the order stays `PENDING` in the OMS — ready to be picked up and retried on the next poll.
 
 1. Click **+** → search `http` → select **HTTP**.
 2. Enable **Dynamic** in the properties panel.
@@ -397,16 +394,11 @@ The OMS dashboard moves the order from 🟡 PENDING to ✅ DISPATCHED.
 
 The route dispatches orders — but the LSP receives raw `PurchaseOrder` XML which it cannot process. The LSP speaks `ShipOrder`, a completely different format. We need to transform the message between the two steps.
 
-Add a DataMapper step **between** the PurchaseOrder fetch (Step 1.4.4) and the POST to the shipping platform (Step 1.4.5):
+Add a DataMapper step **between** the PurchaseOrder fetch and the POST to the shipping platform. On the canvas, look for the **+** icon on the arrow between those two steps — if you used the skeleton YAML, that is the arrow between the first `toD` (fetch) and the `to` (ship-orders) in `route-processing`:
 
-1. Click the **+** on the arrow between the fetch step and the HTTP POST step.
+1. Click the **+** on that arrow.
 2. Search `DataMapper` → select it.
-3. In the properties panel, switch to the **All** tab.
-4. Find the **Document** field → enter `order-dispatch.xsl`.
-
-   > This file will be generated when you save in [Step 1.5.9](#step-159--generate-the-xslt).
-
-5. Click **Open DataMapper** — the editor opens in a new tab.
+3. Click **Open DataMapper** — the editor opens in a new tab. Kaoto automatically creates the XSLT file alongside your route.
 
 > [!TIP]
 > New to DataMapper? See the [DataMapper documentation](/docs/datamapper/) for a full overview before continuing.
@@ -448,13 +440,16 @@ The LSP needs its own order reference. Drag to connect fields, use **fx** for ex
 | `OrderHeader/OrderID` | `OrderIdentification/InternalOrderID` |
 | `OrderHeader/OrderDate` | `OrderIdentification/PurchaseOrderDate` |
 
-`PurchaseOrderNumber` is a derived field — the LSP wants it prefixed. Click `OrderIdentification/PurchaseOrderNumber` → **fx** → enter:
+`PurchaseOrderNumber` is a derived field — the LSP wants it prefixed. Double-click `OrderIdentification/PurchaseOrderNumber` to open the input field, then click the **fx** button and enter the expression:
 
 ```xpath
-concat('SO-', /ns1:PurchaseOrder/ns1:OrderHeader/ns1:OrderID)
+concat('SO-', /*:PurchaseOrder/*:OrderHeader/*:OrderID)
 ```
 
-{{< image-sh src="15-2-map-order-id.gif" text="Drag two fields, then fx expression for PurchaseOrderNumber" >}}
+> [!NOTE]
+> The namespace prefix (`ns0:`, `ns1:`, etc.) depends on how the schema was loaded and may differ in your session. Using the wildcard prefix `*:` makes the expression work regardless of the prefix assigned.
+
+{{< image-sh src="15-2-map-order-id.gif" text="Drag OrderID and OrderDate, then double-click PurchaseOrderNumber → fx to enter the concat expression" >}}
 
 ---
 
@@ -466,9 +461,12 @@ Click the target field → **constant** → enter the value.
 
 | Target | Value |
 |--------|-------|
-| `OrderMetadata/ProcessingStatus` | `PENDING` |
-| `OrderMetadata/SourceSystem` | `Kaoto-DataMapper` |
+| `OrderMetadata/ProcessingStatus` | `"PENDING"` |
+| `OrderMetadata/SourceSystem` | `"Kaoto-DataMapper"` |
 | `OrderMetadata/CreatedAt` | *(use **fx**)* `current-dateTime()` |
+
+> [!NOTE]
+> String constants must be wrapped in quotes (`"PENDING"`). Numeric values like `9.99` in Step 1.5.8 do not need quotes.
 
 > For more information on setting constants, see [Creating Mappings](/docs/datamapper/03-creating-mappings/).
 
@@ -502,7 +500,7 @@ All four address fields (Street, City, PostalCode, Country) are covered by this 
 
 #### Step 1.5.6 — Line items
 
-Drag the `LineItems` source container onto the `ShipmentDetails/ShipmentItem` target node — DataMapper automatically creates a `for-each` loop that iterates over all items. Then map the individual fields inside:
+Drag the `LineItem` source node onto the `ShipmentDetails/ShipmentItem` target node — DataMapper automatically creates a `for-each` loop that iterates over all items. Then map the individual fields inside:
 
 | Source | Target |
 |--------|--------|
@@ -518,16 +516,16 @@ Drag the `LineItems` source container onto the `ShipmentDetails/ShipmentItem` ta
 
 `DeliveryMethod` is declared `abstract="true"` in the schema — the shipping platform cannot accept the abstract element, only a concrete subtype. Pick one now:
 
-1. Click the `CarrierSelection/DeliveryMethod` target node.
+1. Right-click the `CarrierSelection/(abstract)` node in the target tree.
 2. DataMapper shows a **type picker dropdown** — select `StandardDelivery`.
 3. Set the one required sub-field:
 
 | Target | Value |
 |--------|-------|
-| `StandardDelivery/MethodCode` | `STD` |
+| `StandardDelivery/MethodCode` | `"STD"` |
 
 > [!NOTE]
-> DataMapper supports conditional type selection visually — no `xsl:choose` required. See [Advanced Features](/docs/datamapper/07-advanced-features/).
+> The abstract node appears as `(abstract)` in the target tree — it is a placeholder until you select a concrete subtype. This is DataMapper's visual equivalent of `xsl:choose` in raw XSLT.
 
 ---
 
@@ -545,9 +543,9 @@ One required field for now — the base cost.
 
 #### Step 1.5.9 — Save the mapping
 
-Press **Ctrl/Cmd + S** inside the DataMapper editor. The XSLT transformation file is generated automatically and saved alongside your route file.
+DataMapper continuously updates the XSLT file as you work. Press **Ctrl/Cmd + S** to make sure the latest state is flushed to disk before closing the editor.
 
-**✅ Checkpoint:** The XSLT file exists in the `kaoto-workshop/` folder and is non-empty.
+**✅ Checkpoint:** The generated XSLT file exists in the `kaoto-workshop/` folder and is non-empty.
 
 ---
 
