@@ -12,7 +12,7 @@ This roadmap is subject to change.
     icon="./images/bug.png"
     title="Visual Debugger"
     description="Enable users to visually debug their integrations and inspect the contents of the messages"
-    delivery-time="2026"
+    delivery-time="2027"
 >}}
 
 {{< roadmap-card
