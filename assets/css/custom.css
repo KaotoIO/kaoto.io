@@ -185,8 +185,8 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
 
 #site-header .navbar > div > a[href="https://github.com/KaotoIO/"]::before {
   content: "";
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   background-color: currentColor;
   mask: url("/images/github.svg") center / contain no-repeat;
 }
@@ -205,6 +205,12 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
 #site-header .navbar > div > a[href="https://github.com/KaotoIO/"]:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+
+@media(max-width: 1023px) {
+  #site-header .navbar > div > a[href="https://github.com/KaotoIO/"] {
+    margin-right: 12px;
+  }
 }
 
 /* The CTA is already visible in the header; hide its mobile menu copy. */
@@ -245,9 +251,6 @@ div.video > iframe {
 figure.image > img {
   width: 100%;
   height: auto;
-}
-
-figure.image > img {
   border: 1px solid black;
   border-radius: 8px;
 }
