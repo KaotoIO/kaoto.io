@@ -2,6 +2,7 @@
 title: "Documentation"
 aliases:
   - /docs/manual/
+backlinks: false
 ---
 
 Welcome to the **official Kaoto documentation**!
@@ -30,6 +31,10 @@ Benefits of using Kaoto can be listed as follows:
 
   The platform is designed with an efficient user experience in mind, optimizing the steps required to create comprehensive integrations. This efficiency is achieved through features like auto-completion, configuration forms, and interactive feedback mechanisms. As a result, developers can quickly assemble and configure integrations, reducing the overall development time. This streamlined process encourages experimentation and innovation by making it easier to prototype and test different approaches.
 
+- **Integration Testing with Citrus**
+
+  Kaoto integrates with [Citrus](https://citrusframework.org/), a test framework for automated integration tests, so you can write and run tests for your Apache Camel integrations directly from your workspace. Citrus lets you verify message exchanges, validate endpoint behaviour, and simulate external systems, giving you confidence that your routes work correctly end-to-end.
+
 This documentation is organized into several sections that you can access from the side menu:
 
 - **[Installation](installation/)** - Get started by installing Kaoto in your environment
@@ -39,6 +44,8 @@ This documentation is organized into several sections that you can access from t
 - **[REST](rest/)** - Work with REST APIs in your integrations
 - **[Beans](beans/)** - Configure and use beans in your Camel routes
 - **[Custom Kamelets](designer/07-custom-kamelets/)** - Build reusable Kamelets and use them across routes from the catalog
+- **[Testing with Citrus](testing-citrus/)** - Write and run automated tests for your Camel integrations using the Citrus framework
+
 
 <!--
 Instructions: place before User Guide the new sections added. The last section from this list will also delete the User Guide.
