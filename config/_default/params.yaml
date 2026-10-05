@@ -95,9 +95,9 @@ hugoblox:
     language_switcher: true
     # Call-to-action button
     cta:
-      enable: false
-      text: ""
-      url: ""
+      enable: true
+      text: "GitHub"
+      url: "https://github.com/KaotoIO/"
 
   # ────────────────────────────────────────────────────────────────────────────
   # FOOTER

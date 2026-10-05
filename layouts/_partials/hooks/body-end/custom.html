@@ -12,6 +12,12 @@
     const pageName = "{{ $pageClass }}";
     document.body.classList.add(pageName);
 
+    // The theme's header CTA has no option to open its link in a new tab.
+    document.querySelectorAll('#site-header a[href="https://github.com/KaotoIO/"]').forEach(link => {
+      link.target = '_blank';
+      link.relList.add('noopener');
+    });
+
     // Keep the current section highlighted on descendant pages.
     const currentPath = window.location.pathname.replace(/\/$/, '') + '/';
     const homePath = "{{ site.Home.RelPermalink }}";
