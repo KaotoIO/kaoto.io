@@ -114,27 +114,113 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
   text-underline-offset: 0.35em;
 }
 
-/* Align the header navbar with the content in bigger screens */
-@media (min-width: 1600px) {
-  header.header > nav.navbar {
-    max-width: 1600px; /* Instead of 1280px */
-  }
-  
-  .mx-auto {
-    max-width: 1600px !important;
-  }
+/* Keep the menu visually lighter than the theme's semibold default. */
+#nav-menu .nav-link {
+  font-weight: 500;
 }
 
-@media (max-width: 1600px) and (min-width: 1280px) {
-  header.header > nav.navbar {
-    max-width: 1280px;
+.dark #nav-menu .nav-link:not(:hover) {
+  color: #c9d1d9;
+}
+
+/* Balance the side columns so the menu is centered in the header,
+   independently of the logo and controls having different widths. */
+@media (min-width: 1024px) {
+  #site-header .navbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    row-gap: 0.5rem;
+  }
+
+  #site-header .navbar > div:first-child {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  #site-header .navbar > div:last-child {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    margin-left: 0;
+  }
+
+  #nav-menu {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
   }
 }
 
 @media (min-width: 1280px) {
-  header.header > nav.navbar {
-    margin-left: auto;
-    margin-right: auto;
+  #nav-menu {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* Use the header CTA as a GitHub icon, including on mobile.
+   Keep its text in the document as the link's accessible name. */
+#site-header .navbar > div > a[href="https://github.com/KaotoIO/"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  font-size: 0;
+  color: #000;
+  background: transparent;
+}
+
+.dark #site-header .navbar > div > a[href="https://github.com/KaotoIO/"] {
+  color: #fff;
+}
+
+#site-header .navbar > div > a[href="https://github.com/KaotoIO/"]::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  mask: url("/images/github.svg") center / contain no-repeat;
+}
+
+@media (forced-colors: active) {
+  #site-header .navbar > div > a[href="https://github.com/KaotoIO/"]::before {
+    forced-color-adjust: none;
+    background-color: CanvasText;
+  }
+}
+
+#site-header .navbar > div > a[href="https://github.com/KaotoIO/"]:hover {
+  background-color: rgb(128 128 128 / 12%);
+}
+
+#site-header .navbar > div > a[href="https://github.com/KaotoIO/"]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* The CTA is already visible in the header; hide its mobile menu copy. */
+#nav-menu > li:has(> a[href="https://github.com/KaotoIO/"]) {
+  display: none;
+}
+
+/* Let the header span the viewport while keeping its existing edge padding. */
+#site-header > nav.navbar {
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 1600px) {
+  .mx-auto {
+    max-width: 1600px !important;
   }
 }
 
@@ -228,4 +314,3 @@ figure.image > img {
 .expandable-image {
   cursor: zoom-in !important;
 }
-

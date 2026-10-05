@@ -61,3 +61,16 @@ hugo server -D -F
 > The **port 1313** is **default**.
 >
 > However this port can be different for you if it is already in use. Please check the console output for the right URL.
+
+## GitHub logo
+
+`static/images/github.svg` is an unchanged copy of
+`GitHub Logos/SVG/GitHub_Invertocat_Black.svg` from the official
+[GitHub logo download](https://brand.github.com/GitHub_Logos.zip), retrieved on
+2026-10-05. It is displayed proportionally in black or white as a link to the
+KaotoIO GitHub organization.
+
+The GitHub and Invertocat marks belong to GitHub, Inc. This asset is subject to
+the [GitHub logo usage guidelines](https://brand.github.com/foundations/logo),
+which permit using the logo to link to a GitHub profile or project. It is not
+covered by this repository's open-source license.
