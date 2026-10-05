@@ -39,7 +39,7 @@ Before starting this workshop, ensure you have the following installed and confi
 ### Required Software
 
 - **Visual Studio Code** with the **Kaoto Extension** — [VS Code Marketplace](https://kaoto.io/docs/installation/)
-- **Docker** or **Podman** — for running the mock server
+- **Podman** or **Docker** — for running the mock server
 - **Java Development Kit (JDK) 17 or later**
 - **JBang** — [jbang.dev](https://www.jbang.dev/download/)
 
@@ -48,7 +48,7 @@ Before starting this workshop, ensure you have the following installed and confi
 This workshop assumes you have:
 
 - **Basic understanding of integration concepts** — familiarity with REST APIs and XML
-- **Basic command-line skills** — ability to run Docker or Podman commands
+- **Basic command-line skills** — ability to run Podman or Docker commands
 - **Familiarity with VS Code** — basic navigation and file management
 
 > [!TIP]
@@ -60,14 +60,14 @@ Create a new directory for the workshop and open it in VS Code with the Kaoto ex
 
 The OMS and shipping platform are simulated by a mock server — start it before continuing:
 
-**Docker:**
-```bash
-docker run -p 8080:8080 quay.io/mmelko/kaoto-workshop-mock
-```
-
 **Podman:**
 ```bash
-podman run -p 8080:8080 quay.io/mmelko/kaoto-workshop-mock
+podman run -p 8080:8080 quay.io/kaotoio/datamapper-workshop-app:latest
+```
+
+**Docker:**
+```bash
+docker run -p 8080:8080 quay.io/kaotoio/datamapper-workshop-app:latest
 ```
 
 Wait for the following output:
@@ -125,9 +125,21 @@ kaoto-workshop/
 1. Open VS Code → **File → Open Folder** → select `kaoto-workshop/`.
 2. Confirm the **Kaoto** icon appears in the Activity Bar.
 
-Create a new Camel Route named `order-dispatch` using the Kaoto view. See [Creating a New Integration](/docs/designer/01-managing-integrations/) if you need a step-by-step guide.
+Create a new Camel Route named `order-dispatch` using the Kaoto view. See [Managing Integrations](/docs/designer/01-managing-integrations/#creating-a-new-integration) if you need a step-by-step guide.
 
-{{< image-sh src="13-vscode.png" text="VS Code with Kaoto canvas open and schemas folder visible" >}}
+Kaoto generates a default route — you will replace its configuration in Part 3.
+
+{{< img-toggle src="13-vscode.png" lang="yaml" >}}
+- route:
+    from:
+      uri: timer:yaml
+      parameters:
+        period: "1000"
+      steps:
+        - setBody:
+            simple: Hello Camel from ${routeId}
+        - log: ${body}
+{{< /img-toggle >}}
 
 **✅ Checkpoint:** The Kaoto canvas is open with a new route.
 
@@ -142,64 +154,73 @@ The integration uses two routes:
 
 Splitting into two routes keeps each one short and focused — enrichment steps can be added to Route 2 later without touching the polling logic.
 
-> [!TIP]
-> Already comfortable with Kaoto routes? Paste the following into your `order-dispatch.camel.yaml` to have the routes ready on the canvas — then read through the steps below to understand what each part does before moving to Part 4.
->
-> ```yaml
-> - route:
->     id: route-polling
->     from:
->       uri: timer
->       parameters:
->         period: "10000"
->         timerName: tick
->       steps:
->         - setHeader:
->             constant:
->               expression: Bearer kaoto-workshop
->             name: Authorization
->         - to:
->             uri: http
->             parameters:
->               httpMethod: GET
->               httpUri: localhost:8080/oms/orders
->         - unmarshal:
->             json: {}
->         - split:
->             simple:
->               expression: ${body}
->             steps:
->               - setHeader:
->                   name: orderId
->                   simple:
->                     expression: ${body}
->               - to:
->                   uri: direct
->                   parameters:
->                     name: process-order
-> - route:
->     id: route-processing
->     from:
->       uri: direct
->       parameters:
->         name: process-order
->       steps:
->         - toD:
->             uri: http
->             parameters:
->               httpUri: localhost:8080/oms/orders/${header.orderId}
->               httpMethod: GET
->         - to:
->             uri: http
->             parameters:
->               httpUri: localhost:8080/lsp/ship-orders
->               httpMethod: POST
->         - toD:
->             uri: http
->             parameters:
->               httpUri: localhost:8080/oms/orders/${header.orderId}/ack
->               httpMethod: POST
-> ```
+Already comfortable with Kaoto routes? Paste the YAML below into your `order-dispatch.camel.yaml` to have the routes ready on the canvas — then read through the steps below to understand what each part does before moving to Part 4.
+
+{{< img-toggle src="03-routes-complete.png" lang="yaml" >}}
+- route:
+    id: route-3822
+    from:
+      id: from-4170
+      uri: timer
+      parameters:
+        period: "10000"
+        timerName: tick
+      steps:
+        - setHeader:
+            id: setHeader-2645
+            constant:
+              expression: Bearer kaoto-workshop
+            name: Authorization
+        - to:
+            id: to-6056
+            uri: http
+            parameters:
+              httpMethod: GET
+              httpUri: localhost:8080/oms/orders
+        - unmarshal:
+            id: unmarshal-3896
+            json: {}
+        - split:
+            id: split-1270
+            simple:
+              expression: ${body}
+            steps:
+              - setHeader:
+                  id: setHeader-2808
+                  name: orderId
+                  simple:
+                    expression: ${body}
+              - to:
+                  id: to-3006
+                  uri: direct
+                  parameters:
+                    name: process-order
+- route:
+    id: route-1210
+    from:
+      uri: direct
+      parameters:
+        name: process-order
+      steps:
+        - toD:
+            id: to-3707
+            uri: http
+            parameters:
+              httpUri: localhost:8080/oms/orders/${header.orderId}
+              httpMethod: GET
+        - to:
+            id: to-9723
+            uri: http
+            parameters:
+              httpUri: localhost:8080/lsp/ship-orders
+              httpMethod: POST
+        - toD:
+            id: to-9309
+            uri: http
+            parameters:
+              httpUri: localhost:8080/oms/orders/${header.orderId}/ack
+              httpMethod: POST
+{{< /img-toggle >}}
 
 ---
 
@@ -207,10 +228,10 @@ Splitting into two routes keeps each one short and focused — enrichment steps 
 
 #### Step 3.1 — Polling trigger
 
-The Kaoto canvas opens with a default route containing a timer. Replace the default timer configuration:
+The Kaoto canvas opens with a default route. Clean it up and configure the timer:
 
-1. Click the default **Timer** step to open its properties panel.
-2. Configure the properties — **Timer name** is in the **Required** tab, **Period** is in the **All** tab:
+1. Delete the placeholder steps (`SetBody`, `Log`) — right-click each → **Delete**. Keep the **Timer** step.
+2. Click the **Timer** step to open its properties panel and configure:
 
    | Property | Tab | Value |
    |----------|-----|-------|
@@ -235,7 +256,7 @@ The OMS and LSP are secured systems — all API calls require a Bearer token. Se
 
    | Property | Value |
    |----------|-------|
-   | **URI** | `localhost:8080/oms/orders` |
+   | **httpUri** | `localhost:8080/oms/orders` |
    | **HTTP method** | `GET` |
 
 3. Click **+** → search `unmarshal` → select **Unmarshal**.
@@ -332,7 +353,7 @@ This route receives one order ID in the `orderId` header each time Route 1 fires
 
    | Property | Value |
    |----------|-------|
-   | **URI** | `localhost:8080/oms/orders/${header.orderId}` |
+   | **httpUri** | `localhost:8080/oms/orders/${header.orderId}` |
    | **HTTP method** | `GET` |
 
 The message body is now the raw `PurchaseOrder` XML.
@@ -345,10 +366,12 @@ The message body is now the raw `PurchaseOrder` XML.
 #### Step 3.5 — Dispatch to the shipping platform
 
 1. Click **+** → search `http` → select **HTTP**.
+2. Keep the step as static (**Dynamic** disabled).
+3. Configure the properties:
 
    | Property | Value |
    |----------|-------|
-   | **URI** | `localhost:8080/lsp/ship-orders` |
+   | **httpUri** | `localhost:8080/lsp/ship-orders` |
    | **HTTP method** | `POST` |
 
 ---
@@ -358,12 +381,12 @@ The message body is now the raw `PurchaseOrder` XML.
 The dispatch succeeded — now tell the OMS. This step must come last: if the dispatch failed for any reason, the ACK is never sent and the order stays `PENDING` in the OMS — ready to be picked up and retried on the next poll.
 
 1. Click **+** → search `http` → select **HTTP**.
-2. Enable **Dynamic** in the properties panel.
+2. In the properties panel, enable **Dynamic** (since the URI uses expression evaluation).
 3. Configure the properties:
 
    | Property | Value |
    |----------|-------|
-   | **URI** | `localhost:8080/oms/orders/${header.orderId}/ack` |
+   | **httpUri** | `localhost:8080/oms/orders/${header.orderId}/ack` |
    | **HTTP method** | `POST` |
 
 The OMS dashboard moves the order from 🟡 PENDING to ✅ DISPATCHED.
@@ -404,7 +427,7 @@ The OMS dashboard moves the order from 🟡 PENDING to ✅ DISPATCHED.
 
 The route dispatches orders — but the LSP receives raw `PurchaseOrder` XML which it cannot process. The LSP speaks `ShipOrder`, a completely different format. We need to transform the message between the two steps.
 
-Add a DataMapper step **between** the PurchaseOrder fetch and the POST to the shipping platform. On the canvas, look for the **+** icon on the arrow between those two steps — if you used the skeleton YAML, that is the arrow between the first `toD` (fetch) and the `to` (ship-orders) in `route-processing`:
+Add a DataMapper step **between** the PurchaseOrder fetch and the POST to the shipping platform. On the canvas, look for the **+** icon on the arrow between those two steps — if you used the skeleton YAML, that is the arrow between the first `toD` (fetch) and the `to` (ship-orders) in Route 2:
 
 1. Click the **+** on that arrow.
 2. Search `DataMapper` → select it.
@@ -425,7 +448,7 @@ No XSLT editing. You drag, connect, and configure visually.
 
 ---
 
-#### Step 4.1 — Load the schemas
+### Step 4.1 — Load the schemas
 
 **Source (OMS output):**
 1. Click **+ Add source document** → select `schemas/PurchaseOrder.xsd` → root element: `PurchaseOrder`.
@@ -442,19 +465,19 @@ No XSLT editing. You drag, connect, and configure visually.
 
 ---
 
-#### Step 4.2 — Order identification
+### Step 4.2 — Order identification
 
-The LSP needs its own order reference. Drag to connect fields, use **fx** for expressions.
+The LSP needs its own order reference. Drag to connect direct fields, and use the **fx** expression editor to build computed fields.
 
-> [!TIP]
-> For more information on drag & drop mappings and the XPath editor, see [Creating Mappings](/docs/datamapper/03-creating-mappings/) and [XPath Editor](/docs/datamapper/05-xpath-editor/).
+1. Drag `OrderHeader/OrderID` from the source tree onto `OrderIdentification/InternalOrderID` in the target tree.
+2. Drag `OrderHeader/OrderDate` from the source tree onto `OrderIdentification/PurchaseOrderDate` in the target tree.
+3. `PurchaseOrderNumber` is a derived field — the LSP requires it prefixed with `SO-`. Double-click `OrderIdentification/PurchaseOrderNumber` in the target tree to open its inline editor, then click the **fx** button on the right side of the input field to open the XPath expression editor.
+4. In the XPath editor catalog on the left, search for `concat` and drag the `concat($arg1, $arg2, ...)` function into the editor canvas.
+5. Replace `$arg1` with `'SO-'` and drag `OrderHeader/OrderID` from the source document panel into the second parameter placeholder.
 
-| Source | Target |
-|--------|--------|
-| `OrderHeader/OrderID` | `OrderIdentification/InternalOrderID` |
-| `OrderHeader/OrderDate` | `OrderIdentification/PurchaseOrderDate` |
+{{< image-sh src="15-2-map-order-id.gif" text="Drag OrderID and OrderDate, then double-click PurchaseOrderNumber → fx to build the concat expression" >}}
 
-`PurchaseOrderNumber` is a derived field — the LSP wants it prefixed. Double-click `OrderIdentification/PurchaseOrderNumber` to open the input field, then click the **fx** button and enter the expression:
+The resulting expression in the editor should look like:
 
 ```xpath
 concat('SO-', /*:PurchaseOrder/*:OrderHeader/*:OrderID)
@@ -463,44 +486,45 @@ concat('SO-', /*:PurchaseOrder/*:OrderHeader/*:OrderID)
 > [!NOTE]
 > The namespace prefix (`ns0:`, `ns1:`, etc.) depends on how the schema was loaded and may differ in your session. Using the wildcard prefix `*:` makes the expression work regardless of the prefix assigned.
 
-{{< image-sh src="15-2-map-order-id.gif" text="Drag OrderID and OrderDate, then double-click PurchaseOrderNumber → fx to enter the concat expression" >}}
+> [!TIP]
+> For more information on drag & drop mappings and the XPath editor, see [Creating Mappings](/docs/datamapper/03-creating-mappings/) and [XPath Editor](/docs/datamapper/05-xpath-editor/).
 
 ---
 
-#### Step 4.3 — Processing metadata
+### Step 4.3 — Processing metadata
 
 The LSP requires status and audit fields on every incoming document. These are not in the PurchaseOrder — set them as fixed XPath string expressions.
 
-Double-click each target field to open the input, then enter the value directly — string values must be wrapped in quotes:
+Double-click each target field to open the input, then enter the value directly — string values must be wrapped in single quotes:
 
 | Target | Value |
 |--------|-------|
-| `OrderMetadata/ProcessingStatus` | `"PENDING"` |
-| `OrderMetadata/SourceSystem` | `"Kaoto-DataMapper"` |
-| `OrderMetadata/CreatedAt` | *(use **fx**)* `current-dateTime()` |
+| OrderMetadata/ProcessingStatus | 'PENDING' |
+| OrderMetadata/SourceSystem | 'Kaoto-DataMapper' |
+| OrderMetadata/CreatedAt | *(use **fx**)* current-dateTime() |
 
 > [!NOTE]
-> String values must be wrapped in quotes (`"PENDING"`). Numeric values like `9.99` in Step 4.8 do not need quotes — XPath treats them as numbers directly.
+> String values must be wrapped in single quotes (`'PENDING'`). Numeric values like `'9.99'` in Step 4.8 are also passed as string/decimal constants and must be in quotes.
 
 > [!TIP]
 > For more information on setting constants, see [Creating Mappings](/docs/datamapper/03-creating-mappings/).
 
 ---
 
-#### Step 4.4 — Customer identification
+### Step 4.4 — Customer identification
 
 The OMS PurchaseOrder carries buyer information directly — drag each source field onto its target. No expressions needed, these are direct mappings.
 
 | Source | Target |
 |--------|--------|
-| `Buyer/PartyID` | `CustomerInformation/CustomerID` |
-| `Buyer/Name` | `CustomerInformation/FullName` |
-| `Buyer/Email` | `CustomerInformation/Email` |
+| Buyer/PartyID | CustomerInformation/CustomerID |
+| Buyer/Name | CustomerInformation/FullName |
+| Buyer/Email | CustomerInformation/Email |
 
 
 ---
 
-#### Step 4.5 — Delivery address
+### Step 4.5 — Delivery address
 
 `ShippingAddress` in PurchaseOrder and `DeliveryAddress` in ShipOrder are structurally identical — same four fields, same types. Use the **copy-of** pattern to copy the entire block in a single rule instead of mapping fields one by one.
 
@@ -511,26 +535,29 @@ The OMS PurchaseOrder carries buyer information directly — drag each source fi
 
 All four address fields (Street, City, PostalCode, Country) are covered by this single mapping rule.
 
+> [!NOTE]
+> **`copy-of` and namespaces:** In XSLT, `copy-of` copies the source element subtree including its tag name and source namespace (`ShippingAddress`). While in strict production XSD schemas with different namespaces you would typically map fields individually or use canonical schemas, `copy-of` is used here to demonstrate quick block mapping in DataMapper. The workshop mock server handles this payload seamlessly.
+
 ---
 
-#### Step 4.6 — Line items
+### Step 4.6 — Line items
 
 Drag the `LineItem` source node onto the `ShipmentDetails/ShipmentItem` target node — DataMapper automatically creates a `for-each` loop that iterates over all items. Then map the individual fields inside:
 
 | Source | Target |
 |--------|--------|
-| `LineItem/ProductID` | `ShipmentItem/SKU` |
-| `LineItem/ProductName` | `ShipmentItem/ProductName` |
-| `LineItem/Quantity` | `ShipmentItem/Quantity` |
-| `LineItem/UnitPrice` | `ShipmentItem/UnitPrice` |
-| `OrderHeader/TotalAmount` | `ShipmentDetails/TotalValue` |
+| LineItem/ProductID | ShipmentItem/SKU |
+| LineItem/ProductName | ShipmentItem/ProductName |
+| LineItem/Quantity | ShipmentItem/Quantity |
+| LineItem/UnitPrice | ShipmentItem/UnitPrice |
+| OrderHeader/TotalAmount | ShipmentDetails/TotalValue |
 
 > [!NOTE]
 > `TotalValue` is mapped outside the `for-each` loop — it is a single value from the order header, not per line item.
 
 ---
 
-#### Step 4.7 — Carrier assignment
+### Step 4.7 — Carrier assignment
 
 `DeliveryMethod` is declared `abstract="true"` in the schema — the shipping platform cannot accept the abstract element, only a concrete subtype. Pick one now:
 
@@ -540,30 +567,33 @@ Drag the `LineItem` source node onto the `ShipmentDetails/ShipmentItem` target n
 
 | Target | Value |
 |--------|-------|
-| `StandardDelivery/MethodCode` | `"STD"` |
+| StandardDelivery/MethodCode | 'STD' |
 
 > [!NOTE]
 > The abstract node appears as `(abstract)` in the target tree — it is a placeholder until you select a concrete subtype. Selecting a type here tells DataMapper which concrete element to output.
 
 ---
 
-#### Step 4.8 — Shipping costs
+### Step 4.8 — Shipping costs
 
 One required field for now — the base cost.
 
 | Target | Value |
 |--------|-------|
-| `ShippingCosts/BaseShippingCost` | `9.99` |
+| ShippingCosts/BaseShippingCost | '9.99' |
 
 {{< image-sh src="15-8-mapping-complete.png" text="Complete DataMapper mapping — all fields connected" >}}
 
 ---
 
-#### Step 4.9 — Save the mapping
+### Step 4.9 — Save the mapping
 
-DataMapper continuously updates the XSLT file as you work. Press **Ctrl/Cmd + S** to make sure the latest state is flushed to disk before closing the editor.
+DataMapper continuously updates the XSLT file as you work. Press **Ctrl/Cmd + S** to make sure the latest state is saved and flushed to disk before closing the editor.
 
-**✅ Checkpoint:** The generated XSLT file exists in the `kaoto-workshop/` folder. Its content should look like this:
+> [!TIP]
+> You can save at any time during mapping (using **Ctrl/Cmd + S** or the editor's save action) to ensure your changes are written to the underlying `.xsl` file incrementally.
+
+**✅ Checkpoint:** The generated XSLT file exists in the `kaoto-workshop/` folder (e.g. `order-dispatch.xsl`). Its content should match the following structure:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -585,7 +615,7 @@ DataMapper continuously updates the XSLT file as you work. Press **Ctrl/Cmd + S*
       <OrderMetadata>
         <CreatedAt><xsl:value-of select="current-dateTime()"/></CreatedAt>
         <ProcessingStatus><xsl:value-of select="'PENDING'"/></ProcessingStatus>
-        <SourceSystem><xsl:value-of select="'Kaoto-Datamapper'"/></SourceSystem>
+        <SourceSystem><xsl:value-of select="'Kaoto-DataMapper'"/></SourceSystem>
       </OrderMetadata>
       <CustomerInformation>
         <CustomerID><xsl:value-of select="/ns1:PurchaseOrder/ns1:Buyer/ns1:PartyID"/></CustomerID>
@@ -662,18 +692,18 @@ The integration polls the OMS every 10 seconds, transforms each `PurchaseOrder` 
 
 | ShipOrder field | Source |
 |-----------------|--------|
-| `InternalOrderID` | `PO/OrderHeader/OrderID` |
-| `PurchaseOrderNumber` | `concat('SO-', OrderID)` |
-| `ProcessingStatus` | `"PENDING"` |
-| `SourceSystem` | `"Kaoto-DataMapper"` |
-| `CreatedAt` | `current-dateTime()` |
-| `CustomerID` | `PO/Buyer/PartyID` |
-| `FullName` | `PO/Buyer/Name` |
-| `Email` | `PO/Buyer/Email` |
-| `DeliveryAddress` | `copy-of PO/ShippingAddress` |
-| `ShipmentItems` | `for-each PO/LineItem` |
-| `DeliveryMethod` | `StandardDelivery` |
-| `BaseShippingCost` | Constant `9.99` |
+| InternalOrderID | PO/OrderHeader/OrderID |
+| PurchaseOrderNumber | concat('SO-', OrderID) |
+| ProcessingStatus | 'PENDING' |
+| SourceSystem | 'Kaoto-DataMapper' |
+| CreatedAt | current-dateTime() |
+| CustomerID | PO/Buyer/PartyID |
+| FullName | PO/Buyer/Name |
+| Email | PO/Buyer/Email |
+| DeliveryAddress | copy-of PO/ShippingAddress |
+| ShipmentItems | for-each PO/LineItem |
+| DeliveryMethod | StandardDelivery |
+| BaseShippingCost | '9.99' |
 
 ---
 
@@ -692,7 +722,7 @@ A follow-up tutorial is coming that takes this integration further — enriching
 ## Troubleshooting
 
 **401 Unauthorized**
-All three HTTP steps need `Authorization: Bearer kaoto-workshop` — the orders list fetch, the individual order XML fetch, and the final POST to the shipping platform. Check each step in the properties panel.
+All four HTTP steps need `Authorization: Bearer kaoto-workshop` — the orders list fetch, the individual order XML fetch, the shipping POST, and the final OMS ACK POST. Check each step in the properties panel.
 
 **DataMapper schema tree is empty**
 Open DataMapper, click **+ Add source document**, and select the XSD from the `schemas/` folder using the file browser — not a URL.
