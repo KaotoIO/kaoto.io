@@ -1,5 +1,5 @@
 ---
-title: "Testing with Citrus"
+title: "Testing"
 description: "Write and run automated integration tests for Apache Camel routes using Citrus and Kaoto"
 date: 2026-10-05
 weight: 8
@@ -20,7 +20,7 @@ Before starting, ensure you have:
 - **JBang** - Required for running tests with `camel-cli-run`. See the [installation guide](../installation/) for setup instructions
 
 > [!NOTE]
-> The Kaoto VS Code extension automatically installs Camel CLI for you. However, **JBang remains a hard requirement** and must be installed manually before running `camel-cli-run` tests.
+> The Kaoto VS Code extension automatically installs Camel CLI for you. However, **JBang remains a hard requirement** and must be installed manually before running tests that use the Citrus `camel-cli-run` test action.
 
 ## The Route Under Test
 
@@ -93,10 +93,16 @@ When you open `test/file-copier.citrus.yaml`, Kaoto renders it inside the visual
 We will modify this test template step-by-step using the visual interface:
 
 1. **Configure Test Metadata and Variables:** Click on the top header bar of the Citrus flow (**"Sample test in YAML"**) on your canvas to open its properties panel on the right.
+
+{{< image-sh src="kaoto-citrus-test-node-form-before-updates.png" text="Test node and form open before updates" >}}
+
    - Go to the **Variables** tab and delete the default `message` variable.
    - Go to the **Metadata** (or **All**) tab and change the **Description** field to: `Verify that creating a file in /tmp/tutorial/ correctly copies it to /tmp/backup/`
    - Save the file (`Ctrl/Cmd + S`) to apply the changes. This will also update the canvas header to match your new test name. Saving is recommended after each change.
 2. **Switch the Default Action:** Hover over the default `echo` action node on the canvas and click the **Replace** (circular arrow) icon.
+
+{{< image-sh src="kaoto-citrus-echo-node-context-toolbar.png" text="Echo node with the context toolbar where Replace is found" >}}
+
 3. **Choose Camel Run Action:** In the component catalog, search for `run` and choose the second option, **Run (`camel-cli-run`)**:
 
 {{< image-sh src="kaoto-add-camel-cli-run-component.png" text="Add camel-cli-run component" >}}
@@ -111,22 +117,26 @@ We will modify this test template step-by-step using the visual interface:
    - **Integration Name:** `file-copier`
    - **File:** `../file-copier.camel.yaml`
 
-   > [!NOTE]
-   > **How it works (`camel-cli-run`):** This action starts your Camel integration route under test as a background subprocess. JBang automatically resolves dependencies and keeps the route running for the duration of the test.
+{{< image-sh src="kaoto-citrus-camel-cli-run-node-form.png" text="camel-cli-run node and form completed" >}}
+
+> [!NOTE]
+> **How it works (`camel-cli-run`):** This action starts your Camel integration route under test as a background subprocess. JBang automatically resolves dependencies and keeps the route running for the duration of the test.
 
 5. **Add Sleep Action:** Click **"Add step"** (+), search for `sleep`, and add the **Sleep** action. Click the node, and under properties, configure the pause duration:
    - **Time:** `2000` (milliseconds)
 
-   > [!NOTE]
-   > **How it works (`sleep`):** Because integration routes run asynchronously, sleep actions are used to give the Camel route time to fully initialize and bind to endpoints before assertions are performed.
+{{< image-sh src="kaoto-citrus-add-step-placeholder.png" text="Route showing the Add step placeholder" >}}
+
+> [!NOTE]
+> **How it works (`sleep`):** Because integration routes run asynchronously, sleep actions are used to give the Camel route time to fully initialize and bind to endpoints before assertions are performed.
 
 6. **Add Groovy Action to Simulate File Creation:** Click **"Add step"** (+), search for `groovy`, and add the **Groovy** action. Click the node and, in the `script` properties text box, paste the code to write our test file:
    ```groovy
    new File('/tmp/tutorial/test-doc.txt').write('Hello, Citrus!')
    ```
 
-   > [!NOTE]
-   > **How it works (`groovy`):** Citrus can execute customized Groovy scripts directly inside the test context. This is highly useful for interacting with local directories (like writing an input file to trigger file-monitoring).
+> [!NOTE]
+> **How it works (`groovy`):** Citrus can execute customized Groovy scripts directly inside the test context. This is highly useful for interacting with local directories (like writing an input file to trigger file-monitoring).
 
 7. **Add a second Sleep Action:** Click **"Add step"** (+), add another **Sleep** action, and configure it for `2000` milliseconds to allow the integration route time to detect and process the file.
 
@@ -137,8 +147,8 @@ We will modify this test template step-by-step using the visual interface:
    assert backupFile.text == 'Hello, Citrus!' : "Backup file content mismatch!"
    ```
 
-   > [!NOTE]
-   > **How it works (assertions):** Here, another Groovy action acts as a validation script. It checks if the backup file was successfully created in the `/tmp/backup/` directory, and asserts that its contents match the original test string.
+> [!NOTE]
+> **How it works (assertions):** Here, another Groovy action acts as a validation script. It checks if the backup file was successfully created in the `/tmp/backup/` directory, and asserts that its contents match the original test string.
 
 9. **Add Camel Verify Action:** Click **"Add step"** (+), search for `verify`, and add the **Verify (`camel-cli-verify`)** component:
 
@@ -148,8 +158,8 @@ Select the `Verify` node and configure its properties under the form panel:
 - **Integration:** `file-copier`
 - **Log Message:** `Detected CREATE on file test-doc.txt`
 
-   > [!NOTE]
-   > **How it works (`camel-cli-verify`):** This action scans the standard console log of the running integration to verify that the route correctly processed the file and logged the corresponding log line.
+> [!NOTE]
+> **How it works (`camel-cli-verify`):** This action scans the standard console log of the running integration to verify that the route correctly processed the file and logged the corresponding log line.
 
 10. **Add `doFinally` Cleanup Container:** To ensure tests are reproducible and leave a clean environment even when a previous step fails, click **"Add step"** (+), search for `doFinally`, and add the **Do Finally (`doFinally`)** container. Inside it, add a **Groovy** action and paste the cleanup code in the `script` text box:
    ```groovy
@@ -157,8 +167,8 @@ Select the `Verify` node and configure its properties under the form panel:
    new File('/tmp/backup/test-doc.txt').delete()
    ```
 
-   > [!NOTE]
-   > **How it works (`doFinally`):** Actions placed inside a `doFinally` container always execute at the end of the test, regardless of whether earlier steps passed or failed. This guarantees temporary files are cleaned up even if the test encounters an error.
+> [!NOTE]
+> **How it works (`doFinally`):** Actions placed inside a `doFinally` container always execute at the end of the test, regardless of whether earlier steps passed or failed. This guarantees temporary files are cleaned up even if the test encounters an error.
 
 ---
 
