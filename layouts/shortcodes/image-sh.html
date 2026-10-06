@@ -7,14 +7,24 @@
 
 {{/* Get parameters */}}
 {{ $src := .Get "src" }}
+{{ $cleanSrc := strings.TrimPrefix "./" $src }}
+{{ $srcUrl := $src }}
+{{ if hasPrefix $src "/" }}
+  {{ $srcUrl = $src | relURL }}
+{{ else if not (urls.Parse $src).Scheme }}
+  {{ $res := or ($.Page.Resources.GetMatch $src) ($.Page.Resources.GetMatch $cleanSrc) }}
+  {{ if $res }}
+    {{ $srcUrl = $res.RelPermalink }}
+  {{ end }}
+{{ end }}
 {{ $text := .Get "text" }}
 
 <figure class="image">
-  <img src="{{ $src }}" alt="{{ $text }}" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
+  <img src="{{ $srcUrl }}" alt="{{ $text }}" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
   <figcaption>{{ $text }}</figcaption>
 </figure>
 
 <!-- Image Modal Dialog -->
 <dialog id="{{ $modalId }}" class="image-modal" onclick="if(event.target === this) this.close()">
-  <img class="modal-content" src="{{ $src }}" alt="{{ $text }}">
+  <img class="modal-content" src="{{ $srcUrl }}" alt="{{ $text }}">
 </dialog>

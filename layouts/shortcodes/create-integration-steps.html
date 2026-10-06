@@ -1,31 +1,84 @@
-{{ $content := `
+{{- $fig0 := printf "fig-%d-0" (now.UnixNano) -}}
+{{- $fig1 := printf "fig-%d-1" (now.UnixNano) -}}
+{{- $fig2 := printf "fig-%d-2" (now.UnixNano) -}}
+{{- $fig3 := printf "fig-%d-3" (now.UnixNano) -}}
+{{- $fig4 := printf "fig-%d-4" (now.UnixNano) -}}
+{{- $togg1 := printf "toggle-%d-1" (now.UnixNano) -}}
 
-### Navigate to Kaoto Perspective
+<h3>Navigate to Kaoto Perspective</h3>
 
-1. Open VS Code
-2. Click on the Kaoto icon in the Activity Bar (left sidebar)
-3. The Kaoto perspective will open, showing the route designer
+<ol>
+  <li>Open VS Code</li>
+  <li>Click on the Kaoto icon in the Activity Bar (left sidebar)</li>
+  <li>The Kaoto perspective will open, showing the route designer</li>
+</ol>
 
-{{< image-sh src="/images/quickstart/00-kaoto-perspective.png" text="Kaoto perspective" >}}
+{{ $p0 := relURL "images/quickstart/00-kaoto-perspective.png" }}
+{{ $p1 := relURL "images/quickstart/01-new-camel-file.png" }}
+{{ $p2 := relURL "images/quickstart/01-camel-route-item.png" }}
+{{ $p3 := relURL "images/quickstart/01-yaml-dsl-item.png" }}
+{{ $p4 := relURL "images/quickstart/01-name.png" }}
+{{ $p5 := relURL "images/quickstart/01-result.png" }}
 
-### Create a New Camel Route
+<figure class="image">
+  <img src="{{ $p0 }}" alt="Kaoto perspective" class="expandable-image" onclick="document.getElementById('modal-{{ $fig0 }}').showModal()">
+  <figcaption>Kaoto perspective</figcaption>
+</figure>
+<dialog id="modal-{{ $fig0 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ $p0 }}" alt="Kaoto perspective">
+</dialog>
 
-1. In the Kaoto perspective, click **"Camel File..."**
-{{< image-sh src="/images/quickstart/01-new-camel-file.png" text="New Camel file" >}}
+<h3>Create a New Camel Route</h3>
 
-2. Choose **"Camel Route"** as the route type
-{{< image-sh src="/images/quickstart/01-camel-route-item.png" text="Camel route item" >}}
+<ol>
+  <li>In the Kaoto perspective, click <strong>"Camel File..."</strong></li>
+</ol>
+<figure class="image">
+  <img src="{{ $p1 }}" alt="New Camel file" class="expandable-image" onclick="document.getElementById('modal-{{ $fig1 }}').showModal()">
+  <figcaption>New Camel file</figcaption>
+</figure>
+<dialog id="modal-{{ $fig1 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ $p1 }}" alt="New Camel file">
+</dialog>
 
-3. Choose between **"YAML DSL"** or **"XML DSL"** as the route type
-{{< image-sh src="/images/quickstart/01-yaml-dsl-item.png" text="YAML DSL item" >}}
+<ol start="2">
+  <li>Choose <strong>"Camel Route"</strong> as the route type</li>
+</ol>
+<figure class="image">
+  <img src="{{ $p2 }}" alt="Camel route item" class="expandable-image" onclick="document.getElementById('modal-{{ $fig2 }}').showModal()">
+  <figcaption>Camel route item</figcaption>
+</figure>
+<dialog id="modal-{{ $fig2 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ $p2 }}" alt="Camel route item">
+</dialog>
 
-4. Give a name to the new route
-{{< image-sh src="/images/quickstart/01-name.png" text="New route name" >}}
+<ol start="3">
+  <li>Choose between <strong>"YAML DSL"</strong> or <strong>"XML DSL"</strong> as the route type</li>
+</ol>
+<figure class="image">
+  <img src="{{ $p3 }}" alt="YAML DSL item" class="expandable-image" onclick="document.getElementById('modal-{{ $fig3 }}').showModal()">
+  <figcaption>YAML DSL item</figcaption>
+</figure>
+<dialog id="modal-{{ $fig3 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ $p3 }}" alt="YAML DSL item">
+</dialog>
 
-5. A basic timer-based route will be created automatically
+<ol start="4">
+  <li>Give a name to the new route</li>
+</ol>
+<figure class="image">
+  <img src="{{ $p4 }}" alt="New route name" class="expandable-image" onclick="document.getElementById('modal-{{ $fig4 }}').showModal()">
+  <figcaption>New route name</figcaption>
+</figure>
+<dialog id="modal-{{ $fig4 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ $p4 }}" alt="New route name">
+</dialog>
 
-{{< img-toggle src="/images/quickstart/01-result.png" lang="yaml" >}}
-- route:
+<ol start="5">
+  <li>A basic timer-based route will be created automatically</li>
+</ol>
+
+{{ $yamlCode := `- route:
     from:
       uri: timer:yaml
       parameters:
@@ -34,7 +87,37 @@
         - setBody:
             simple: Hello Camel from ${routeId}
         - log: ${body}
-    id: route-1905
-{{< /img-toggle >}}
-` }}
-{{ .Page.RenderString (dict "display" "block") $content }}
+    id: route-1905` }}
+
+<div class="toggle-wrapper chroma">
+  <input type="checkbox" id="{{ $togg1 }}" class="toggle-input">
+
+  <div class="toggle-image-block">
+    <div class="tab-bar">
+      <span class="tab active">Image Preview</span>
+      <label for="{{ $togg1 }}" class="tab inactive">View YAML</label>
+    </div>
+    <div class="content-area">
+      <img src="{{ $p5 }}" alt="Toggle Image" class="expandable-image" onclick="document.getElementById('modal-{{ $togg1 }}').showModal()">
+    </div>
+  </div>
+
+  <div class="toggle-code-block">
+    <div class="tab-bar">
+      <label for="{{ $togg1 }}" class="tab inactive">View Image</label>
+      <span class="tab active">YAML Source</span>
+    </div>
+    <label for="{{ $togg1 }}" class="content-area">
+      {{ highlight $yamlCode "yaml" "" | safeHTML }}
+    </label>
+  </div>
+</div>
+
+<dialog id="modal-{{ $togg1 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+  <img class="modal-content" src="{{ $p5 }}" alt="Expanded Image">
+</dialog>
+<script>
+  document.getElementById('modal-{{ $togg1 }}').addEventListener('toggle', function(e) {
+    document.querySelector('.modal-close').style.display = this.open ? 'block' : 'none';
+  });
+</script>

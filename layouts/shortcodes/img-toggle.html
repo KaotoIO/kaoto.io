@@ -1,6 +1,17 @@
 {{/* Generate a unique ID if one isn't provided */}}
 {{ $id := .Get "id" | default (printf "toggle-%d" (now.UnixNano)) }}
 {{ $modalId := printf "modal-%s" $id }}
+{{ $src := .Get "src" }}
+{{ $cleanSrc := strings.TrimPrefix "./" $src }}
+{{ $srcUrl := $src }}
+{{ if hasPrefix $src "/" }}
+  {{ $srcUrl = $src | relURL }}
+{{ else if not (urls.Parse $src).Scheme }}
+  {{ $res := or ($.Page.Resources.GetMatch $src) ($.Page.Resources.GetMatch $cleanSrc) }}
+  {{ if $res }}
+    {{ $srcUrl = $res.RelPermalink }}
+  {{ end }}
+{{ end }}
 {{ $lang := .Get "lang" | default "yaml" }}
 {{ $isYaml := or (eq $lang "yaml") (eq $lang "yml") }}
 {{ $sourceLabel := cond $isYaml "YAML Source" "Text Output" }}
@@ -15,7 +26,7 @@
       <label for="{{ $id }}" class="tab inactive">{{ $viewLabel }}</label>
     </div>
     <div class="content-area">
-      <img src="{{ .Get "src" }}" alt="Toggle Image" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
+      <img src="{{ $srcUrl }}" alt="Toggle Image" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
     </div>
   </div>
 
@@ -32,7 +43,7 @@
 
 <!-- Image Dialog -->
 <dialog id="{{ $modalId }}" class="image-modal" onclick="if(event.target === this) this.close()">
-  <img class="modal-content" src="{{ .Get "src" }}" alt="Expanded Image">
+  <img class="modal-content" src="{{ $srcUrl }}" alt="Expanded Image">
 </dialog>
 <script>
   document.getElementById('{{ $modalId }}').addEventListener('toggle', function(e) {

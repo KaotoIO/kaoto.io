@@ -76,7 +76,7 @@ For most projects, stick with single integration per file as your default approa
 
 ## Creating a New Integration
 
-{{% create-integration-steps %}}
+{{< create-integration-steps >}}
 
 > [!TIP]
 > The integration name doesn't need to match the file name.
