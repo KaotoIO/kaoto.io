@@ -1,0 +1,41 @@
+{{/* Custom Kaoto Features Grid (Clean & borderless layout) */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+<div class="mx-auto max-w-screen-xl px-6 py-12 lg:px-8 text-center">
+  {{ with $block.content.title }}
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl text-center">
+      {{ . | markdownify }}
+    </h2>
+  {{ end }}
+  {{ with $block.content.text }}
+    <p class="mt-3 text-base sm:text-lg leading-7 text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
+      {{ . | $page.RenderString | emojify }}
+    </p>
+  {{ end }}
+
+  {{ with $block.content.items }}
+    <div class="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 text-center">
+      {{ range . }}
+        <div class="flex flex-col items-center">
+          {{ with .icon }}
+            <div class="h-10 w-10 text-primary-600 dark:text-primary-400 mx-auto mb-3 flex items-center justify-center">
+              {{ partial "functions/get_icon" (dict "name" . "attributes" "style=\"height: 2.25rem; width: 2.25rem;\"") }}
+            </div>
+          {{ end }}
+          {{ with .name }}
+            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 tracking-tight">{{ . | markdownify }}</h3>
+          {{ end }}
+          {{ with .description }}
+            <p class="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">{{ . | $page.RenderString | emojify }}</p>
+          {{ end }}
+          {{ with .link }}
+            <a href="{{ .url | relLangURL }}" class="mt-3 inline-flex items-center text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors">
+              {{ .text | default "Learn more" }} <span aria-hidden="true" class="ml-1">&rarr;</span>
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

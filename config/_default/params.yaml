@@ -116,7 +116,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   copyright:
     # Copyright notice - supports {year}, {name}, {license} placeholders
-    notice: '© {year} - <a href="https://camel.apache.org">Apache Camel</a> is a trademark of the <a href="https://apache.org">Apache Software Foundation</a>.<br/><br/><div style="background-color:#17181c;padding:20px;margin:auto;border-radius: 9px;"><a href="https://redhat.com" target="_blank" rel="noopener noreferrer">![Red Hat Logo](redhat-sponsor.png)</a></div>'
+    notice: '© {year} - <a href="https://camel.apache.org">Apache Camel</a> is a trademark of the <a href="https://apache.org">Apache Software Foundation</a>.<br/><br/><div class="redhat-sponsor-box"><a href="https://redhat.com" target="_blank" rel="noopener noreferrer">![Red Hat Logo](redhat-sponsor.png)</a></div>'
     license:
       type: custom                          # cc | custom
       allow_derivatives: false

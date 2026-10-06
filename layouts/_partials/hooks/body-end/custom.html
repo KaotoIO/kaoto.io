@@ -2,7 +2,7 @@
 {{/* Get the name of the page relative to the relative URL (e.g., /docs/install/) */}}
 {{ $urlPath := .RelPermalink | path.Clean }}
 {{ $currentPath := $urlPath | strings.TrimPrefix "/" | replaceRE "/" "-" }}
-{{ $pageClass := $currentPath | default "home" }}
+{{ $pageClass := cond .IsHome "home" ($currentPath | default "home") }}
 {{ if .Params.body_class }}
   {{ $pageClass = .Params.body_class }}
 {{ end }}
