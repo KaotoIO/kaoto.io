@@ -44,7 +44,7 @@ This documentation is organized into several sections that you can access from t
 - **[REST](rest/)** - Work with REST APIs in your integrations
 - **[Beans](beans/)** - Configure and use beans in your Camel routes
 - **[Custom Kamelets](designer/07-custom-kamelets/)** - Build reusable Kamelets and use them across routes from the catalog
-- **[Testing with Citrus](testing-citrus/)** - Write and run automated tests for your Camel integrations using the Citrus framework
+- **[Testing](testing-citrus/)** - Write and run automated tests for your Camel integrations using the Citrus framework
 
 
 <!--
