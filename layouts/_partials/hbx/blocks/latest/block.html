@@ -1,0 +1,77 @@
+{{/* Hugo Blox: Latest Articles / News & Workshops Block */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+{{/* Query blog and workshop pages */}}
+{{ $blogs := where site.RegularPages "Section" "blog" }}
+{{ $workshops := where site.RegularPages "Section" "workshop" }}
+{{ $all_items := union $blogs $workshops }}
+{{ $sorted_items := sort $all_items "Date" "desc" }}
+{{ $count := $block.content.count | default 3 }}
+{{ $items := first $count $sorted_items }}
+
+<div class="mx-auto max-w-screen-xl px-6 py-8 lg:px-8 text-center">
+  {{ with $block.content.title }}
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl text-center">
+      {{ . | markdownify }}
+    </h2>
+  {{ end }}
+  {{ with $block.content.text }}
+    <p class="mt-3 text-base sm:text-lg leading-7 text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
+      {{ . | $page.RenderString | emojify }}
+    </p>
+  {{ end }}
+
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+    {{ range $items }}
+      {{ $item := . }}
+      {{ $is_workshop := eq $item.Section "workshop" }}
+      {{ $section_label := cond $is_workshop "Workshop" "Blog" }}
+      {{ $badge_class := cond $is_workshop "bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300 border-purple-200 dark:border-purple-800/60" "bg-neutral-100 text-neutral-800 dark:bg-neutral-800/80 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700" }}
+
+      <article class="flex flex-col justify-between rounded-2xl border border-gray-200/70 dark:border-gray-800/80 bg-white dark:bg-neutral-900 p-6 shadow-sm hover:shadow-md hover:border-primary-500/50 transition-all duration-200">
+        <div>
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-3">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border {{ $badge_class }}">
+              {{ $section_label }}
+            </span>
+            <time datetime="{{ $item.Date.Format "2006-01-02" }}">
+              {{ $item.Date.Format (site.Params.hugoblox.locale.date_format | default "Jan 2, 2006") }}
+            </time>
+          </div>
+
+          <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            <a href="{{ $item.RelPermalink }}">
+              {{ $item.Title | markdownify }}
+            </a>
+          </h3>
+
+          <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300 line-clamp-3">
+            {{ with $item.Params.summary }}
+              {{ . | plainify }}
+            {{ else }}
+              {{ $item.Summary | plainify | truncate 130 }}
+            {{ end }}
+          </p>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800/60 flex items-center justify-between">
+          <a href="{{ $item.RelPermalink }}" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline inline-flex items-center">
+            Read more <span class="ml-1" aria-hidden="true">&rarr;</span>
+          </a>
+          {{ if gt $item.ReadingTime 0 }}
+            <span class="text-xs text-gray-400 dark:text-gray-500">{{ $item.ReadingTime }} min read</span>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
+
+  {{ with $block.content.archive_link }}
+    <div class="mt-8 text-center">
+      <a href="{{ .url | relLangURL }}" class="inline-flex items-center rounded-xl border border-gray-300 dark:border-gray-700 bg-white/40 dark:bg-neutral-800/60 px-5 py-2.5 text-sm font-semibold text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-all">
+        {{ .text | default "Explore all updates" }} <span aria-hidden="true" class="ml-1.5">&rarr;</span>
+      </a>
+    </div>
+  {{ end }}
+</div>

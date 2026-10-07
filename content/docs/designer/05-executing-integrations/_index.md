@@ -66,7 +66,7 @@ Run all Camel integration files in your entire workspace.
 
 Before executing integrations, you need to create one. Let's create a simple integration to demonstrate execution.
 
-{{% create-integration-steps %}}
+{{< create-integration-steps >}}
 
 ---
 

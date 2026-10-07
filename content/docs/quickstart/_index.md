@@ -20,7 +20,7 @@ Before starting, ensure you have:
 
 ## Create and Run Your First Route
 
-{{% create-integration-steps %}}
+{{< create-integration-steps >}}
 
 ### Run the Simple Route
 

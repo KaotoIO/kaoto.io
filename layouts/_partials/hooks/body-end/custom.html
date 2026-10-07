@@ -2,13 +2,28 @@
 {{/* Get the name of the page relative to the relative URL (e.g., /docs/install/) */}}
 {{ $urlPath := .RelPermalink | path.Clean }}
 {{ $currentPath := $urlPath | strings.TrimPrefix "/" | replaceRE "/" "-" }}
-{{ $pageClass := $currentPath | default "home" }}
+{{ $pageClass := cond .IsHome "home" ($currentPath | default "home") }}
 {{ if .Params.body_class }}
   {{ $pageClass = .Params.body_class }}
 {{ end }}
 
 <script>
   (function() {
+    // Open image modal dialogs via delegated click on data-modal-target buttons.
+    // This replaces inline onclick handlers (resolves Web:S6851).
+    document.addEventListener('click', function(event) {
+      const btn = event.target.closest('[data-modal-target]');
+      if (btn) {
+        const modal = document.getElementById(btn.dataset.modalTarget);
+        if (modal) modal.showModal();
+        return;
+      }
+      // Dismiss modal on backdrop click (pointer outside dialog content).
+      if (event.target instanceof HTMLDialogElement && event.target.matches('.image-modal')) {
+        event.target.close();
+      }
+    });
+
     const pageName = "{{ $pageClass }}";
     document.body.classList.add(pageName);
 
