@@ -198,10 +198,36 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
   }
 }
 
+/* Give search and appearance the same circular hover area as GitHub. */
+#site-header [data-search-toggle],
+#site-header .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  color: var(--hb-color-header-fg);
+  background: transparent;
+  cursor: pointer;
+}
+
+#site-header .navbar > div > div:has(> .theme-toggle) {
+  padding: 0;
+  color: var(--hb-color-header-fg);
+}
+
+#site-header [data-search-toggle]:hover,
+#site-header .theme-toggle:hover,
 #site-header .navbar > div > a[href="https://github.com/KaotoIO/"]:hover {
   background-color: rgb(128 128 128 / 12%);
 }
 
+#site-header [data-search-toggle]:focus-visible,
+#site-header .theme-toggle:focus-visible,
 #site-header .navbar > div > a[href="https://github.com/KaotoIO/"]:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
