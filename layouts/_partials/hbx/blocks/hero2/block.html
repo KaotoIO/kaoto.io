@@ -14,7 +14,7 @@
           {{ $announcement := $block.content.announcement }}
           <div class="mb-5 flex justify-start">
             <div class="relative rounded-full px-3.5 py-1 text-xs sm:text-sm leading-6 text-gray-600 dark:text-gray-300 ring-1 ring-gray-900/10 dark:ring-gray-300/20 hover:ring-gray-900/20 dark:hover:ring-gray-400 bg-white/50 dark:bg-neutral-900/50 backdrop-blur inline-flex items-center">
-              <span>{{ $announcement.text | markdownify }}</span>
+              <span class="font-bold">{{ $announcement.text | markdownify }}</span>
               {{ if $announcement.link.text }}
                 <a href="{{ $announcement.link.url }}" class="font-semibold text-primary-600 dark:text-primary-400 ml-1.5 hover:underline">
                   <span class="absolute inset-0" aria-hidden="true"></span>{{ $announcement.link.text }} <span aria-hidden="true">&rarr;</span>
