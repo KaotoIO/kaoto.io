@@ -13,7 +13,7 @@ code, pre, kbd, samp, .font-mono {
   font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
 }
 
-/* Striedanie pozadia sekcií na domovskej stránke */
+/* Alternating section backgrounds on the home page */
 #latest,
 #slideshow-section {
   background-color: rgb(249 250 251); /* gray-50 */
@@ -31,7 +31,7 @@ code, pre, kbd, samp, .font-mono {
   background-color: transparent;
 }
 
-/* Footer: tmavé pozadie #0d1117 zhodné s Hero sekciou vo všetkých režimoch */
+/* Footer: dark background #0d1117 matching the Hero section in all colour modes */
 .page-footer {
   background-color: #0d1117 !important;
   color: #94a3b8 !important;
@@ -63,7 +63,7 @@ code, pre, kbd, samp, .font-mono {
   }
 }
 
-/* Red Hat Sponsor Badge vo footeri */
+/* Red Hat Sponsor Badge in the footer */
 .redhat-sponsor-box {
   background-color: transparent !important;
   padding: 12px 0;
@@ -209,10 +209,6 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
   header.header > nav.navbar {
     max-width: 1600px; /* Instead of 1280px */
   }
-  
-  .mx-auto {
-    max-width: 1600px !important;
-  }
 }
 
 .dark #nav-menu .nav-link:not(:hover) {
@@ -347,14 +343,10 @@ nav.hb-toc ul li a.pl-8, nav.hb-toc ul li a.pl-12, nav.hb-toc ul li a.pl-16 {
   max-width: none;
 }
 
-@media (min-width: 1600px) {
-  .mx-auto {
-    max-width: 1600px !important;
-  }
-}
 
 /* Youtube video and images shortcodes styling*/
-div.video, div.video > iframe, figure.image, figure.image > img {
+div.video, div.video > iframe, figure.image, figure.image > img,
+figure.image > .image-preview-button > img {
   justify-items: anchor-center;
   justify-self: anchor-center;
 }
@@ -369,9 +361,12 @@ div.video > iframe {
   height: auto;
   aspect-ratio: 16 / 9;
   min-height: 400px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
 }
 
-figure.image > img {
+figure.image > img,
+figure.image > .image-preview-button > img {
   width: 100%;
   height: auto;
   border: 1px solid rgba(226, 232, 240, 0.8);
@@ -379,14 +374,9 @@ figure.image > img {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
 }
 
-.dark figure.image > img {
+.dark figure.image > img,
+.dark figure.image > .image-preview-button > img {
   border: 1px solid rgba(51, 65, 85, 0.8);
-}
-
-/* Rounded corners for videos */
-div.video > iframe {
-  border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
 }
 
 @media (min-width: 768px) {
@@ -451,4 +441,20 @@ div.video > iframe {
 
 .expandable-image {
   cursor: zoom-in !important;
+}
+
+/* Keep preview buttons visually neutral while exposing native keyboard controls. */
+.image-preview-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.image-preview-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 16px;
 }

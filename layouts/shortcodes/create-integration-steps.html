@@ -1,9 +1,10 @@
-{{- $fig0 := printf "fig-%d-0" (now.UnixNano) -}}
-{{- $fig1 := printf "fig-%d-1" (now.UnixNano) -}}
-{{- $fig2 := printf "fig-%d-2" (now.UnixNano) -}}
-{{- $fig3 := printf "fig-%d-3" (now.UnixNano) -}}
-{{- $fig4 := printf "fig-%d-4" (now.UnixNano) -}}
-{{- $togg1 := printf "toggle-%d-1" (now.UnixNano) -}}
+{{- $uid := .Page.RelPermalink | md5 -}}
+{{- $fig0 := printf "fig-%s-0" $uid -}}
+{{- $fig1 := printf "fig-%s-1" $uid -}}
+{{- $fig2 := printf "fig-%s-2" $uid -}}
+{{- $fig3 := printf "fig-%s-3" $uid -}}
+{{- $fig4 := printf "fig-%s-4" $uid -}}
+{{- $togg1 := printf "toggle-%s-1" $uid -}}
 
 <h3>Navigate to Kaoto Perspective</h3>
 
@@ -21,10 +22,15 @@
 {{ $p5 := relURL "images/quickstart/01-result.png" }}
 
 <figure class="image">
-  <img src="{{ $p0 }}" alt="Kaoto perspective" class="expandable-image" onclick="document.getElementById('modal-{{ $fig0 }}').showModal()">
+  <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="modal-{{ $fig0 }}">
+    <img src="{{ $p0 }}" alt="Kaoto perspective" class="expandable-image">
+  </button>
   <figcaption>Kaoto perspective</figcaption>
 </figure>
-<dialog id="modal-{{ $fig0 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+<dialog id="modal-{{ $fig0 }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
   <img class="modal-content" src="{{ $p0 }}" alt="Kaoto perspective">
 </dialog>
 
@@ -34,10 +40,15 @@
   <li>In the Kaoto perspective, click <strong>"Camel File..."</strong></li>
 </ol>
 <figure class="image">
-  <img src="{{ $p1 }}" alt="New Camel file" class="expandable-image" onclick="document.getElementById('modal-{{ $fig1 }}').showModal()">
+  <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="modal-{{ $fig1 }}">
+    <img src="{{ $p1 }}" alt="New Camel file" class="expandable-image">
+  </button>
   <figcaption>New Camel file</figcaption>
 </figure>
-<dialog id="modal-{{ $fig1 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+<dialog id="modal-{{ $fig1 }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
   <img class="modal-content" src="{{ $p1 }}" alt="New Camel file">
 </dialog>
 
@@ -45,10 +56,15 @@
   <li>Choose <strong>"Camel Route"</strong> as the route type</li>
 </ol>
 <figure class="image">
-  <img src="{{ $p2 }}" alt="Camel route item" class="expandable-image" onclick="document.getElementById('modal-{{ $fig2 }}').showModal()">
+  <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="modal-{{ $fig2 }}">
+    <img src="{{ $p2 }}" alt="Camel route item" class="expandable-image">
+  </button>
   <figcaption>Camel route item</figcaption>
 </figure>
-<dialog id="modal-{{ $fig2 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+<dialog id="modal-{{ $fig2 }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
   <img class="modal-content" src="{{ $p2 }}" alt="Camel route item">
 </dialog>
 
@@ -56,10 +72,15 @@
   <li>Choose between <strong>"YAML DSL"</strong> or <strong>"XML DSL"</strong> as the route type</li>
 </ol>
 <figure class="image">
-  <img src="{{ $p3 }}" alt="YAML DSL item" class="expandable-image" onclick="document.getElementById('modal-{{ $fig3 }}').showModal()">
+  <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="modal-{{ $fig3 }}">
+    <img src="{{ $p3 }}" alt="YAML DSL item" class="expandable-image">
+  </button>
   <figcaption>YAML DSL item</figcaption>
 </figure>
-<dialog id="modal-{{ $fig3 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+<dialog id="modal-{{ $fig3 }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
   <img class="modal-content" src="{{ $p3 }}" alt="YAML DSL item">
 </dialog>
 
@@ -67,10 +88,15 @@
   <li>Give a name to the new route</li>
 </ol>
 <figure class="image">
-  <img src="{{ $p4 }}" alt="New route name" class="expandable-image" onclick="document.getElementById('modal-{{ $fig4 }}').showModal()">
+  <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="modal-{{ $fig4 }}">
+    <img src="{{ $p4 }}" alt="New route name" class="expandable-image">
+  </button>
   <figcaption>New route name</figcaption>
 </figure>
-<dialog id="modal-{{ $fig4 }}" class="image-modal" onclick="if(event.target === this) this.close()">
+<dialog id="modal-{{ $fig4 }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
   <img class="modal-content" src="{{ $p4 }}" alt="New route name">
 </dialog>
 
@@ -98,7 +124,9 @@
       <label for="{{ $togg1 }}" class="tab inactive">View YAML</label>
     </div>
     <div class="content-area">
-      <img src="{{ $p5 }}" alt="Toggle Image" class="expandable-image" onclick="document.getElementById('modal-{{ $togg1 }}').showModal()">
+      <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="modal-{{ $togg1 }}">
+        <img src="{{ $p5 }}" alt="Generated timer-based Camel route in Kaoto" class="expandable-image">
+      </button>
     </div>
   </div>
 
@@ -113,11 +141,9 @@
   </div>
 </div>
 
-<dialog id="modal-{{ $togg1 }}" class="image-modal" onclick="if(event.target === this) this.close()">
-  <img class="modal-content" src="{{ $p5 }}" alt="Expanded Image">
+<dialog id="modal-{{ $togg1 }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
+  <img class="modal-content" src="{{ $p5 }}" alt="Generated timer-based Camel route in Kaoto">
 </dialog>
-<script>
-  document.getElementById('modal-{{ $togg1 }}').addEventListener('toggle', function(e) {
-    document.querySelector('.modal-close').style.display = this.open ? 'block' : 'none';
-  });
-</script>

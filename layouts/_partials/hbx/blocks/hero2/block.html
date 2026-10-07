@@ -87,7 +87,7 @@
 
       {{/* Right Column: Hero Visual Preview */}}
       <div>
-        {{ $hero_image := $block.content.image | default "kaoto-lowcode.png" }}
+        {{ $hero_image := $block.content.image | default "kaoto-lowcode2.gif" }}
         {{ $img := resources.Get (path.Join "media" $hero_image) }}
         <div class="relative group rounded-2xl p-2 bg-gradient-to-b from-gray-200/50 to-gray-300/30 dark:from-neutral-700/50 dark:to-neutral-800/30 border border-gray-200/80 dark:border-neutral-700/80 shadow-xl overflow-hidden">
           {{ if $img }}

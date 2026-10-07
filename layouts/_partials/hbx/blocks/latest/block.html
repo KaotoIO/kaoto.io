@@ -59,7 +59,7 @@
           <a href="{{ $item.RelPermalink }}" class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline inline-flex items-center">
             Read more <span class="ml-1" aria-hidden="true">&rarr;</span>
           </a>
-          {{ with $item.Params.reading_time }}
+          {{ if gt $item.ReadingTime 0 }}
             <span class="text-xs text-gray-400 dark:text-gray-500">{{ $item.ReadingTime }} min read</span>
           {{ end }}
         </div>

@@ -1,5 +1,5 @@
 {{/* Generate a unique ID if one isn't provided */}}
-{{ $id := .Get "id" | default (printf "toggle-%d" (now.UnixNano)) }}
+{{ $id := .Get "id" | default (printf "toggle-%s" (.Page.RelPermalink | md5)) }}
 {{ $modalId := printf "modal-%s" $id }}
 {{ $src := .Get "src" }}
 {{ $cleanSrc := strings.TrimPrefix "./" $src }}
@@ -26,7 +26,9 @@
       <label for="{{ $id }}" class="tab inactive">{{ $viewLabel }}</label>
     </div>
     <div class="content-area">
-      <img src="{{ $srcUrl }}" alt="Toggle Image" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
+      <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="{{ $modalId }}">
+        <img src="{{ $srcUrl }}" alt="Toggle Image" class="expandable-image">
+      </button>
     </div>
   </div>
 
@@ -42,11 +44,9 @@
 </div>
 
 <!-- Image Dialog -->
-<dialog id="{{ $modalId }}" class="image-modal" onclick="if(event.target === this) this.close()">
+<dialog id="{{ $modalId }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
   <img class="modal-content" src="{{ $srcUrl }}" alt="Expanded Image">
 </dialog>
-<script>
-  document.getElementById('{{ $modalId }}').addEventListener('toggle', function(e) {
-    document.querySelector('.modal-close').style.display = this.open ? 'block' : 'none';
-  });
-</script>

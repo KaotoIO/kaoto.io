@@ -2,7 +2,7 @@
 {{/* Parameters: src (required), text (required - used for both alt and caption) */}}
 
 {{/* Generate a unique ID for this figure instance */}}
-{{ $id := printf "fig-%d" (now.UnixNano) }}
+{{ $id := printf "fig-%s" (.Page.RelPermalink | md5) }}
 {{ $modalId := printf "modal-%s" $id }}
 
 {{/* Get parameters */}}
@@ -20,11 +20,16 @@
 {{ $text := .Get "text" }}
 
 <figure class="image">
-  <img src="{{ $srcUrl }}" alt="{{ $text }}" class="expandable-image" onclick="document.getElementById('{{ $modalId }}').showModal()">
+  <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="{{ $modalId }}">
+    <img src="{{ $srcUrl }}" alt="{{ $text }}" class="expandable-image">
+  </button>
   <figcaption>{{ $text }}</figcaption>
 </figure>
 
 <!-- Image Modal Dialog -->
-<dialog id="{{ $modalId }}" class="image-modal" onclick="if(event.target === this) this.close()">
+<dialog id="{{ $modalId }}" class="image-modal" aria-label="Image preview">
+  <form method="dialog">
+    <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
+  </form>
   <img class="modal-content" src="{{ $srcUrl }}" alt="{{ $text }}">
 </dialog>
