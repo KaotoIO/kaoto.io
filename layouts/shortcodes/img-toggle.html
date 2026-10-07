@@ -27,7 +27,7 @@
     </div>
     <div class="content-area">
       <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="{{ $modalId }}">
-        <img src="{{ $srcUrl }}" alt="Toggle Image" class="expandable-image">
+        <img src="{{ $srcUrl }}" alt="Toggle preview" class="expandable-image">
       </button>
     </div>
   </div>
@@ -48,5 +48,5 @@
   <form method="dialog">
     <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
   </form>
-  <img class="modal-content" src="{{ $srcUrl }}" alt="Expanded Image">
+  <img class="modal-content" src="{{ $srcUrl }}" alt="Expanded preview">
 </dialog>
