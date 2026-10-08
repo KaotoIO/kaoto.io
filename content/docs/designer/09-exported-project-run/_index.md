@@ -1,7 +1,7 @@
 ---
 title: "Running Exported Projects"
 description: "Run and deploy exported Camel Quarkus and Spring Boot projects from VS Code using the pre-configured launch and task configurations"
-date: 2026-06-01
+date: 2026-10-08
 weight: 9
 ---
 
