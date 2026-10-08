@@ -32,4 +32,6 @@ Once you're comfortable with the basics, explore **[Custom Kamelets](./07-custom
 
 Need a database or message broker running alongside your integration? The **[Infrastructure View](./08-infrastructure-view/)** lets you start, monitor, and stop Camel infrastructure services directly from the Kaoto sidebar — no terminal commands needed.
 
+Ready to move beyond development mode? The **[Running Exported Projects](./09-exported-project-run/)** guide shows you how to use the pre-configured VS Code launch and task configurations that Kaoto includes when you export your integration to a Camel Quarkus or Spring Boot Maven project — covering both local `quarkus:dev` / `spring-boot:run` execution and OpenShift deployment.
+
 Once you're comfortable with the basics, explore the other sections to master component configuration, node management, and advanced designer features.
