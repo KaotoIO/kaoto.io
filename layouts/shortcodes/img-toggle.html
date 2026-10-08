@@ -1,5 +1,6 @@
 {{/* Generate a unique ID if one isn't provided */}}
-{{ $id := .Get "id" | default (printf "toggle-%s" (.Page.RelPermalink | md5)) }}
+{{ $.Page.Scratch.Add "img-toggle-count" 1 }}
+{{ $id := .Get "id" | default (printf "img-toggle-%s-%d" (.Page.RelPermalink | md5) ($.Page.Scratch.Get "img-toggle-count")) }}
 {{ $modalId := printf "modal-%s" $id }}
 {{ $src := .Get "src" }}
 {{ $cleanSrc := strings.TrimPrefix "./" $src }}
