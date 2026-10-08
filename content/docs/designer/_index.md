@@ -30,4 +30,6 @@ Ready to test your integrations? The **[Executing Integrations](./05-executing-i
 
 Once you're comfortable with the basics, explore **[Custom Kamelets](./07-custom-kamelets/)** to learn how to build your own reusable Kamelet components. Save a `.kamelet.yaml` file in your workspace and the tile appears in the catalog automatically — no rebuild needed. Drop the Kamelet onto any route, configure its properties per step, and avoid duplicating transformation logic across routes.
 
+Need a database or message broker running alongside your integration? The **[Infrastructure View](./08-infrastructure-view/)** lets you start, monitor, and stop Camel infrastructure services directly from the Kaoto sidebar — no terminal commands needed.
+
 Once you're comfortable with the basics, explore the other sections to master component configuration, node management, and advanced designer features.
