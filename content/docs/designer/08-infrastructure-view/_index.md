@@ -1,7 +1,7 @@
 ---
 title: "Infrastructure View"
 description: "Start, monitor, and stop Camel infrastructure services such as databases and message brokers directly from VS Code using the Kaoto Infrastructure view"
-date: 2026-06-01
+date: 2026-10-08
 weight: 8
 ---
 
