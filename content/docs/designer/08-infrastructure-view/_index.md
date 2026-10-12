@@ -62,7 +62,7 @@ Right-click a service item for additional options:
 
 | Action | Description |
 |--------|-------------|
-| **Copy URL** | Copies the full service URL to the clipboard for use in your integration configuration |
+| **Copy URL** | Copies the service address (`host:port`) to the clipboard, when available |
 | **Copy port** | Copies just the port number to the clipboard |
 
 ---
