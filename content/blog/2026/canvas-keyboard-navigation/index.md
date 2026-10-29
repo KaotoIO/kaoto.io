@@ -15,7 +15,7 @@ tags:
   - UX
 ---
 
-Great integrations are built by great teams, and great teams are made of people who work in different ways. Kaoto's visual canvas is designed to welcome all of them. With the 2.14 new release, the canvas takes a big step forward. It is now fully usable from the keyboard and announced clearly by screen readers. You can move through a route, open a step, change its configuration and jump back to the canvas, all without leaving the keys. Accessibility is part of building a great product, and this work moves the canvas toward the **WCAG** accessibility guidelines. Whether you rely on assistive technology, love a keyboard-first workflow, or simply want to move faster, there is something here for you.
+Great integrations are built by great teams, and great teams are made of people who work in different ways. Kaoto's visual canvas is designed to welcome all of them. With the new 2.14 release, the canvas takes a big step forward. It is now fully usable from the keyboard and announced clearly by screen readers. You can move through a route, open a step, change its configuration and jump back to the canvas, all without leaving the keys. Accessibility is part of building a great product, and this work moves the canvas toward the **WCAG** accessibility guidelines. Whether you rely on assistive technology, love a keyboard-first workflow, or simply want to move faster, there is something here for you.
 
 ## A quick tour
 
