@@ -44,7 +44,7 @@ sections:
         text: Try Online
         url: "https://red.ht/kaoto"
       announcement:
-        text: "Kaoto 2.13 has been released!"
+        text: "Kaoto 2.14 has been released!"
     design:
       spacing:
         padding: ["1rem", 0, "1rem", 0]
