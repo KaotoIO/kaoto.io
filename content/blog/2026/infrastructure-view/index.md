@@ -76,6 +76,61 @@ Right-click for clipboard shortcuts:
 
 ---
 
+## Running with Podman
+
+`camel infra` starts services through [Testcontainers](https://java.testcontainers.org/), which talks to a **Docker-compatible API socket** rather than to the `docker` or `podman` CLI. Docker provides that socket out of the box, but Podman is daemonless, so nothing is listening on it by default. If you use Podman without the Podman service running, the service fails to start with an error like this:
+
+```text
+Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+        UnixSocketClientProviderStrategy: failed with exception InvalidConfigurationException (Could not find unix domain socket). Root cause NoSuchFileException (/var/run/docker.sock)
+        DockerDesktopClientProviderStrategy: failed with exception NullPointerException ...
+```
+
+Testcontainers is looking for `/var/run/docker.sock`, which does not exist. Fixing it takes two steps: run the Podman API service, then tell Testcontainers where its socket is.
+
+### 1. Run the Podman API service
+
+Pick one of the following options.
+
+**Option A: enable the systemd socket (recommended).** Podman starts on demand when something connects to the socket, and it survives restarts. Nothing has to stay open in a terminal:
+
+```bash
+systemctl --user enable --now podman.socket
+```
+
+**Option B: run the service manually.** This is the command from the Podman Desktop tutorial. The `--time=0` flag disables the inactivity timeout, so the service keeps running until you stop it. The command stays in the foreground, so the **terminal hangs** while the service is in use. Keep that terminal open, or append `&` to run it in the background of the current shell:
+
+```bash
+podman system service --time=0
+```
+
+Either way, you can check where the socket lives with:
+
+```bash
+podman info --format '{{.Host.RemoteSocket.Path}}'
+```
+
+For a rootless setup on Linux this is usually `/run/user/<uid>/podman/podman.sock`.
+
+### 2. Point Testcontainers to the Podman socket
+
+Create a `~/.testcontainers.properties` file in your home directory. Use the path printed above; the file does not expand shell variables, so write the resolved path (replace `1000` with your user id, `id -u`):
+
+```properties
+docker.host=unix:///run/user/1000/podman/podman.sock
+```
+
+We recommend the file over exporting `DOCKER_HOST`: VS Code launches `camel infra` with its own environment, which may not include variables from your shell profile, whereas the properties file is always read.
+
+After that, starting a service from the Infrastructure view (or running `camel infra run elasticsearch` from a terminal) works as it does with Docker.
+
+If you run into trouble, for example with Ryuk (the Testcontainers cleanup container) or SELinux, these guides cover the details:
+
+- [Using Podman instead of Docker](https://golang.testcontainers.org/system_requirements/using_podman/) in the Testcontainers documentation
+- [Setup Testcontainers with Podman](https://podman-desktop.io/tutorial/testcontainers-with-podman) in the Podman Desktop tutorials
+
+---
+
 ## We want your feedback
 
 This feature is marked **experimental** for a reason: we shipped it to get real-world signal on how developers actually want to manage infrastructure from their editor. Your feedback now directly shapes where it goes next.
