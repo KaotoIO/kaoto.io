@@ -78,7 +78,9 @@ Right-click for clipboard shortcuts:
 
 ## Running with Podman
 
-`camel infra` starts services through [Testcontainers](https://java.testcontainers.org/), which talks to a **Docker-compatible API socket** rather than to the `docker` or `podman` CLI. Docker provides that socket out of the box, but Podman is daemonless, so nothing is listening on it by default. If you use Podman without the Podman service running, the service fails to start with an error like this:
+> **Note:** This section only applies to **Linux + Podman**. On macOS and Windows, Podman runs inside a Podman machine (a VM) that already exposes a Docker-compatible API endpoint, so the Infrastructure view works there without any extra configuration.
+
+`camel infra` starts services through [Testcontainers](https://java.testcontainers.org/), which talks to a **Docker-compatible API socket** rather than to the `docker` or `podman` CLI. Docker provides that socket out of the box, but on Linux Podman is daemonless, so nothing is listening on it by default. If you use Podman on Linux without the Podman service running, the service fails to start with an error like this:
 
 ```text
 Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
