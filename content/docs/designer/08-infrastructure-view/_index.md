@@ -32,7 +32,7 @@ The **Infrastructure view** is a Kaoto sidebar panel that integrates with `camel
 4. The service starts and appears as a tree item in the view with a `starting` status indicator, which changes to `running` once the service is ready.
 
 > [!NOTE]
-> Starting infrastructure services requires a container runtime — **Docker** or **Podman** — to be installed and running. If no container runtime is detected, Kaoto shows a clear error message instead of starting the service.
+> Starting infrastructure services requires a container runtime — **Docker** or **Podman** — to be installed and running. If no container runtime is detected, Kaoto shows a clear error message instead of starting the service. On Linux with Podman, the Podman API socket must also be enabled — see [Running with Podman on Linux](#running-with-podman-on-linux).
 
 ### Service already running
 
@@ -64,6 +64,57 @@ Right-click a service item for additional options:
 |--------|-------------|
 | **Copy URL** | Copies the service address (`host:port`) to the clipboard, when available |
 | **Copy port** | Copies just the port number to the clipboard |
+
+---
+
+## Running with Podman on Linux
+
+> [!NOTE]
+> This section only applies to **Linux + Podman**. On macOS and Windows, Podman runs inside a Podman machine (a VM) that already exposes a Docker-compatible API endpoint, so the Infrastructure view works there without any extra configuration.
+
+`camel infra` starts services through [Testcontainers](https://java.testcontainers.org/), which talks to a **Docker-compatible API socket** rather than to the `docker` or `podman` CLI. Docker provides that socket out of the box, but on Linux Podman is daemonless, so nothing is listening on it by default. If you use Podman on Linux without the Podman service running, the service fails to start with an error like this:
+
+```text
+Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+        UnixSocketClientProviderStrategy: failed with exception InvalidConfigurationException (Could not find unix domain socket). Root cause NoSuchFileException (/var/run/docker.sock)
+        DockerDesktopClientProviderStrategy: failed with exception NullPointerException ...
+```
+
+Testcontainers is looking for `/var/run/docker.sock`, which does not exist. Fixing it takes two steps: run the Podman API service, then tell Testcontainers where its socket is.
+
+### 1. Run the Podman API service
+
+Pick one of the following options:
+
+| Option | Command | Behaviour |
+|--------|---------|-----------|
+| **Systemd socket** (recommended) | `systemctl --user enable --now podman.socket` | Podman starts on demand when something connects to the socket and survives restarts. Nothing has to stay open in a terminal. |
+| **Manual service** | `podman system service --time=0` | The `--time=0` flag disables the inactivity timeout. The command stays in the foreground, so the **terminal hangs** while the service is in use. Keep that terminal open, or append `&` to run it in the background of the current shell. |
+
+Either way, you can check where the socket lives with:
+
+```bash
+podman info --format '{{.Host.RemoteSocket.Path}}'
+```
+
+For a rootless setup on Linux this is usually `/run/user/<uid>/podman/podman.sock`.
+
+### 2. Point Testcontainers to the Podman socket
+
+Create a `~/.testcontainers.properties` file in your home directory. Use the path printed above. The file does not expand shell variables, so write the resolved path (replace `1000` with your user id, `id -u`):
+
+```properties
+docker.host=unix:///run/user/1000/podman/podman.sock
+```
+
+Prefer this file over exporting `DOCKER_HOST`: VS Code launches `camel infra` with its own environment, which may not include variables from your shell profile, whereas the properties file is always read.
+
+After that, starting a service from the Infrastructure view (or running `camel infra run <service>` from a terminal) works as it does with Docker.
+
+For more details, for example on Ryuk (the Testcontainers cleanup container) or SELinux, see:
+
+- [Using Podman instead of Docker](https://golang.testcontainers.org/system_requirements/using_podman/) in the Testcontainers documentation
+- [Setup Testcontainers with Podman](https://podman-desktop.io/tutorial/testcontainers-with-podman) in the Podman Desktop tutorials
 
 ---
 
