@@ -1,8 +1,9 @@
 {{/* Enhanced Figure Shortcode - Combines figure with clickable modal expansion */}}
 {{/* Parameters: src (required), text (required - used for both alt and caption) */}}
 
-{{/* Generate a unique ID for this figure instance */}}
-{{ $id := printf "fig-%s" (.Page.RelPermalink | md5) }}
+{{/* Generate a unique ID for this figure instance, one per use on the page */}}
+{{ $.Page.Scratch.Add "image-sh-count" 1 }}
+{{ $id := printf "fig-%s-%d" (.Page.RelPermalink | md5) ($.Page.Scratch.Get "image-sh-count") }}
 {{ $modalId := printf "modal-%s" $id }}
 
 {{/* Get parameters */}}
