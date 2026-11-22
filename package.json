@@ -2,7 +2,7 @@
   "name": "hugo-blox-landing-page-starter",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.34.5",
   "description": "Landing page starter template for Hugo Blox with Tailwind CSS v4",
   "scripts": {
     "dev": "hugo server --disableFastRender",
