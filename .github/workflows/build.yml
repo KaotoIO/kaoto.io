@@ -86,7 +86,7 @@ jobs:
         fi
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@6b1ee2dcc06c9b6629a5317fa0146473914d05e1 # v3
+      uses: peaceiris/actions-hugo@d1c81a15d4e6dca7086a17b9c2565cb70fd576bf # v3
       with:
         hugo-version: ${{ env.HUGO_VERSION }}
         extended: true
